@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
+import { FormData } from '@huntersofbook/core'
 import AtomSectionTitle from '../atom/section-title.vue'
-import type { FormData } from '../../utils/types'
 
 const props = defineProps<{
   forms: FormData<any>['forms']

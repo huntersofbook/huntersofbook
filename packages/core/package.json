@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/core",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
@@ -36,6 +36,15 @@
   "scripts": {
     "build": "unbuild",
     "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "vue": "3.2.37",
+    "yup": "0.32.11",
+    "vee-validate": "4.6.5"
+  },
+  "peerDependencies": {
+    "vue": "3.2.37",
+    "vee-validate": "4.6.5"
   },
   "devDependencies": {
     "magic-string": "0.26.2",

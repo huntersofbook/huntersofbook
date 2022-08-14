@@ -141,12 +141,20 @@ importers:
     specifiers:
       magic-string: 0.26.2
       unconfig: 0.3.5
+      vee-validate: 4.6.5
+      vue: 3.2.37
+      yup: 0.32.11
+    dependencies:
+      vee-validate: 4.6.5_vue@3.2.37
+      vue: 3.2.37
+      yup: 0.32.11
     devDependencies:
       magic-string: 0.26.2
       unconfig: 0.3.5
 
   packages/form-naiveui:
     specifiers:
+      '@huntersofbook/core': workspace:*
       '@rollup/plugin-typescript': 8.3.4
       '@vitejs/plugin-vue': 3.0.1
       '@vue/compiler-sfc': 3.2.37
@@ -166,6 +174,7 @@ importers:
       vue-eslint-parser: 9.0.3
       yup: 0.32.11
     dependencies:
+      '@huntersofbook/core': link:../core
       typescript: 4.2.4
       vee-validate: 4.6.4_vue@3.2.37
       vue: 3.2.37
@@ -9798,6 +9807,15 @@ packages:
 
   /vee-validate/4.6.4_vue@3.2.37:
     resolution: {integrity: sha512-40l/fvtz450zTGf0b2/9pz6c6ADBAoC7EquhJ1Zq6fIknWmiLEz8K+a97WmvCkgR/q56H/Hww5T6iMDFp3lrkg==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@vue/devtools-api': 6.2.1
+      vue: 3.2.37
+    dev: false
+
+  /vee-validate/4.6.5_vue@3.2.37:
+    resolution: {integrity: sha512-lh3aV7z7iwzzfRZ8/zcW74G1K7aWCQ4sINcliVordHin9TRBfLMdJvzzfwLHdTqYmtq25y+GUu1bNN4S2lreCA==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:

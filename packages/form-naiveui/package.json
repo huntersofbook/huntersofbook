@@ -1,8 +1,8 @@
 {
   "name": "@huntersofbook/form-naiveui",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "MIT",
-  "description": "General auth library, also supports capacitor storage",
+  "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "repository": {
     "type": "git",
@@ -50,7 +50,8 @@
   "dependencies": {
     "vee-validate": "4.6.4",
     "vue": "3.2.37",
-    "yup": "0.32.11"
+    "yup": "0.32.11",
+    "@huntersofbook/core": "workspace:*"
   },
   "devDependencies": {
     "vee-validate": "4.6.4",

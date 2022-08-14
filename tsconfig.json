@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "esnext",
+        "lib": [
+            "esnext"
+        ],
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "resolveJsonModule": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "jsx": "preserve",
+        "types": [
+            "node",
+            "vite/client"
+        ],
+        "paths": {
+            "@huntersofbook/core": [
+                "./packages/core/src/index.ts"
+            ],
+            "@huntersofbook/form-naiveui": [
+                "./packages/form-naiveui/src/index.ts"
+            ],
+            "huntersofbook": [
+                "./packages/huntersofbook/src/index.ts"
+            ],
+        }
+    },
+    "exclude": [
+        "**/dist/**",
+        "**/node_modules/**",
+        "**/client/**",
+        "**/playground/**",
+        "**/examples/**",
+        "**/interactive/**",
+        "**/test/dts/**"
+    ]
+}

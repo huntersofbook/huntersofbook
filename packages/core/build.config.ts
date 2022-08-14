@@ -1,4 +1,9 @@
 import { defineBuildConfig } from 'unbuild'
+import pkg from './package.json'
+const externals = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+]
 
 export default defineBuildConfig({
   entries: [
@@ -6,10 +11,7 @@ export default defineBuildConfig({
   ],
   clean: true,
   declaration: true,
-  externals: [
-    'unconfig',
-    'magic-string',
-  ],
+  externals,
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
