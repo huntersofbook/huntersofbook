@@ -21,18 +21,17 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'form-naiveui',
+      name: 'naiveui',
       formats: ['es'],
-      fileName: format => `form-naiveui.${format}.js`,
+      fileName: format => `naiveui.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', 'tailwindcss', 'vee-validate'],
+      external: ['vue', 'tailwindcss', 'vee-validate', 'naive-ui'],
       output: {
         format: 'es',
         globals: {
           vue: 'Vue',
           tailwindcss: 'tailwindcss',
-          veeValidate: 'veeValidate',
         },
         chunkFileNames: chunkInfo => `${chunkInfo.name}.mjs`,
       },

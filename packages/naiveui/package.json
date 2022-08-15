@@ -1,5 +1,5 @@
 {
-  "name": "@huntersofbook/form-naiveui",
+  "name": "@huntersofbook/naiveui",
   "version": "0.0.0",
   "license": "MIT",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
@@ -7,7 +7,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/form-naiveui"
+    "directory": "packages/naiveui"
   },
   "funding": "https://github.com/sponsors/productdevbook",
   "sponsor": {
@@ -26,11 +26,11 @@
     "dist",
     "src"
   ],
-  "main": "./dist/form-naiveui.umd.js",
-  "module": "./dist/form-naiveui.es.js",
+  "main": "./dist/naiveui.umd.js",
+  "module": "./dist/naiveui.es.js",
   "exports": {
     ".": {
-      "import": "./dist/form-naiveui.es.js"
+      "import": "./dist/naiveui.es.js"
     },
     "./style": {
       "import": "./dist/style.css"
@@ -51,6 +51,7 @@
     "vee-validate": "4.6.4",
     "vue": "3.2.37",
     "yup": "0.32.11",
+    "naive-ui": "2.32.1",
     "@huntersofbook/core": "workspace:*"
   },
   "devDependencies": {
@@ -67,10 +68,10 @@
     "vue-eslint-parser": "9.0.3",
     "tailwindcss": "3.1.8",
     "autoprefixer": "10.4.8",
-    "postcss": "8.4.16",
-    "naive-ui": "2.32.1"
+    "postcss": "8.4.16"
   },
   "peerDependencies": {
-    "typescript": "4.2.4"
+    "typescript": "4.2.4",
+    "naive-ui": "2.32.1"
   }
 }

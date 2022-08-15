@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.26.1",
-    "@huntersofbook/form-naiveui": "workspace:*",
+    "@huntersofbook/naiveui": "workspace:*",
     "@huntersofbook/core": "workspace:*",
     "huntersofbook": "workspace:*",
     "@huntersofbook/ui": "workspace:*",
@@ -30,7 +30,6 @@
     "lodash": "4.17.21",
     "pnpm": "7.9.0",
     "prettier": "2.7.1",
-    "react": "18.2.0",
     "rimraf": "3.0.2",
     "rollup": "2.78.0",
     "unbuild": "0.8.8",

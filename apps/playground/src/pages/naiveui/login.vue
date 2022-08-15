@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
 import type { InputSchema } from 'huntersofbook'
-import { BookNInputMobile } from '@huntersofbook/form-naiveui'
+import { BookNInputMobile } from '@huntersofbook/naiveui'
+import { AtomButton } from '@huntersofbook/ui'
 
 const { t } = useI18n()
 interface SignInInput {
