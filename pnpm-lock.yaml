@@ -69,6 +69,7 @@ importers:
       eslint: 8.21.0
       https-localhost: 4.7.1
       huntersofbook: workspace*
+      naive-ui: 2.32.1
       nprogress: 0.2.0
       pinia: 2.0.17
       pnpm: 7.8.0
@@ -91,6 +92,7 @@ importers:
       '@vueuse/core': 9.1.0_vue@3.2.37
       '@vueuse/head': 0.7.9_vue@3.2.37
       huntersofbook: link:../../packages/huntersofbook
+      naive-ui: 2.32.1_vue@3.2.37
       nprogress: 0.2.0
       pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
       vue: 3.2.37

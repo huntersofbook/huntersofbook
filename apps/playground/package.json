@@ -24,7 +24,8 @@
     "vue-i18n": "9.2.2",
     "huntersofbook": "workspace*",
     "@huntersofbook/form-naiveui": "workspace*",
-    "vue-router": "4.1.3"
+    "vue-router": "4.1.3",
+    "naive-ui":"2.32.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.25.2",
