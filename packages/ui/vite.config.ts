@@ -3,12 +3,14 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import dtsPlugin from 'vite-plugin-dts'
+import postcss from 'rollup-plugin-postcss'
 import * as pkg from './package.json'
 
 export default defineConfig({
   plugins: [
     vue(),
     vueSetupExtend(),
+
     dtsPlugin({
       outputDir: 'dist/types',
       compilerOptions: {

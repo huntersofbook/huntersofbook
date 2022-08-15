@@ -17,7 +17,7 @@ soon...
 
 ```bash
 
-pnpm install -D huntersofbook
+pnpm install huntersofbook
 
 ```
 
@@ -26,7 +26,7 @@ pnpm install -D huntersofbook
 
 ```bash
 
-npm install -D huntersofbook
+npm install huntersofbook
 
 ```
 
@@ -35,18 +35,33 @@ npm install -D huntersofbook
 
 ```bash
 
-yarn add -D huntersofbook
+yarn add huntersofbook
 
 ```
 
 </Tab>
 </Tabs>
 
+## Adding huntersofbook to your Tailwind CSS config
 
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    './node_modules/@huntersofbook/**/dist/**/*.js',
+    './node_modules/huntersofbook/dist/**/*.js',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
 
-
+```
 :::tip
-huntersofbook requires Vite >=v3.0.0, Vue >=v3.2.0 and Node >=v16
+huntersofbook requires Vite >=v3.0.0, Vue >=v3.2.0, Node >=v16 and TailwindCSS >v3.0.0
 :::
 
 ## Contents

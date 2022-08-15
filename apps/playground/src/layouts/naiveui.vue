@@ -1,14 +1,15 @@
 <script>
-import { NConfigProvider, NDatePicker, NInput, NSpace, createTheme, datePickerDark, inputDark } from 'naive-ui'
+import { NConfigProvider, NGlobalStyle, NSpace, inputDark, lightTheme } from 'naive-ui'
 </script>
 
 <template>
   <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
     <Footer />
-    <n-config-provider :theme="darkTheme" :locale="zhCN" :date-locale="dateZhCN">
+    <NConfigProvider>
       <n-space vertical>
+        <NGlobalStyle />
         <RouterView />
       </n-space>
-    </n-config-provider>
+    </NConfigProvider>
   </main>
 </template>
