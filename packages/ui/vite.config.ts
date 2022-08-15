@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import dtsPlugin from 'vite-plugin-dts'
+import * as pkg from './package.json'
 
 export default defineConfig({
   plugins: [
@@ -21,28 +22,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'ui',
-      formats: ['es'],
-      fileName: format => `ui.${format}.js`,
+      formats: ['es', 'cjs'],
+      name: 'huntersofbook-ui',
+      fileName: format => (format === 'es' ? 'huntersofbook-ui.mjs' : 'huntersofbook-ui.cjs'),
     },
     rollupOptions: {
-      external: ['vue', 'tailwindcss'],
-      output: {
-        format: 'es',
-        globals: {
-          vue: 'Vue',
-          tailwindcss: 'tailwindcss',
-        },
-        chunkFileNames: chunkInfo => `${chunkInfo.name}.mjs`,
-      },
-      manualChunks(id) {
-        if (id.includes('node_modules'))
-          return 'vendor'
-        if (id.includes('form'))
-          return 'form'
-        if (id.includes('atom'))
-          return 'atom'
-      },
+      external: [...Object.keys(pkg.dependencies)],
     },
   },
 })

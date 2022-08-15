@@ -26,10 +26,12 @@
     "dist",
     "src"
   ],
-  "module": "./dist/ui.es.js",
+  "main": "./dist/huntersofbook-ui.cjs",
+  "module": "./dist/huntersofbook-ui.mjs",
   "exports": {
     ".": {
-      "import": "./dist/ui.es.js"
+      "import": "./dist/huntersofbook-ui.mjs",
+      "require": "./dist/huntersofbook-ui.cjs"
     },
     "./style": {
       "import": "./dist/style.css"
@@ -48,7 +50,8 @@
   },
   "dependencies": {
     "vue": "3.2.37",
-    "@huntersofbook/core": "workspace:*"
+    "@huntersofbook/core": "workspace:*",
+    "naive-ui": "2.32.1"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "8.3.4",

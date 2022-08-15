@@ -1,6 +1,5 @@
 <script>
 import { NConfigProvider, NDatePicker, NInput, NSpace, createTheme, datePickerDark, inputDark } from 'naive-ui'
-
 </script>
 
 <template>
