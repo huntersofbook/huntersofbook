@@ -76,7 +76,7 @@ const isLoading = ref(false)
     <FormSection :forms="schemas.one.forms" @post="onSubmit">
       <template #actions>
         <div class="mb-8 w-full">
-          <button
+          <AtomButton
             type="primary"
             attr-type="submit"
             block
@@ -86,7 +86,7 @@ const isLoading = ref(false)
             @keypress.enter="onSubmit"
           >
             {{ t('login.login-in') }}
-          </button>
+          </AtomButton>
         </div>
       </template>
       <div class="flex flex-col items-center justify-center">
@@ -102,3 +102,8 @@ const isLoading = ref(false)
     </FormSection>
   </div>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: naiveui
+</route>
