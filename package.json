@@ -23,6 +23,7 @@
     "@huntersofbook/core": "workspace:*",
     "huntersofbook": "workspace:*",
     "@huntersofbook/ui": "workspace:*",
+    "docs": "workspace:*",
     "@types/lodash": "4.14.182",
     "bumpp": "8.2.1",
     "eslint": "8.22.0",

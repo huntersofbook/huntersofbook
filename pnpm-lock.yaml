@@ -10,6 +10,7 @@ importers:
       '@huntersofbook/ui': workspace:*
       '@types/lodash': 4.14.182
       bumpp: 8.2.1
+      docs: workspace:*
       eslint: 8.22.0
       huntersofbook: workspace:*
       lodash: 4.17.21
@@ -30,6 +31,7 @@ importers:
       '@huntersofbook/ui': link:packages/ui
       '@types/lodash': 4.14.182
       bumpp: 8.2.1
+      docs: link:apps/docs
       eslint: 8.22.0
       huntersofbook: link:packages/huntersofbook
       lodash: 4.17.21
