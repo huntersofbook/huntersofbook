@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FYup, useFormSection } from 'huntersofbook'
+import { FYup, FormSection, useFormSection } from 'huntersofbook'
 import type { InputSchema } from 'huntersofbook'
 import { BookNInputMobile } from '@huntersofbook/form-naiveui'
 
@@ -66,7 +66,6 @@ const isLoading = ref(false)
 <template>
   <div class="grid w-full p-4">
     <div class="mb-10">
-      <img class="h-12 w-auto" src="/logo.png" alt="productdevbook">
       <h2 class="mt-6 text-2xl font-extrabold">
         Sign in to your account
       </h2>
@@ -77,7 +76,7 @@ const isLoading = ref(false)
     <FormSection :forms="schemas.one.forms" @post="onSubmit">
       <template #actions>
         <div class="mb-8 w-full">
-          <AtomButton
+          <button
             type="primary"
             attr-type="submit"
             block
@@ -87,7 +86,7 @@ const isLoading = ref(false)
             @keypress.enter="onSubmit"
           >
             {{ t('login.login-in') }}
-          </AtomButton>
+          </button>
         </div>
       </template>
       <div class="flex flex-col items-center justify-center">

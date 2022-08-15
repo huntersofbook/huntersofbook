@@ -26,23 +26,22 @@ export default defineConfig({
       fileName: format => `ui.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', 'tailwindcss', 'vee-validate'],
+      external: ['vue', 'tailwindcss'],
       output: {
         format: 'es',
         globals: {
           vue: 'Vue',
           tailwindcss: 'tailwindcss',
-          veeValidate: 'veeValidate',
         },
         chunkFileNames: chunkInfo => `${chunkInfo.name}.mjs`,
       },
       manualChunks(id) {
         if (id.includes('node_modules'))
           return 'vendor'
-        if (id.includes('inputs'))
-          return 'inputs'
-        if (id.includes('selects'))
-          return 'selects'
+        if (id.includes('form'))
+          return 'form'
+        if (id.includes('atom'))
+          return 'atom'
       },
     },
   },

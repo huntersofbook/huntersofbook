@@ -26,7 +26,6 @@
     "dist",
     "src"
   ],
-  "main": "./dist/ui.umd.js",
   "module": "./dist/ui.es.js",
   "exports": {
     ".": {
@@ -48,13 +47,10 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "vee-validate": "4.6.4",
     "vue": "3.2.37",
-    "yup": "0.32.11",
     "@huntersofbook/core": "workspace:*"
   },
   "devDependencies": {
-    "vee-validate": "4.6.4",
     "@rollup/plugin-typescript": "8.3.4",
     "@vitejs/plugin-vue": "3.0.1",
     "@vue/compiler-sfc": "3.2.37",
@@ -67,9 +63,8 @@
     "vue-eslint-parser": "9.0.3",
     "tailwindcss": "3.1.8",
     "autoprefixer": "10.4.8",
-    "postcss": "8.4.16",
-    "naive-ui": "2.32.1"
-  },
+    "postcss": "8.4.16"
+},
   "peerDependencies": {
     "typescript": "4.2.4"
   }
