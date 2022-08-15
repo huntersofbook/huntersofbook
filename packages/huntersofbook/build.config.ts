@@ -3,7 +3,7 @@ import { defineBuildConfig } from 'unbuild'
 export default defineBuildConfig({
   entries: [
     'src/index',
-    'src/form-naiveui',
+    'src/ui',
   ],
   clean: true,
   declaration: true,

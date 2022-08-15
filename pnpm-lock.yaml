@@ -7,6 +7,7 @@ importers:
       '@antfu/eslint-config': 0.26.1
       '@huntersofbook/core': workspace:*
       '@huntersofbook/form-naiveui': workspace:*
+      '@huntersofbook/ui': workspace:*
       '@types/lodash': 4.14.182
       bumpp: 8.2.1
       eslint: 8.22.0
@@ -26,6 +27,7 @@ importers:
       '@antfu/eslint-config': 0.26.1_4rv7y5c6xz3vfxwhbrcxxi73bq
       '@huntersofbook/core': link:packages/core
       '@huntersofbook/form-naiveui': link:packages/form-naiveui
+      '@huntersofbook/ui': link:packages/ui
       '@types/lodash': 4.14.182
       bumpp: 8.2.1
       eslint: 8.22.0
@@ -198,10 +200,53 @@ importers:
   packages/huntersofbook:
     specifiers:
       '@huntersofbook/core': workspace:*
-      '@huntersofbook/form-naiveui': workspace:*
+      '@huntersofbook/ui': workspace:*
     dependencies:
       '@huntersofbook/core': link:../core
-      '@huntersofbook/form-naiveui': link:../form-naiveui
+      '@huntersofbook/ui': link:../ui
+
+  packages/ui:
+    specifiers:
+      '@huntersofbook/core': workspace:*
+      '@rollup/plugin-typescript': 8.3.4
+      '@vitejs/plugin-vue': 3.0.1
+      '@vue/compiler-sfc': 3.2.37
+      autoprefixer: 10.4.8
+      naive-ui: 2.32.1
+      postcss: 8.4.16
+      rollup-plugin-postcss: 4.0.2
+      sass: 1.54.4
+      tailwindcss: 3.1.8
+      typescript: 4.2.4
+      vee-validate: 4.6.4
+      vite: 3.0.7
+      vite-plugin-dts: 1.4.1
+      vite-plugin-vue-setup-extend: 0.4.0
+      vite-svg-loader: 3.4.0
+      vue: 3.2.37
+      vue-eslint-parser: 9.0.3
+      yup: 0.32.11
+    dependencies:
+      '@huntersofbook/core': link:../core
+      typescript: 4.2.4
+      vee-validate: 4.6.4_vue@3.2.37
+      vue: 3.2.37
+      yup: 0.32.11
+    devDependencies:
+      '@rollup/plugin-typescript': 8.3.4_p4rg75ysyhsxkaqrkiivp44g2u
+      '@vitejs/plugin-vue': 3.0.1_vite@3.0.7+vue@3.2.37
+      '@vue/compiler-sfc': 3.2.37
+      autoprefixer: 10.4.8_postcss@8.4.16
+      naive-ui: 2.32.1_vue@3.2.37
+      postcss: 8.4.16
+      rollup-plugin-postcss: 4.0.2_postcss@8.4.16
+      sass: 1.54.4
+      tailwindcss: 3.1.8
+      vite: 3.0.7_sass@1.54.4
+      vite-plugin-dts: 1.4.1_vite@3.0.7
+      vite-plugin-vue-setup-extend: 0.4.0_vite@3.0.7
+      vite-svg-loader: 3.4.0
+      vue-eslint-parser: 9.0.3_eslint@8.22.0
 
 packages:
 

@@ -1,2 +1,2 @@
-export * from './naive'
-export * from './form'
+export * from './inputs'
+export * from './selects'

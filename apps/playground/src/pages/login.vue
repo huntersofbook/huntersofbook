@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { InputSchema } from '@huntersofbook/forms'
-import { BookNInputMobile, FValid, FormSection, useFormSection } from '@huntersofbook/forms'
+import { FYup, useFormSection } from 'huntersofbook'
+import type { InputSchema } from 'huntersofbook'
+import { BookNInputMobile } from '@huntersofbook/form-naiveui'
 
 const { t } = useI18n()
 interface SignInInput {
@@ -10,16 +11,16 @@ interface SignInInput {
   rememberMe?: boolean
 }
 
-const schema: FValid.SchemaOf<SignInInput> = FValid.object({
-  email: FValid.string().required().email(),
-  password: FValid.string()
+const schema: FYup.SchemaOf<SignInInput> = FYup.object({
+  email: FYup.string().required().email(),
+  password: FYup.string()
     .required()
     .matches(
       /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
       t('profile.settings.password_matches'),
     ),
-  rememberMe: FValid.boolean().required(),
-  isCookies: FValid.boolean().required(),
+  rememberMe: FYup.boolean().required(),
+  isCookies: FYup.boolean().required(),
 })
 
 const schemas: InputSchema<SignInInput, 'one'> = {
