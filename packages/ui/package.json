@@ -24,14 +24,14 @@
   ],
   "files": [
     "dist",
-    "src"
+    "src",
+    "volar.d.ts"
   ],
-  "main": "./dist/huntersofbook-ui.cjs",
-  "module": "./dist/huntersofbook-ui.mjs",
+  "main": "./dist/huntersofbook-ui.umd.js",
+  "module": "./dist/huntersofbook-ui.es.js",
   "exports": {
     ".": {
-      "import": "./dist/huntersofbook-ui.mjs",
-      "require": "./dist/huntersofbook-ui.cjs"
+      "import": "./dist/huntersofbook-ui.es.js"
     },
     "./style": {
       "import": "./dist/style.css"

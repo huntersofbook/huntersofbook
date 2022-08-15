@@ -22,12 +22,27 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      formats: ['es', 'cjs'],
+      formats: ['es'],
       name: 'huntersofbook-ui',
-      fileName: format => (format === 'es' ? 'huntersofbook-ui.mjs' : 'huntersofbook-ui.cjs'),
+      fileName: format => `huntersofbook-ui.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(pkg.dependencies)],
+      output: {
+        format: 'es',
+        globals: {
+          vue: 'Vue',
+        },
+        chunkFileNames: chunkInfo => `${chunkInfo.name}.js`,
+      },
+      // manualChunks(id) {
+      //   if (id.includes('node_modules'))
+      //     return 'vendor'
+      //   if (id.includes('atom'))
+      //     return 'atom'
+      //   if (id.includes('form'))
+      //     return 'form'
+      // },
     },
   },
 })

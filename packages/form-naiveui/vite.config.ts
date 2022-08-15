@@ -31,9 +31,8 @@ export default defineConfig({
         format: 'es',
         globals: {
           vue: 'Vue',
-          tailwindcss: 'tailwindcss',
         },
-        chunkFileNames: chunkInfo => `${chunkInfo.name}.mjs`,
+        chunkFileNames: chunkInfo => `${chunkInfo.name}.es.js`,
       },
       manualChunks(id) {
         if (id.includes('node_modules'))
