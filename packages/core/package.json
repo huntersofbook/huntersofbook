@@ -1,0 +1,53 @@
+{
+  "name": "@huntersofbook/core",
+  "version": "0.0.0",
+  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/huntersofbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "huntersofbook",
+    "css",
+    "tailwind"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "vue": "3.2.37",
+    "yup": "0.32.11",
+    "vee-validate": "4.6.5"
+  },
+  "peerDependencies": {
+    "vue": "3.2.37",
+    "vee-validate": "4.6.5"
+  },
+  "devDependencies": {
+    "magic-string": "0.26.2",
+    "unconfig": "0.3.5"
+  }
+}

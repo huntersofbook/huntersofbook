@@ -1,0 +1,77 @@
+{
+  "name": "@huntersofbook/form-naiveui",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/form-naiveui"
+  },
+  "funding": "https://github.com/sponsors/productdevbook",
+  "sponsor": {
+    "url": "https://github.com/sponsors/productdevbook"
+  },
+  "homepage": "https://github.com/huntersofbook/huntersofbook#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "vue 3 forms",
+    "vue 3 naive ui form generator",
+    "vue 3 naive ui"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/form-naiveui.umd.js",
+  "module": "./dist/form-naiveui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/form-naiveui.es.js"
+    },
+    "./style": {
+      "import": "./dist/style.css"
+    },
+    "./src": {
+      "import": "./dist/src/index.ts"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "NODE_ENV=production vite build",
+    "dev": "vite build --watch",
+    "lint": "eslint \"./**/*.{ts,vue}\"",
+    "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "dependencies": {
+    "vee-validate": "4.6.4",
+    "vue": "3.2.37",
+    "yup": "0.32.11",
+    "naive-ui": "2.32.1",
+    "@huntersofbook/core": "workspace:*"
+  },
+  "devDependencies": {
+    "vee-validate": "4.6.4",
+    "@rollup/plugin-typescript": "8.3.4",
+    "@vitejs/plugin-vue": "3.0.1",
+    "@vue/compiler-sfc": "3.2.37",
+    "sass": "1.54.4",
+    "vite": "3.0.7",
+    "vite-plugin-dts": "1.4.1",
+    "vite-plugin-vue-setup-extend": "0.4.0",
+    "vite-svg-loader": "3.4.0",
+    "rollup-plugin-postcss": "4.0.2",
+    "vue-eslint-parser": "9.0.3",
+    "tailwindcss": "3.1.8",
+    "autoprefixer": "10.4.8",
+    "postcss": "8.4.16"
+  },
+  "peerDependencies": {
+    "typescript": "4.2.4",
+    "naive-ui": "2.32.1"
+  }
+}
