@@ -5,6 +5,7 @@
   "packageManager": "pnpm@7.9.1",
   "scripts": {
     "build": "pnpm rimraf packages/*/dist && pnpm -r --filter=./packages/* run build",
+    "doc:generate": "pnpm -r --filter=./apps/docs run build",
     "dev": "pnpm stub",
     "deploy": "pnpm stub && npm -C playground run build && npm -C interactive run build",
     "lint": "eslint .",
