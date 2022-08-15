@@ -51,8 +51,8 @@ function sidebarMartin() {
       collapsible: true,
       collapsed: false,
       items: [
-        { text: 'Getting Started', link: '/docs/naiveui/' },
-        { text: 'Form Builder', link: '/docs/naiveui/form-builder/' },
+        { text: 'Getting Started', link: '/docs/form-naiveui/' },
+        { text: 'Form Builder', link: '/docs/form-naiveui/form-builder/' },
       ]
     },
   ]

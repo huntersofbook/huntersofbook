@@ -21,9 +21,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'naiveui',
+      name: 'form-naiveui',
       formats: ['es'],
-      fileName: format => `naiveui.${format}.js`,
+      fileName: format => `form-naiveui.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', 'tailwindcss', 'vee-validate', 'naive-ui'],

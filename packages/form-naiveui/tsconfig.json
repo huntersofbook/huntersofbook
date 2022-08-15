@@ -24,13 +24,10 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "types": [
-      "vue",
       "vite/client",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client",
-      "@intlify/vite-plugin-vue-i18n/client",
-      "naive-ui/volar",
-      "vite-plugin-glob/client"
+      "naive-ui/volar"
     ]
   },
   "include": [

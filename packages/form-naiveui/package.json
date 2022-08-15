@@ -1,5 +1,5 @@
 {
-  "name": "@huntersofbook/naiveui",
+  "name": "@huntersofbook/form-naiveui",
   "version": "0.0.0",
   "license": "MIT",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
@@ -7,7 +7,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/naiveui"
+    "directory": "packages/form-naiveui"
   },
   "funding": "https://github.com/sponsors/productdevbook",
   "sponsor": {
@@ -26,11 +26,11 @@
     "dist",
     "src"
   ],
-  "main": "./dist/naiveui.umd.js",
-  "module": "./dist/naiveui.es.js",
+  "main": "./dist/form-naiveui.umd.js",
+  "module": "./dist/form-naiveui.es.js",
   "exports": {
     ".": {
-      "import": "./dist/naiveui.es.js"
+      "import": "./dist/form-naiveui.es.js"
     },
     "./style": {
       "import": "./dist/style.css"

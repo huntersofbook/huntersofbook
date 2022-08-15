@@ -14,11 +14,12 @@
     "strictNullChecks": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "removeComments": false,
     "types": [
+      "vue",
       "vitest",
       "vite/client",
       "vue/ref-macros",
+      "naive-ui/volar",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client"
     ],
@@ -26,5 +27,5 @@
       "~/*": ["src/*"]
     }
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules", "cypress", "**/*.stories.ts"]
 }

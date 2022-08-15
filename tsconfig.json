@@ -21,8 +21,8 @@
             "@huntersofbook/core": [
                 "./packages/core/src/index.ts"
             ],
-            "@huntersofbook/naiveui": [
-                "./packages/naiveui/src/index.ts"
+            "@huntersofbook/form-naiveui": [
+                "./packages/form-naiveui/src/index.ts"
             ],
             "huntersofbook": [
                 "./packages/huntersofbook/src/index.ts"
