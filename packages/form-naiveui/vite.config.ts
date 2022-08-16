@@ -3,6 +3,12 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import dtsPlugin from 'vite-plugin-dts'
+import * as pkg from './package.json'
+
+const externals = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+]
 
 export default defineConfig({
   plugins: [
@@ -26,21 +32,9 @@ export default defineConfig({
       fileName: format => `form-naiveui.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', 'tailwindcss', 'vee-validate', 'naive-ui'],
+      external: externals,
       output: {
         format: 'es',
-        globals: {
-          vue: 'Vue',
-        },
-        chunkFileNames: chunkInfo => `${chunkInfo.name}.es.js`,
-      },
-      manualChunks(id) {
-        if (id.includes('node_modules'))
-          return 'vendor'
-        if (id.includes('inputs'))
-          return 'inputs'
-        if (id.includes('selects'))
-          return 'selects'
       },
     },
   },

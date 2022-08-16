@@ -79,6 +79,7 @@ importers:
       unocss: 0.45.5
       unplugin-auto-import: 0.11.0
       unplugin-vue-components: 0.22.0
+      vee-validate: 4.6.4
       vite: 3.0.4
       vite-plugin-pages: 0.25.0
       vite-plugin-vue-layouts: 0.7.0
@@ -95,6 +96,7 @@ importers:
       naive-ui: 2.32.1_vue@3.2.37
       nprogress: 0.2.0
       pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
+      vee-validate: 4.6.4_vue@3.2.37
       vue: 3.2.37
       vue-demi: 0.13.6_vue@3.2.37
       vue-i18n: 9.2.2_vue@3.2.37
@@ -127,9 +129,9 @@ importers:
     specifiers:
       magic-string: 0.26.2
       unconfig: 0.3.5
-      vee-validate: 4.6.5
-      vue: 3.2.37
-      yup: 0.32.11
+      vee-validate: ^4.6.5
+      vue: ^3.2.37
+      yup: ^0.32.11
     dependencies:
       vee-validate: 4.6.5_vue@3.2.37
       vue: 3.2.37
@@ -145,7 +147,6 @@ importers:
       '@vitejs/plugin-vue': 3.0.1
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8
-      naive-ui: 2.32.1
       postcss: 8.4.16
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.4
@@ -162,8 +163,6 @@ importers:
       yup: 0.32.11
     dependencies:
       '@huntersofbook/core': link:../core
-      naive-ui: 2.32.1_vue@3.2.37
-      vee-validate: 4.6.4_vue@3.2.37
       vue: 3.2.37
       yup: 0.32.11
     devDependencies:
@@ -175,6 +174,7 @@ importers:
       rollup-plugin-postcss: 4.0.2_postcss@8.4.16
       sass: 1.54.4
       tailwindcss: 3.1.8
+      vee-validate: 4.6.4_vue@3.2.37
       vite: 3.0.7_sass@1.54.4
       vite-plugin-dts: 1.4.1_vite@3.0.7
       vite-plugin-vue-setup-extend: 0.4.0_vite@3.0.7
@@ -203,6 +203,7 @@ importers:
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.4
       tailwindcss: 3.1.8
+      typescript: 4.2.4
       vite: 3.0.7
       vite-plugin-dts: 1.4.1
       vite-plugin-vue-setup-extend: 0.4.0
@@ -214,7 +215,7 @@ importers:
       naive-ui: 2.32.1_vue@3.2.37
       vue: 3.2.37
     devDependencies:
-      '@rollup/plugin-typescript': 8.3.4
+      '@rollup/plugin-typescript': 8.3.4_typescript@4.2.4
       '@vitejs/plugin-vue': 3.0.1_vite@3.0.7+vue@3.2.37
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8_postcss@8.4.16
@@ -222,6 +223,7 @@ importers:
       rollup-plugin-postcss: 4.0.2_postcss@8.4.16
       sass: 1.54.4
       tailwindcss: 3.1.8
+      typescript: 4.2.4
       vite: 3.0.7_sass@1.54.4
       vite-plugin-dts: 1.4.1_vite@3.0.7
       vite-plugin-vue-setup-extend: 0.4.0_vite@3.0.7
@@ -1163,6 +1165,22 @@ packages:
     dependencies:
       '@rollup/pluginutils': 3.1.0
       resolve: 1.22.1
+    dev: true
+
+  /@rollup/plugin-typescript/8.3.4_typescript@4.2.4:
+    resolution: {integrity: sha512-wt7JnYE9antX6BOXtsxGoeVSu4dZfw0dU3xykfOQ4hC3EddxRbVG/K0xiY1Wup7QOHJcjLYXWAn0Kx9Z1SBHHg==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      rollup: ^2.14.0
+      tslib: '*'
+      typescript: '>=3.7.0'
+    peerDependenciesMeta:
+      tslib:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      resolve: 1.22.1
+      typescript: 4.2.4
     dev: true
 
   /@rollup/pluginutils/3.1.0:
@@ -3456,7 +3474,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.33.0_4rv7y5c6xz3vfxwhbrcxxi73bq
+      '@typescript-eslint/parser': 5.33.0_qugx7qdu5zevzvxaiqyxfiwquq
       debug: 3.2.7
       eslint-import-resolver-node: 0.3.6
       find-up: 2.1.0
@@ -7120,6 +7138,12 @@ packages:
       mime-types: 2.1.35
     dev: true
 
+  /typescript/4.2.4:
+    resolution: {integrity: sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
   /typescript/4.7.4:
     resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
@@ -7442,7 +7466,6 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.2.1
       vue: 3.2.37
-    dev: false
 
   /vee-validate/4.6.5_vue@3.2.37:
     resolution: {integrity: sha512-lh3aV7z7iwzzfRZ8/zcW74G1K7aWCQ4sINcliVordHin9TRBfLMdJvzzfwLHdTqYmtq25y+GUu1bNN4S2lreCA==}

@@ -8,7 +8,9 @@ export default defineBuildConfig({
   clean: true,
   declaration: true,
   externals: [
-    'vite',
+    'vue',
+    'vee-validate',
+    'yup'
   ],
   rollup: {
     emitCJS: true,

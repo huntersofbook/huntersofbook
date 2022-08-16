@@ -41,17 +41,15 @@
   },
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "NODE_ENV=production vite build",
+    "build": "vite build",
     "dev": "vite build --watch",
     "lint": "eslint \"./**/*.{ts,vue}\"",
     "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "vee-validate": "4.6.4",
     "vue": "3.2.37",
     "yup": "0.32.11",
-    "naive-ui": "2.32.1",
     "@huntersofbook/core": "workspace:*"
   },
   "devDependencies": {
@@ -74,6 +72,7 @@
   },
   "peerDependencies": {
     "typescript": "4.2.4",
-    "naive-ui": "2.32.1"
+    "naive-ui": "2.32.1",
+    "vee-validate": "4.6.4"
   }
 }
