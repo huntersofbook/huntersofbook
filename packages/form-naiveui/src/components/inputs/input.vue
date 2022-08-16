@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { NInput } from 'naive-ui'
-import type { InputProps } from 'naive-ui'
 import { useField } from 'vee-validate'
 import { InputHTMLAttributes, useAttrs } from 'vue'
-interface IInput extends Partial<InputProps> {
+
+const props = defineProps<{
+  id: string
   value?: string
   label: string
-}
-const props = withDefaults(defineProps<IInput>(), {
-  value: '',
-  label: '',
-})
+}>()
 
 const attrs: InputHTMLAttributes = useAttrs()
 const {

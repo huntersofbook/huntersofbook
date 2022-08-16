@@ -7,10 +7,6 @@ import generatedRoutes from '~pages'
 import './styles/main.css'
 import 'uno.css'
 
-const meta = document.createElement('meta')
-meta.name = 'naive-ui-style'
-document.head.appendChild(meta)
-
 const routes = setupLayouts(generatedRoutes)
 
 // https://github.com/antfu/vite-ssg
