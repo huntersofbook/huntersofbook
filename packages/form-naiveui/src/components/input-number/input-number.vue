@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { NInput } from 'naive-ui'
+import { NInputNumber } from 'naive-ui'
 import { useField } from 'vee-validate'
 import { InputHTMLAttributes, useAttrs } from 'vue'
+
 const props = defineProps<{
   id: string
   value?: string
   label: string
 }>()
+
 const attrs: InputHTMLAttributes = useAttrs()
 const {
   value: inputValue,
@@ -34,29 +36,21 @@ export default {
   <label
     v-if="label"
     :for="$attrs.id as string"
-    class="block text-xs font-semibold text-gray-500 uppercase dark:text-dark-200"
+    class="block text-sm font-medium text-gray-900 dark:text-gray-200"
   >{{ label }}
   </label>
   <div class="relative mt-1 rounded-md shadow-sm">
-    <NInput
+    <NInputNumber
       v-bind="$attrs"
       :status="errorMessage ? 'error' : 'success'"
       :value="inputValue"
       :aria-invalid="errorMessage ? true : false"
-      show-password-on="click"
-      size="large"
+
+      size="medium"
       v-on="validationListeners"
     >
       <slot />
-      <template #password-visible-icon>
-        <div class="i-ic-round-lock-open" />
-        <!-- <n-icon :size="16" :component="GlassesOutline" /> -->
-      </template>
-      <template #password-invisible-icon>
-        <div class="i-ic-round-lock" />
-        <!-- <n-icon :size="16" :component="Glasses" /> -->
-      </template>
-    </NInput>
+    </NInputNumber>
   </div>
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
