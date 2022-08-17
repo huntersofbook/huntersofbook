@@ -1,51 +1,51 @@
 <script setup lang="ts">
 import { NSelect } from 'naive-ui'
-import type { SelectProps } from 'naive-ui'
 import { useField } from 'vee-validate'
-import { InputHTMLAttributes, useAttrs } from 'vue'
-interface IInput extends Partial<SelectProps> {
-  id: string
-  value?: string
-  label: string
-  options: any[]
-}
-const props = withDefaults(defineProps<IInput>(), {
-  value: '',
-  label: '',
-})
+import { useAttrs } from 'vue'
 
-const attrs: InputHTMLAttributes = useAttrs()
+const attrs = useAttrs() as any
+
 const {
   value: inputValue,
   handleChange,
   handleBlur,
   errorMessage,
 } = useField<string>(attrs.name as string, undefined, {
-  initialValue: props.value,
+  initialValue: attrs.init ? attrs.init as string : undefined,
   validateOnValueUpdate: false,
 })
-const validationListeners = {
-  blur: handleBlur,
-  change: handleChange,
-  input: (e: boolean) => handleChange(e, !!errorMessage.value),
-}
-</script>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
+const validationListeners = {
+  'on-blur': handleBlur,
+  'on-update:value': handleChange,
+  'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
+}
+
+const bind = {
+  ...attrs,
+  ...validationListeners,
 }
 </script>
 
 <template>
   <label
-    v-if="label"
+    v-if="attrs.label"
     :for="$attrs.id as string"
     class="block text-sm font-medium text-gray-900 dark:text-gray-200"
-  >{{ label }}
+  >{{ attrs.label }}
   </label>
   <div class="relative mt-1 rounded-md shadow-sm">
-    <NSelect v-bind="$attrs" v-model:value="inputValue" size="medium" :status="errorMessage ? 'error' : 'success'" :options="options[0].meta.options" v-on="validationListeners" />
+    <NSelect
+      v-bind="bind"
+      :value="inputValue"
+      :status="errorMessage ? 'error' : 'success'"
+      :options="attrs.options"
+    >
+      <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
+        {{ child.meta.value }}
+        <component :is="child.meta.render" />
+      </template>
+    </NSelect>
   </div>
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
