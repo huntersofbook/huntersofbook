@@ -1,57 +1,53 @@
 <script setup lang="ts">
 import { NInputNumber } from 'naive-ui'
 import { useField } from 'vee-validate'
-import { InputHTMLAttributes, useAttrs } from 'vue'
+import { useAttrs } from 'vue'
 
-const props = defineProps<{
-  id: string
-  value?: string
-  label: string
-}>()
+const attrs = useAttrs() as any
 
-const attrs: InputHTMLAttributes = useAttrs()
 const {
   value: inputValue,
   handleChange,
   handleBlur,
   errorMessage,
-} = useField<string>(attrs.name as string, undefined, {
-  initialValue: props.value,
+} = useField<number | undefined>(attrs.name as string, undefined, {
+  initialValue: attrs.init ? attrs.init as number : undefined,
   validateOnValueUpdate: false,
 })
-const validationListeners = {
-  blur: handleBlur,
-  change: handleChange,
-  input: (e: boolean) => handleChange(e, !!errorMessage.value),
-}
-</script>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
+const validationListeners = {
+  'on-blur': handleBlur,
+  'on-update:value': handleChange,
+  'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
+}
+
+const bind = {
+  ...attrs,
+  ...validationListeners,
 }
 </script>
 
 <template>
   <label
-    v-if="label"
-    :for="$attrs.id as string"
+    v-if="attrs.label"
+    :for="attrs.id as string"
     class="block text-sm font-medium text-gray-900 dark:text-gray-200"
-  >{{ label }}
+  >{{ attrs.label }}
   </label>
   <div class="relative mt-1 rounded-md shadow-sm">
     <NInputNumber
-      v-bind="$attrs"
+      v-bind="bind"
       :status="errorMessage ? 'error' : 'success'"
-      :value="inputValue"
       :aria-invalid="errorMessage ? true : false"
-
-      size="medium"
-      v-on="validationListeners"
+      :value="inputValue"
     >
-      <slot />
+      <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
+        {{ child.meta.value }}
+        <component :is="child.meta.render" />
+      </template>
     </NInputNumber>
   </div>
+
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
   </p>
