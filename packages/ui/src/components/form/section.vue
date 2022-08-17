@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import { FormData } from '@huntersofbook/core'
+import { useAttrs } from 'vue'
 import AtomSectionTitle from '../atom/section-title.vue'
 
-const props = defineProps<{
-  forms: FormData<any>['forms']
-}>()
 const emit = defineEmits<{ (e: 'post', value: Event): void }>()
+
+const attrs = useAttrs() as any
+
 const post = (e: Event) => {
   emit('post', e)
 }
@@ -22,7 +21,6 @@ const post = (e: Event) => {
         <slot name="description" />
       </template>
     </AtomSectionTitle>
-
     <div
       class="mt-5 md:mt-0"
       :class="
@@ -30,20 +28,18 @@ const post = (e: Event) => {
       "
     >
       <form @submit.prevent="post($event)">
-        <div class="mb-4 grid grid-cols-6 lg:grid-cols-12 gap-8">
-          <template v-for="item in props.forms" :key="item.name">
-            <div :class="item.width ? item.width : 'col-span-full'">
-              <component
-                :is="item.component" v-if="!$slots.form"
-                :id="item.id"
-                :name="item.name"
-                :init="item.init"
-                :label="item.label"
-                :options="item.options"
-                v-bind="item.attrs"
-              />
-            </div>
-          </template>
+        <div :class="attrs.class ? attrs.class : 'mb-4 grid grid-cols-6 lg:grid-cols-12 gap-8'">
+          <div v-for="item in attrs.forms" :key="item.name" :class="item.width ? item.width : 'col-span-full'">
+            <component
+              :is="item.component" v-if="!$slots.form"
+              :id="item.id"
+              :name="item.name"
+              :init="item.init"
+              :label="item.label"
+              :options="item.options"
+              v-bind="item.attrs"
+            />
+          </div>
           <slot name="form" />
         </div>
 
