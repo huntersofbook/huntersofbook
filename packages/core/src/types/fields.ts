@@ -1,4 +1,4 @@
-import { Component } from 'vue'
+import { Component, VNodeChild } from 'vue'
 import { DeepPartial } from './misc'
 
 export type Width = 'half' | 'half-left' | 'half-right' | 'full' | 'fill'
@@ -32,14 +32,12 @@ export type Type = typeof TYPES[number]
 
 export interface FieldMeta {
   id: number
-  type?: Type
   component?: Component
   hidden: boolean
-  display: string | null
   options: Record<string, any> | null
-  readonly: boolean
   width: Width | null
   note: string | null
+  render?: () => VNodeChild
 }
 
 export interface FieldRaw {
@@ -51,6 +49,7 @@ export interface FieldRaw {
 
 export interface Field extends FieldRaw {
   name: string
+  slot: string
   children?: Field[] | null
 }
 

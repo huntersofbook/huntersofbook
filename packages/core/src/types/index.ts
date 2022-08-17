@@ -8,7 +8,19 @@ export interface IForm<T> {
   name: keyof T
   label: string
   width?: string[]
-  response?: string
+  init?: any
+  attrs?: Record<string, unknown> | InputHTMLAttributes
+  options: DeepPartial<Field>[] | {
+    standard: DeepPartial<Field>[]
+    advanced: DeepPartial<Field>[]
+  } | ComponentOptions | null
+}
+
+export interface IFormProps {
+  id: string
+  name: string
+  label: string
+  width?: string[]
   init?: any
   attrs?: Record<string, unknown> | InputHTMLAttributes
   options: DeepPartial<Field>[] | {
