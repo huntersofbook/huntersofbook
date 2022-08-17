@@ -30,7 +30,7 @@ const post = (e: Event) => {
       "
     >
       <form @submit.prevent="post($event)">
-        <div class="mb-4 grid md:grid-cols-6 lg:grid-cols-12 gap-8">
+        <div class="mb-4 grid grid-cols-6 lg:grid-cols-12 gap-8">
           <template v-for="item in props.forms" :key="item.name">
             <div :class="item.width ? item.width : 'col-span-full'">
               <component
