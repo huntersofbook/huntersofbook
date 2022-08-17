@@ -37,11 +37,10 @@ const post = (e: Event) => {
                 :is="item.component" v-if="!$slots.form"
                 :id="item.id"
                 :name="item.name"
-                :value="item.init"
+                :init="item.init"
                 :label="item.label"
                 :options="item.options"
                 v-bind="item.attrs"
-                autocomplete
               />
             </div>
           </template>

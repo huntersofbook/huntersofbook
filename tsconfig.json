@@ -24,6 +24,9 @@
             "@huntersofbook/form-naiveui": [
                 "./packages/form-naiveui/src/index.ts"
             ],
+            "@huntersofbook/ui": [
+                "./packages/ui/src/index.ts"
+            ],
             "huntersofbook": [
                 "./packages/huntersofbook/src/index.ts"
             ],
@@ -33,7 +36,7 @@
         "**/dist/**",
         "**/node_modules/**",
         "**/client/**",
-        "**/playground/**",
+        "**/apps/**",
         "**/examples/**",
         "**/interactive/**",
         "**/test/dts/**"

@@ -19,6 +19,7 @@
     "css",
     "tailwind"
   ],
+  "type": "module",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -43,7 +44,7 @@
     "vee-validate": "^4.6.5"
   },
   "peerDependencies": {
-    "vue": "3.2.37"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "vee-validate": "4.6.5",

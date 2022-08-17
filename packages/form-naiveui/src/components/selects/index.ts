@@ -1,1 +1,1 @@
-export { default as BookNSelect } from './select.vue'
+export { default as HNSelect } from './select.vue'

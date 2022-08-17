@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NSelect } from 'naive-ui'
+import { NSwitch } from 'naive-ui'
 import { useField } from 'vee-validate'
 import { useAttrs } from 'vue'
 
@@ -10,13 +10,13 @@ const {
   handleChange,
   handleBlur,
   errorMessage,
-} = useField<string>(attrs.name as string, undefined, {
+} = useField(attrs.name, undefined, {
   initialValue: attrs.init ? attrs.init as string : undefined,
   validateOnValueUpdate: false,
 })
 
 const validationListeners = {
-  'on-blur': handleBlur,
+  'blur': handleBlur,
   'on-update:value': handleChange,
   'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
 }
@@ -35,17 +35,16 @@ const bind = {
   >{{ attrs.label }}
   </label>
   <div class="relative mt-1 rounded-md shadow-sm">
-    <NSelect
+    <NSwitch
       v-bind="bind"
-      :value="inputValue"
+      v-model:value="inputValue"
       :status="errorMessage ? 'error' : 'success'"
-      :options="attrs.options"
     >
       <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
         {{ child.meta.value }}
         <component :is="child.meta.render" />
       </template>
-    </NSelect>
+    </NSwitch>
   </div>
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}

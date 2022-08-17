@@ -9,6 +9,10 @@ import 'uno.css'
 
 const routes = setupLayouts(generatedRoutes)
 
+const meta = document.createElement('meta')
+meta.name = 'naive-ui-style'
+document.head.appendChild(meta)
+
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(
   App,

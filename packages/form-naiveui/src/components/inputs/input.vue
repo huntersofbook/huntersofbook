@@ -1,61 +1,49 @@
 <script setup lang="ts">
 import { NInput } from 'naive-ui'
 import { useField } from 'vee-validate'
-import { InputHTMLAttributes, useAttrs } from 'vue'
+import { useAttrs } from 'vue'
 
-const props = defineProps<{
-  id: string
-  value?: string
-  label: string
-}>()
+const attrs = useAttrs() as any
 
-const attrs: InputHTMLAttributes = useAttrs()
 const {
   value: inputValue,
   handleChange,
   handleBlur,
   errorMessage,
 } = useField<string>(attrs.name as string, undefined, {
-  initialValue: props.value,
+  initialValue: attrs.init ? attrs.init : undefined,
   validateOnValueUpdate: false,
 })
-const validationListeners = {
-  blur: handleBlur,
-  change: handleChange,
-  input: (e: boolean) => handleChange(e, !!errorMessage.value),
-}
-</script>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
+const validationListeners = {
+  'on-blur': handleBlur,
+  'on-update:value': handleChange,
+  'on-input': (e: boolean) => handleChange(e, !!errorMessage.value),
+}
+
+const bind = {
+  ...attrs,
+  ...validationListeners,
 }
 </script>
 
 <template>
   <label
-    v-if="label"
+    v-if="attrs.label"
     :for="$attrs.id as string"
     class="block text-sm font-medium text-gray-900 dark:text-gray-200"
-  >{{ label }}
+  >{{ attrs.label }}
   </label>
   <div class="relative mt-1 rounded-md shadow-sm">
     <NInput
-      v-bind="$attrs"
+      v-bind="bind"
       :status="errorMessage ? 'error' : 'success'"
       :value="inputValue"
       :aria-invalid="errorMessage ? true : false"
-      show-password-on="click"
-      size="medium"
-      v-on="validationListeners"
     >
-      <template #password-visible-icon>
-        <div class="i-ic-round-lock-open" />
-        <!-- <n-icon :size="16" :component="GlassesOutline" /> -->
-      </template>
-      <template #password-invisible-icon>
-        <div class="i-ic-round-lock" />
-        <!-- <n-icon :size="16" :component="Glasses" /> -->
+      <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
+        {{ child.meta.value }}
+        <component :is="child.meta.render" />
       </template>
     </NInput>
   </div>

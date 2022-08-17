@@ -23,6 +23,8 @@ importers:
       splitpanes: 3.1.1
       typescript: 4.7.4
       unbuild: 0.8.8
+      vite: 3.0.8
+      vue: 3.2.37
     devDependencies:
       '@antfu/eslint-config': 0.26.1_4rv7y5c6xz3vfxwhbrcxxi73bq
       '@huntersofbook/core': link:packages/core
@@ -43,6 +45,8 @@ importers:
       splitpanes: 3.1.1
       typescript: 4.7.4
       unbuild: 0.8.8
+      vite: 3.0.8
+      vue: 3.2.37
 
   apps/docs:
     specifiers:
@@ -7661,6 +7665,33 @@ packages:
       resolve: 1.22.1
       rollup: 2.77.0
       sass: 1.54.4
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/3.0.8:
+    resolution: {integrity: sha512-AOZ4eN7mrkJiOLuw8IA7piS4IdOQyQCA81GxGsAQvAZzMRi9ZwGB3TOaYsj4uLAWK46T5L4AfQ6InNGlxX30IQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.14.49
+      postcss: 8.4.16
+      resolve: 1.22.1
+      rollup: 2.77.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
