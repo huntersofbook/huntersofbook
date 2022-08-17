@@ -17,7 +17,7 @@ const schema: FYup.SchemaOf<SignInInput> = FYup.object({
   data2: FYup.number().required(),
   data3: FYup.string().required(),
   data4: FYup.boolean().required(),
-  data5: FYup.string().required(),
+  data5: FYup.boolean().required(),
 })
 
 const schemas: InputSchema<SignInInput, 'one'> = {
@@ -142,7 +142,7 @@ const onReset = () => {
     <button class="dark:bg-gray-800 bg-gray-200 p-4 rounded-lg" @click="$router.push('/naiveui/login')">
       Login Page
     </button>
-    <FormSection :forms="schemas.one.forms" class="col-span-full" @post="onSubmit">
+    <FormSection :forms="schemas.one.forms" class="grid grid-cols-12 gap-12 col-span-full" @post="onSubmit">
       <template #actions>
         <div class="grid grid-cols-2 gap-10 w-full">
           <div class="mb-8 w-full">
