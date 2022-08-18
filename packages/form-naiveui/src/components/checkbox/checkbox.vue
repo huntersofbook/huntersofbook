@@ -3,6 +3,10 @@ import { NCheckbox } from 'naive-ui'
 import { useField } from 'vee-validate'
 import { useAttrs } from 'vue'
 
+defineProps<{
+  options: any
+}>()
+
 const attrs = useAttrs() as any
 
 const {
@@ -43,7 +47,7 @@ const bind = {
     v-model:checked="inputValue"
     :status="errorMessage ? 'error' : 'success'"
   >
-    <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
+    <template v-for="child in options" #[child.slot] :key="child.meta.id">
       {{ child.meta.value }}
       <component :is="child.meta.render" />
     </template>
