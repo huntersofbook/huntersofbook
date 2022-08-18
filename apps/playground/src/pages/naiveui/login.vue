@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
 import type { InputSchema } from 'huntersofbook'
-import { BookNInputMobile } from '@huntersofbook/form-naiveui'
+import { HNInput } from '@huntersofbook/form-naiveui'
 import { AtomButton } from '@huntersofbook/ui'
 
 const { t } = useI18n()
@@ -32,14 +32,14 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         id: 'email',
         name: 'email',
         label: t('login.email'),
-        component: BookNInputMobile,
+        component: HNInput,
         options: [],
       },
       {
         id: 'password',
         name: 'password',
         label: t('login.password'),
-        component: BookNInputMobile,
+        component: HNInput,
         options: [],
         attrs: {
           type: 'password',

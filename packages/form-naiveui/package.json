@@ -24,7 +24,8 @@
   ],
   "files": [
     "dist",
-    "src"
+    "src",
+    "volar.d.ts"
   ],
   "main": "./dist/form-naiveui.umd.js",
   "module": "./dist/form-naiveui.es.js",

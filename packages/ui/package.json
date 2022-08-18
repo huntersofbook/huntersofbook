@@ -24,8 +24,7 @@
   ],
   "files": [
     "dist",
-    "src",
-    "volar.d.ts"
+    "src"
   ],
   "main": "./dist/huntersofbook-ui.umd.js",
   "module": "./dist/huntersofbook-ui.es.js",

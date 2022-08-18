@@ -3,8 +3,8 @@ import { NButton } from 'naive-ui'
 import { useAttrs } from 'vue'
 
 defineProps<{
-  data: any
-  options: any
+  data?: any
+  options?: any
 }>()
 
 const attrs = useAttrs() as any
