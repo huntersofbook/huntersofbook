@@ -22,6 +22,7 @@ const post = (e: Event) => {
   <template v-if="props.theme === 'default'">
     <form :class="attrs.class ? attrs.class : 'mb-4 grid grid-cols-6 lg:grid-cols-12 gap-8'" @submit.prevent="post($event)">
       <div v-for="item in props.forms" :key="item.name" :class="item.width ? item.width : 'col-span-full'">
+        <slot name="itemsHeader" v-bind="item" />
         <component
           :is="item.component" v-if="!$slots.form"
           :id="item.id"
@@ -31,8 +32,7 @@ const post = (e: Event) => {
           :options="item.options"
           v-bind="item.attrs"
         />
-
-        <slot name="form" />
+        <slot name="itemsFooter" v-bind="item" />
       </div>
 
       <slot v-if="$slots.actions" name="actions" />

@@ -2,7 +2,6 @@
 import type { InputSchema } from 'huntersofbook'
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
 import { HNButton, HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
-import { AtomButton } from '@huntersofbook/ui'
 
 interface SignInInput {
   data1: string
@@ -171,7 +170,7 @@ const onReset = () => {
       <template #actions>
         <div class="grid grid-cols-2 gap-10 col-span-full">
           <div class="mb-8 w-full">
-            <AtomButton
+            <HNButton
               type="primary"
               attr-type="submit"
               block
@@ -180,11 +179,11 @@ const onReset = () => {
               @keypress.enter="onSubmit"
             >
               Send
-            </AtomButton>
+            </HNButton>
           </div>
 
           <div class="mb-8 w-full">
-            <AtomButton
+            <HNButton
               type="error"
               attr-type="button"
               block
@@ -193,7 +192,7 @@ const onReset = () => {
               @click.prevent="onReset"
             >
               Clear All Data
-            </AtomButton>
+            </HNButton>
           </div>
         </div>
       </template>
