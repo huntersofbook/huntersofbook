@@ -3,6 +3,10 @@ import { NInputNumber } from 'naive-ui'
 import { useField } from 'vee-validate'
 import { useAttrs } from 'vue'
 
+defineProps<{
+  options: any
+}>()
+
 const attrs = useAttrs() as any
 
 const {
@@ -40,7 +44,7 @@ const bind = {
     :aria-invalid="errorMessage ? true : false"
     :value="inputValue"
   >
-    <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
+    <template v-for="child in options" #[child.slot] :key="child.meta.id">
       {{ child.meta.value }}
       <component :is="child.meta.render" />
     </template>

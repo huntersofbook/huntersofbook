@@ -42,7 +42,7 @@ const bind = {
     v-bind="bind"
     :value="inputValue"
     :status="errorMessage ? 'error' : 'success'"
-    :options="attrs.options"
+    :options="options"
   >
     <template v-for="child in options" #[child.slot] :key="child.meta.id">
       {{ child.meta.value }}
