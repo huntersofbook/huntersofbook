@@ -29,24 +29,22 @@ const bind = {
 
 <template>
   <label
-    v-if="attrs.label"
+    v-if="attrs.label && !attrs.hideLabel"
     :for="attrs.id as string"
     class="block text-sm font-medium text-gray-900 dark:text-gray-200"
   >{{ attrs.label }}
   </label>
-  <div class="relative mt-1 rounded-md shadow-sm">
-    <NInputNumber
-      v-bind="bind"
-      :status="errorMessage ? 'error' : 'success'"
-      :aria-invalid="errorMessage ? true : false"
-      :value="inputValue"
-    >
-      <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
-        {{ child.meta.value }}
-        <component :is="child.meta.render" />
-      </template>
-    </NInputNumber>
-  </div>
+  <NInputNumber
+    v-bind="bind"
+    :status="errorMessage ? 'error' : 'success'"
+    :aria-invalid="errorMessage ? true : false"
+    :value="inputValue"
+  >
+    <template v-for="child in attrs.options" #[child.slot] :key="child.meta.id">
+      {{ child.meta.value }}
+      <component :is="child.meta.render" />
+    </template>
+  </NInputNumber>
 
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}

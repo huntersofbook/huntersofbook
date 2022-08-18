@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InputSchema } from 'huntersofbook'
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
-import { HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
+import { HNButton, HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
 import { AtomButton } from '@huntersofbook/ui'
 
 interface SignInInput {
@@ -113,7 +113,32 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         component: HNSwitch,
         options: [
         ],
-
+      },
+      {
+        id: 'data5',
+        name: 'data5',
+        label: 'HNSwitch',
+        component: HNButton,
+        options: [
+          {
+            slot: 'prefix',
+            meta: {
+              value: 'prefix',
+            },
+          },
+          {
+            slot: 'icon',
+            meta: {
+              id: 'suffix',
+              render() {
+                return h('div', { class: 'i-carbon-sun h-full flex items-center' }, 'new')
+              },
+            },
+          },
+        ],
+        attrs: {
+          data: 'suffix',
+        },
       },
     ],
   },
@@ -144,7 +169,7 @@ const onReset = () => {
     </button>
     <FormSection :forms="schemas.one.forms" class="grid grid-cols-12 gap-12 col-span-full" @post="onSubmit">
       <template #actions>
-        <div class="grid grid-cols-2 gap-10 w-full">
+        <div class="grid grid-cols-2 gap-10 col-span-full">
           <div class="mb-8 w-full">
             <AtomButton
               type="primary"
