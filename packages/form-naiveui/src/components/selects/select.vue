@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { NSelect } from 'naive-ui'
-import { useField } from 'vee-validate'
-import { useAttrs } from 'vue'
+import type { SelectProps } from 'naive-ui'
 
-defineProps<{
-  options: any
-}>()
+import { useField } from 'vee-validate'
+import { computed, defineComponent, unref, useAttrs } from 'vue'
+
+interface Props extends SelectProps {
+  data?: any
+  options?: any
+}
+const props = defineProps<Props>()
 
 const attrs = useAttrs() as any
 
@@ -25,10 +29,13 @@ const validationListeners = {
   'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
 }
 
-const bind = {
-  ...attrs,
-  ...validationListeners,
-}
+const getBindValue = computed(() => ({ ...unref(attrs), ...props, ...validationListeners }))
+</script>
+
+<script lang="ts">
+export default defineComponent({
+  inheritAttrs: false,
+})
 </script>
 
 <template>
@@ -39,7 +46,7 @@ const bind = {
   >{{ attrs.label }}
   </label>
   <NSelect
-    v-bind="bind"
+    v-bind="getBindValue"
     :value="inputValue"
     :status="errorMessage ? 'error' : 'success'"
     :options="options"

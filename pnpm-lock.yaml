@@ -155,22 +155,25 @@ importers:
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.4
       tailwindcss: 3.1.8
-      vee-validate: 4.6.4
+      typescript: ^4.2.4
+      vee-validate: ^4.6.4
       vite: 3.0.7
       vite-plugin-dts: 1.4.1
       vite-plugin-vue-setup-extend: 0.4.0
       vite-ssg: 0.20.2
       vite-ssg-sitemap: 0.3.1
       vite-svg-loader: 3.4.0
-      vue: 3.2.37
+      vue: ^3.2.37
       vue-eslint-parser: 9.0.3
-      yup: 0.32.11
+      yup: ^0.32.11
     dependencies:
       '@huntersofbook/core': link:../core
+      typescript: 4.7.4
+      vee-validate: 4.6.5_vue@3.2.37
       vue: 3.2.37
       yup: 0.32.11
     devDependencies:
-      '@rollup/plugin-typescript': 8.3.4
+      '@rollup/plugin-typescript': 8.3.4_typescript@4.7.4
       '@vitejs/plugin-vue': 3.0.1_vite@3.0.7+vue@3.2.37
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8_postcss@8.4.16
@@ -178,7 +181,6 @@ importers:
       rollup-plugin-postcss: 4.0.2_postcss@8.4.16
       sass: 1.54.4
       tailwindcss: 3.1.8
-      vee-validate: 4.6.4_vue@3.2.37
       vite: 3.0.7_sass@1.54.4
       vite-plugin-dts: 1.4.1_vite@3.0.7
       vite-plugin-vue-setup-extend: 0.4.0_vite@3.0.7
@@ -1156,21 +1158,6 @@ packages:
       rollup: 2.78.0
     dev: true
 
-  /@rollup/plugin-typescript/8.3.4:
-    resolution: {integrity: sha512-wt7JnYE9antX6BOXtsxGoeVSu4dZfw0dU3xykfOQ4hC3EddxRbVG/K0xiY1Wup7QOHJcjLYXWAn0Kx9Z1SBHHg==}
-    engines: {node: '>=8.0.0'}
-    peerDependencies:
-      rollup: ^2.14.0
-      tslib: '*'
-      typescript: '>=3.7.0'
-    peerDependenciesMeta:
-      tslib:
-        optional: true
-    dependencies:
-      '@rollup/pluginutils': 3.1.0
-      resolve: 1.22.1
-    dev: true
-
   /@rollup/plugin-typescript/8.3.4_typescript@4.2.4:
     resolution: {integrity: sha512-wt7JnYE9antX6BOXtsxGoeVSu4dZfw0dU3xykfOQ4hC3EddxRbVG/K0xiY1Wup7QOHJcjLYXWAn0Kx9Z1SBHHg==}
     engines: {node: '>=8.0.0'}
@@ -1185,6 +1172,22 @@ packages:
       '@rollup/pluginutils': 3.1.0
       resolve: 1.22.1
       typescript: 4.2.4
+    dev: true
+
+  /@rollup/plugin-typescript/8.3.4_typescript@4.7.4:
+    resolution: {integrity: sha512-wt7JnYE9antX6BOXtsxGoeVSu4dZfw0dU3xykfOQ4hC3EddxRbVG/K0xiY1Wup7QOHJcjLYXWAn0Kx9Z1SBHHg==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      rollup: ^2.14.0
+      tslib: '*'
+      typescript: '>=3.7.0'
+    peerDependenciesMeta:
+      tslib:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      resolve: 1.22.1
+      typescript: 4.7.4
     dev: true
 
   /@rollup/pluginutils/3.1.0:
@@ -7470,6 +7473,7 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.2.1
       vue: 3.2.37
+    dev: false
 
   /vee-validate/4.6.5_vue@3.2.37:
     resolution: {integrity: sha512-lh3aV7z7iwzzfRZ8/zcW74G1K7aWCQ4sINcliVordHin9TRBfLMdJvzzfwLHdTqYmtq25y+GUu1bNN4S2lreCA==}

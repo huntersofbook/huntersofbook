@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { NCheckbox } from 'naive-ui'
+import type { CheckboxProps } from 'naive-ui'
 import { useField } from 'vee-validate'
-import { useAttrs } from 'vue'
+import { computed, defineComponent, unref, useAttrs } from 'vue'
 
-defineProps<{
-  options: any
-}>()
+interface Props extends CheckboxProps {
+  data?: any
+  options?: any
+}
+
+const props = defineProps<Props>()
 
 const attrs = useAttrs() as any
 
@@ -27,10 +31,13 @@ const validationListeners = {
   'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
 }
 
-const bind = {
-  ...attrs,
-  ...validationListeners,
-}
+const getBindValue = computed(() => ({ ...unref(attrs), ...props, ...validationListeners }))
+</script>
+
+<script lang="ts">
+export default defineComponent({
+  inheritAttrs: false,
+})
 </script>
 
 <template>
@@ -43,7 +50,7 @@ const bind = {
 
   <NCheckbox
     :id="attrs.id"
-    v-bind="bind"
+    v-bind="getBindValue"
     v-model:checked="inputValue"
     :status="errorMessage ? 'error' : 'success'"
   >
