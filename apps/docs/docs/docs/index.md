@@ -17,7 +17,7 @@ soon...
 
 ```bash
 
-pnpm install huntersofbook
+pnpm install huntersofbook vee-validate
 
 ```
 
@@ -26,7 +26,7 @@ pnpm install huntersofbook
 
 ```bash
 
-npm install huntersofbook
+npm install huntersofbook vee-validate
 
 ```
 
@@ -35,7 +35,40 @@ npm install huntersofbook
 
 ```bash
 
-yarn add huntersofbook
+yarn add huntersofbook vee-validate
+
+
+```
+
+</Tab>
+</Tabs>
+
+### 2. Typescript add
+<Tabs>
+<Tab name="pnpm" text="pnpm">
+
+```bash
+
+pnpm install -D typescript
+
+```
+
+</Tab>
+<Tab name="npm" text="npm">
+
+```bash
+
+npm install -D typescript
+
+```
+
+</Tab>
+<Tab name="yarn" text="yarn">
+
+```bash
+
+yarn add -D typescript
+
 
 ```
 
@@ -61,7 +94,7 @@ module.exports = {
 
 ```
 :::tip
-huntersofbook requires Vite >=v3.0.0, Vue >=v3.2.0, Node >=v16 and TailwindCSS >v3.0.0
+huntersofbook requires Vite >=v3.0.0, Vue >=v3.2.0, Node >=v16, TailwindCSS >v3.0.0 and Typescript >=v4.7.4
 :::
 
 ## Contents

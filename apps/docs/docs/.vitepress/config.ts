@@ -47,12 +47,12 @@ function sidebarMartin() {
       ]
     },
     {
-      text: 'Forms',
+      text: 'Dynamic Forms Generator',
       collapsible: true,
       collapsed: false,
       items: [
-        { text: 'Getting Started', link: '/docs/form-naiveui/' },
-        { text: 'Form Builder', link: '/docs/form-naiveui/form-builder/' },
+        { text: 'Getting Started', link: '/docs/form/' },
+        { text: 'Naive UI', link: '/docs/form/naiveui/' },
       ]
     },
   ]
