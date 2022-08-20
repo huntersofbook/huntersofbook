@@ -4,7 +4,7 @@ The form generator is built on VeeValidate and created a more robust structure. 
 
 While using the form, they created ui libraries, tailwind css libraries and integrated integrations that we can easily import we own special components.
 
-- [Naive UI](naiveui/)
+- [Naive UI](./naiveui/index.md)
 - [Tailwind CSS]() // soon
 - [Vuetify]() // soon
 - [Element UI]() // soon
