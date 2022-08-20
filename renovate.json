@@ -9,6 +9,7 @@
   "schedule": [
     "before 8am on Sunday"
   ],
+  "rangeStrategy": "replace",
   "packageRules": [
     {
       "matchPaths": [
