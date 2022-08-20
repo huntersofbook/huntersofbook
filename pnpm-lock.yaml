@@ -151,6 +151,7 @@ importers:
       '@vitejs/plugin-vue': 3.0.1
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8
+      naive-ui: ^2.32.2
       postcss: 8.4.16
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.4
@@ -168,6 +169,7 @@ importers:
       yup: ^0.32.11
     dependencies:
       '@huntersofbook/core': link:../core
+      naive-ui: 2.32.2_vue@3.2.37
       typescript: 4.7.4
       vee-validate: 4.6.5_vue@3.2.37
       vue: 3.2.37
@@ -5359,6 +5361,31 @@ packages:
 
   /naive-ui/2.32.1_vue@3.2.37:
     resolution: {integrity: sha512-4zRHAn9d273qKWHs2ZQ+9xZmGTfxhL/CI1tj8bJkE313zjwyGRaiPbCeh3hQgrNdZWiRXdqmA442EVKHizGWeg==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@css-render/plugin-bem': 0.15.10_css-render@0.15.10
+      '@css-render/vue3-ssr': 0.15.10_vue@3.2.37
+      '@types/lodash': 4.14.182
+      '@types/lodash-es': 4.17.6
+      async-validator: 4.2.5
+      css-render: 0.15.10
+      date-fns: 2.29.1
+      date-fns-tz: 1.3.6_date-fns@2.29.1
+      evtd: 0.2.4
+      highlight.js: 11.6.0
+      lodash: 4.17.21
+      lodash-es: 4.17.21
+      seemly: 0.3.6
+      treemate: 0.3.11
+      vdirs: 0.1.8_vue@3.2.37
+      vooks: 0.2.12_vue@3.2.37
+      vue: 3.2.37
+      vueuc: 0.4.48_vue@3.2.37
+    dev: false
+
+  /naive-ui/2.32.2_vue@3.2.37:
+    resolution: {integrity: sha512-vTNuZ8LBlfo/cdiv4S8o6Cg5g7p9V9cR5rK+Fag2cplOnng5twTILD3sBaCqw3k/BV1331Xdk26ml8Me8QJ7iA==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
