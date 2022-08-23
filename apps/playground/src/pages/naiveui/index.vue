@@ -2,6 +2,7 @@
 import type { InputSchema } from 'huntersofbook'
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
 import { HNButton, HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
+import type { InputProps } from 'naive-ui'
 
 interface SignInInput {
   data1: string
@@ -34,7 +35,7 @@ const schemas: InputSchema<SignInInput, 'one'> = {
             meta: {
               id: 'suffix',
               render() {
-                return h('div', { class: 'i-carbon-sun text-blue-500 h-full flex items-center' }, 'new')
+                return h('div', { class: 'i-carbon-sun text-blue-500 h-full flex items-center' })
               },
             },
           },
@@ -43,7 +44,7 @@ const schemas: InputSchema<SignInInput, 'one'> = {
             meta: {
               id: 'suffix',
               render() {
-                return h('div', { class: 'i-carbon-sun text-red-500 h-full flex items-center' }, 'new')
+                return h('div', { class: 'i-carbon-sun text-red-500 h-full flex items-center' }, '')
               },
             },
           },
@@ -51,7 +52,8 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         attrs: {
           'type': 'password',
           'on-update:value': () => console.log('asdasd'),
-        },
+          'show-password-on': 'click',
+        } as InputProps,
       },
       {
         id: 'data2',

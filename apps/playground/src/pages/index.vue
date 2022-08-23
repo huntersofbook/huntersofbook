@@ -7,6 +7,9 @@
     <button class="dark:bg-gray-800 bg-gray-300 p-4 rounded-lg" @click="$router.push('/naiveui')">
       Naive UI
     </button>
+    <button class="dark:bg-gray-800 bg-gray-300 p-4 rounded-lg" @click="$router.push('/ui')">
+      huntersofbook UI
+    </button>
   </div>
 </template>
 
