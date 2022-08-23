@@ -1,18 +1,19 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { parse, parseISO } from 'date-fns'
+import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
 import { localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict } from '@huntersofbook/core'
 
 interface Props {
   value: string
-  type: 'dateTime' | 'date' | 'time' | 'timestamp'
+  type: 'dateTime' | 'date' | 'time' | 'timestamp' | 'unixMillisecondTimestamp'
   format?: string
   relative?: boolean
   strict?: boolean
   round?: string
   suffix?: boolean
 }
+
 const props = withDefaults(defineProps<Props>(), {
   format: 'long',
   relative: false,
@@ -20,21 +21,27 @@ const props = withDefaults(defineProps<Props>(), {
   round: 'round',
   suffix: true,
 })
+
 const { t } = useI18n()
 const displayValue = ref<string | null>(null)
+
 const localValue = computed(() => {
   if (!props.value)
     return null
-  if (props.type === 'timestamp') {
-    console.log(parseISO(props.value))
+  if (props.type === 'unixMillisecondTimestamp')
+    return parseISO(fromUnixTime(millisecondsToSeconds(Number(props.value))).toISOString())
+  else if (props.type === 'timestamp')
     return parseISO(props.value)
-  }
-  else if (props.type === 'dateTime') { return parse(props.value, 'yyyy-MM-dd\'T\'HH:mm:ss', new Date()) }
-  else if (props.type === 'date') { return parse(props.value, 'yyyy-MM-dd', new Date()) }
-  else if (props.type === 'time') { return parse(props.value, 'HH:mm:ss', new Date()) }
+  else if (props.type === 'dateTime')
+    return parse(props.value, 'yyyy-MM-dd\'T\'HH:mm:ss', new Date())
+  else if (props.type === 'date')
+    return parse(props.value, 'yyyy-MM-dd', new Date())
+  else if (props.type === 'time')
+    return parse(props.value, 'HH:mm:ss', new Date())
 
   return null
 })
+
 const relativeFormat = (value: Date) => {
   const fn = props.strict ? localizedFormatDistanceStrict : localizedFormatDistance
   return fn(value, new Date(), {
@@ -42,10 +49,10 @@ const relativeFormat = (value: Date) => {
     roundingMethod: props.round,
   })
 }
+
 watch(
   localValue,
   async (newValue) => {
-    console.log('newValue', newValue)
     if (newValue === null) {
       displayValue.value = null
       return
@@ -77,6 +84,7 @@ watch(
   },
   { immediate: true },
 )
+
 let refreshInterval: number | null = null
 onMounted(async () => {
   if (!props.relative)
@@ -87,6 +95,7 @@ onMounted(async () => {
     displayValue.value = relativeFormat(localValue.value)
   }, 60000)
 })
+
 onUnmounted(() => {
   if (refreshInterval)
     clearInterval(refreshInterval)
@@ -94,14 +103,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <span class="datetime">{{ displayValue }}</span>
+  <span v-bind="$attrs">{{ displayValue }}</span>
 </template>
 
-<style lang="scss" scoped>
-.datetime {
-  overflow: hidden;
-  line-height: 1.15;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-</style>

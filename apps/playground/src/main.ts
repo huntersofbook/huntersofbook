@@ -1,5 +1,6 @@
 import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
+import { loadDateFNSLocale } from 'huntersofbook'
 import App from './App.vue'
 import type { UserModule } from './types'
 import generatedRoutes from '~pages'
@@ -8,6 +9,7 @@ import './styles/main.css'
 import 'uno.css'
 
 const routes = setupLayouts(generatedRoutes)
+await loadDateFNSLocale('tr')
 
 const meta = document.createElement('meta')
 meta.name = 'naive-ui-style'

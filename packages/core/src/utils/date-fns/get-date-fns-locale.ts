@@ -17,7 +17,7 @@ export async function loadDateFNSLocale(lang: string) {
   for (const l of localesToTry) {
     try {
       const mod = await importDateLocale(l)
-      locale = mod
+      locale = mod.default
       locales.push({ lang, locale })
       break
     }
