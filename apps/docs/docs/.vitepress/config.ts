@@ -1,4 +1,11 @@
-export default {
+import { defineConfig } from 'vitepress'
+import VueI18n from '@intlify/vite-plugin-vue-i18n'
+import path from 'path'
+import Unocss from 'unocss/vite'
+import presetIcons from '@unocss/preset-icons'
+
+export default defineConfig(
+  {
   lang: 'id-ID',
   title: 'huntersofbook',
   titleTemplate: 'huntersofbook open source',
@@ -35,8 +42,22 @@ export default {
       dark: 'github-dark',
     },
     lineNumbers: false
-  }
+  },
+  vite: {
+    plugins: [
+      VueI18n({
+        runtimeOnly: true,
+        compositionOnly: true,
+        include: [path.resolve(__dirname, 'locales/**')],
+      }),
+      Unocss({
+        configFile: '../../unocss.config.ts',
+      }),
+    ],
+  },
 }
+
+)
 
 function sidebarMartin() {
   return [
@@ -55,6 +76,15 @@ function sidebarMartin() {
         { text: 'Naive UI', link: '/docs/form/naiveui/' },
       ]
     },
+    {
+      text: 'huntersofbook UI',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        { text: 'Getting Started', link: '/docs/ui/' },
+        { text: 'HDatetime', link: '/docs/ui/hdatetime/' },
+      ]
+    },
   ]
-}
 
+}

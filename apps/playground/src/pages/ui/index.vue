@@ -10,7 +10,7 @@ const data = useTimeFromNow(date, 1000, locale.value)
   <div class="mt-20">
     {{ data }}
     ///
-    <HDateTime :value="date" type="timestampISO" strict />
+    <HDateTime value="1661182742000" type="unixMillisecondTimestamp" strict />
   </div>
 </template>
 

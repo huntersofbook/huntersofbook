@@ -12,7 +12,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@iconify-json/ph": "^1.1.2",
+    "@intlify/vite-plugin-vue-i18n": "^6.0.1",
+    "@unocss/preset-icons": "^0.45.12",
+    "unocss": "^0.45.12",
     "vitepress": "1.0.0-alpha.9",
     "vue": "3.2.37"
+  },
+  "dependencies": {
+    "@huntersofbook/form-naiveui": "workspace:*",
+    "@huntersofbook/ui": "workspace:*",
+    "autoprefixer": "10.4.8",
+    "huntersofbook": "workspace:*",
+    "postcss": "8.4.16",
+    "tailwindcss": "3.1.8",
+    "vue-i18n": "9.2.2"
   }
 }
