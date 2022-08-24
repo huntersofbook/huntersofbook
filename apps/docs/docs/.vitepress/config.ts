@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import path from 'path'
 import Unocss from 'unocss/vite'
-import presetIcons from '@unocss/preset-icons'
 
 export default defineConfig(
   {
@@ -48,7 +47,7 @@ export default defineConfig(
       VueI18n({
         runtimeOnly: true,
         compositionOnly: true,
-        include: [path.resolve(__dirname, 'locales/**')],
+        include: [path.resolve(__dirname, './locales/**')],
       }),
       Unocss({
         configFile: '../../unocss.config.ts',

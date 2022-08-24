@@ -60,7 +60,7 @@ importers:
       postcss: 8.4.16
       tailwindcss: 3.1.8
       unocss: ^0.45.12
-      vitepress: 1.0.0-alpha.9
+      vitepress: 1.0.0-alpha.10
       vue: 3.2.37
       vue-i18n: 9.2.2
     dependencies:
@@ -70,14 +70,14 @@ importers:
       huntersofbook: link:../../packages/huntersofbook
       postcss: 8.4.16
       tailwindcss: 3.1.8_postcss@8.4.16
-      vue-i18n: 9.2.2_vue@3.2.37
     devDependencies:
       '@iconify-json/ph': 1.1.2
       '@intlify/vite-plugin-vue-i18n': 6.0.1_vue-i18n@9.2.2
       '@unocss/preset-icons': 0.45.12
       unocss: 0.45.12
-      vitepress: 1.0.0-alpha.9
+      vitepress: 1.0.0-alpha.10
       vue: 3.2.37
+      vue-i18n: 9.2.2_vue@3.2.37
 
   apps/playground:
     specifiers:
@@ -156,11 +156,11 @@ importers:
     specifiers:
       '@formkit/auto-animate': ^1.0.0-beta.3
       date-fns: ^2.29.2
-      magic-string: 0.26.2
-      unconfig: 0.3.5
+      magic-string: ^0.26.2
+      unconfig: ^0.3.5
       vee-validate: ^4.6.5
       vue: ^3.2.37
-      vue-i18n: 9.2.2
+      vue-i18n: ^9.2.2
       yup: ^0.32.11
     dependencies:
       '@formkit/auto-animate': 1.0.0-beta.3
@@ -235,7 +235,7 @@ importers:
       '@vitejs/plugin-vue': 3.0.3
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8
-      naive-ui: 2.32.2
+      naive-ui: ^2.32.2
       postcss: 8.4.16
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.5
@@ -245,9 +245,9 @@ importers:
       vite-plugin-dts: 1.4.1
       vite-plugin-vue-setup-extend: 0.4.0
       vite-svg-loader: 3.4.0
-      vue: 3.2.37
+      vue: ^3.2.37
       vue-eslint-parser: 9.0.3
-      vue-i18n: 9.2.2
+      vue-i18n: ^9.2.2
     dependencies:
       '@huntersofbook/core': link:../core
       naive-ui: 2.32.2_vue@3.2.37
@@ -1735,17 +1735,6 @@ packages:
       '@unocss/transformer-directives': 0.45.8
       magic-string: 0.26.2
       vite: 3.0.9
-    dev: true
-
-  /@vitejs/plugin-vue/3.0.3_vite@3.0.8+vue@3.2.37:
-    resolution: {integrity: sha512-U4zNBlz9mg+TA+i+5QPc3N5lQvdUXENZLO2h0Wdzp56gI1MWhqJOv+6R+d4kOzoaSSq6TnGPBdZAXKOe4lXy6g==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      vite: ^3.0.0
-      vue: ^3.2.25
-    dependencies:
-      vite: 3.0.8
-      vue: 3.2.37
     dev: true
 
   /@vitejs/plugin-vue/3.0.3_vite@3.0.9+vue@3.2.37:
@@ -7256,33 +7245,6 @@ packages:
       svgo: 2.8.0
     dev: true
 
-  /vite/3.0.8:
-    resolution: {integrity: sha512-AOZ4eN7mrkJiOLuw8IA7piS4IdOQyQCA81GxGsAQvAZzMRi9ZwGB3TOaYsj4uLAWK46T5L4AfQ6InNGlxX30IQ==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.14.49
-      postcss: 8.4.16
-      resolve: 1.22.1
-      rollup: 2.77.0
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
-
   /vite/3.0.9:
     resolution: {integrity: sha512-waYABTM+G6DBTCpYAxvevpG50UOlZuynR0ckTK5PawNVt7ebX6X7wNXHaGIO6wYYFXSM7/WcuFuO2QzhBB6aMw==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -7338,18 +7300,18 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.9:
-    resolution: {integrity: sha512-+VxgjflIcssbuyUBRYjZRpQ8w25v6XnIbXFmm9qwLVaqZdC0rN6qViEp7oRwA3HUlrGxj7GEzqQjW7xj4+E83w==}
+  /vitepress/1.0.0-alpha.10:
+    resolution: {integrity: sha512-RGPU+YApj2jaYplAIJUe+2qlDks9FzPX1QGK+7NdGByeCCVZg6z9eYWjjvfvA/sgCtG3yeJE/4/jCwlv4Y8bVw==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.1
       '@docsearch/js': 3.2.1
-      '@vitejs/plugin-vue': 3.0.3_vite@3.0.8+vue@3.2.37
+      '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.37
       '@vue/devtools-api': 6.2.1
       '@vueuse/core': 9.1.0_vue@3.2.37
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
-      vite: 3.0.8
+      vite: 3.0.9
       vue: 3.2.37
     transitivePeerDependencies:
       - '@algolia/client-search'
