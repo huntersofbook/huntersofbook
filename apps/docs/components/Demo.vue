@@ -11,15 +11,13 @@ const showCode = ref(false)
   </div>
 
  <div>
-  <div class="i-ph-computer-tower-duotone text-lg text-blue-600 w-5 h-5"></div>
    <button
+     @click="showCode = !showCode"
     class="flex p-2 rounded-lg items-center justify-end mt-6 font-medium hover:shadow transition-shadow-md bg-gray-100 text-gray-900 dark:text-gray-600"
     :class="{ '!text-green-500': showCode }"
   >
-    <div
-      class="i-ph-code-bold cursor-pointer"
-      @click="showCode = !showCode"
-    >show code</div>
+  <div class="i-ph-code-bold mr-2"/>
+    show code
   </button>
  </div>
 

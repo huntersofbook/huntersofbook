@@ -1,4 +1,4 @@
-import formatOriginal from 'date-fns/esm/format'
+import formatOriginal from 'date-fns/esm/format/index.js'
 import { getDateFNSLocale } from './get-date-fns-locale'
 
 export type LocalizedFormat = (i18n?: string | undefined, ...a: Parameters<typeof formatOriginal>) => string

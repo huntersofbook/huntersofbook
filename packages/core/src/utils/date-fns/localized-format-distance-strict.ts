@@ -1,4 +1,4 @@
-import formatDistanceStrict from 'date-fns/formatDistanceStrict'
+import formatDistanceStrict from 'date-fns/esm/formatDistanceStrict/index.js'
 import { getDateFNSLocale } from './get-date-fns-locale'
 
 export type LocalizedFormatDistanceStrict = (i18n?: string | undefined, ...a: Parameters<typeof formatDistanceStrict>) => string

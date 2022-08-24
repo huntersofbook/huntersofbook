@@ -6,8 +6,7 @@ import GithubUrl from '../../../components/GithubUrl.vue'
 import Demo from '../../../components/Demo.vue'
 import { extractFileNameFromPath } from '../../../utils'
 import {loadDateFNSLocale} from 'huntersofbook'
-import 'unocss'
-
+import 'uno.css'
 
 export default {
     ...DefaultTheme,
