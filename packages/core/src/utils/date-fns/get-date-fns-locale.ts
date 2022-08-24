@@ -3,10 +3,15 @@ import { Locale } from 'date-fns'
 
 const locales: { lang: string; locale: Locale }[] = []
 
-export function getDateFNSLocale(): Locale | undefined {
-  const i18n = useI18n()
-  const currentLang = i18n.locale.value
-  return locales.find(({ lang }) => currentLang === lang)?.locale
+export function getDateFNSLocale(i18n?: string | undefined): Locale | undefined {
+  if (i18n !== undefined) {
+    return locales.find(({ lang }) => i18n === lang)?.locale
+  }
+  else {
+    const { locale } = useI18n()
+    const currentLang = locale.value
+    return locales.find(({ lang }) => currentLang === lang)?.locale
+  }
 }
 
 export async function loadDateFNSLocale(lang: string) {

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
@@ -6,11 +6,11 @@ import { localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict
 
 interface Props {
   value: string
-  type: 'dateTime' | 'date' | 'time' | 'timestamp' | 'unixMillisecondTimestamp'
+  type: 'dateTime' | 'date' | 'time' | 'timestamp' | 'unixMillisecondTimestamp' | DateFormat
   format?: string
   relative?: boolean
   strict?: boolean
-  round?: string
+  round?: 'round' | 'floor' | 'ceil'
   suffix?: boolean
 }
 
@@ -20,7 +20,18 @@ const props = withDefaults(defineProps<Props>(), {
   strict: false,
   round: 'round',
   suffix: true,
+  value: '',
+  type: 'ISOString',
 })
+
+const EDateFormat = {
+  dateTimeISO: 'yyyy-MM-dd HH:mm:ss',
+  dateTimeJP: 'yyyy年MM月dd日 HH時mm分ss秒',
+  timestampISO: 'yyyy-MM-dd HH:mm:ss.SSS',
+  ISOString: 'yyy-MM-dd\'T\'HH:mm:ssX',
+} as const
+
+type DateFormat = keyof typeof EDateFormat
 
 const { t } = useI18n()
 const displayValue = ref<string | null>(null)
@@ -39,15 +50,26 @@ const localValue = computed(() => {
   else if (props.type === 'time')
     return parse(props.value, 'HH:mm:ss', new Date())
 
+  try {
+    parse(props.value, EDateFormat[props.type], new Date())
+  }
+  catch (error) {
+    return null
+  }
   return null
 })
 
 const relativeFormat = (value: Date) => {
-  const fn = props.strict ? localizedFormatDistanceStrict : localizedFormatDistance
-  return fn(value, new Date(), {
-    addSuffix: props.suffix,
-    roundingMethod: props.round,
-  })
+  const fn = props.strict
+    ? localizedFormatDistanceStrict(undefined, value, new Date(), {
+      addSuffix: props.suffix,
+      roundingMethod: props.round,
+    })
+    : localizedFormatDistance(undefined, value, new Date(), {
+      addSuffix: props.suffix,
+      includeSeconds: true,
+    })
+  return fn
 }
 
 watch(
@@ -79,7 +101,7 @@ watch(
       else {
         format = props.format
       }
-      displayValue.value = localizedFormat(newValue, format)
+      displayValue.value = localizedFormat(undefined, newValue, format)
     }
   },
   { immediate: true },

@@ -60,7 +60,7 @@ export default defineComponent({
     </template>
   </NCheckbox>
 
-  <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
+  <p v-show="errorMessage" v-auto-animate class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
   </p>
 </template>

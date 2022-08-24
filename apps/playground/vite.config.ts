@@ -14,6 +14,7 @@ export default defineConfig({
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
+    dedupe: ['vue', 'vue-i18n'],
   },
 
   plugins: [
