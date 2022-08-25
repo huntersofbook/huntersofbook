@@ -5,7 +5,7 @@ import { DeepPartial } from './misc'
 export interface IForm<T> {
   component: Component
   id: HTMLAttributes['id']
-  name: keyof T
+  name: keyof T | string
   label: string
   width?: string[]
   init?: any

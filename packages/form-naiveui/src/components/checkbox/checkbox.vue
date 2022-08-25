@@ -21,8 +21,8 @@ const {
 } = useField(attrs.name, undefined, {
   initialValue: attrs.init ? attrs.init as string : undefined,
   validateOnValueUpdate: false,
-  checkedValue: attrs.checkedValue,
-  uncheckedValue: attrs.uncheckedValue,
+  checkedValue: attrs.checkedValue ? attrs.checkedValue : true,
+  uncheckedValue: attrs.uncheckedValue ? attrs.uncheckedValue : false,
 })
 
 const validationListeners = {
@@ -51,7 +51,7 @@ export default defineComponent({
   <NCheckbox
     :id="attrs.id"
     v-bind="getBindValue"
-    v-model:checked="inputValue"
+    :checked="inputValue"
     :status="errorMessage ? 'error' : 'success'"
   >
     <template v-for="child in options" #[child.slot] :key="child.meta.id">
@@ -60,7 +60,7 @@ export default defineComponent({
     </template>
   </NCheckbox>
 
-  <p v-show="errorMessage" v-auto-animate class="mt-2 text-sm text-red-600">
+  <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
   </p>
 </template>
