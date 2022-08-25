@@ -13,7 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "@iconify-json/ph": "^1.1.2",
-    "@intlify/vite-plugin-vue-i18n": "^6.0.1",
     "@unocss/preset-icons": "^0.45.12",
     "unocss": "^0.45.12",
     "vitepress": "1.0.0-alpha.10",
@@ -25,6 +24,7 @@
     "@huntersofbook/ui": "workspace:*",
     "autoprefixer": "10.4.8",
     "huntersofbook": "workspace:*",
+    "@intlify/vite-plugin-vue-i18n": "6.0.1",
     "postcss": "8.4.16",
     "tailwindcss": "3.1.8"
   }

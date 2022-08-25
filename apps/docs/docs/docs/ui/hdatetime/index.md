@@ -3,16 +3,46 @@
 This build is built on [date-fns](https://date-fns.org) and [vue-i18n](https://vue-i18n.intlify.dev).
 
 
-<!-- 👉 Light -->
+
 <Demo>
 
 ## Unix Timestamp Milliseconds
 
-<DemoHDateTime />
+<unixMillisecondTimestamp />
 
 <template #code>
 
-<<< @/demos/hdatetime/DemoHDateTime.vue
+<<< @/demos/hdatetime/unixMillisecondTimestamp.vue
+
+</template>
+
+</Demo>
+
+
+<Demo>
+
+## useTimeFromNow
+
+<useTimeFromNow />
+
+<template #code>
+
+<<< @/demos/hdatetime/useTimeFromNow.vue
+
+</template>
+
+</Demo>
+
+
+<Demo>
+
+## useTimeFromNowStrict
+
+<useTimeFromNowStrict />
+
+<template #code>
+
+<<< @/demos/hdatetime/useTimeFromNowStrict.vue
 
 </template>
 

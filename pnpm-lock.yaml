@@ -53,7 +53,7 @@ importers:
       '@huntersofbook/form-naiveui': workspace:*
       '@huntersofbook/ui': workspace:*
       '@iconify-json/ph': ^1.1.2
-      '@intlify/vite-plugin-vue-i18n': ^6.0.1
+      '@intlify/vite-plugin-vue-i18n': 6.0.1
       '@unocss/preset-icons': ^0.45.12
       autoprefixer: 10.4.8
       huntersofbook: workspace:*
@@ -66,13 +66,13 @@ importers:
     dependencies:
       '@huntersofbook/form-naiveui': link:../../packages/form-naiveui
       '@huntersofbook/ui': link:../../packages/ui
+      '@intlify/vite-plugin-vue-i18n': 6.0.1_vue-i18n@9.2.2
       autoprefixer: 10.4.8_postcss@8.4.16
       huntersofbook: link:../../packages/huntersofbook
       postcss: 8.4.16
       tailwindcss: 3.1.8_postcss@8.4.16
     devDependencies:
       '@iconify-json/ph': 1.1.2
-      '@intlify/vite-plugin-vue-i18n': 6.0.1_vue-i18n@9.2.2
       '@unocss/preset-icons': 0.45.12
       unocss: 0.45.12
       vitepress: 1.0.0-alpha.10
@@ -856,7 +856,6 @@ packages:
       source-map: 0.6.1
       vue-i18n: 9.2.2_vue@3.2.37
       yaml-eslint-parser: 0.3.2
-    dev: true
 
   /@intlify/core-base/9.2.2:
     resolution: {integrity: sha512-JjUpQtNfn+joMbrXvpR4hTF8iJQ2sEFzzK3KIESOx+f+uwIjgw20igOyaIdhfsVVBCds8ZM64MoeNSx+PHQMkA==}
@@ -879,7 +878,6 @@ packages:
     dependencies:
       '@intlify/shared': 9.2.0
       source-map: 0.6.1
-    dev: true
 
   /@intlify/message-compiler/9.2.2:
     resolution: {integrity: sha512-IUrQW7byAKN2fMBe8z6sK6riG1pue95e5jfokn8hA5Q3Bqy4MBJ5lJAofUsawQJYHeoPJ7svMDyBaVJ4d0GTtA==}
@@ -891,7 +889,6 @@ packages:
   /@intlify/shared/9.2.0:
     resolution: {integrity: sha512-71uObL3Sy2ZiBQBMVETbkspE4Plpy87Hvlj6FAUF3xdD+M82tuxe3MVJjaD3ucqhtHmQWBkAWEurVLdPYr8G2g==}
     engines: {node: '>= 14'}
-    dev: true
 
   /@intlify/shared/9.2.2:
     resolution: {integrity: sha512-wRwTpsslgZS5HNyM7uDQYZtxnbI12aGiBZURX3BTR9RFIKKRWpllTsgzHWvj3HKm3Y2Sh5LPC1r0PDCKEhVn9Q==}
@@ -948,7 +945,7 @@ packages:
       vue-i18n: 9.2.2_vue@3.2.37
     transitivePeerDependencies:
       - supports-color
-    dev: true
+    dev: false
 
   /@intlify/vue-devtools/9.2.2:
     resolution: {integrity: sha512-+dUyqyCHWHb/UcvY1MlIpO87munedm3Gn6E9WWYdWrMuYLcoIoOEVDWSS8xSwtlPU+kA+MEQTP6Q1iI/ocusJg==}
@@ -1175,7 +1172,6 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
-    dev: true
 
   /@rushstack/node-core-library/3.50.1:
     resolution: {integrity: sha512-9d2xE7E9yQEBS6brTptdP8cslt6iL5+UnkY2lRxQQ4Q/jlXtsrWCCJCxwr56W/eJEe9YT/yHR4mMn5QY64Ps2w==}
@@ -1923,7 +1919,6 @@ packages:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       acorn: 7.4.1
-    dev: true
 
   /acorn-jsx/5.3.2_acorn@8.8.0:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2677,7 +2672,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
-    dev: true
 
   /decimal.js/10.4.0:
     resolution: {integrity: sha512-Nv6ENEzyPQ6AItkGwLE2PGKinZZ9g59vSh2BeH6NqPu0OTKZ5ruJsVqh/orbAnqXc9pBbgXAIrc2EyaCj8NpGg==}
@@ -3646,7 +3640,6 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       eslint-visitor-keys: 1.3.0
-    dev: true
 
   /eslint-utils/3.0.0_eslint@8.22.0:
     resolution: {integrity: sha512-uuQC43IGctw68pJA1RgbQS8/NP7rch6Cwd4j3ZBtgo4/8Flj4eGE7ZYSZRN3iq5pVUv6GPdW5Z1RFleo84uLDA==}
@@ -3661,7 +3654,6 @@ packages:
   /eslint-visitor-keys/1.3.0:
     resolution: {integrity: sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==}
     engines: {node: '>=4'}
-    dev: true
 
   /eslint-visitor-keys/2.1.0:
     resolution: {integrity: sha512-0rSmRBzXgDzIsD6mGdJgevzgezI534Cer5L/vyMX0kHzT/jiB43jRhd9YUlMGYLQy2zprNmoT8qasCGtY+QaKw==}
@@ -3728,7 +3720,6 @@ packages:
       acorn: 7.4.1
       acorn-jsx: 5.3.2_acorn@7.4.1
       eslint-visitor-keys: 1.3.0
-    dev: true
 
   /espree/9.3.3:
     resolution: {integrity: sha512-ORs1Rt/uQTqUKjDdGCyrtYxbazf5umATSf/K4qxjmZHORR6HJk+2s/2Pqe+Kk49HHINC/xNIrGfgh8sZcll0ng==}
@@ -4711,7 +4702,6 @@ packages:
       eslint-visitor-keys: 1.3.0
       espree: 6.2.1
       semver: 6.3.0
-    dev: true
 
   /jsonc-eslint-parser/2.1.0:
     resolution: {integrity: sha512-qCRJWlbP2v6HbmKW7R3lFbeiVWHo+oMJ0j+MizwvauqnCV/EvtAeEeuCgoc/ErtsuoKgYB8U4Ih8AxJbXoE6/g==}
@@ -5040,7 +5030,6 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
-    dev: true
 
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -6283,7 +6272,6 @@ packages:
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
-    dev: true
 
   /semver/7.3.7:
     resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
@@ -7597,7 +7585,6 @@ packages:
       eslint-visitor-keys: 1.3.0
       lodash: 4.17.21
       yaml: 1.10.2
-    dev: true
 
   /yaml-eslint-parser/1.1.0:
     resolution: {integrity: sha512-b464Q1fYiX1oYx2kE8k4mEp6S9Prk+tfDsY/IPxQ0FCjEuj3AKko5Skf3/yQJeYTTDyjDE+aWIJemnv29HvEWQ==}
