@@ -20,7 +20,6 @@
       "vite/client",
       "vue/ref-macros",
       "naive-ui/volar",
-      "@huntersofbook/ui/volar",
       "@huntersofbook/form-naiveui/volar",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client"
