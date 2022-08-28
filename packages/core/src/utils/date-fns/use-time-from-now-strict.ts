@@ -1,7 +1,7 @@
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
-import formatDistance from 'date-fns/esm/formatDistance/index.js'
+import { formatDistanceStrict } from 'date-fns'
 import { localizedFormatDistanceStrict } from './localized-format-distance-strict'
-type I18n = Parameters<typeof formatDistance>
+type I18n = Parameters<typeof formatDistanceStrict>
 export function useTimeFromNowStrict(date: Date | number, autoUpdate = 60000, i18n: string, options?: I18n[2]): Ref<string> {
   const interval = ref(0)
 

@@ -51,7 +51,7 @@
     "@huntersofbook/core": "workspace:*",
     "naive-ui": "^2.32.2",
     "vue": "^3.2.37",
-    "vue-i18n": "^9.2.2"
+    "vue-i18n": "9.3.0-beta.1"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "8.3.4",
