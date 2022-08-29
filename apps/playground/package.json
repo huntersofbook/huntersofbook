@@ -19,7 +19,7 @@
     "@vueuse/core": "9.1.0",
     "@vueuse/head": "0.7.9",
     "huntersofbook": "workspace*",
-    "naive-ui": "2.32.2",
+    "naive-ui": "2.32.1",
     "nprogress": "0.2.0",
     "pinia": "2.0.20",
     "vee-validate": "4.6.6",

@@ -96,7 +96,7 @@ importers:
       eslint: 8.22.0
       https-localhost: 4.7.1
       huntersofbook: workspace*
-      naive-ui: 2.32.2
+      naive-ui: 2.32.1
       nprogress: 0.2.0
       pinia: 2.0.20
       pnpm: 7.9.3
@@ -120,7 +120,7 @@ importers:
       '@vueuse/core': 9.1.0_vue@3.2.37
       '@vueuse/head': 0.7.9_vue@3.2.37
       huntersofbook: link:../../packages/huntersofbook
-      naive-ui: 2.32.2_vue@3.2.37
+      naive-ui: 2.32.1_vue@3.2.37
       nprogress: 0.2.0
       pinia: 2.0.20_j6bzmzd4ujpabbp5objtwxyjp4
       vee-validate: 4.6.6_vue@3.2.37
@@ -180,7 +180,7 @@ importers:
       '@vitejs/plugin-vue': 3.0.3
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8
-      naive-ui: ^2.32.2
+      naive-ui: 2.32.1
       postcss: 8.4.16
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.5
@@ -198,7 +198,7 @@ importers:
       yup: ^0.32.11
     dependencies:
       '@huntersofbook/core': link:../core
-      naive-ui: 2.32.2_vue@3.2.37
+      naive-ui: 2.32.1_vue@3.2.37
       typescript: 4.7.4
       vee-validate: 4.6.5_vue@3.2.37
       vue: 3.2.37
@@ -235,7 +235,7 @@ importers:
       '@vitejs/plugin-vue': 3.0.3
       '@vue/compiler-sfc': 3.2.37
       autoprefixer: 10.4.8
-      naive-ui: ^2.32.2
+      naive-ui: 2.32.1
       postcss: 8.4.16
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.5
@@ -250,7 +250,7 @@ importers:
       vue-i18n: 9.3.0-beta.1
     dependencies:
       '@huntersofbook/core': link:../core
-      naive-ui: 2.32.2_vue@3.2.37
+      naive-ui: 2.32.1_vue@3.2.37
       vue: 3.2.37
       vue-i18n: 9.3.0-beta.1_vue@3.2.37
     devDependencies:
@@ -5024,8 +5024,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /naive-ui/2.32.2_vue@3.2.37:
-    resolution: {integrity: sha512-vTNuZ8LBlfo/cdiv4S8o6Cg5g7p9V9cR5rK+Fag2cplOnng5twTILD3sBaCqw3k/BV1331Xdk26ml8Me8QJ7iA==}
+  /naive-ui/2.32.1_vue@3.2.37:
+    resolution: {integrity: sha512-4zRHAn9d273qKWHs2ZQ+9xZmGTfxhL/CI1tj8bJkE313zjwyGRaiPbCeh3hQgrNdZWiRXdqmA442EVKHizGWeg==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
