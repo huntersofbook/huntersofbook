@@ -29,6 +29,7 @@ const validationListeners = {
   'blur': handleBlur,
   'on-update:value': handleChange,
   'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
+  'on-update:checked': handleChange,
 }
 
 const getBindValue = computed(() => ({ ...unref(attrs), ...props, ...validationListeners }))
@@ -51,7 +52,7 @@ export default defineComponent({
   <NCheckbox
     :id="attrs.id"
     v-bind="getBindValue"
-    value:checked="inputValue"
+    :value="inputValue"
     :status="errorMessage ? 'error' : 'success'"
   >
     <template v-for="child in options" #[child.slot] :key="child.meta.id">
