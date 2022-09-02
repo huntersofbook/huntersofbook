@@ -50,13 +50,13 @@ importers:
 
   apps/docs:
     specifiers:
-      '@huntersofbook/form-naiveui': workspace:*
-      '@huntersofbook/ui': workspace:*
+      '@huntersofbook/form-naiveui': 0.0.16
+      '@huntersofbook/ui': 0.0.16
       '@iconify-json/ph': ^1.1.2
       '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2
       '@unocss/preset-icons': ^0.45.12
       autoprefixer: 10.4.8
-      huntersofbook: workspace:*
+      huntersofbook: 0.0.16
       postcss: 8.4.16
       tailwindcss: 3.1.8
       unocss: ^0.45.12
