@@ -53,7 +53,7 @@ importers:
       '@huntersofbook/form-naiveui': workspace:*
       '@huntersofbook/ui': workspace:*
       '@iconify-json/ph': ^1.1.2
-      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.1
+      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2
       '@unocss/preset-icons': ^0.45.12
       autoprefixer: 10.4.8
       huntersofbook: workspace:*
@@ -66,7 +66,7 @@ importers:
     dependencies:
       '@huntersofbook/form-naiveui': link:../../packages/form-naiveui
       '@huntersofbook/ui': link:../../packages/ui
-      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.1_vue-i18n@9.3.0-beta.3
+      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2_vue-i18n@9.3.0-beta.3
       autoprefixer: 10.4.8_postcss@8.4.16
       huntersofbook: link:../../packages/huntersofbook
       postcss: 8.4.16
@@ -84,7 +84,7 @@ importers:
       '@antfu/eslint-config': 0.26.1
       '@huntersofbook/form-naiveui': workspace*
       '@iconify-json/carbon': 1.1.7
-      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.1
+      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2
       '@types/markdown-it-link-attributes': 3.0.1
       '@types/nprogress': 0.2.0
       '@vitejs/plugin-vue': 3.0.3
@@ -131,7 +131,7 @@ importers:
     devDependencies:
       '@antfu/eslint-config': 0.26.1_4rv7y5c6xz3vfxwhbrcxxi73bq
       '@iconify-json/carbon': 1.1.7
-      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.1_hmm3osvkoymcy2jykhljyyns4q
+      '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2_hmm3osvkoymcy2jykhljyyns4q
       '@types/markdown-it-link-attributes': 3.0.1
       '@types/nprogress': 0.2.0
       '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.37
@@ -883,8 +883,8 @@ packages:
     resolution: {integrity: sha512-Z/0TU4GhFKRxKh+0RbwJExik9zz57gXYgxSYaPn7YQdkQ/pabSioCY/SXnYxQHL6HzULF5tmqarFm6glbGqKhw==}
     engines: {node: '>= 14'}
 
-  /@intlify/vite-plugin-vue-i18n/7.0.0-beta.1_hmm3osvkoymcy2jykhljyyns4q:
-    resolution: {integrity: sha512-1xWgp8YAuoCpeWCazTxARq5TFprQaV8CqQUqR/mbaIdBp4E9dFOtvV9n9UAyb9SAmUyAIyldiuKJNdqjSr5TNQ==}
+  /@intlify/vite-plugin-vue-i18n/7.0.0-beta.2_hmm3osvkoymcy2jykhljyyns4q:
+    resolution: {integrity: sha512-vQWxuqfPJvKuxV1ordhCzi4PO5U+do5S13ICtIoJKdxOkBoy9HuiqDmBDIFVcYbcSLh57bixn2RfGoCQARmuUw==}
     engines: {node: '>= 14.6'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -910,8 +910,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/vite-plugin-vue-i18n/7.0.0-beta.1_vue-i18n@9.3.0-beta.3:
-    resolution: {integrity: sha512-1xWgp8YAuoCpeWCazTxARq5TFprQaV8CqQUqR/mbaIdBp4E9dFOtvV9n9UAyb9SAmUyAIyldiuKJNdqjSr5TNQ==}
+  /@intlify/vite-plugin-vue-i18n/7.0.0-beta.2_vue-i18n@9.3.0-beta.3:
+    resolution: {integrity: sha512-vQWxuqfPJvKuxV1ordhCzi4PO5U+do5S13ICtIoJKdxOkBoy9HuiqDmBDIFVcYbcSLh57bixn2RfGoCQARmuUw==}
     engines: {node: '>= 14.6'}
     peerDependencies:
       petite-vue-i18n: '*'
