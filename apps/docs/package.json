@@ -24,7 +24,7 @@
     "@huntersofbook/ui": "workspace:*",
     "autoprefixer": "10.4.8",
     "huntersofbook": "workspace:*",
-    "@intlify/vite-plugin-vue-i18n": "7.0.0-beta.1",
+    "@intlify/vite-plugin-vue-i18n": "7.0.0-beta.2",
     "postcss": "8.4.16",
     "tailwindcss": "3.1.8"
   }
