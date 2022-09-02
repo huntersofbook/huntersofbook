@@ -1,7 +1,6 @@
 import { InjectionKey, Ref, getCurrentInstance, inject, isRef } from 'vue'
 import type { App, ComponentInternalInstance } from 'vue'
 import { I18n } from 'vue-i18n'
-import type { Locale } from 'date-fns'
 import { loadDateFNSLocale, makeSymbol } from '../utils'
 import autoAnimatePlugin from './auto-animate'
 import { VueIhuntersofbook } from './vue-huntersofbook'
@@ -11,6 +10,7 @@ declare module 'vue' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface App<HostElement = any> {
     __VUE_HUNTERSOFBOOK_SYMBOL__?: InjectionKey<Ihuntersofbook> | string
+
   }
 }
 
