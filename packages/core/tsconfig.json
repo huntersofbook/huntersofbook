@@ -3,7 +3,8 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "display": "Default",
     "compilerOptions": {
-      "module": "ES2020",
+      "module": "ESNext",
+      "target": "ESNext",
       "composite": false,
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,

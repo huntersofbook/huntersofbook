@@ -9,7 +9,6 @@ import './styles/main.css'
 import 'uno.css'
 
 const routes = setupLayouts(generatedRoutes)
-await loadDateFNSLocale('tr')
 
 const meta = document.createElement('meta')
 meta.name = 'naive-ui-style'
@@ -20,6 +19,9 @@ export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
   (ctx) => {
+    loadDateFNSLocale('tr').then((locale) => {
+      console.log('locale', locale)
+    })
     // install all modules under `modules/`
     Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
       .forEach(i => i.install?.(ctx))

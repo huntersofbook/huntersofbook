@@ -1,20 +1,6 @@
-import { useI18n } from 'vue-i18n'
-import { Locale } from 'date-fns'
+import type { Locale } from 'date-fns'
 
-const locales: { lang: string; locale: Locale }[] = []
-
-export function getDateFNSLocale(i18n?: string | undefined): Locale | undefined {
-  if (i18n !== undefined) {
-    return locales.find(({ lang }) => i18n === lang)?.locale
-  }
-  else {
-    const { locale } = useI18n()
-    const currentLang = locale.value
-    return locales.find(({ lang }) => currentLang === lang)?.locale
-  }
-}
-
-export async function loadDateFNSLocale(lang: string) {
+export async function loadDateFNSLocale(lang: string): Promise<Locale> {
   const localesToTry = [lang, lang.split('-')[0], 'en-US']
 
   let locale
@@ -24,16 +10,15 @@ export async function loadDateFNSLocale(lang: string) {
       const langFile = await importDateLocale(l)
 
       const data = 'default' in langFile ? langFile.default : (await importDateLocale(l)).default
-      locale = data
-      locales.push({ lang, locale })
+      locale = data as Locale
+      return locale
       break
     }
     catch {
       continue
     }
   }
-
-  return locale
+  return (await importDateLocale('tr')).default
 }
 
 export async function importDateLocale(locale: string): Promise<any> {

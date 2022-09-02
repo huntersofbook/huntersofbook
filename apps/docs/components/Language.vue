@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { loadDateFNSLocale } from 'huntersofbook'
 import { useI18n } from 'vue-i18n'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 const { locale, availableLocales } = useI18n()
 
 const isOpen = ref(false)
@@ -11,10 +11,21 @@ const languages = availableLocales.map(locale => ({
   value: locale,
 }))
 
+onMounted(() => {
+  const getLocale = document.cookie.split(';').find(item => item.trim().startsWith('locale='))
+  if (getLocale)
+    locale.value = getLocale.split('=')[1]
+  else
+    locale.value = 'en'
+})
+
 const changeLanguage = async (value: string) => {
   await loadDateFNSLocale(value).then((res) => {
+    console.log(res.locale)
     locale.value = value
     isOpen.value = false
+    window.location.reload()
+    document.cookie = `locale=${value}`
   })
 }
 </script>

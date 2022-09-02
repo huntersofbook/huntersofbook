@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import './custom.css'
+import { createHuntersofbook } from 'huntersofbook'
 import Tabs from '../../../components/Tabs/Tabs.vue'
 import Tab from '../../../components/Tabs/Tab.vue'
 import GithubUrl from '../../../components/GithubUrl.vue'
