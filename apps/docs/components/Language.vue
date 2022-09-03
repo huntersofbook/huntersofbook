@@ -11,21 +11,12 @@ const languages = availableLocales.map(locale => ({
   value: locale,
 }))
 
-onMounted(() => {
-  const getLocale = document.cookie.split(';').find(item => item.trim().startsWith('locale='))
-  if (getLocale)
-    locale.value = getLocale.split('=')[1]
-  else
-    locale.value = 'en'
-})
-
 const changeLanguage = async (value: string) => {
   await loadDateFNSLocale(value).then((res) => {
-    console.log(res.locale)
     locale.value = value
     isOpen.value = false
-    window.location.reload()
-    document.cookie = `locale=${value}`
+    // window.location.reload()
+    localStorage.setItem('chooseLanguage', value)
   })
 }
 </script>

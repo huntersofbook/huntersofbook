@@ -1,20 +1,19 @@
-import { ComputedRef, Ref, onMounted, onUnmounted, ref, watch } from 'vue'
+import { Ref, onMounted, onUnmounted, ref } from 'vue'
 import { formatDistance } from 'date-fns'
+import { useHuntersofbook } from '../../plugins'
 import { localizedFormatDistance } from './localized-format-distance'
-type I18n = Parameters<typeof formatDistance>
-export function useTimeFromNow(date: Date | number, autoUpdate = 60000, options?: I18n[2], hook?: false): Ref<string> {
+type IFormatDistance = Parameters<typeof formatDistance>
+export function useTimeFromNow(date: Date | number, autoUpdate = 60000, options?: IFormatDistance[2], hook?: false): Ref<string> {
   const interval = ref(0)
-
+  const { global } = useHuntersofbook()
+  console.log(global.dateLocale.value)
   const formatOptions = {
     addSuffix: true,
     ...options,
-  } as I18n[2]
+    locale: global.dateLocale.value,
+  } as IFormatDistance[2]
 
   const formattedDate = ref(localizedFormatDistance(date, new Date(), formatOptions))
-
-  // watch<string>(i18n, (data) => {
-  //   formattedDate.value = localizedFormatDistance(data, date, new Date(), formatOptions)
-  // })
 
   if (hook) {
     onMounted(() => {

@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
-import { localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict } from '@huntersofbook/core'
+import { localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict, useHuntersofbook } from '@huntersofbook/core'
 
 interface Props {
   value: string
@@ -34,6 +34,8 @@ const EDateFormat = {
 type DateFormat = keyof typeof EDateFormat
 
 const { t } = useI18n()
+const { global } = useHuntersofbook()
+
 const displayValue = ref<string | null>(null)
 
 const localValue = computed(() => {
@@ -101,7 +103,7 @@ watch(
       else {
         format = props.format
       }
-      displayValue.value = localizedFormat(newValue, format)
+      displayValue.value = localizedFormat(newValue, format, { locale: global.dateLocale.value })
     }
   },
   { immediate: true },

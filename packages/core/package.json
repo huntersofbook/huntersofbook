@@ -51,7 +51,6 @@
   },
   "devDependencies": {
     "magic-string": "^0.26.2",
-    "rollup-plugin-typescript2": "^0.33.0",
     "unconfig": "^0.3.5",
     "vee-validate": "^4.6.6"
   }
