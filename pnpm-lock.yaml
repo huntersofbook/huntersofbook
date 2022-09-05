@@ -57,6 +57,7 @@ importers:
       '@unocss/preset-icons': ^0.45.12
       autoprefixer: 10.4.8
       huntersofbook: workspace:*
+      pinia: ^2.0.21
       postcss: 8.4.16
       tailwindcss: 3.1.8
       unocss: ^0.45.12
@@ -69,6 +70,7 @@ importers:
       '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2_vue-i18n@9.3.0-beta.3
       autoprefixer: 10.4.8_postcss@8.4.16
       huntersofbook: link:../../packages/huntersofbook
+      pinia: 2.0.21_vue@3.2.37
       postcss: 8.4.16
       tailwindcss: 3.1.8_postcss@8.4.16
     devDependencies:
@@ -1746,7 +1748,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.0.9_sass@1.54.5
+      vite: 3.0.9
       vue: 3.2.37
     dev: true
 
@@ -5488,6 +5490,23 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.2.1
       typescript: 4.7.4
+      vue: 3.2.37
+      vue-demi: 0.13.8_vue@3.2.37
+    dev: false
+
+  /pinia/2.0.21_vue@3.2.37:
+    resolution: {integrity: sha512-6ol04PtL29O0Z6JHI47O3JUSoyOJ7Og0rstXrHVMZSP4zAldsQBXJCNF0i/H7m8vp/Hjd/CSmuPl7C5QAwpeWQ==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.2.1
       vue: 3.2.37
       vue-demi: 0.13.8_vue@3.2.37
     dev: false

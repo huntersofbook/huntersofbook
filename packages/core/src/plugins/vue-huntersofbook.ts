@@ -1,5 +1,5 @@
 import type { Locale } from 'date-fns'
-import { WritableComputedRef } from 'vue'
+import { ComputedRef, WritableComputedRef } from 'vue'
 /**
  *  VueI18n legacy interfaces
  *
@@ -23,6 +23,6 @@ export interface VueIhuntersofbook {
   * @VueIhuntersofbookSee [Scope and Locale Changing](../guide/essentials/scope)
   */
   // locale: Locales
-  dateLocale: WritableComputedRef<Locale>
+  dateLocale: ComputedRef<Locale>
 
 }
