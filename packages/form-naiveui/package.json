@@ -52,30 +52,30 @@
     "vue": "^3.2.37",
     "yup": "^0.32.11",
     "vee-validate": "^4.6.4",
-    "naive-ui": "2.32.1",
+    "naive-ui": "2.33.2",
     "@huntersofbook/core": "workspace:*",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "8.3.4",
-    "@vitejs/plugin-vue": "3.0.3",
-    "@vue/compiler-sfc": "3.2.37",
-    "sass": "1.54.5",
-    "vite": "3.0.9",
+    "@rollup/plugin-typescript": "8.4.0",
+    "@vitejs/plugin-vue": "3.1.0",
+    "@vue/compiler-sfc": "3.2.38",
+    "sass": "1.54.8",
+    "vite": "3.1.0",
     "vite-plugin-dts": "1.4.1",
     "vite-plugin-vue-setup-extend": "0.4.0",
-    "vite-svg-loader": "3.4.0",
+    "vite-svg-loader": "3.5.1",
     "rollup-plugin-postcss": "4.0.2",
     "vue-eslint-parser": "9.0.3",
     "tailwindcss": "3.1.8",
     "autoprefixer": "10.4.8",
     "postcss": "8.4.16",
     "vite-ssg": "0.20.2",
-    "vite-ssg-sitemap": "0.3.2"
+    "vite-ssg-sitemap": "0.4.1"
   },
   "peerDependencies": {
     "typescript": "^4.7.4",
-    "naive-ui": "2.32.1",
+    "naive-ui": "2.33.2",
     "vee-validate": "^4.6.4"
   }
 }
