@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { loadDateFNSLocale } from 'huntersofbook'
 import { useI18n } from 'vue-i18n'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useLocale } from '../docs/.vitepress/locales/useLocale'
 const { locale, availableLocales } = useI18n()
 
 const isOpen = ref(false)
@@ -11,11 +12,12 @@ const languages = availableLocales.map(locale => ({
   value: locale,
 }))
 
+const { changeLocale, getLocale } = useLocale()
+
 const changeLanguage = async (value: string) => {
-  await loadDateFNSLocale(value).then((res) => {
-    locale.value = value
-    isOpen.value = false
-  })
+  locale.value = value
+  isOpen.value = false
+  changeLocale(value as any)
 }
 </script>
 

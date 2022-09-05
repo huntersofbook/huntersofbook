@@ -1,22 +1,27 @@
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
 import { formatDistanceStrict } from 'date-fns'
+import { useHuntersofbook } from '../../plugins'
 import { localizedFormatDistanceStrict } from './localized-format-distance-strict'
-type I18n = Parameters<typeof formatDistanceStrict>
-export function useTimeFromNowStrict(date: Date | number, autoUpdate = 60000, i18n: string, options?: I18n[2], hook?: false): Ref<string> {
+type IFormatDistanceStrict = Parameters<typeof formatDistanceStrict>
+
+export function useTimeFromNowStrict(date: Date | number, autoUpdate = 60000, options?: IFormatDistanceStrict[2], hook?: false): Ref<string> {
+  const { global } = useHuntersofbook()
+
   const interval = ref(0)
 
   const formatOptions = {
     addSuffix: true,
     ...options,
-  } as I18n[2]
+    locale: global.dateLocale.value,
+  } as IFormatDistanceStrict[2]
 
-  const formattedDate = ref(localizedFormatDistanceStrict(i18n, date, new Date(), formatOptions))
+  const formattedDate = ref(localizedFormatDistanceStrict(date, new Date(), formatOptions))
 
   if (hook) {
     onMounted(() => {
       if (autoUpdate !== 0) {
         interval.value = window.setInterval(() => {
-          formattedDate.value = localizedFormatDistanceStrict(i18n, date, new Date(), formatOptions)
+          formattedDate.value = localizedFormatDistanceStrict(date, new Date(), formatOptions)
         }, autoUpdate)
       }
     })
