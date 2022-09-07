@@ -7,6 +7,7 @@ importers:
       '@antfu/eslint-config': 0.26.3
       '@huntersofbook/core': workspace:*
       '@huntersofbook/form-naiveui': workspace:*
+      '@huntersofbook/plausible-vue': workspace:*
       '@huntersofbook/ui': workspace:*
       '@types/lodash': 4.14.184
       bumpp: 8.2.1
@@ -29,6 +30,7 @@ importers:
       '@antfu/eslint-config': 0.26.3_yqf6kl63nyoq5megxukfnom5rm
       '@huntersofbook/core': link:packages/core
       '@huntersofbook/form-naiveui': link:packages/form-naiveui
+      '@huntersofbook/plausible-vue': link:packages/plausible-vue
       '@huntersofbook/ui': link:packages/ui
       '@types/lodash': 4.14.184
       bumpp: 8.2.1
@@ -229,6 +231,19 @@ importers:
     dependencies:
       '@huntersofbook/core': link:../core
       '@huntersofbook/ui': link:../ui
+
+  packages/plausible-vue:
+    specifiers:
+      '@vue/runtime-core': ^3.2.38
+      plausible-tracker: ^0.3.8
+      unconfig: ^0.3.5
+      vue: ^3.2.38
+    dependencies:
+      plausible-tracker: 0.3.8
+    devDependencies:
+      '@vue/runtime-core': 3.2.38
+      unconfig: 0.3.5
+      vue: 3.2.38
 
   packages/ui:
     specifiers:
@@ -5674,6 +5689,11 @@ packages:
       mlly: 0.5.14
       pathe: 0.3.5
     dev: true
+
+  /plausible-tracker/0.3.8:
+    resolution: {integrity: sha512-lmOWYQ7s9KOUJ1R+YTOR3HrjdbxIS2Z4de0P/Jx2dQPteznJl2eX3tXxKClpvbfyGP59B5bbhW8ftN59HbbFSg==}
+    engines: {node: '>=10'}
+    dev: false
 
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
