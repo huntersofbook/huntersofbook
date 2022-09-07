@@ -2,12 +2,6 @@ import Plausible from 'plausible-tracker'
 import type { PlausibleOptions } from 'plausible-tracker'
 import { App, inject } from 'vue'
 
-declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
-    $plausible: ReturnType<typeof Plausible>
-  }
-}
-
 export interface OptionPlugin {
   init: PlausibleOptions
   settings: InstallOptions
@@ -56,3 +50,8 @@ export const usePlausible = () => {
   }
 }
 
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $plausible: ReturnType<typeof Plausible>
+  }
+}
