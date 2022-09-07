@@ -234,12 +234,14 @@ importers:
 
   packages/plausible-vue:
     specifiers:
+      '@vue/runtime-core': ^3.2.38
       plausible-tracker: ^0.3.8
       unconfig: ^0.3.5
       vue: ^3.2.38
     dependencies:
       plausible-tracker: 0.3.8
     devDependencies:
+      '@vue/runtime-core': 3.2.38
       unconfig: 0.3.5
       vue: 3.2.38
 
