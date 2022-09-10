@@ -17,13 +17,13 @@
   "dependencies": {
     "@huntersofbook/form-naiveui": "workspace*",
     "@vueuse/core": "9.2.0",
-    "@vueuse/head": "0.7.9",
+    "@vueuse/head": "0.7.10",
     "huntersofbook": "workspace*",
     "naive-ui": "2.33.2",
     "nprogress": "0.2.0",
-    "pinia": "2.0.21",
+    "pinia": "2.0.22",
     "vee-validate": "4.6.7",
-    "vue": "3.2.38",
+    "vue": "3.2.39",
     "vue-demi": "0.13.11",
     "vue-i18n": "9.3.0-beta.3",
     "vue-router": "4.1.5"
@@ -43,13 +43,13 @@
     "pnpm": "7.11.0",
     "postcss": "8.4.16",
     "tailwindcss": "3.1.8",
-    "typescript": "4.8.2",
-    "unocss": "0.45.15",
+    "typescript": "4.8.3",
+    "unocss": "0.45.18",
     "unplugin-auto-import": "0.11.2",
     "unplugin-vue-components": "0.22.4",
     "vite": "3.1.0",
     "vite-plugin-pages": "0.26.0",
     "vite-plugin-vue-layouts": "0.7.0",
-    "vue-tsc": "0.40.7"
+    "vue-tsc": "0.40.13"
   }
 }
