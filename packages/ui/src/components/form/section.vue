@@ -24,7 +24,8 @@ const post = (e: Event) => {
       <div v-for="item in props.forms" :key="item.name" :class="item.width ? item.width : 'col-span-full'">
         <slot name="itemsHeader" v-bind="item" />
         <component
-          :is="item.component" v-if="!$slots.form"
+          :is="item.component"
+
           :id="item.id"
           :name="item.name"
           :init="item.init"
@@ -32,6 +33,7 @@ const post = (e: Event) => {
           :options="item.options"
           v-bind="item.attrs"
         />
+        <!-- <component :is="item.renderComponent" v-if="item.renderComponent" /> -->
         <slot name="itemsFooter" v-bind="item" />
       </div>
 

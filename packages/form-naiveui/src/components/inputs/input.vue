@@ -3,7 +3,7 @@ import { NInput } from 'naive-ui'
 import type { InputProps } from 'naive-ui'
 import { useField } from 'vee-validate'
 
-import { computed, defineComponent, unref, useAttrs } from 'vue'
+import { computed, defineComponent, unref, useAttrs, useSlots } from 'vue'
 
 interface Props extends InputProps {
   data?: any

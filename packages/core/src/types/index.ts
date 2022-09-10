@@ -1,9 +1,10 @@
-import { Component, ComponentOptions, HTMLAttributes, InputHTMLAttributes } from 'vue'
+import { Component, ComponentOptions, HTMLAttributes, InputHTMLAttributes, VNodeChild } from 'vue'
 import { Field } from './fields'
 import { DeepPartial } from './misc'
 
 export interface IForm<T> {
-  component: Component
+  component?: Component
+  renderComponent?: () => VNodeChild
   id: HTMLAttributes['id']
   name: keyof T | string
   label: string
