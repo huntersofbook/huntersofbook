@@ -35,7 +35,6 @@ export interface Ihuntersofbook {
 }
 
 export const createHuntersofbook = (plugins: IhuntersofbookPlugins): Ihuntersofbook => {
-  console.log(plugins, 'pluginsaaaaa')
   const key = Symbol('huntersofbook') as InjectionKey<string>
   const __global = createGlobal(plugins) as any
   const huntersofbook = {
@@ -93,9 +92,6 @@ function createGlobal(
   const obj = scope.run(() => createComposer(plugins))
   if (obj == null)
     throw new Error('createGlobal must be called in a Vue component')
-  console.log(obj.dateLocale.value, 'obj')
-
   return obj
 }
 
-export default createHuntersofbook

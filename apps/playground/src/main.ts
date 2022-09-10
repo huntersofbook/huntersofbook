@@ -1,12 +1,13 @@
-import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
-import type { UserModule } from './types'
-import { setupI18n } from './plugins/i18n'
-import generatedRoutes from '~pages'
+
+import { createApp, h } from 'vue'
 
 import './styles/main.css'
 import 'uno.css'
+import { createRouter, createWebHistory } from 'vue-router'
+import { createHead } from '@vueuse/head'
+import generatedRoutes from '~pages'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -15,13 +16,29 @@ meta.name = 'naive-ui-style'
 document.head.appendChild(meta)
 
 // https://github.com/antfu/vite-ssg
-export const createApp = ViteSSG(
-  App,
-  { routes, base: import.meta.env.BASE_URL },
-  async (ctx) => {
-    await setupI18n(ctx)
-    // install all modules under `modules/`
-    Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
-      .forEach(i => i.install?.(ctx))
-  },
-)
+export const app = createApp(App)
+const head = createHead()
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+
+app.use(router)
+app.use(head)
+
+async function init() {
+  try {
+    Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map((i: any) =>
+      i.install?.({ app, router }),
+    )
+    router.isReady().then(() => {
+      app.mount('#app')
+    })
+  }
+  catch (e) {
+    console.error(e)
+  }
+}
+
+init()

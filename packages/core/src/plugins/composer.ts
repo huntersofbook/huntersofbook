@@ -4,7 +4,7 @@
  * @internal
  */
 
-import { computed, ref, watch } from 'vue'
+import { computed, effectScope, ref, watch } from 'vue'
 
 import { loadDateFNSLocale } from '../utils'
 import { VueIhuntersofbook } from './vue-huntersofbook'
@@ -19,8 +19,11 @@ export function loadDateFNSLocaleFactory(locale: string) {
 }
 
 export function createComposer(plugins: IhuntersofbookPlugins): VueIhuntersofbook {
-  console.log(plugins, 'plugins')
-  const _messages = ref(plugins.dateFnsLanguage)
+
+  const _messages = ref()
+  if (plugins.dateFnsLanguage) {
+    _messages.value = plugins.dateFnsLanguage
+  }
 
   const language = computed(
     () => {
