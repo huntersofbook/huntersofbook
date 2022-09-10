@@ -57,6 +57,8 @@ export default defineComponent({
     </template>
   </NInput>
 
+  <slot name="footer" />
+
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
   </p>

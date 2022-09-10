@@ -251,6 +251,7 @@ importers:
       '@rollup/plugin-typescript': 8.4.0
       '@vitejs/plugin-vue': 3.1.0
       '@vue/compiler-sfc': 3.2.38
+      '@zxcvbn-ts/core': ^2.0.4
       autoprefixer: 10.4.8
       naive-ui: 2.33.2
       postcss: 8.4.16
@@ -267,6 +268,7 @@ importers:
       vue-i18n: 9.3.0-beta.3
     dependencies:
       '@huntersofbook/core': link:../core
+      '@zxcvbn-ts/core': 2.0.4
       naive-ui: 2.33.2_vue@3.2.37
       vue: 3.2.37
       vue-i18n: 9.3.0-beta.3_vue@3.2.37
@@ -2032,6 +2034,10 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  /@zxcvbn-ts/core/2.0.4:
+    resolution: {integrity: sha512-qf+JMVIRbzGzMk+VOyX2Nouih+9VGdNhLhit5Wv3m7ZD/o581x30272P6En8C9x+xwFW0o3GIkr9uLvWN8yvKA==}
+    dev: false
 
   /abab/2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}

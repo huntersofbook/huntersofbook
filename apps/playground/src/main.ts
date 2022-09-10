@@ -1,8 +1,8 @@
 import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
-import { loadDateFNSLocale } from 'huntersofbook'
 import App from './App.vue'
 import type { UserModule } from './types'
+import { setupI18n } from './plugins/i18n'
 import generatedRoutes from '~pages'
 
 import './styles/main.css'
@@ -18,10 +18,8 @@ document.head.appendChild(meta)
 export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
-  (ctx) => {
-    loadDateFNSLocale('tr').then((locale) => {
-      console.log('locale', locale)
-    })
+  async (ctx) => {
+    await setupI18n(ctx)
     // install all modules under `modules/`
     Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
       .forEach(i => i.install?.(ctx))

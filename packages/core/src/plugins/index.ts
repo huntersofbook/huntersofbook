@@ -35,6 +35,7 @@ export interface Ihuntersofbook {
 }
 
 export const createHuntersofbook = (plugins: IhuntersofbookPlugins): Ihuntersofbook => {
+  console.log(plugins, 'pluginsaaaaa')
   const key = Symbol('huntersofbook') as InjectionKey<string>
   const __global = createGlobal(plugins) as any
   const huntersofbook = {
@@ -43,7 +44,7 @@ export const createHuntersofbook = (plugins: IhuntersofbookPlugins): Ihuntersofb
 
       app.__VUE_HUNTERSOFBOOK_SYMBOL__ = key
       app.provide(app.__VUE_HUNTERSOFBOOK_SYMBOL__, huntersofbook as unknown as Ihuntersofbook)
-      app.config.globalProperties.$hob = huntersofbook
+      app.config.globalProperties.$huntersofbook = huntersofbook
       const unmountApp = app.unmount
       app.unmount = () => {
         unmountApp()
@@ -87,6 +88,7 @@ function getHuntersofbookInstance(instance: ComponentInternalInstance): Ihunters
 function createGlobal(
   plugins: IhuntersofbookPlugins,
 ): VueIhuntersofbook {
+  console.log(plugins, 'pluginsaaaaa')
   const scope = effectScope()
   const obj = scope.run(() => createComposer(plugins))
   if (obj == null)
