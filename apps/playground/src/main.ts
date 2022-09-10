@@ -1,12 +1,13 @@
 import { setupLayouts } from 'virtual:generated-layouts'
+
+import { createApp } from 'vue'
+import { createHead } from '@vueuse/head'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
-import { createApp, h } from 'vue'
-
 import './styles/main.css'
+import '@huntersofbook/ui/style'
 import 'uno.css'
-import { createRouter, createWebHistory } from 'vue-router'
-import { createHead } from '@vueuse/head'
 import generatedRoutes from '~pages'
 
 const routes = setupLayouts(generatedRoutes)
@@ -27,7 +28,7 @@ const router = createRouter({
 app.use(router)
 app.use(head)
 
-async function init() {
+function init() {
   try {
     Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map((i: any) =>
       i.install?.({ app, router }),

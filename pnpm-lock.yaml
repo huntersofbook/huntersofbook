@@ -105,6 +105,9 @@ importers:
       pinia: 2.0.22
       pnpm: 7.11.0
       postcss: 8.4.16
+      postcss-import: ^15.0.0
+      postcss-nesting: ^10.1.10
+      sass: 1.54.9
       tailwindcss: 3.1.8
       typescript: 4.8.3
       unocss: 0.45.18
@@ -127,6 +130,7 @@ importers:
       naive-ui: 2.33.2_vue@3.2.39
       nprogress: 0.2.0
       pinia: 2.0.22_arz4dztosvwy2ghjrlh2wdhejm
+      sass: 1.54.9
       vee-validate: 4.6.7_vue@3.2.39
       vue: 3.2.39
       vue-demi: 0.13.11_vue@3.2.39
@@ -146,12 +150,14 @@ importers:
       https-localhost: 4.7.1
       pnpm: 7.11.0
       postcss: 8.4.16
+      postcss-import: 15.0.0_postcss@8.4.16
+      postcss-nesting: 10.1.10_postcss@8.4.16
       tailwindcss: 3.1.8_postcss@8.4.16
       typescript: 4.8.3
       unocss: 0.45.18_vite@3.1.0
       unplugin-auto-import: 0.11.2_re6csl7eeastiiyshsk3b5ioaa
       unplugin-vue-components: 0.22.4_vite@3.1.0+vue@3.2.39
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       vite-plugin-pages: 0.26.0_vite@3.1.0
       vite-plugin-vue-layouts: 0.7.0_xik7h4qq3w5aalpcbhbvf3kbuu
       vue-tsc: 0.40.13_typescript@4.8.3
@@ -253,8 +259,13 @@ importers:
       '@vue/compiler-sfc': 3.2.39
       '@zxcvbn-ts/core': ^2.0.4
       autoprefixer: 10.4.8
+      eslint: 8.23.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.2.1
       naive-ui: 2.33.2
       postcss: 8.4.16
+      prettier: 2.7.1
+      prettier-plugin-tailwindcss: ^0.1.13
       rollup-plugin-postcss: 4.0.2
       sass: 1.54.9
       tailwindcss: 3.1.8
@@ -270,6 +281,7 @@ importers:
       '@huntersofbook/core': link:../core
       '@zxcvbn-ts/core': 2.0.4
       naive-ui: 2.33.2_vue@3.2.37
+      sass: 1.54.9
       vue: 3.2.37
       vue-i18n: 9.3.0-beta.3_vue@3.2.37
     devDependencies:
@@ -277,16 +289,20 @@ importers:
       '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.37
       '@vue/compiler-sfc': 3.2.39
       autoprefixer: 10.4.8_postcss@8.4.16
+      eslint: 8.23.0
+      eslint-config-prettier: 8.5.0_eslint@8.23.0
+      eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
       postcss: 8.4.16
+      prettier: 2.7.1
+      prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
       rollup-plugin-postcss: 4.0.2_postcss@8.4.16
-      sass: 1.54.9
       tailwindcss: 3.1.8_postcss@8.4.16
       typescript: 4.8.3
       vite: 3.1.0_sass@1.54.9
       vite-plugin-dts: 1.4.1_vite@3.1.0
       vite-plugin-vue-setup-extend: 0.4.0_vite@3.1.0
       vite-svg-loader: 3.6.0
-      vue-eslint-parser: 9.1.0
+      vue-eslint-parser: 9.1.0_eslint@8.23.0
 
 packages:
 
@@ -745,6 +761,17 @@ packages:
       vue: 3.2.39
     dev: false
 
+  /@csstools/selector-specificity/2.0.2_pnx64jze6bptzcedy5bidi3zdi:
+    resolution: {integrity: sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==}
+    engines: {node: ^12 || ^14 || >=16}
+    peerDependencies:
+      postcss: ^8.2
+      postcss-selector-parser: ^6.0.10
+    dependencies:
+      postcss: 8.4.16
+      postcss-selector-parser: 6.0.10
+    dev: true
+
   /@docsearch/css/3.2.1:
     resolution: {integrity: sha512-gaP6TxxwQC+K8D6TRx5WULUWKrcbzECOPA2KCVMuI+6C7dNiGUk5yXXzVhc5sld79XKYLnO9DRTI4mjXDYkh+g==}
     dev: true
@@ -936,7 +963,7 @@ packages:
       debug: 4.3.4
       fast-glob: 3.2.11
       source-map: 0.6.1
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       vue-i18n: 9.3.0-beta.3_vue@3.2.39
     transitivePeerDependencies:
       - supports-color
@@ -1778,7 +1805,7 @@ packages:
       '@unocss/scope': 0.45.18
       '@unocss/transformer-directives': 0.45.18
       magic-string: 0.26.3
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
     dev: true
 
   /@vitejs/plugin-vue/3.1.0_vite@3.1.0+vue@3.2.37:
@@ -1799,7 +1826,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       vue: 3.2.39
     dev: true
 
@@ -3599,6 +3626,15 @@ packages:
       source-map: 0.6.1
     dev: true
 
+  /eslint-config-prettier/8.5.0_eslint@8.23.0:
+    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.23.0
+    dev: true
+
   /eslint-import-resolver-node/0.3.6:
     resolution: {integrity: sha512-0En0w03NRVMn9Uiyn8YRPDKvWjxCWkslUEhGNTdGx15RvPJYQ+lbOlqrlNI2vEAs4pDYK4f/HN2TbDmk5TP0iw==}
     dependencies:
@@ -3742,6 +3778,23 @@ packages:
       minimatch: 3.1.2
       resolve: 1.22.1
       semver: 7.3.7
+    dev: true
+
+  /eslint-plugin-prettier/4.2.1_tgumt6uwl2md3n6uqnggd6wvce:
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.23.0
+      eslint-config-prettier: 8.5.0_eslint@8.23.0
+      prettier: 2.7.1
+      prettier-linter-helpers: 1.0.0
     dev: true
 
   /eslint-plugin-promise/6.0.1_eslint@8.23.0:
@@ -4073,6 +4126,10 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+    dev: true
+
+  /fast-diff/1.2.0:
+    resolution: {integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==}
     dev: true
 
   /fast-glob/3.2.11:
@@ -4543,7 +4600,6 @@ packages:
 
   /immutable/4.1.0:
     resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==}
-    dev: true
 
   /import-cwd/3.0.0:
     resolution: {integrity: sha512-4pnzH16plW+hgvRECbDWpQl3cqtvSofHWh44met7ESfZ8UZOWWddm8hEyDTqREJ9RbYHY8gi8DqmaelApoOGMg==}
@@ -5854,6 +5910,18 @@ packages:
       read-cache: 1.0.0
       resolve: 1.22.1
 
+  /postcss-import/15.0.0_postcss@8.4.16:
+    resolution: {integrity: sha512-Y20shPQ07RitgBGv2zvkEAu9bqvrD77C9axhj/aA1BQj4czape2MdClCExvB27EwYEJdGgKZBpKanb0t1rK2Kg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      postcss: ^8.0.0
+    dependencies:
+      postcss: 8.4.16
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.1
+    dev: true
+
   /postcss-js/4.0.0_postcss@8.4.16:
     resolution: {integrity: sha512-77QESFBwgX4irogGVPgQ5s07vLvFqWr228qZY+w6lW599cRlK/HmnlivnnVUxkjHnCu4J16PDMHcH+e+2HbvTQ==}
     engines: {node: ^12 || ^14 || >= 16}
@@ -6012,6 +6080,17 @@ packages:
     dependencies:
       postcss: 8.4.16
       postcss-selector-parser: 6.0.10
+
+  /postcss-nesting/10.1.10_postcss@8.4.16:
+    resolution: {integrity: sha512-lqd7LXCq0gWc0wKXtoKDru5wEUNjm3OryLVNRZ8OnW8km6fSNUuFrjEhU3nklxXE2jvd4qrox566acgh+xQt8w==}
+    engines: {node: ^12 || ^14 || >=16}
+    peerDependencies:
+      postcss: ^8.2
+    dependencies:
+      '@csstools/selector-specificity': 2.0.2_pnx64jze6bptzcedy5bidi3zdi
+      postcss: 8.4.16
+      postcss-selector-parser: 6.0.10
+    dev: true
 
   /postcss-normalize-charset/5.1.0_postcss@8.4.16:
     resolution: {integrity: sha512-mSgUJ+pd/ldRGVx26p2wz9dNZ7ji6Pn8VWBajMXFf8jk7vUoSrZ2lt/wZR7DtlZYKesmZI680qjr2CeFF2fbUg==}
@@ -6187,6 +6266,22 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier-linter-helpers/1.0.0:
+    resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      fast-diff: 1.2.0
+    dev: true
+
+  /prettier-plugin-tailwindcss/0.1.13_prettier@2.7.1:
+    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+    engines: {node: '>=12.17.0'}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dependencies:
+      prettier: 2.7.1
     dev: true
 
   /prettier/2.7.1:
@@ -6527,7 +6622,6 @@ packages:
       chokidar: 3.5.3
       immutable: 4.1.0
       source-map-js: 1.0.2
-    dev: true
 
   /saxes/6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
@@ -7305,7 +7399,7 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
     dev: true
@@ -7329,7 +7423,7 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
     dev: true
@@ -7470,7 +7564,7 @@ packages:
       json5: 2.2.1
       local-pkg: 0.4.2
       picocolors: 1.0.0
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       yaml: 2.1.1
     transitivePeerDependencies:
       - supports-color
@@ -7486,7 +7580,7 @@ packages:
       '@vue/compiler-sfc': 3.2.39
       debug: 4.3.4
       fast-glob: 3.2.11
-      vite: 3.1.0
+      vite: 3.1.0_sass@1.54.9
       vue: 3.2.39
       vue-router: 4.1.5_vue@3.2.39
     transitivePeerDependencies:

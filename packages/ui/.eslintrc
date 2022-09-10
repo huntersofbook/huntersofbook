@@ -1,5 +1,5 @@
 {
-  "extends": ["@antfu"],
+  "extends": ["@antfu", "plugin:prettier/recommended"],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "off"
   }
