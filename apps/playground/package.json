@@ -1,7 +1,8 @@
 {
-  "type": "module",
+  "name": "playground",
   "private": true,
   "packageManager": "pnpm@7.11.0",
+  "sideEffects": false,
   "scripts": {
     "build": "vite-ssg build",
     "dev": "vite --port 3333 --open",
@@ -22,6 +23,7 @@
     "naive-ui": "2.33.2",
     "nprogress": "0.2.0",
     "pinia": "2.0.22",
+    "sass": "1.54.9",
     "vee-validate": "4.6.7",
     "vue": "3.2.39",
     "vue-demi": "0.13.11",
@@ -42,6 +44,8 @@
     "https-localhost": "4.7.1",
     "pnpm": "7.11.0",
     "postcss": "8.4.16",
+    "postcss-import": "^15.0.0",
+    "postcss-nesting": "^10.1.10",
     "tailwindcss": "3.1.8",
     "typescript": "4.8.3",
     "unocss": "0.45.18",

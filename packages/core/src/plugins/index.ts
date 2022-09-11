@@ -87,7 +87,6 @@ function getHuntersofbookInstance(instance: ComponentInternalInstance): Ihunters
 function createGlobal(
   plugins: IhuntersofbookPlugins,
 ): VueIhuntersofbook {
-  console.log(plugins, 'pluginsaaaaa')
   const scope = effectScope()
   const obj = scope.run(() => createComposer(plugins))
   if (obj == null)

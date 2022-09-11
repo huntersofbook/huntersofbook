@@ -6,6 +6,11 @@ const toggleLocales = () => {
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
 }
+const { changeDark } = inject('isDark') as any
+
+const toggleDarkMode = () => {
+  changeDark()
+}
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const toggleLocales = () => {
       <div class="i-carbon-campsite" />
     </RouterLink>
 
-    <button class="icon-btn mx-2 !outline-none" :title="t('button.toggle_dark')" @click="toggleDark()">
+    <button class="icon-btn mx-2 !outline-none" :title="t('button.toggle_dark')" @click="toggleDarkMode">
       <div class="i-carbon-sun" />
     </button>
 

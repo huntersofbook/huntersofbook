@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { LOCALE_KEY } from '../../enums/cacheEnum'
-import type { LocaleType } from '../../locales/config'
+import type { LocaleType } from '../../i18n/config'
 import { createStorage } from '../../utils/Storage'
 import { store } from '../index'
 

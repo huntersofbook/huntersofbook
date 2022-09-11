@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { loadDateFNSLocale } from 'huntersofbook'
 import { useI18n } from 'vue-i18n'
 import { onMounted, ref } from 'vue'
-import { useLocale } from '../docs/.vitepress/locales/useLocale'
+import { useLocale } from '../docs/.vitepress/i18n/useLocale'
 const { locale, availableLocales } = useI18n()
 
 const isOpen = ref(false)
