@@ -52,7 +52,7 @@ export default defineComponent({
   <NCheckbox
     :id="attrs.id"
     v-bind="getBindValue"
-    :value="inputValue"
+    v-model:checked="inputValue"
     :status="errorMessage ? 'error' : 'success'"
   >
     <template v-for="child in options" #[child.slot] :key="child.meta.id">

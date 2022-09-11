@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, unref } from 'vue'
 import { ZxcvbnResult, zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
-import { minLengthMatcher } from './minLengthMatcher';
+import { minLengthMatcher } from './minLengthMatcher'
+import { regexMatcher } from './regex';
 
 const props = defineProps({
   password: {
@@ -17,9 +18,8 @@ const props = defineProps({
     default: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
   },
 })
-// const matcherPwned = matcherPwnedFactory(fetch, zxcvbnOptions)
-zxcvbnOptions.addMatcher('minLength', minLengthMatcher)
-
+// zxcvbnOptions.addMatcher('minLength', minLengthMatcher)
+zxcvbnOptions.addMatcher('regex', regexMatcher(props.regex))
 const options = {
   // recommended
   useLevenshteinDistance: true,
@@ -27,8 +27,9 @@ const options = {
 zxcvbnOptions.setOptions(options)
 
 const getPasswordStrength = computed(() => {
-  const value = unref(props.password)
-  const zxcvbnRef = zxcvbn(unref(props.password)) as ZxcvbnResult
+  const password = props.password.length > 1 ? props.password : '0'
+  const value = unref(password)
+  const zxcvbnRef = zxcvbn(unref(password)) as ZxcvbnResult
   return value ? zxcvbnRef.score : -1
 })
 </script>

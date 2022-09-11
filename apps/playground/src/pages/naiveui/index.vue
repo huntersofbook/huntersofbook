@@ -27,6 +27,12 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         name: 'data1',
         label: 'HNInput',
         component: HNInput,
+        footer: {
+          render() {
+            return h(HPasswordMetter, { password: form.values.data1 })
+          },
+          text: 'Password meter',
+        },
         options: [
           {
             slot: 'password-invisible-icon',

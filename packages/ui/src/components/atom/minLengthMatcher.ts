@@ -20,6 +20,7 @@ const minLengthMatcher: Matcher = {
           j: password.length - 1,
         })
       }
+      console.log(matches, 'minLengthMatcher')
       return matches
     }
   },

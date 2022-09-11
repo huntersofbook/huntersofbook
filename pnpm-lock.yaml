@@ -171,6 +171,7 @@ importers:
       vee-validate: ^4.6.5
       vue: ^3.2.37
       vue-i18n: 9.3.0-beta.3
+      vue-types: ^4.2.1
       yup: ^0.32.11
     dependencies:
       '@formkit/auto-animate': 1.0.0-beta.3
@@ -178,6 +179,7 @@ importers:
       vee-validate: 4.6.5_vue@3.2.37
       vue: 3.2.37
       vue-i18n: 9.3.0-beta.3_vue@3.2.37
+      vue-types: 4.2.1_vue@3.2.37
       yup: 0.32.11
     devDependencies:
       magic-string: 0.26.2
@@ -4777,6 +4779,11 @@ packages:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
 
+  /is-plain-object/5.0.0:
+    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /is-potential-custom-element-name/1.0.1:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
     dev: true
@@ -7837,6 +7844,16 @@ packages:
       '@volar/vue-typescript': 0.40.13
       typescript: 4.8.3
     dev: true
+
+  /vue-types/4.2.1_vue@3.2.37:
+    resolution: {integrity: sha512-DNQZmJuOvovLUIp0BENRkdnZHbI0V4e2mNvjAZOAXKD56YGvRchtUYOXA/XqTxdv7Ng5SJLZqRKRpAhm5NLaPQ==}
+    engines: {node: '>=12.16.0'}
+    peerDependencies:
+      vue: ^2.0.0 || ^3.0.0
+    dependencies:
+      is-plain-object: 5.0.0
+      vue: 3.2.37
+    dev: false
 
   /vue/3.2.37:
     resolution: {integrity: sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ==}

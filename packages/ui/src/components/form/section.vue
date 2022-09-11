@@ -39,6 +39,7 @@ const post = (e: Event) => {
           :init="item.init"
           :label="item.label"
           :options="item.options"
+          :footer="item.footer"
           v-bind="item.attrs" />
         <!-- 
           <component :is="item.renderComponent" v-if="item.renderComponent" /> 

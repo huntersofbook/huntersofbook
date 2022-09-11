@@ -8,6 +8,7 @@ import { computed, defineComponent, unref, useAttrs } from 'vue'
 interface Props extends InputProps {
   data?: any
   options?: any
+  footer?: any
 }
 const props = defineProps<Props>()
 
@@ -57,7 +58,11 @@ export default defineComponent({
     </template>
   </NInput>
 
-  <slot name="footer" />
+  <component :is="footer.render" v-if="footer.render" />
+
+  <p v-if="footer.text">
+    {{ footer.text }}
+  </p>
 
   <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
     {{ errorMessage }}
