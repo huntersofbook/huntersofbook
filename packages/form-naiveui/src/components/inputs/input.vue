@@ -58,9 +58,9 @@ export default defineComponent({
     </template>
   </NInput>
 
-  <component :is="footer.render" v-if="footer.render" />
+  <component :is="footer.render" v-if="footer && footer.render" />
 
-  <p v-if="footer.text">
+  <p v-if="footer && footer.text">
     {{ footer.text }}
   </p>
 
