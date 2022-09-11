@@ -9,7 +9,7 @@ import Demo from '../../../components/Demo.vue'
 import Language from '../../../components/Language.vue'
 import { extractFileNameFromPath } from '../../../utils'
 import 'uno.css'
-import { setupI18n } from '../locales'
+import { setupI18n } from '../i18n'
 import { setupStore } from '../stores'
 import { h } from 'vue'
 

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed, unref } from 'vue'
 import { ZxcvbnResult, zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
-import { minLengthMatcher } from './minLengthMatcher'
-import { regexMatcher } from './regex';
 
 const props = defineProps({
   password: {
@@ -18,8 +16,7 @@ const props = defineProps({
     default: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
   },
 })
-// zxcvbnOptions.addMatcher('minLength', minLengthMatcher)
-zxcvbnOptions.addMatcher('regex', regexMatcher(props.regex))
+
 const options = {
   // recommended
   useLevenshteinDistance: true,

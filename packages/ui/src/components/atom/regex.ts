@@ -6,39 +6,43 @@ import {
   Matcher,
 } from '@zxcvbn-ts/core/dist/types'
 
-function regexMatcher(regex: RegExp) {
-  const minLengthMatcher: Matcher = {
-    Matching: class MatchMinLength {
-      minLength = 8
-
-      match({ password }: { password: string }) {
-        const matches: Match[] = []
-        const re = regex
-
-        if (!re.test(password)) {
-          matches.push({
-            pattern: 'minLength',
-            token: password,
-            i: 0,
-            j: password.length - 1,
-          })
-        }
-        console.log(matches, 'regexMatcher')
-        return matches
+const regexMatcher: Matcher = {
+  Matching: class MatchMinLength {
+    match({ password }: { password: string }) {
+      const matches: Match[] = []
+      const re =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+      console.log('password', password)
+      console.log(re, 're')
+      if (re.test(password)) {
+        matches.push({
+          pattern: 'regex',
+          token: password,
+          i: 0,
+          j: 1,
+        })
+      } else {
+        matches.push({
+          pattern: 'regex',
+          token: password,
+          i: 0,
+          j: -1,
+        })
       }
-    },
-    feedback(match: MatchEstimated, isSoleMatch?: any) {
-      return {
-        warning: zxcvbnOptions.translations.warnings.keyPattern,
-        suggestions: [],
-      }
-    },
-    scoring(match: MatchExtended) {
-      // this will take the length of the password and multiple it by 10
-      // to create a higher scoring the more characters are added
-      return match.token.length * 10
-    },
-  }
-  return minLengthMatcher
+      console.log(matches, 'regexMatcher')
+      return matches
+    }
+  },
+  feedback(match: MatchEstimated, isSoleMatch?: any) {
+    return {
+      warning: zxcvbnOptions.translations.warnings.keyPattern,
+      suggestions: [],
+    }
+  },
+  scoring(match: MatchExtended) {
+    console.log(match.regexMatch, 'regexMatcher')
+    return match.regexMatch * 10
+  },
 }
+
 export { regexMatcher }
