@@ -15,7 +15,7 @@
     "@iconify-json/ph": "^1.1.2",
     "@unocss/preset-icons": "^0.45.12",
     "unocss": "^0.45.12",
-    "vitepress": "1.0.0-alpha.13",
+    "vitepress": "1.0.0-alpha.14",
     "vue": "3.2.39",
     "vue-i18n": "9.3.0-beta.3"
   },
@@ -23,7 +23,7 @@
     "@huntersofbook/form-naiveui": "workspace:*",
     "@huntersofbook/ui": "workspace:*",
     "@intlify/vite-plugin-vue-i18n": "7.0.0-beta.2",
-    "autoprefixer": "10.4.8",
+    "autoprefixer": "10.4.11",
     "huntersofbook": "workspace:*",
     "pinia": "^2.0.21",
     "postcss": "8.4.16",
