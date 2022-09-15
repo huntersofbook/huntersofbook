@@ -25,8 +25,6 @@ importers:
       splitpanes: 3.1.1
       typescript: 4.8.3
       unbuild: 0.8.11
-      vite: 3.1.0
-      vue: 3.2.39
     devDependencies:
       '@antfu/eslint-config': 0.26.3_irgkl5vooow2ydyo6aokmferha
       '@huntersofbook/auth-vue': link:packages/auth-vue
@@ -49,22 +47,20 @@ importers:
       splitpanes: 3.1.1
       typescript: 4.8.3
       unbuild: 0.8.11
-      vite: 3.1.0
-      vue: 3.2.39
 
   apps/docs:
     specifiers:
       '@huntersofbook/form-naiveui': workspace:*
       '@huntersofbook/ui': workspace:*
-      '@iconify-json/ph': ^1.1.2
+      '@iconify-json/ph': 1.1.2
       '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2
-      '@unocss/preset-icons': ^0.45.12
+      '@unocss/preset-icons': 0.45.12
       autoprefixer: 10.4.11
       huntersofbook: workspace:*
-      pinia: ^2.0.21
+      pinia: 2.0.21
       postcss: 8.4.16
       tailwindcss: 3.1.8
-      unocss: ^0.45.12
+      unocss: 0.45.12
       vitepress: 1.0.0-alpha.14
       vue: 3.2.39
       vue-i18n: 9.3.0-beta.3
@@ -281,9 +277,14 @@ importers:
     specifiers:
       '@huntersofbook/core': workspace:*
       '@huntersofbook/ui': workspace:*
+      '@types/node': 17.0.45
+      vite: 3.1.0
     dependencies:
       '@huntersofbook/core': link:../core
       '@huntersofbook/ui': link:../ui
+    devDependencies:
+      '@types/node': 17.0.45
+      vite: 3.1.0
 
   packages/plausible-vue:
     specifiers:
@@ -306,6 +307,7 @@ importers:
       '@vue/compiler-sfc': 3.2.39
       '@zxcvbn-ts/core': ^2.0.4
       autoprefixer: 10.4.11
+      date-fns: ^2.29.2
       eslint: 8.23.1
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
@@ -327,6 +329,7 @@ importers:
     dependencies:
       '@huntersofbook/core': link:../core
       '@zxcvbn-ts/core': 2.0.4
+      date-fns: 2.29.2
       naive-ui: 2.33.3_vue@3.2.37
       sass: 1.54.9
       vue: 3.2.37

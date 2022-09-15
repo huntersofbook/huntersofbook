@@ -50,6 +50,7 @@
   "dependencies": {
     "@huntersofbook/core": "workspace:*",
     "@zxcvbn-ts/core": "^2.0.4",
+    "date-fns": "^2.29.2",
     "naive-ui": "2.33.3",
     "sass": "1.54.9",
     "vue": "^3.2.37",
