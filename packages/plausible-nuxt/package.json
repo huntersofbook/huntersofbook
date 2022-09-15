@@ -21,7 +21,8 @@
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.0.0-rc.10"
+    "@nuxt/kit": "^3.0.0-rc.10",
+    "@huntersofbook/plausible-vue": "*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",

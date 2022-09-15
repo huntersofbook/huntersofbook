@@ -289,6 +289,7 @@ importers:
 
   packages/plausible-nuxt:
     specifiers:
+      '@huntersofbook/plausible-vue': '*'
       '@nuxt/kit': ^3.0.0-rc.10
       '@nuxt/module-builder': latest
       '@nuxt/schema': 3.0.0-rc.10
@@ -296,6 +297,7 @@ importers:
       eslint: latest
       nuxt: 3.0.0-rc.10
     dependencies:
+      '@huntersofbook/plausible-vue': link:../plausible-vue
       '@nuxt/kit': 3.0.0-rc.10
     devDependencies:
       '@nuxt/module-builder': 0.1.7

@@ -1,5 +1,6 @@
-import { defineNuxtPlugin } from '#app'
+import { createPlausible } from '@huntersofbook/plausible-vue'
+import { defineNuxtPlugin } from '#imports'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  console.log('Plugin by my-module!')
+  console.log('nuxtApp', nuxtApp)
 })
