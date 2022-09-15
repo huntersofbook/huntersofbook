@@ -28,7 +28,7 @@ const router = createRouter({
 app.use(router)
 app.use(head)
 
-function init() {
+async function init() {
   try {
     Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map((i: any) =>
       i.install?.({ app, router }),
