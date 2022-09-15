@@ -47,7 +47,7 @@ export default defineConfig(
         alias: {
           '~/': `${path.resolve(__dirname, 'src')}/`,
         },
-        dedupe: ['vue', 'vee-validate', 'vue-router', 'vuex', 'vue-i18n', 'vue-meta', 'huntersofbook'],
+        dedupe: ['vue'],
       },
       build: { target: 'esnext' },
       plugins: [

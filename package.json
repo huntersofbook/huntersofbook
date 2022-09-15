@@ -26,7 +26,6 @@
     "@huntersofbook/ui": "workspace:*",
     "@huntersofbook/plausible-vue": "workspace:*",
     "@huntersofbook/auth-vue": "workspace:*",
-    "docs": "workspace:*",
     "@types/lodash": "4.14.185",
     "bumpp": "8.2.1",
     "eslint": "8.23.1",
