@@ -1,4 +1,5 @@
 import { createPlausible } from '@huntersofbook/plausible-vue'
+import type { IPlausible } from '@huntersofbook/plausible-vue'
 
 import { defineNuxtPlugin } from '#app'
 
@@ -9,3 +10,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(hob)
   })
 })
+
+declare module '#app' {
+  interface NuxtApp {
+      $plausible: ReturnType<IPlausible>
+  }
+}

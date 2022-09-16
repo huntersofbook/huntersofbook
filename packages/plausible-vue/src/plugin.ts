@@ -1,7 +1,7 @@
 import Plausible from 'plausible-tracker'
 import type { PlausibleOptions } from 'plausible-tracker'
 import { App, inject } from 'vue'
-
+export type IPlausible = typeof Plausible
 export interface OptionPlugin {
   /**
    * Plausible options

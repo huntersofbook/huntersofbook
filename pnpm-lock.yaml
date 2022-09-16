@@ -305,10 +305,12 @@ importers:
       '@nuxt/kit': ^3.0.0-rc.10
       '@nuxt/module-builder': latest
       '@nuxt/schema': 3.0.0-rc.10
+      defu: ^6.1.0
       nuxt: 3.0.0-rc.10
     dependencies:
       '@huntersofbook/plausible-vue': link:../plausible-vue
       '@nuxt/kit': 3.0.0-rc.10
+      defu: 6.1.0
     devDependencies:
       '@nuxt/module-builder': 0.1.7
       '@nuxt/schema': 3.0.0-rc.10
@@ -2396,7 +2398,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.0_sass@1.54.9
+      vite: 3.1.0
       vue: 3.2.39
     dev: true
 

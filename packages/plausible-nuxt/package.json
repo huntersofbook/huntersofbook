@@ -15,14 +15,15 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build",
+    "build": "nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
   "dependencies": {
+    "@huntersofbook/plausible-vue": "*",
     "@nuxt/kit": "^3.0.0-rc.10",
-    "@huntersofbook/plausible-vue": "*"
+    "defu": "^6.1.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
