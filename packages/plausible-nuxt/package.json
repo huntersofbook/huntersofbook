@@ -1,7 +1,29 @@
 {
   "name": "@huntersofbook/plausible-nuxt",
-  "version": "1.0.0",
+  "version": "0.0.22",
+  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
+  "funding": "https://github.com/sponsors/huntersofbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/plausible-nuxt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/plausible-nuxt"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "nuxt 3",
+    "composition",
+    "analytics",
+    "plausible",
+    "plausible analytics",
+    "tracking",
+    "nuxt",
+    "plugin"
+  ],
   "type": "module",
   "exports": {
     ".": {
@@ -27,7 +49,7 @@
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
-    "@nuxt/schema": "3.0.0-rc.10",
-    "nuxt": "3.0.0-rc.10"
+    "@nuxt/schema": "^3.0.0-rc.10",
+    "nuxt": "^3.0.0-rc.10"
   }
 }
