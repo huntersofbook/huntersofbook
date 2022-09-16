@@ -1,8 +1,7 @@
-import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 import { OptionPlugin } from '@huntersofbook/plausible-vue'
-import { addImports, addPlugin, defineNuxtModule } from '@nuxt/kit'
+import { addImports, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 
 import { name, version } from '../package.json'
@@ -31,6 +30,8 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   setup (options, nuxt) {
+    const { resolve } = createResolver(import.meta.url)
+
     nuxt.options.appConfig.huntersofbookPlausible = defu(options, {
       init: {
         domain: 'localhost',
@@ -43,10 +44,7 @@ export default defineNuxtModule<ModuleOptions>({
       }
     })
 
-    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
-    nuxt.options.build.transpile.push(runtimeDir)
-
-    addPlugin({ src: resolve(runtimeDir, 'plugin'), mode: 'client' })
+    addPlugin({ src: resolve('./runtime/plugin'), mode: 'client' })
 
     addImports([
       ...[
@@ -54,7 +52,7 @@ export default defineNuxtModule<ModuleOptions>({
       ].map(key => ({
         name: key,
         as: key,
-        from: resolve(runtimeDir, 'composables')
+        from: resolve('./runtime/composables')
       }))
     ])
   }
