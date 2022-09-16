@@ -1,11 +1,16 @@
 import { defineNuxtConfig } from 'nuxt/config'
-import MyModule from '..'
+
+import huntersofbookPlausible from '..'
 
 export default defineNuxtConfig({
   modules: [
-    MyModule
+    huntersofbookPlausible
   ],
-  myModule: {
-    addPlugin: true
+  huntersofbookPlausible: {
+    init: {
+      domain: 'localhost',
+      apiHost: 'https://site.com',
+      trackLocalhost: true
+    }
   }
 })
