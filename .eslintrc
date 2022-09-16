@@ -1,0 +1,93 @@
+{
+    "extends": ["@antfu", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+      "@typescript-eslint/consistent-type-imports": "off",
+      "arrow-body-style": "off",
+      "prefer-arrow-callback": "off",
+      "antfu/if-newline": "off",
+      "prettier/prettier": "warn",
+      "no-unused-vars": "off",
+      "next-line": [0],
+      "linebreak-style": 0,
+      "array-element-newline": [
+        "error",
+        {
+          "ArrayExpression": "consistent",
+          "ArrayPattern": { "minItems": 3 }
+        }
+      ],
+      "useTabs": 0,
+      "import/order": [
+        "error",
+        {
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": false
+          },
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling", "index"],
+            "object",
+            "unknown"
+          ],
+          "newlines-between": "always",
+          "pathGroups": [
+            {
+              "pattern": "~/**",
+              "group": "internal"
+            }
+          ],
+          "pathGroupsExcludedImportTypes": ["builtin", "object"]
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": ["*.vue"],
+        "extends": ["@antfu", "prettier"],
+        "rules": {
+          "vue/script-setup-uses-vars": "off",
+          "vue/no-reserved-component-names": "off",
+          "vue/no-constant-condition": "off",
+          "vue/no-deprecated-slot-attribute": "off",
+          // needed for script setup
+          // see: https://github.com/vuejs/eslint-plugin-vue/issues/1577
+          "import/first": "off",
+          // see: https://github.com/prettier/eslint-config-prettier#vuehtml-self-closing
+          "vue/html-self-closing": [
+            "error",
+            {
+              "html": {
+                "void": "any"
+              }
+            }
+          ],
+          "no-console": ["off"],
+          "promise/param-names": "off",
+          "no-unused-expressions": "warn",
+          "antfu/if-newline": "off",
+          "@typescript-eslint/no-unused-vars": "off",
+          "@typescript-eslint/consistent-type-imports": "off",
+          "@typescript-eslint/no-use-before-define": "warn"
+        }
+      },
+      {
+        "files": ["packages/plausible-nuxt/**/*.ts"],
+        "extends": ["@nuxtjs/eslint-config-typescript"]
+      }
+    ],
+    "ignorePatterns": [
+      "**/*.json",
+      "dist",
+      "node_modules",
+      ".turbo",
+      ".nuxt",
+      "public",
+      ".output",
+      "!.storybook",
+      "storybook-static"
+    ]
+}

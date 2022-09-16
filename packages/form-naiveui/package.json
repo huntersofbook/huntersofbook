@@ -49,10 +49,10 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "vue": "^3.2.37",
+    "vue": "^3.2.39",
     "yup": "^0.32.11",
     "vee-validate": "^4.6.7",
-    "naive-ui": "2.33.3",
+    "naive-ui": "^2.33.3",
     "@huntersofbook/core": "workspace:*",
     "typescript": "^4.2.4"
   },
@@ -75,7 +75,7 @@
   },
   "peerDependencies": {
     "typescript": "^4.7.4",
-    "naive-ui": "2.33.3",
+    "naive-ui": "^2.33.3",
     "vee-validate": "^4.6.4"
   }
 }

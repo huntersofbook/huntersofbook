@@ -44,14 +44,13 @@
     "stub": "unbuild --stub"
   },
   "devDependencies": {
-    "@vue/runtime-core": "^3.2.38",
     "unconfig": "^0.3.5",
-    "vue": "^3.2.38"
+    "vue": "^3.2.39"
   },
   "dependencies": {
     "plausible-tracker": "^0.3.8"
   },
   "peerDependencies": {
-    "vue": "^3.2.38"
+    "vue": "^3.2.39"
   }
 }
