@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 import { OptionPlugin } from '@huntersofbook/plausible-vue'
-import { addImportsSources, addPlugin, defineNuxtModule, useLogger } from '@nuxt/kit'
+import { addImports, addImportsSources, addPlugin, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit'
 import { defu } from 'defu'
 
 import { name, version } from '../package.json'
@@ -10,17 +10,13 @@ import { name, version } from '../package.json'
 export interface ModuleOptions extends OptionPlugin {
 }
 
-const HuntersofbookHooks = [
-  'usePlausible'
-]
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,
     configKey: 'huntersofbookPlausible',
     compatibility: {
-      nuxt: '^3.0.0-rc.10'
+      nuxt: '^3'
     }
   },
   defaults: {
@@ -36,6 +32,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup (options, nuxt) {
     const logger = useLogger()
+    const resolver = createResolver(import.meta.url)
 
     if (!options.init) {
       logger.warn(' in `.env`')
@@ -56,17 +53,23 @@ export default defineNuxtModule<ModuleOptions>({
         enableAutoPageviews: true
       }
     })
-    addImportsSources([
-      {
-        from: '@huntersofbook/plausible-vue',
-        imports: [...HuntersofbookHooks]
-      }
-    ])
+
+    const composables = resolver.resolve('./runtime/composables')
 
     if (options.init) {
       const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
       nuxt.options.build.transpile.push(runtimeDir)
       addPlugin({ src: resolve(runtimeDir, 'plugin'), mode: 'client' })
     }
+
+    addImports([
+      ...[
+        'usePlausible'
+      ].map(key => ({
+        name: key,
+        as: key,
+        from: composables
+      }))
+    ])
   }
 })

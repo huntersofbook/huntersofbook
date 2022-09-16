@@ -1,7 +1,10 @@
 import Plausible from 'plausible-tracker'
 import type { PlausibleOptions } from 'plausible-tracker'
 import { App, inject } from 'vue'
+
 export type IPlausible = typeof Plausible
+export type ReturnUsePlasuible = Omit<ReturnType<typeof Plausible>, 'enableAutoPageviews' | 'enableAutoOutboundTracking'>
+
 export interface OptionPlugin {
   /**
    * Plausible options
@@ -53,7 +56,7 @@ export const createPlausible = (options: OptionPlugin) => {
 }
 
 export const usePlausible = () => {
-  const plausible = inject('$plausible') as Omit<ReturnType<typeof Plausible>, 'enableAutoPageviews' | 'enableAutoOutboundTracking'>
+  const plausible = inject('$plausible') as ReturnUsePlasuible
 
   return {
     ...plausible,
