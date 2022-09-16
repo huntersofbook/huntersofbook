@@ -304,9 +304,9 @@ importers:
       '@huntersofbook/plausible-vue': '*'
       '@nuxt/kit': ^3.0.0-rc.10
       '@nuxt/module-builder': latest
-      '@nuxt/schema': 3.0.0-rc.10
+      '@nuxt/schema': ^3.0.0-rc.10
       defu: ^6.1.0
-      nuxt: 3.0.0-rc.10
+      nuxt: ^3.0.0-rc.10
     dependencies:
       '@huntersofbook/plausible-vue': link:../plausible-vue
       '@nuxt/kit': 3.0.0-rc.10
@@ -7684,9 +7684,6 @@ packages:
     resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
     dev: true
 
-  /pathe/0.3.5:
-    resolution: {integrity: sha512-grU/QeYP0ChuE5kjU2/k8VtAeODzbernHlue0gTa27+ayGIu3wqYBIPGfP9r5xSqgCgDd4nWrjKXEfxMillByg==}
-
   /pathe/0.3.7:
     resolution: {integrity: sha512-yz7GK+kSsS27x727jtXpd5VT4dDfP/JDIQmaowfxyWCnFjOWtE1VIh7i6TzcSfzW0n4+bRQztj1VdKnITNq/MA==}
 
@@ -9701,7 +9698,7 @@ packages:
       local-pkg: 0.4.2
       magic-string: 0.26.3
       mlly: 0.5.14
-      pathe: 0.3.5
+      pathe: 0.3.7
       scule: 0.3.2
       strip-literal: 0.4.0
       unplugin: 0.9.5
@@ -9720,7 +9717,7 @@ packages:
       local-pkg: 0.4.2
       magic-string: 0.26.3
       mlly: 0.5.14
-      pathe: 0.3.5
+      pathe: 0.3.7
       scule: 0.3.2
       strip-literal: 0.4.0
       unplugin: 0.9.5_4dwlpq3uo3pzstj2gqitvdgyci
@@ -9740,7 +9737,7 @@ packages:
       local-pkg: 0.4.2
       magic-string: 0.26.3
       mlly: 0.5.14
-      pathe: 0.3.5
+      pathe: 0.3.7
       scule: 0.3.2
       strip-literal: 0.4.0
       unplugin: 0.9.5_uu2p2v3owefbwsafzxfcsbbrxa
@@ -9760,7 +9757,7 @@ packages:
       local-pkg: 0.4.2
       magic-string: 0.26.3
       mlly: 0.5.14
-      pathe: 0.3.5
+      pathe: 0.3.7
       scule: 0.3.2
       strip-literal: 0.4.0
       unplugin: 0.9.5_vite@3.1.0
