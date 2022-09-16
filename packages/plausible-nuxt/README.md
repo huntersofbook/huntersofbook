@@ -1,4 +1,4 @@
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/docs/images/cover.jpg?raw=true)
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/docs/images/cover.png?raw=true)
 
 
 # Plausible Nuxt 3 Module
