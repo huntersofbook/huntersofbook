@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = defineProps({
   text: String,
-  active: Boolean,
-});
-defineEmits(["click"]);
+  active: Boolean
+})
+defineEmits(['click'])
 </script>
 
 <template>

@@ -22,7 +22,7 @@ const head = createHead()
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 })
 
 app.use(router)
@@ -30,14 +30,13 @@ app.use(head)
 
 async function init() {
   try {
-    Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map((i: any) =>
-      i.install?.({ app, router }),
+    Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map(
+      (i: any) => i.install?.({ app, router })
     )
     router.isReady().then(() => {
       app.mount('#app')
     })
-  }
-  catch (e) {
+  } catch (e) {
     console.error(e)
   }
 }

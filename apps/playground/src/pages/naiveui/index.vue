@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { HNButton, HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
+import {
+  HNButton,
+  HNCheckbox,
+  HNInput,
+  HNInputNumber,
+  HNSelect,
+  HNSwitch
+} from '@huntersofbook/form-naiveui'
 import { HPasswordMetter } from '@huntersofbook/ui'
 import type { InputSchema } from 'huntersofbook'
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
@@ -16,7 +23,7 @@ const schema: FYup.SchemaOf<SignInInput> = FYup.object({
   data2: FYup.number().required(),
   data3: FYup.string().required(),
   data4: FYup.boolean().required(),
-  data5: FYup.boolean().required(),
+  data5: FYup.boolean().required()
 })
 const schemas: InputSchema<SignInInput, 'one'> = {
   one: {
@@ -32,7 +39,7 @@ const schemas: InputSchema<SignInInput, 'one'> = {
             // eslint-disable-next-line @typescript-eslint/no-use-before-define
             return h(HPasswordMetter, { password: form.values.data1 })
           },
-          text: 'Password meter',
+          text: 'Password meter'
         },
         options: [
           {
@@ -40,18 +47,26 @@ const schemas: InputSchema<SignInInput, 'one'> = {
             meta: {
               id: 'suffix',
               render() {
-                return h('div', { class: 'i-carbon-sun text-blue-500 h-full flex items-center' })
-              },
-            },
+                return h('div', {
+                  class: 'i-carbon-sun text-blue-500 h-full flex items-center'
+                })
+              }
+            }
           },
           {
             slot: 'password-visible-icon',
             meta: {
               id: 'suffix',
               render() {
-                return h('div', { class: 'i-carbon-sun text-red-500 h-full flex items-center' }, '')
-              },
-            },
+                return h(
+                  'div',
+                  {
+                    class: 'i-carbon-sun text-red-500 h-full flex items-center'
+                  },
+                  ''
+                )
+              }
+            }
           },
           {
             slot: 'password-visible-icon',
@@ -59,15 +74,15 @@ const schemas: InputSchema<SignInInput, 'one'> = {
               id: 'suffix',
               render() {
                 return h(HPasswordMetter, { password: '123456' })
-              },
-            },
-          },
+              }
+            }
+          }
         ],
         attrs: {
-          'type': 'password',
+          type: 'password',
           'on-update:value': () => console.log('asdasd'),
-          'show-password-on': 'click',
-        } as InputProps,
+          'show-password-on': 'click'
+        } as InputProps
       },
       {
         id: 'data2',
@@ -78,19 +93,23 @@ const schemas: InputSchema<SignInInput, 'one'> = {
           {
             slot: 'prefix',
             meta: {
-              value: 'prefix',
-            },
+              value: 'prefix'
+            }
           },
           {
             slot: 'suffix',
             meta: {
               id: 'suffix',
               render() {
-                return h('div', { class: 'i-carbon-sun h-full flex items-center' }, 'new')
-              },
-            },
-          },
-        ],
+                return h(
+                  'div',
+                  { class: 'i-carbon-sun h-full flex items-center' },
+                  'new'
+                )
+              }
+            }
+          }
+        ]
       },
       {
         id: 'data3',
@@ -100,33 +119,31 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         options: [
           {
             label: 's',
-            value: 's',
+            value: 's'
           },
           {
             label: 's1',
-            value: 's1',
-          },
-        ],
+            value: 's1'
+          }
+        ]
       },
       {
         id: 'data4',
         name: 'data4',
         label: 'HNCheckbox',
         component: HNCheckbox,
-        options: [
-        ],
+        options: [],
         attrs: {
           checkedValue: true,
-          uncheckedValue: false,
-        },
+          uncheckedValue: false
+        }
       },
       {
         id: 'data5',
         name: 'data5',
         label: 'HNSwitch',
         component: HNSwitch,
-        options: [
-        ],
+        options: []
       },
       {
         id: 'data5',
@@ -137,33 +154,40 @@ const schemas: InputSchema<SignInInput, 'one'> = {
           {
             slot: 'prefix',
             meta: {
-              value: 'prefix',
-            },
+              value: 'prefix'
+            }
           },
           {
             slot: 'icon',
             meta: {
               id: 'suffix',
               render() {
-                return h('div', { class: 'i-carbon-sun h-full flex items-center' }, 'new')
-              },
-            },
-          },
+                return h(
+                  'div',
+                  { class: 'i-carbon-sun h-full flex items-center' },
+                  'new'
+                )
+              }
+            }
+          }
         ],
         attrs: {
-          data: 'suffix',
-        },
-      },
-    ],
-  },
+          data: 'suffix'
+        }
+      }
+    ]
+  }
 }
-const { form, onInvalidSubmit } = useFormSection<SignInInput>(schemas.one.schema, {
-  data1: '123',
-  data2: 123,
-  data3: 's',
-  data4: false,
-  data5: false,
-})
+const { form, onInvalidSubmit } = useFormSection<SignInInput>(
+  schemas.one.schema,
+  {
+    data1: '123',
+    data2: 123,
+    data3: 's',
+    data4: false,
+    data5: false
+  }
+)
 const onSubmit = form.handleSubmit(async (values) => {
   console.log(values)
 }, onInvalidSubmit)
@@ -175,11 +199,18 @@ const onReset = () => {
 
 <template>
   <div class="grid grid-cols-4 gap-6 max-w-7xl mx-auto">
-    <button class="dark:bg-gray-800 bg-gray-200 p-4 rounded-lg" @click="$router.push('/naiveui/login')">
+    <button
+      class="dark:bg-gray-800 bg-gray-200 p-4 rounded-lg"
+      @click="$router.push('/naiveui/login')"
+    >
       Login Page
     </button>
     <HPasswordMetter password="1ad" />
-    <FormSection :forms="schemas.one.forms" class="grid grid-cols-12 gap-12 col-span-full" @post="onSubmit">
+    <FormSection
+      :forms="schemas.one.forms"
+      class="grid grid-cols-12 gap-12 col-span-full"
+      @post="onSubmit"
+    >
       <template #actions>
         <div class="grid grid-cols-2 gap-10 col-span-full">
           <div class="mb-8 w-full">
@@ -213,7 +244,7 @@ const onReset = () => {
   </div>
 </template>
 
-  <route lang="yaml">
+<route lang="yaml">
 meta:
   layout: naiveui
-  </route>
+</route>

@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from "vue";
-const showCode = ref(false);
+import { ref } from 'vue'
+const showCode = ref(false)
 </script>
 
 <template>

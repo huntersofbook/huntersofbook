@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HDateTime } from "@huntersofbook/ui";
+import { HDateTime } from '@huntersofbook/ui'
 </script>
 
 <template>

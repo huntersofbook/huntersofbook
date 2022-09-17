@@ -1,2 +1,2 @@
 // 国际化
-export const LOCALE_KEY = "LOCALE__";
+export const LOCALE_KEY = 'LOCALE__'

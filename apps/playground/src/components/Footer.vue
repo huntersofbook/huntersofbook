@@ -19,15 +19,29 @@ const toggleDarkMode = () => {
       <div class="i-carbon-campsite" />
     </RouterLink>
 
-    <button class="icon-btn mx-2 !outline-none" :title="t('button.toggle_dark')" @click="toggleDarkMode">
+    <button
+      class="icon-btn mx-2 !outline-none"
+      :title="t('button.toggle_dark')"
+      @click="toggleDarkMode"
+    >
       <div class="i-carbon-sun" />
     </button>
 
-    <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales()">
+    <a
+      class="icon-btn mx-2"
+      :title="t('button.toggle_langs')"
+      @click="toggleLocales()"
+    >
       <div class="i-carbon-language" />
     </a>
 
-    <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/huntersofbook/huntersofbook" target="_blank" title="GitHub">
+    <a
+      class="icon-btn mx-2"
+      rel="noreferrer"
+      href="https://github.com/huntersofbook/huntersofbook"
+      target="_blank"
+      title="GitHub"
+    >
       <div class="i-carbon-logo-github" />
     </a>
   </nav>

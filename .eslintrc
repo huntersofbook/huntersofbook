@@ -75,8 +75,12 @@
         }
       },
       {
-        "files": ["packages/plausible-nuxt/**/*.ts"],
-        "extends": ["@nuxtjs/eslint-config-typescript"]
+        "files": ["packages/plausible-nuxt/**/*.ts","packages/naive-ui-nuxt/**/*.ts"],
+        "extends": ["@nuxtjs/eslint-config-typescript"],
+        "rules": {
+          "space-before-function-paren": "off",
+          "arrow-parens": "off"
+        }
       }
     ],
     "ignorePatterns": [

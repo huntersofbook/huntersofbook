@@ -1,25 +1,25 @@
 /**
  * Multi-language related operations
  */
-import { computed } from "vue";
+import { computed } from 'vue'
 
-import { useLocaleStoreWithOut } from "../stores/modules/locale";
-import { i18n } from "./";
-import type { LocaleType } from "./config";
-import { loadLocalePool, setHtmlPageLang } from "./helper";
+import { useLocaleStoreWithOut } from '../stores/modules/locale'
+import { i18n } from './'
+import type { LocaleType } from './config'
+import { loadLocalePool, setHtmlPageLang } from './helper'
 
 function setI18nLanguage(locale: LocaleType) {
-  const localeStore = useLocaleStoreWithOut();
+  const localeStore = useLocaleStoreWithOut()
 
-  if (i18n.mode === "legacy") i18n.global.locale = locale;
-  else (i18n.global.locale as any).value = locale;
-  localeStore.setLocale(locale);
-  setHtmlPageLang(locale);
+  if (i18n.mode === 'legacy') i18n.global.locale = locale
+  else (i18n.global.locale as any).value = locale
+  localeStore.setLocale(locale)
+  setHtmlPageLang(locale)
 }
 
 export function useLocale() {
-  const localeStore = useLocaleStoreWithOut();
-  const getLocale = computed(() => localeStore.getLocale);
+  const localeStore = useLocaleStoreWithOut()
+  const getLocale = computed(() => localeStore.getLocale)
 
   // Switching the language will change the locale of useI18n
   // And submit to configuration modification
@@ -31,18 +31,18 @@ export function useLocale() {
     //   return locale
 
     if (loadLocalePool.includes(locale)) {
-      setI18nLanguage(locale);
-      return locale;
+      setI18nLanguage(locale)
+      return locale
     }
 
-    loadLocalePool.push(locale);
+    loadLocalePool.push(locale)
 
-    setI18nLanguage(locale);
-    return locale;
+    setI18nLanguage(locale)
+    return locale
   }
 
   return {
     getLocale,
-    changeLocale,
-  };
+    changeLocale
+  }
 }

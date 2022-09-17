@@ -9,12 +9,11 @@ function changeDark() {
 }
 onMounted(() => {
   const isDark = localStorage.getItem('isDark')
-  if (isDark)
-    dark.value = JSON.parse(isDark)
+  if (isDark) dark.value = JSON.parse(isDark)
 })
 provide('isDark', {
   changeDark,
-  dark,
+  dark
 })
 useHead({
   title: 'Vitesse',
@@ -22,20 +21,22 @@ useHead({
     { name: 'description', content: 'huntersofbook open-source' },
     {
       name: 'theme-color',
-      content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
-    },
+      content: computed(() => (isDark.value ? '#00aba9' : '#ffffff'))
+    }
   ],
   htmlAttrs: {
     lang: 'en',
-    class: computed(() => dark.value ? 'dark' : 'light'),
+    class: computed(() => (dark.value ? 'dark' : 'light'))
   },
   link: [
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: computed(() => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'),
-    },
-  ],
+      href: computed(() =>
+        preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'
+      )
+    }
+  ]
 })
 </script>
 

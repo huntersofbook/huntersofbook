@@ -1,4 +1,4 @@
-import {  addImportsSources, addVitePlugin, defineNuxtModule } from '@nuxt/kit'
+import { addImportsSources, addVitePlugin, defineNuxtModule } from '@nuxt/kit'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 
@@ -32,7 +32,7 @@ export default defineNuxtModule({
       nuxt: '^3.0.0-rc.10'
     }
   },
-  setup (options, nuxt) {
+  setup(_options, nuxt) {
     if (nuxt.options.dev) {
       nuxt.options.build.transpile.push('@juggle/resize-observer')
       nuxt.options.vite.optimizeDeps?.include?.push(
@@ -50,22 +50,24 @@ export default defineNuxtModule({
     }
 
     nuxt.hook('prepare:types', ({ tsConfig }) => {
-      tsConfig.compilerOptions.types.push("naive-ui/volar")
-    })     
+      tsConfig.compilerOptions.types.push('naive-ui/volar')
+    })
 
-    nuxt.options.head.meta.push( { name: 'naive-ui-style' })
+    nuxt.options.head.meta.push({ name: 'naive-ui-style' })
 
-    addVitePlugin(Components({
-      dts: '.nuxt/naive-ui.d.ts',
-      dirs: [],
-      resolvers: [
-        NaiveUiResolver(),
-      ],
-    }))
+    addVitePlugin(
+      Components({
+        dts: '.nuxt/naive-ui.d.ts',
+        dirs: [],
+        resolvers: [NaiveUiResolver()]
+      })
+    )
 
-    addImportsSources([{
-      from: 'naive-ui',
-      imports: [...NaiveUIHooks]
-    }])
+    addImportsSources([
+      {
+        from: 'naive-ui',
+        imports: [...NaiveUIHooks]
+      }
+    ])
   }
 })

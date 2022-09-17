@@ -1,7 +1,7 @@
-import type { App } from "vue";
+import type { App } from 'vue'
 
 interface AppContext {
-  app: App<Element>;
+  app: App<Element>
 }
 
-export type AppModule = (ctx: AppContext) => void;
+export type AppModule = (ctx: AppContext) => void

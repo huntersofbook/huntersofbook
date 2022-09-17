@@ -10,19 +10,18 @@ import { ComputedRef } from 'vue'
  */
 export interface VueIhuntersofbook {
   /**
-  * @remarks
-  * Instance ID.
-  */
+   * @remarks
+   * Instance ID.
+   */
   id: number
   /**
-  * @remarks
-  * The current locale this VueI18n instance is using.
-  *
-  * If the locale contains a territory and a dialect, this locale contains an implicit fallback.
-  *
-  * @VueIhuntersofbookSee [Scope and Locale Changing](../guide/essentials/scope)
-  */
+   * @remarks
+   * The current locale this VueI18n instance is using.
+   *
+   * If the locale contains a territory and a dialect, this locale contains an implicit fallback.
+   *
+   * @VueIhuntersofbookSee [Scope and Locale Changing](../guide/essentials/scope)
+   */
   // locale: Locales
   dateLocale: ComputedRef<Locale>
-
 }

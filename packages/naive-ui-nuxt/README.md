@@ -29,7 +29,7 @@ npm add @huntersofbook/naive-ui-nuxt
 export default defineNuxtConfig({
   modules: [
     '@huntersofbook/naive-ui-nuxt'
-  ],
+  ]
 })
 ```
 

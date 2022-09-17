@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { useI18n } from "vue-i18n";
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-import { useLocale } from "../docs/.vitepress/i18n/useLocale";
-const { locale, availableLocales } = useI18n();
+import { useLocale } from '../docs/.vitepress/i18n/useLocale'
+const { locale, availableLocales } = useI18n()
 
-const isOpen = ref(false);
+const isOpen = ref(false)
 
 const languages = availableLocales.map((locale) => ({
   label: locale,
-  value: locale,
-}));
+  value: locale
+}))
 
-const { changeLocale, getLocale } = useLocale();
+const { changeLocale, getLocale } = useLocale()
 
 const changeLanguage = async (value: string) => {
-  locale.value = value;
-  isOpen.value = false;
-  changeLocale(value as any);
-};
+  locale.value = value
+  isOpen.value = false
+  changeLocale(value as any)
+}
 </script>
 
 <template>

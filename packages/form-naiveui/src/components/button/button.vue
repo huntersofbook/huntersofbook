@@ -16,7 +16,7 @@ const getBindValue = computed(() => ({ ...unref(attrs), ...props }))
 
 <script lang="ts">
 export default defineComponent({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 </script>
 

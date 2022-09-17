@@ -89,7 +89,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         setTokenHeaderAxios(token)
         const { data } = await axios.request({
           ...options.endpoints.logout,
-          data: options.logout.graphqlQuery,
+          data: options.logout.graphqlQuery
         })
 
         if (data) {
@@ -129,7 +129,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         case 'graphql':
           res = await axios.request(
             merge(options.endpoints.user, {
-              data: options.user.graphqlQuery,
+              data: options.user.graphqlQuery
             })
           )
           break
@@ -187,9 +187,9 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       if (options.user.autoFetch) {
         setTokenHeaderAxios(tokenData)
         await fetchUser({
-          onSuccess: res => {
+          onSuccess: (res) => {
             callback.onUser?.(res)
-          },
+          }
         })
         callback.onSuccess?.(options.redirect.home)
         callback.onLoading?.(false)
@@ -386,18 +386,18 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         `,
           variables: {
             data: {
-              refreshToken,
-            },
-          },
+              refreshToken
+            }
+          }
         }
       } else {
         data = {
-          [refreshTokenName]: refreshToken,
+          [refreshTokenName]: refreshToken
         }
       }
       const res = await axios.request({
         ...options.endpoints.refresh,
-        data,
+        data
       })
 
       if (get(res.data, options.errorProperty)) {
@@ -452,7 +452,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     isExpired,
     getToken,
     setRefreshToken,
-    refreshToken,
+    refreshToken
   }
   //   initStore() {
 

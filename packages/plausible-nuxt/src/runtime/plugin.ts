@@ -7,7 +7,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   const { huntersofbookPlausible } = useAppConfig() as any
   const hob = createPlausible(huntersofbookPlausible)
   nuxtApp.vueApp.use(hob)
-  nuxtApp.provide('plausible', nuxtApp.vueApp.config.globalProperties.$plausible)
+  nuxtApp.provide(
+    'plausible',
+    nuxtApp.vueApp.config.globalProperties.$plausible
+  )
 })
 
 interface PluginInjection {
@@ -19,5 +22,5 @@ declare module '#app' {
 }
 
 declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties extends PluginInjection { }
+  interface ComponentCustomProperties extends PluginInjection {}
 }

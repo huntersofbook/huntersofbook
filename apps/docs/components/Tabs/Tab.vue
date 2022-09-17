@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import { inject } from 'vue'
 
 const props = defineProps({
   name: String,
   text: String,
-  maxHeight: Number,
-});
-const activeTab = inject<string>("activeTab");
+  maxHeight: Number
+})
+const activeTab = inject<string>('activeTab')
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const activeTab = inject<string>("activeTab");
 </template>
 
 <style>
-.vp-doc .tab__content [class*="language-"] {
+.vp-doc .tab__content [class*='language-'] {
   margin-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

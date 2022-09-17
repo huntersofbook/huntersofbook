@@ -18,10 +18,10 @@ const schema: FYup.SchemaOf<SignInInput> = FYup.object({
     .required()
     .matches(
       /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-      t('profile.settings.password_matches'),
+      t('profile.settings.password_matches')
     ),
   rememberMe: FYup.boolean().required(),
-  isCookies: FYup.boolean().required(),
+  isCookies: FYup.boolean().required()
 })
 
 const schemas: InputSchema<SignInInput, 'one'> = {
@@ -33,7 +33,7 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         name: 'email',
         label: t('login.email'),
         component: HNInput,
-        options: [],
+        options: []
       },
       {
         id: 'password',
@@ -43,19 +43,22 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         options: [],
         attrs: {
           type: 'password',
-          placeholder: '********',
-        },
-      },
-    ],
-  },
+          placeholder: '********'
+        }
+      }
+    ]
+  }
 }
 
-const { form, onInvalidSubmit } = useFormSection<SignInInput>(schemas.one.schema, {
-  email: 'hi@productdevbook.com',
-  password: '}c3!c+zs6~X+eJ)q',
-  isCookies: false,
-  rememberMe: false,
-})
+const { form, onInvalidSubmit } = useFormSection<SignInInput>(
+  schemas.one.schema,
+  {
+    email: 'hi@productdevbook.com',
+    password: '}c3!c+zs6~X+eJ)q',
+    isCookies: false,
+    rememberMe: false
+  }
+)
 
 const onSubmit = form.handleSubmit(async (values) => {
   console.log(values)
@@ -67,12 +70,8 @@ const isLoading = ref(false)
 <template>
   <div class="grid w-full p-4">
     <div class="mb-10">
-      <h2 class="mt-6 text-2xl font-extrabold">
-        Sign in to your account
-      </h2>
-      <p class="mt-2 text-sm text-gray-600">
-        productdevbook mobile app
-      </p>
+      <h2 class="mt-6 text-2xl font-extrabold">Sign in to your account</h2>
+      <p class="mt-2 text-sm text-gray-600">productdevbook mobile app</p>
     </div>
     <FormSection :forms="schemas.one.forms" @post="onSubmit">
       <template #actions>

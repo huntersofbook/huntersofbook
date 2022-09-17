@@ -3,9 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 import huntersofbookPlausible from '..'
 
 export default defineNuxtConfig({
-  modules: [
-    huntersofbookPlausible
-  ],
+  modules: [huntersofbookPlausible],
   huntersofbookPlausible: {
     init: {
       domain: 'localhost',

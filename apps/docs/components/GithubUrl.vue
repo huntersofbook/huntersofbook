@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { getGithubUrl } from "./../composables/url";
+import { getGithubUrl } from './../composables/url'
 defineProps({
-  to: String,
-});
+  to: String
+})
 </script>
 
 <template>

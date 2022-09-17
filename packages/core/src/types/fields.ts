@@ -25,10 +25,7 @@ export interface Column {
   foreign_key_schema?: string | null
 }
 
-export const TYPES = [
-  'data-array',
-  'data-json',
-] as const
+export const TYPES = ['data-array', 'data-json'] as const
 export type Type = typeof TYPES[number]
 
 export interface FieldMeta {
@@ -55,4 +52,3 @@ export interface Field extends FieldRaw {
 }
 
 export type RawField = DeepPartial<Field> & { field: string; type: Type }
-

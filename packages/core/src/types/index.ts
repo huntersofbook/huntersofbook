@@ -1,4 +1,10 @@
-import { Component, ComponentOptions, HTMLAttributes, InputHTMLAttributes, VNodeChild } from 'vue'
+import {
+  Component,
+  ComponentOptions,
+  HTMLAttributes,
+  InputHTMLAttributes,
+  VNodeChild
+} from 'vue'
 import { VueTypeValidableDef } from 'vue-types'
 
 import { Field } from './fields'
@@ -18,10 +24,14 @@ export interface IForm<T> {
   width?: string[]
   init?: any
   attrs?: Record<string, unknown> | InputHTMLAttributes
-  options: DeepPartial<Field>[] | {
-    standard: DeepPartial<Field>[]
-    advanced: DeepPartial<Field>[]
-  } | ComponentOptions | null
+  options:
+    | DeepPartial<Field>[]
+    | {
+        standard: DeepPartial<Field>[]
+        advanced: DeepPartial<Field>[]
+      }
+    | ComponentOptions
+    | null
 }
 
 export interface IFormProps {
@@ -31,10 +41,14 @@ export interface IFormProps {
   width?: string[]
   init?: any
   attrs?: Record<string, unknown> | InputHTMLAttributes
-  options: DeepPartial<Field>[] | {
-    standard: DeepPartial<Field>[]
-    advanced: DeepPartial<Field>[]
-  } | ComponentOptions | null
+  options:
+    | DeepPartial<Field>[]
+    | {
+        standard: DeepPartial<Field>[]
+        advanced: DeepPartial<Field>[]
+      }
+    | ComponentOptions
+    | null
 }
 
 export interface FormData<T> {
@@ -45,4 +59,3 @@ export interface FormData<T> {
 export type InputSchema<T, ARRAY extends string> = {
   [key in ARRAY]: FormData<T>
 }
-

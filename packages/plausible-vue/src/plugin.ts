@@ -3,7 +3,10 @@ import type { PlausibleOptions } from 'plausible-tracker'
 import { App, inject } from 'vue'
 
 export type IPlausible = typeof Plausible
-export type ReturnUsePlasuible = Omit<ReturnType<typeof Plausible>, 'enableAutoPageviews' | 'enableAutoOutboundTracking'>
+export type ReturnUsePlasuible = Omit<
+  ReturnType<typeof Plausible>,
+  'enableAutoPageviews' | 'enableAutoOutboundTracking'
+>
 
 export interface OptionPlugin {
   /**
@@ -25,7 +28,7 @@ export interface InstallOptions {
    * @default false
    * @see https://github.com/plausible/plausible-tracker
    * @type boolean
-  */
+   */
   enableAutoPageviews?: boolean
   /**
    * Outbound link click tracking
@@ -33,7 +36,7 @@ export interface InstallOptions {
    * @see https://plausible.io/docs/outbound-link-click-tracking
    * @type boolean
    *
-  */
+   */
   enableAutoOutboundTracking?: boolean
 }
 
@@ -50,7 +53,7 @@ export const createPlausible = (options: OptionPlugin) => {
 
       app.config.globalProperties.$plausible = plausible
       app.provide('$plausible', plausible)
-    },
+    }
   }
   return plausible
 }
@@ -59,7 +62,7 @@ export const usePlausible = () => {
   const plausible = inject('$plausible') as ReturnUsePlasuible
 
   return {
-    ...plausible,
+    ...plausible
   }
 }
 

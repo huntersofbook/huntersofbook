@@ -1,11 +1,15 @@
 import { OptionPlugin } from '@huntersofbook/plausible-vue'
-import { addImports, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
+import {
+  addImports,
+  addPlugin,
+  createResolver,
+  defineNuxtModule
+} from '@nuxt/kit'
 import { defu } from 'defu'
 
 import { name, version } from '../package.json'
 
-export interface ModuleOptions extends OptionPlugin {
-}
+export interface ModuleOptions extends OptionPlugin {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -27,7 +31,7 @@ export default defineNuxtModule<ModuleOptions>({
       enableAutoPageviews: true
     }
   },
-  setup (options, nuxt) {
+  setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
     nuxt.options.appConfig.huntersofbookPlausible = defu(options, {
@@ -45,9 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin({ src: resolve('./runtime/plugin'), mode: 'client' })
 
     addImports([
-      ...[
-        'usePlausible'
-      ].map(key => ({
+      ...['usePlausible'].map((key) => ({
         name: key,
         as: key,
         from: resolve('./runtime/composables')

@@ -1,7 +1,7 @@
 import {
   AuthStorage,
   AuthStorageAsync,
-  SupportedAuthStorage,
+  SupportedAuthStorage
 } from '../types/index'
 import { CapacitorStorage } from './capacitor'
 import { CookieStorage } from './cookie'
@@ -12,7 +12,7 @@ export const drivers = {
   local: LocalStorage,
   secureLs: SecureLocalStorage,
   cookie: CookieStorage,
-  capacitor: CapacitorStorage,
+  capacitor: CapacitorStorage
 }
 
 export const DEFAULT_DRIVER = 'local'

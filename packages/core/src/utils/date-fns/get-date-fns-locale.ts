@@ -9,11 +9,13 @@ export async function loadDateFNSLocale(lang: string): Promise<Locale> {
     try {
       const langFile = await importDateLocale(l)
 
-      const data = 'default' in langFile ? langFile.default : (await importDateLocale(l)).default
+      const data =
+        'default' in langFile
+          ? langFile.default
+          : (await importDateLocale(l)).default
       locale = data as Locale
       return locale
-    }
-    catch {
+    } catch {
       continue
     }
   }

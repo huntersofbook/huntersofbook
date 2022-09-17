@@ -1,27 +1,27 @@
 <script lang="ts" setup>
-import { onBeforeMount, provide, ref, useSlots } from "vue";
+import { onBeforeMount, provide, ref, useSlots } from 'vue'
 
-import TabPane from "./TabPane.vue";
+import TabPane from './TabPane.vue'
 
 interface TabInterface {
-  name: string;
-  text: string;
+  name: string
+  text: string
 }
 
-const slots = useSlots();
-const tabItems = ref<TabInterface[]>([]);
-const activeTabName = ref("");
+const slots = useSlots()
+const tabItems = ref<TabInterface[]>([])
+const activeTabName = ref('')
 onBeforeMount(() => {
   if (slots.default) {
     slots.default().forEach((element, i) => {
-      const tab = element.props as TabInterface;
-      tabItems.value.push(tab);
-      if (i === 0) activeTabName.value = tab.name;
-    });
+      const tab = element.props as TabInterface
+      tabItems.value.push(tab)
+      if (i === 0) activeTabName.value = tab.name
+    })
   }
-});
+})
 
-provide("activeTab", activeTabName);
+provide('activeTab', activeTabName)
 </script>
 
 <template>
