@@ -36,6 +36,27 @@ export default defineNuxtConfig({
 })
 ```
 
+### Composables
+
+```vue
+<script setup lang="ts">
+  const { trackEvent } = usePlausible()
+  
+</script>
+
+<template>
+  <div>
+    <button @click="trackEvent('nuxt')"> click me</button>
+  </div>
+</template>
+```
+
+```vue
+<script setup lang="ts">
+  const { trackPageview } = usePlausible()
+</script>
+```
+
 
 ## Init Default
 
