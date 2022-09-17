@@ -4,6 +4,8 @@
 # Plausible Nuxt 3 Module
 This module huntersofbook team created.
 
+> [Plausible](https://plausible.io/docs) integration for [Nuxt](https://nuxtjs.org)
+
 ## Features
 
 - Zero-config required

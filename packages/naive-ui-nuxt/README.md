@@ -4,11 +4,7 @@
 # Naive UI Nuxt 3 Module
 This module huntersofbook team created.
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions][github-actions-src]][github-actions-href]
-
-> [Ionic](https://www.naiveui.com/en-US/light/components/button) integration for [Nuxt](https://nuxtjs.org)
+> [Naive UI](https://www.naiveui.com/en-US/light/components/button) integration for [Nuxt](https://nuxtjs.org)
 
 ## Features
 
