@@ -1,11 +1,11 @@
+import { Locale } from 'date-fns'
 import { InjectionKey, effectScope, getCurrentInstance, inject } from 'vue'
 import type { App, ComponentInternalInstance } from 'vue'
 import { I18n } from 'vue-i18n'
 
-import { Locale } from 'date-fns'
 import autoAnimatePlugin from './auto-animate'
-import { VueIhuntersofbook } from './vue-huntersofbook'
 import { createComposer } from './composer'
+import { VueIhuntersofbook } from './vue-huntersofbook'
 
 declare module 'vue' {
 

@@ -1,4 +1,5 @@
 import { createPinia } from 'pinia'
+
 import { type UserModule } from '~/types'
 
 // Setup Pinia

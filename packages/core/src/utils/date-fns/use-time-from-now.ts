@@ -1,5 +1,6 @@
-import { Ref, onMounted, onUnmounted, ref, watch } from 'vue'
 import { formatDistance } from 'date-fns'
+import { Ref, onMounted, onUnmounted, ref } from 'vue'
+
 import { useHuntersofbook } from '../../plugins'
 import { localizedFormatDistance } from './localized-format-distance'
 type IFormatDistance = Parameters<typeof formatDistance>

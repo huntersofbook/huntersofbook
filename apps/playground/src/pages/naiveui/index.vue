@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { HNButton, HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
+import { HPasswordMetter } from '@huntersofbook/ui'
 import type { InputSchema } from 'huntersofbook'
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
-import { HPasswordMetter } from '@huntersofbook/ui'
-import { HNButton, HNCheckbox, HNInput, HNInputNumber, HNSelect, HNSwitch } from '@huntersofbook/form-naiveui'
 import type { InputProps } from 'naive-ui'
 interface SignInInput {
   data1: string
@@ -29,6 +29,7 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         component: HNInput,
         footer: {
           render() {
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
             return h(HPasswordMetter, { password: form.values.data1 })
           },
           text: 'Password meter',

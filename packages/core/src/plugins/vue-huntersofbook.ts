@@ -1,5 +1,5 @@
 import type { Locale } from 'date-fns'
-import { ComputedRef, WritableComputedRef } from 'vue'
+import { ComputedRef } from 'vue'
 /**
  *  VueI18n legacy interfaces
  *

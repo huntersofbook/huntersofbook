@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, unref } from 'vue'
 import { ZxcvbnResult, zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
+import { computed, unref } from 'vue'
 
 const props = defineProps({
   password: {
