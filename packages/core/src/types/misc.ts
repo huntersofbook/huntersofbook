@@ -1,4 +1,4 @@
-/* eslint-disable no-tabs */
+ 
 type Primitive = undefined | null | string | number | boolean | bigint | symbol
 type Builtin = Primitive | Date | Error | RegExp | ((...args: any[]) => unknown)
 type Tuple =

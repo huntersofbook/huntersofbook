@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTimeFromNow } from 'huntersofbook'
-const date = new Date()
-const data = useTimeFromNow(date, 100)
+import { useTimeFromNow } from "huntersofbook";
+const date = new Date();
+const data = useTimeFromNow(date, 100);
 </script>
 
 <template>
@@ -9,4 +9,3 @@ const data = useTimeFromNow(date, 100)
     {{ data }}
   </div>
 </template>
-

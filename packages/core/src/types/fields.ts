@@ -1,4 +1,5 @@
 import { Component, VNodeChild } from 'vue'
+
 import { DeepPartial } from './misc'
 
 export type Width = 'half' | 'half-left' | 'half-right' | 'full' | 'fill'

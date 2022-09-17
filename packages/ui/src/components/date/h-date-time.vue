@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
 import {
   localizedFormat,
   localizedFormatDistance,
   localizedFormatDistanceStrict,
   useHuntersofbook,
 } from '@huntersofbook/core'
+import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 interface Props {
   value: string

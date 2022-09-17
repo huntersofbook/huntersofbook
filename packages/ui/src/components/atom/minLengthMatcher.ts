@@ -20,11 +20,10 @@ const minLengthMatcher: Matcher = {
           j: password.length - 1,
         })
       }
-      console.log(matches, 'minLengthMatcher')
       return matches
     }
   },
-  feedback(match: MatchEstimated, isSoleMatch?: any) {
+  feedback(_match: MatchEstimated, _isSoleMatch?: any) {
     return {
       warning: zxcvbnOptions.translations.warnings.keyPattern,
       suggestions: [],

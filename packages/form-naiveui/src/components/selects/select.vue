@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { NSelect } from 'naive-ui'
 import type { SelectProps } from 'naive-ui'
-
 import { useField } from 'vee-validate'
 import { computed, defineComponent, unref, useAttrs } from 'vue'
 

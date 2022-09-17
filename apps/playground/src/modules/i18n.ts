@@ -1,5 +1,6 @@
 import { createHuntersofbook, loadDateFNSLocale } from 'huntersofbook'
 import { createI18n } from 'vue-i18n'
+
 import type { UserModule } from '~/types'
 
 // Import i18n resources

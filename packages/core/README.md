@@ -5,7 +5,7 @@ huntersofbook offers specific tools for the vue ecosystem.
 ## Usage
 
 ```ts
-import {  } from '@huntersofbook/core'
+import { } from '@huntersofbook/core'
 
 const generator = createGenerator({ /* user options */ }, { /* default options */ })
 

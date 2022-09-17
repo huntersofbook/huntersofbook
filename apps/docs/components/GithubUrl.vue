@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import { getGithubUrl } from "./../composables/url"
+import { getGithubUrl } from "./../composables/url";
 defineProps({
-    to: String
-})
+  to: String,
+});
 </script>
+
 <template>
-    <a :href="getGithubUrl(to)" target="_blank">
-        <slot></slot>
-    </a>
+  <a :href="getGithubUrl(to)" target="_blank">
+    <slot />
+  </a>
 </template>

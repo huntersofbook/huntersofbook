@@ -49,16 +49,12 @@ Add some scripts to tsconfig.json.
 
 {
   "compilerOptions": {
-    ...
     "types": [
-      ...
       "naive-ui/volar",
       "@huntersofbook/ui/volar",
-      "@huntersofbook/form-naiveui/volar",
-      ...
-    ],
-    ...
-  },
+      "@huntersofbook/form-naiveui/volar"
+    ]
+  }
 }
 
 ```

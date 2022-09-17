@@ -1,8 +1,8 @@
-import { setupLayouts } from 'virtual:generated-layouts'
-
-import { createApp } from 'vue'
 import { createHead } from '@vueuse/head'
+import { setupLayouts } from 'virtual:generated-layouts'
+import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+
 import App from './App.vue'
 
 import './styles/main.css'

@@ -12,8 +12,6 @@ const regexMatcher: Matcher = {
       const matches: Match[] = []
       const re =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
-      console.log('password', password)
-      console.log(re, 're')
       if (re.test(password)) {
         matches.push({
           pattern: 'regex',
@@ -29,18 +27,16 @@ const regexMatcher: Matcher = {
           j: -1,
         })
       }
-      console.log(matches, 'regexMatcher')
       return matches
     }
   },
-  feedback(match: MatchEstimated, isSoleMatch?: any) {
+  feedback(_match: MatchEstimated, _isSoleMatch?: any) {
     return {
       warning: zxcvbnOptions.translations.warnings.keyPattern,
       suggestions: [],
     }
   },
   scoring(match: MatchExtended) {
-    console.log(match.regexMatch, 'regexMatcher')
     return match.regexMatch * 10
   },
 }

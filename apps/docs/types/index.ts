@@ -1,7 +1,7 @@
-import {App} from 'vue'
+import type { App } from "vue";
 
-interface AppContext<HasRouter extends boolean = true> {
-    app: App<Element>
+interface AppContext {
+  app: App<Element>;
 }
-  
-export type AppModule = (ctx: AppContext) => void
+
+export type AppModule = (ctx: AppContext) => void;

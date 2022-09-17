@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue'
+
 import AtomSectionTitle from '../atom/section-title.vue'
 
 interface Props {

@@ -1,8 +1,10 @@
 import path from 'path'
-import { defineConfig } from 'vite'
+
 import vue from '@vitejs/plugin-vue'
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+import { defineConfig } from 'vite'
 import dtsPlugin from 'vite-plugin-dts'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+
 import * as pkg from './package.json'
 
 const externals = [
