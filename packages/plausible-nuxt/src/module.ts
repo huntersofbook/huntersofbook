@@ -1,5 +1,3 @@
-import { fileURLToPath } from 'url'
-
 import { OptionPlugin } from '@huntersofbook/plausible-vue'
 import { addImports, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
@@ -15,7 +13,7 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'huntersofbookPlausible',
     compatibility: {
-      nuxt: '^3'
+      nuxt: '^3.0.0-rc.10'
     }
   },
   defaults: {
