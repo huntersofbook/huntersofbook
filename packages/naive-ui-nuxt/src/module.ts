@@ -1,4 +1,10 @@
-import { addImportsSources, addVitePlugin, defineNuxtModule } from '@nuxt/kit'
+import {
+  addImportsSources,
+  addPlugin,
+  addVitePlugin,
+  createResolver,
+  defineNuxtModule
+} from '@nuxt/kit'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 
@@ -33,6 +39,7 @@ export default defineNuxtModule({
     }
   },
   setup(_options, nuxt) {
+    const { resolve } = createResolver(import.meta.url)
     if (nuxt.options.dev) {
       nuxt.options.build.transpile.push('@juggle/resize-observer')
       nuxt.options.vite.optimizeDeps?.include?.push(
@@ -48,6 +55,8 @@ export default defineNuxtModule({
         '@juggle/resize-observer'
       )
     }
+
+    addPlugin({ src: resolve('./runtime/plugin'), mode: 'all' })
 
     nuxt.hook('prepare:types', ({ tsConfig }) => {
       tsConfig.compilerOptions.types.push('naive-ui/volar')
