@@ -12,7 +12,6 @@ This module huntersofbook team created.
 - Auto-import component and imports
 - Tailwind CSS support
 
-
 ## Setup
 ```
 pnpm add @huntersofbook/naive-ui-nuxt
