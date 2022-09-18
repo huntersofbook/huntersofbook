@@ -94,6 +94,4 @@ MIT License © 2022-PRESENT [productdevbook](https://github.com/productdevbook)
 
 ## 💚 Credits
 
-Dev work environment code [tobiasdiez](https://github.com/tobiasdiez)
-
 Nuxt 3 Plugin [danielroe](https://github.com/danielroe)
