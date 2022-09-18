@@ -56,16 +56,18 @@ export default defineNuxtModule({
       )
     }
 
-    nuxt.hook('prepare:types', ({ tsConfig, declarations }) => {
-      tsConfig.compilerOptions.types.push('naive-ui/volar')
-      declarations.push('/// <reference path="naive-ui.d.ts" />')
+    nuxt.hook('prepare:types', ({ tsConfig, references }) => {
+      tsConfig.compilerOptions!.types.push('naive-ui/volar')
+      references.push({
+        path: resolve(nuxt.options.buildDir, 'types/naive-ui.d.ts')
+      })
     })
 
     nuxt.options.head.meta.push({ name: 'naive-ui-style' })
 
     addVitePlugin(
       Components({
-        dts: '.nuxt/naive-ui.d.ts',
+        dts: resolve(nuxt.options.buildDir, 'types/naive-ui.d.ts'),
         resolvers: [NaiveUiResolver()]
       })
     )
