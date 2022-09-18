@@ -61,6 +61,12 @@ export default defineNuxtConfig({
 
 ## License
 
-Made with ❤️
+MIT License © 2022-PRESENT [productdevbook](https://github.com/productdevbook)
 
-Published under the [MIT License](./LICENCE).
+## Thanks
+
+Thanks to [@tobiasdiez](https://github.com/tobiasdiez), this project is inspired by some code structure.
+
+## 💚 Credits
+
+Nuxt 3 Plugin [danielroe](https://github.com/danielroe)

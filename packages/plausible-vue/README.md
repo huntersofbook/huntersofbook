@@ -25,4 +25,4 @@ app.use(plausible)
 
 ## License
 
-MIT License &copy; 2022-PRESENT [productdevbook](https://github.com/productdevbook)
+MIT License © 2022-PRESENT [productdevbook](https://github.com/productdevbook)
