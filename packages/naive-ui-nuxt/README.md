@@ -65,6 +65,8 @@ MIT License © 2022-PRESENT [productdevbook](https://github.com/productdevbook)
 
 ## Thanks
 
+Thanks to [@07akioni](https://github.com/07akioni), this project is heavily inspired by [naive-ui-nuxt-demo](https://github.com/07akioni/naive-ui-nuxt-demo).
+
 Thanks to [@tobiasdiez](https://github.com/tobiasdiez), this project is inspired by some code structure.
 
 ## 💚 Credits
