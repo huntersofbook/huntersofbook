@@ -307,12 +307,14 @@ importers:
       '@nuxt/kit': ^3.0.0-rc.10
       '@nuxt/module-builder': latest
       '@nuxt/schema': ^3.0.0-rc.10
+      date-fns: ^2.29.2
       defu: ^6.1.0
       naive-ui: ^2.33.3
       nuxt: ^3.0.0-rc.10
     dependencies:
       '@css-render/vue3-ssr': 0.15.11
       '@nuxt/kit': 3.0.0-rc.10
+      date-fns: 2.29.2
       defu: 6.1.0
       naive-ui: 2.33.3
     devDependencies:
@@ -2416,7 +2418,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.2_sass@1.54.9
+      vite: 3.1.2
       vue: 3.2.39
     dev: true
 
