@@ -74,7 +74,6 @@ export default defineNuxtModule({
       })
     )
 
-
     addImportsSources([
       {
         from: 'naive-ui',

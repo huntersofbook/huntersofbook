@@ -4,10 +4,8 @@ import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { collect } = setup(nuxtApp.vueApp)
-
   nuxtApp.hook('app:rendered', ({ ssrContext }) => {
     const originalRenderMeta = ssrContext.renderMeta
-console.log('s')
     nuxtApp.ssrContext.renderMeta = () => {
       if (!originalRenderMeta) {
         return {
@@ -17,7 +15,6 @@ console.log('s')
       const originalMeta = originalRenderMeta()
       if ('then' in originalMeta) {
         return originalMeta.then((resolvedOriginalMeta) => {
-          console.log(resolvedOriginalMeta, 'originalRenderMeta')
           return {
             ...resolvedOriginalMeta,
             headTags: resolvedOriginalMeta.headTags + collect()
