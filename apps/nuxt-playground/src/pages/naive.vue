@@ -2,7 +2,13 @@
 import { darkTheme, lightTheme } from 'naive-ui'
 const color = useColorMode()
 const theme = computed(() => {
-  return color.preference === 'system' ? (color.value ? lightTheme : darkTheme) : color.value === 'light' ? lightTheme : darkTheme
+  return color.preference === 'system'
+    ? color.value
+      ? lightTheme
+      : darkTheme
+    : color.value === 'light'
+    ? lightTheme
+    : darkTheme
 })
 
 const router = useRouter()
@@ -18,16 +24,16 @@ onUnmounted(() => {
       <NGlobalStyle />
       <div class="mx-auto mt-4 max-w-sm">
         <div class="mb-10 flex items-center justify-between">
-          <a target="_blank" href="https://productdevbook.com">productdevbook.com</a>
+          <a target="_blank" href="https://productdevbook.com"
+            >productdevbook.com</a
+          >
           <div class="flex space-x-2">
             <TemLanguageChange />
             <TemColorChange />
           </div>
         </div>
         <div class="grid grid-cols-1 gap-6">
-          <NButton @click="router.push('/')">
-            Back Home
-          </NButton>
+          <NButton @click="router.push('/')"> Back Home </NButton>
           <p>Nuxt module naive ui!</p>
           <NButton>Default</NButton>
           <NInput placeholder="NInput" />
@@ -71,16 +77,12 @@ onUnmounted(() => {
           <NEmpty />
           <NEl>NEl</NEl>
           <NGradientText>NGradientText</NGradientText>
-          <NH1 id="NH1">
-            H1
-          </NH1>
+          <NH1 id="NH1"> H1 </NH1>
           <NHr />
           <NA>NA</NA>
           <NTag>NTag</NTag>
           <NText>NText</NText>
-          <NBadge :value="999">
-            NBadge
-          </NBadge>
+          <NBadge :value="999"> NBadge </NBadge>
         </div>
       </div>
     </NConfigProvider>

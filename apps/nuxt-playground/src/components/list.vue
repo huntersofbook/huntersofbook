@@ -3,8 +3,8 @@ import { ILink } from '~/types'
 defineProps({
   link: {
     type: Object as () => ILink,
-    required: true,
-  },
+    required: true
+  }
 })
 </script>
 

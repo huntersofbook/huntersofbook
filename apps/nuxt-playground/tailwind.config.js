@@ -11,22 +11,22 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './app.vue',
     './assets/**/*.scss',
-    './assets/**/*.css',
+    './assets/**/*.css'
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
-      },
-    },
+        sans: ['"Inter var"', ...defaultTheme.fontFamily.sans]
+      }
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/aspect-ratio'),
-  ],
+    require('@tailwindcss/aspect-ratio')
+  ]
 }

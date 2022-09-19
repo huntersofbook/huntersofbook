@@ -1,4 +1,5 @@
 import { useI18n } from 'vue-i18n'
+
 import { availableLocales } from '../locales/availableLocales'
 
 export function languageController() {
@@ -11,8 +12,7 @@ export function languageController() {
     try {
       const lang = window ? window.navigator.language : 'en-US'
       return availableLocales[lang] ? lang : 'en-US'
-    }
-    catch (error) {
+    } catch (error) {
       return 'en-US'
     }
   }
@@ -34,6 +34,6 @@ export function languageController() {
 
   return {
     systemi18n,
-    init,
+    init
   }
 }
