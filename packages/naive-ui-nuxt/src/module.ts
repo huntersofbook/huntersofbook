@@ -32,7 +32,8 @@ export default defineNuxtModule({
         'naive-ui',
         'vueuc',
         '@css-render/vue3-ssr',
-        '@juggle/resize-observer'
+        '@juggle/resize-observer',
+        'date-fns'
       )
     }
 

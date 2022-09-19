@@ -42,7 +42,6 @@
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.11",
     "@nuxt/kit": "^3.0.0-rc.10",
-    "date-fns": "^2.29.2",
     "defu": "^6.1.0",
     "naive-ui": "^2.33.3"
   },

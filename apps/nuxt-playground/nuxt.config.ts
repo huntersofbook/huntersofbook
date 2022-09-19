@@ -1,5 +1,5 @@
-import { defineNuxtConfig } from 'nuxt'
 import presetIcons from '@unocss/preset-icons'
+import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
   srcDir: 'src',
@@ -13,10 +13,10 @@ export default defineNuxtConfig({
     '@intlify/nuxt3',
     '@nuxtjs/color-mode',
     // https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt
-    '@huntersofbook/naive-ui-nuxt',
+    '@huntersofbook/naive-ui-nuxt'
   ],
   build: {
-    transpile: ['@headlessui/vue'],
+    transpile: ['@headlessui/vue']
   },
   unocss: {
     uno: false,
@@ -26,11 +26,11 @@ export default defineNuxtConfig({
       presetIcons({
         scale: 1.2,
         extraProperties: {
-          display: 'inline-block',
-        },
-      }),
+          display: 'inline-block'
+        }
+      })
     ],
-    safelist: ['i-twemoji-flag-us-outlying-islands', 'i-twemoji-flag-turkey'],
+    safelist: ['i-twemoji-flag-us-outlying-islands', 'i-twemoji-flag-turkey']
   },
 
   // localization - i18n config
@@ -40,27 +40,24 @@ export default defineNuxtConfig({
       locale: 'en-US',
       fallbackLocale: 'en-US',
       availableLocales: ['en-US', 'tr-TR'],
-      sync: true,
-    },
+      sync: true
+    }
   },
 
   typescript: {
     tsConfig: {
       compilerOptions: {
         strict: true,
-        types: ['@pinia/nuxt', '@intlify/nuxt3', './type.d.ts'],
-      },
-    },
+        types: ['@pinia/nuxt', '@intlify/nuxt3', './type.d.ts']
+      }
+    }
   },
   colorMode: {
     classSuffix: '',
     fallback: 'light',
-    storageKey: 'color-mode',
+    storageKey: 'color-mode'
   },
   vite: {
-    logLevel: 'info',
-    optimizeDeps: {
-      include: ['date-fns/esm'],
-    },
-  },
+    logLevel: 'info'
+  }
 })
