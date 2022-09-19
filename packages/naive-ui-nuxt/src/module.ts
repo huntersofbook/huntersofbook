@@ -9,25 +9,6 @@ import {
 
 import { name, version } from '../package.json'
 
-const NaiveUIHooks = [
-  'darkTheme',
-  'lightTheme',
-  'useOsTheme',
-  'NMessageProvider',
-  'NConfigProvider',
-  'NLoadingBarProvider',
-  'NDialogProvider',
-  'NNotificationProvider',
-  'useDialog',
-  'useMessage',
-  'useNotification',
-  'useLoadingBar',
-  'createTheme',
-  'inputDark',
-  'datePickerDark',
-  'GlobalThemeOverrides'
-]
-
 export default defineNuxtModule({
   meta: {
     name,
@@ -223,4 +204,23 @@ const NaiveComponentNames = [
   'NUploadFileList',
   'NUploadTrigger',
   'NWatermark'
+]
+
+const NaiveUIHooks = [
+  'darkTheme',
+  'lightTheme',
+  'useOsTheme',
+  'NMessageProvider',
+  'NConfigProvider',
+  'NLoadingBarProvider',
+  'NDialogProvider',
+  'NNotificationProvider',
+  'useDialog',
+  'useMessage',
+  'useNotification',
+  'useLoadingBar',
+  'createTheme',
+  'inputDark',
+  'datePickerDark',
+  'GlobalThemeOverrides'
 ]
