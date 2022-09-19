@@ -207,20 +207,8 @@ const NaiveComponentNames = [
 ]
 
 const NaiveUIHooks = [
-  'darkTheme',
-  'lightTheme',
-  'useOsTheme',
-  'NMessageProvider',
-  'NConfigProvider',
-  'NLoadingBarProvider',
-  'NDialogProvider',
-  'NNotificationProvider',
   'useDialog',
   'useMessage',
   'useNotification',
-  'useLoadingBar',
-  'createTheme',
-  'inputDark',
-  'datePickerDark',
-  'GlobalThemeOverrides'
+  'useLoadingBar'
 ]
