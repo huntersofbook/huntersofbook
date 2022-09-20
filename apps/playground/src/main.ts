@@ -1,3 +1,4 @@
+import { createChatWoot } from '@huntersofbook/chatwoot-vue'
 import { createHead } from '@vueuse/head'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createApp } from 'vue'
@@ -19,7 +20,16 @@ document.head.appendChild(meta)
 // https://github.com/antfu/vite-ssg
 export const app = createApp(App)
 const head = createHead()
-
+const chatwoot = createChatWoot({
+  init: {
+    websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
+  },
+  settings: {
+    locale: 'en',
+    position: 'left',
+    launcherTitle: 'Hello Chat'
+  }
+})
 const router = createRouter({
   history: createWebHistory(),
   routes
@@ -27,6 +37,7 @@ const router = createRouter({
 
 app.use(router)
 app.use(head)
+app.use(chatwoot)
 
 async function init() {
   try {

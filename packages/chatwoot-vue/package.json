@@ -1,0 +1,52 @@
+{
+  "name": "@huntersofbook/chatwoot-vue",
+  "version": "0.1.7",
+  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/huntersofbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/chatwoot-vue#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/chatwoot-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "vue 3",
+    "chatwoot",
+    "vue",
+    "plugin"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "devDependencies": {
+    "unconfig": "^0.3.5",
+    "vue": "^3.2.39"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.39"
+  },
+  "dependencies": {
+    "defu": "^6.1.0"
+  }
+}

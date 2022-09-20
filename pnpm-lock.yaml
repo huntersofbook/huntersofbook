@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@antfu/eslint-config': ^0.26.3
       '@huntersofbook/auth-vue': workspace:*
+      '@huntersofbook/chatwoot-vue': workspace:*
       '@huntersofbook/core': workspace:*
       '@huntersofbook/form-naiveui': workspace:*
       '@huntersofbook/naive-ui-nuxt': workspace:*
@@ -38,6 +39,7 @@ importers:
     devDependencies:
       '@antfu/eslint-config': 0.26.3_irgkl5vooow2ydyo6aokmferha
       '@huntersofbook/auth-vue': link:packages/auth-vue
+      '@huntersofbook/chatwoot-vue': link:packages/chatwoot-vue
       '@huntersofbook/core': link:packages/core
       '@huntersofbook/form-naiveui': link:packages/form-naiveui
       '@huntersofbook/naive-ui-nuxt': link:packages/naive-ui-nuxt
@@ -167,6 +169,7 @@ importers:
   apps/playground:
     specifiers:
       '@antfu/eslint-config': 0.26.3
+      '@huntersofbook/chatwoot-vue': workspace:*
       '@huntersofbook/form-naiveui': workspace*
       '@iconify-json/carbon': 1.1.7
       '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.2
@@ -204,6 +207,7 @@ importers:
       vue-router: 4.1.5
       vue-tsc: 0.40.13
     dependencies:
+      '@huntersofbook/chatwoot-vue': link:../../packages/chatwoot-vue
       '@huntersofbook/form-naiveui': link:../../packages/form-naiveui
       '@vueuse/core': 9.2.0_vue@3.2.39
       '@vueuse/head': 0.7.11_vue@3.2.39
@@ -285,6 +289,36 @@ importers:
       prettier: 2.7.1
       tsup: 6.2.3_typescript@4.8.3
       typescript: 4.8.3
+
+  packages/chatwoot-nuxt:
+    specifiers:
+      '@css-render/vue3-ssr': ^0.15.11
+      '@nuxt/kit': ^3.0.0-rc.10
+      '@nuxt/module-builder': latest
+      '@nuxt/schema': ^3.0.0-rc.10
+      defu: ^6.1.0
+      naive-ui: ^2.33.3
+      nuxt: ^3.0.0-rc.10
+    dependencies:
+      '@css-render/vue3-ssr': 0.15.11
+      '@nuxt/kit': 3.0.0-rc.10
+      defu: 6.1.0
+      naive-ui: 2.33.3
+    devDependencies:
+      '@nuxt/module-builder': 0.1.7
+      '@nuxt/schema': 3.0.0-rc.10
+      nuxt: 3.0.0-rc.10
+
+  packages/chatwoot-vue:
+    specifiers:
+      defu: ^6.1.0
+      unconfig: ^0.3.5
+      vue: ^3.2.39
+    dependencies:
+      defu: 6.1.0
+    devDependencies:
+      unconfig: 0.3.6
+      vue: 3.2.39
 
   packages/core:
     specifiers:
@@ -1176,8 +1210,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/bundle-utils/3.1.1_vue-i18n@9.2.2:
-    resolution: {integrity: sha512-GSGU6eSet+nSaYaZ0z4eMxcdy7sgyolddgF2W4BjapVBnx01tJD5EEhE2gF2iYcljKNJlY54p0zTXYEONzizFA==}
+  /@intlify/bundle-utils/3.1.2_vue-i18n@9.2.2:
+    resolution: {integrity: sha512-amgSo0NN5OKWYdcgFmfJqo2tcUcZ6C66Bxm5ALQnB0m3MUQtS9aJzKoIo+EU9XQiOVmlBFxRtNoZm+psHa5FNA==}
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1196,8 +1230,8 @@ packages:
       yaml-eslint-parser: 0.3.2
     dev: true
 
-  /@intlify/bundle-utils/3.1.1_vue-i18n@9.3.0-beta.3:
-    resolution: {integrity: sha512-GSGU6eSet+nSaYaZ0z4eMxcdy7sgyolddgF2W4BjapVBnx01tJD5EEhE2gF2iYcljKNJlY54p0zTXYEONzizFA==}
+  /@intlify/bundle-utils/3.1.2_vue-i18n@9.3.0-beta.3:
+    resolution: {integrity: sha512-amgSo0NN5OKWYdcgFmfJqo2tcUcZ6C66Bxm5ALQnB0m3MUQtS9aJzKoIo+EU9XQiOVmlBFxRtNoZm+psHa5FNA==}
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1307,7 +1341,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 3.1.1_vue-i18n@9.2.2
+      '@intlify/bundle-utils': 3.1.2_vue-i18n@9.2.2
       '@intlify/shared': 9.3.0-beta.3
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
@@ -1333,7 +1367,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 3.1.1_vue-i18n@9.3.0-beta.3
+      '@intlify/bundle-utils': 3.1.2_vue-i18n@9.3.0-beta.3
       '@intlify/shared': 9.3.0-beta.3
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
@@ -1360,7 +1394,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 3.1.1_vue-i18n@9.3.0-beta.3
+      '@intlify/bundle-utils': 3.1.2_vue-i18n@9.3.0-beta.3
       '@intlify/shared': 9.3.0-beta.3
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
@@ -1399,7 +1433,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 3.1.1_vue-i18n@9.2.2
+      '@intlify/bundle-utils': 3.1.2_vue-i18n@9.2.2
       '@intlify/shared': 9.3.0-beta.3
       js-yaml: 4.1.0
       json5: 2.2.1
