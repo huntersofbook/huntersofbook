@@ -1,6 +1,6 @@
 import path from 'path'
 
-import VueI18n from '@intlify/vite-plugin-vue-i18n'
+// import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Unocss from 'unocss/vite'
 import { defineConfig } from 'vitepress'
 
@@ -71,11 +71,11 @@ export default defineConfig({
     },
     build: { target: 'esnext' },
     plugins: [
-      VueI18n({
-        runtimeOnly: true,
-        compositionOnly: true,
-        include: [path.resolve(__dirname, './locales/**')]
-      }),
+      // VueI18n({
+      //   runtimeOnly: true,
+      //   compositionOnly: true,
+      //   include: [path.resolve(__dirname, './locales/**')]
+      // }),
       Unocss({
         configFile: '../../unocss.config.ts'
       })

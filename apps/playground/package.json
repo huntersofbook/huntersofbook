@@ -34,10 +34,10 @@
   "devDependencies": {
     "@antfu/eslint-config": "0.26.3",
     "@iconify-json/carbon": "1.1.7",
-    "@intlify/vite-plugin-vue-i18n": "7.0.0-beta.2",
+    "@intlify/vite-plugin-vue-i18n": "7.0.0-beta.3",
     "@types/markdown-it-link-attributes": "3.0.1",
     "@types/nprogress": "0.2.0",
-    "@vitejs/plugin-vue": "3.1.0",
+    "@vitejs/plugin-vue": "^3.1.0",
     "@vue/test-utils": "2.0.2",
     "autoprefixer": "10.4.11",
     "cross-env": "7.0.3",

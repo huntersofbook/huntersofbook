@@ -32,9 +32,8 @@ const defaultLocal = await loadDateFNSLocale(options.locale)
 export const i18n = createI18n(options)
 
 // setup i18n instance with global
-export async function setupI18n(app: App) {
+export function setupI18n(app: App) {
   const huntersofbook = createHuntersofbook({
-    i18n,
     dateFnsLanguage: defaultLocal
   })
   app.use(i18n)
