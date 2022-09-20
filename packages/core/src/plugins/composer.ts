@@ -30,9 +30,9 @@ export function createComposer(
     return _messages.value as any
   })
 
-  watch(plugins.i18n.global.locale as any, () => {
-    window.location.reload()
-  })
+  // watch(plugins as any, () => {
+  //   window.location.reload()
+  // })
 
   const composer = {
     dateLocale: language,

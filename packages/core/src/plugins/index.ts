@@ -1,7 +1,6 @@
 import { Locale } from 'date-fns'
 import { InjectionKey, effectScope, getCurrentInstance, inject } from 'vue'
 import type { App, ComponentInternalInstance } from 'vue'
-import { I18n } from 'vue-i18n'
 
 import autoAnimatePlugin from './auto-animate'
 import { createComposer } from './composer'
@@ -15,7 +14,6 @@ declare module 'vue' {
 }
 
 export interface IhuntersofbookPlugins {
-  i18n: I18n
   dateFnsLanguage: Locale
 }
 

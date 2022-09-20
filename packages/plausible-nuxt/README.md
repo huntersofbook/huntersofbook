@@ -1,5 +1,4 @@
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/docs/images/cover.png?raw=true)
-
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/nuxt-docs/public/images/plausible-nuxt.png?raw=true)
 
 # Plausible Nuxt 3 Module
 This module huntersofbook team created.

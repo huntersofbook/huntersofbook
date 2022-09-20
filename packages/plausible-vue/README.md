@@ -1,4 +1,5 @@
 # @huntersofbook/core
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/nuxt-docs/public/images/plausible-vue.png?raw=true)
 
 huntersofbook offers specific tools for the vue ecosystem.
 

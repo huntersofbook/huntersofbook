@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { useTimeFromNow } from 'huntersofbook'
 const date = new Date()
 const data = useTimeFromNow(date, 100)
@@ -8,4 +8,4 @@ const data = useTimeFromNow(date, 100)
   <div>
     {{ data }}
   </div>
-</template>
+</template> -->

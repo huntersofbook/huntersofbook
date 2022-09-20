@@ -10,7 +10,7 @@ import Tab from '../../../components/Tabs/Tab.vue'
 import Tabs from '../../../components/Tabs/Tabs.vue'
 import { extractFileNameFromPath } from '../../../utils'
 import 'uno.css'
-import { setupI18n } from '../i18n'
+// import { setupI18n } from '../i18n'
 import { setupStore } from '../stores'
 
 async function setupApp(app: App) {
@@ -18,13 +18,13 @@ async function setupApp(app: App) {
   setupStore(app)
   // Multilingual configuration
   // Asynchronous case: language files may be obtained from the server side
-  await setupI18n(app)
+  // await setupI18n(app)
 }
 export default {
   ...DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'nav-bar-content-before': () => h(Language)
+      'nav-bar-content-before': () => h('div')
     })
   },
   async enhanceApp({ app }) {

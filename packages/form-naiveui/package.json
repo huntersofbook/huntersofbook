@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "8.5.0",
-    "@vitejs/plugin-vue": "3.1.0",
+    "@vitejs/plugin-vue": "^3.1.0",
     "@vue/compiler-sfc": "3.2.39",
     "sass": "1.54.9",
     "vite": "3.1.2",
