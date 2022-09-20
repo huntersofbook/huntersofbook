@@ -2,17 +2,17 @@ const alias = {}
 
 export default defineNuxtConfig({
   alias,
-  // app: {
-  //   head: {
-  //     script: [
-  //       {
-  //         defer: true,
-  //         'data-domain': 'content.nuxtjs.org',
-  //         src: 'https://plausible.io/js/script.js'
-  //       }
-  //     ]
-  //   }
-  // },
+  app: {
+    head: {
+      script: [
+        {
+          defer: true,
+          'data-domain': 'content.nuxtjs.org',
+          src: 'https://plausible.io/js/script.js'
+        }
+      ]
+    }
+  },
   nitro: {
     prerender: {
       routes: ['/', '/blog/announcing-v2']
@@ -27,8 +27,5 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: 'dark'
-  },
-  build: {
-    transpile: ['/-edge/']
   }
 })
