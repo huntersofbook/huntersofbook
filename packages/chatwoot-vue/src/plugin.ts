@@ -1,5 +1,5 @@
 import defu from 'defu'
-import { App, inject, onBeforeUnmount, onMounted, ref } from 'vue'
+import { App, onBeforeUnmount, onMounted, ref } from 'vue'
 
 declare global {
   interface Window {
@@ -7,6 +7,37 @@ declare global {
     chatwootSDK: ChatwootSdk
     $chatwoot: Chatwoot
   }
+}
+
+export interface ScriptLoaderOption extends Partial<HTMLScriptElement> {}
+
+export const loadScript = (
+  source: string,
+  options: ScriptLoaderOption = {} as ScriptLoaderOption
+) => {
+  return new Promise((resolve, reject) => {
+    const head = document.head || document.getElementsByTagName('head')[0]
+    const script = document.createElement('script')
+    const {
+      src,
+      type = 'text/javascript',
+      defer = false,
+      async = false,
+      ...restAttrs
+    } = options
+    script.type = type
+    script.defer = defer
+    script.async = async
+    script.src = src || source
+
+    Object.keys(restAttrs).forEach((key) => {
+      ;(script as any)[key] = (restAttrs as any)[key]
+    })
+
+    head.appendChild(script)
+    script.onload = resolve
+    script.onerror = reject
+  })
 }
 
 export interface ChatwootSetUserProps {
@@ -156,6 +187,30 @@ export const createChatWoot = (options: OptionPlugin) => {
 
       app.config.globalProperties.$chatwoot = chatwoot
 
+      const chatwootSettings: Partial<ChatwootSettings> = {
+        showPopoutButton: false,
+        darkMode: 'auto',
+        hideMessageBubble: false,
+        position: 'right',
+        locale: 'en',
+        launcherTitle: 'Chat with us',
+        type: 'expanded_bubble',
+        ...chatwoot
+      }
+
+      loadScript(`${chatwoot.init.baseUrl}/packs/js/sdk.js`, {
+        async: true,
+        defer: true
+      }).then(() => {
+        window.chatwootSettings = chatwootSettings
+        if (window.chatwootSDK) {
+          window.chatwootSDK.run({
+            websiteToken: options.init.websiteToken,
+            baseUrl: chatwoot.init.baseUrl
+          })
+        }
+      })
+
       app.provide('$chatwoot', chatwoot)
     }
   }
@@ -163,18 +218,6 @@ export const createChatWoot = (options: OptionPlugin) => {
 }
 
 export const useChatWoot = () => {
-  const { init, settings } = inject('$chatwoot') as OptionPlugin
-  const chatwootSettings: Partial<ChatwootSettings> = {
-    showPopoutButton: false,
-    darkMode: 'auto',
-    hideMessageBubble: false,
-    position: 'right',
-    locale: 'en',
-    launcherTitle: 'Chat with us',
-    type: 'expanded_bubble',
-    ...settings
-  }
-
   const observer = ref<any>(null)
   const start = ref(1)
   let timer: ReturnType<typeof setTimeout>
@@ -210,25 +253,6 @@ export const useChatWoot = () => {
         observerStart(data)
       }
     }, 1000)
-    ;(() => {
-      const BASE_URL = init.baseUrl
-      const t = 'script'
-      const g = document.createElement(t)
-      const s = document.getElementsByTagName(t)[0]
-      g.src = `${BASE_URL}/packs/js/sdk.js`
-      g.defer = true
-      g.async = true
-      s.parentNode && s.parentNode.insertBefore(g, s)
-      g.onload = function () {
-        window.chatwootSettings = chatwootSettings
-        if (window.chatwootSDK) {
-          window.chatwootSDK.run({
-            websiteToken: init.websiteToken,
-            baseUrl: BASE_URL
-          })
-        }
-      }
-    })()
   })
 
   onBeforeUnmount(() => {

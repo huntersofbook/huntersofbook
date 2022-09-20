@@ -44,12 +44,12 @@
   },
   "dependencies": {
     "@huntersofbook/plausible-vue": "*",
-    "@nuxt/kit": "^3.0.0-rc.10",
+    "@nuxt/kit": "^3.0.0-rc.11",
     "defu": "^6.1.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
-    "@nuxt/schema": "^3.0.0-rc.10",
-    "nuxt": "^3.0.0-rc.10"
+    "@nuxt/schema": "^3.0.0-rc.11",
+    "nuxt": "^3.0.0-rc.11"
   }
 }

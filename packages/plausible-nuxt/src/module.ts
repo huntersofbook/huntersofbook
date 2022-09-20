@@ -17,7 +17,7 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'huntersofbookPlausible',
     compatibility: {
-      nuxt: '^3.0.0-rc.10'
+      nuxt: '^3.0.0-rc.11'
     }
   },
   defaults: {

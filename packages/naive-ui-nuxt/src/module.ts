@@ -15,7 +15,7 @@ export default defineNuxtModule({
     version,
     configKey: 'huntersofbookNaiveUI',
     compatibility: {
-      nuxt: '^3.0.0-rc.10'
+      nuxt: '^3.0.0-rc.11'
     }
   },
   setup(_options, nuxt) {

@@ -1,31 +1,24 @@
-import { setup } from '@css-render/vue3-ssr'
+import { Chatwoot, createChatWoot } from '@huntersofbook/chatwoot-vue'
 
-import { defineNuxtPlugin } from '#app'
+import { defineNuxtPlugin, useRuntimeConfig } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const { collect } = setup(nuxtApp.vueApp)
-  nuxtApp.hook('app:rendered', ({ ssrContext }) => {
-    const originalRenderMeta = ssrContext.renderMeta
-    nuxtApp.ssrContext.renderMeta = () => {
-      if (!originalRenderMeta) {
-        return {
-          headTags: collect()
-        }
-      }
-      const originalMeta = originalRenderMeta()
-      if ('then' in originalMeta) {
-        return originalMeta.then((resolvedOriginalMeta) => {
-          return {
-            ...resolvedOriginalMeta,
-            headTags: resolvedOriginalMeta.headTags + collect()
-          }
-        })
-      } else {
-        return {
-          ...originalMeta,
-          headTags: originalMeta.headTags + collect()
-        }
-      }
-    }
-  })
+  const config = useRuntimeConfig()
+  if (config.public.chatwoot.init) {
+    const chatwoot = createChatWoot(config.public.chatwoot)
+    nuxtApp.vueApp.use(chatwoot)
+    nuxtApp.provide('chatwoot', config.public.chatwoot)
+  }
 })
+
+interface PluginInjection {
+  $chatwoot: Chatwoot
+}
+
+declare module '#app' {
+  interface NuxtApp extends PluginInjection {}
+}
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties extends PluginInjection {}
+}
