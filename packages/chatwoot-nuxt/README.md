@@ -1,62 +1,56 @@
-# Chatwoot
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/chatwoot-vue.png?raw=true)
 
-Chatwoot is an open-source customer engagement platform that helps companies engage their customers on their website, Facebook page, Twitter, Whatsapp, SMS, ...
 
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/docs/images/chatwoot-vue.png?raw=true)
+# Chatwoot Nuxt 3 Module
+This module huntersofbook team created.
 
-> [Chatwoot](https://www.chatwoot.com/help-center) integration for [Vue](https://vuejs.org)
+> [ChatWoot](https://www.chatwoot.com/help-center) integration for [Nuxt](https://nuxtjs.org)
+
+## Features
+
+- Zero-config required
+- Auto-import component and imports
+- isOpen support
 
 ## Setup
-
-::code-group
-
-```shell [pnpm]
-pnpm add @huntersofbook/chatwoot-vue
+```
+pnpm add @huntersofbook/chatwoot-nuxt
+```
+```
+yarn add @huntersofbook/chatwoot-nuxt
+```
+```
+npm add @huntersofbook/chatwoot-nuxt
 ```
 
-```shell [yarn]
-yarn add @huntersofbook/chatwoot-vue
-```
+### Nuxt Config
 
-```shell [npm]
-npm add @huntersofbook/chatwoot-vue
-```
-
-::
-
-
-### Vue Config
-
-```ts [main.ts]
-import { createChatWoot } from '@huntersofbook/chatwoot-vue'
-
-const chatwoot = createChatWoot({
-  init: {
-    websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
-  },
-  settings: {
-    locale: 'en',
-    position: 'left',
-    launcherTitle: 'Hello Chat'
+```ts
+export default defineNuxtConfig({
+  modules: [
+    '@huntersofbook/chatwoot-nuxt'
+  ],
+  
+  huntersofbookChatwoot: {
+    init: {
+      websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
+    },
+    settings: {
+      locale: 'en',
+      position: 'left',
+      launcherTitle: 'Hello Chat',
+      // ... and more settings
+    }
   }
 })
-
-app.use(chatwoot)
 ```
-
 
 ### Composables
 Add app.vue or add wherever you want.
 
 ```vue
 <script setup lang="ts">
-import { useChatWoot } from '@huntersofbook/chatwoot-vue'
-
-const { isModalVisible, 
-toggle, 
-toggleBubbleVisibility, 
-popoutChatWindow, 
-...more } = useChatWoot()
+const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow, ...more } = useChatWoot()
 
 </script>
 
@@ -73,7 +67,6 @@ popoutChatWindow,
   </div>
 </template>
 ```
-
 
 ## Init Default
 
@@ -109,10 +102,6 @@ popoutChatWindow,
 - Install dependencies using `pnpm install`
 - Stub module with `pnpm dev:prepare`
 - Run `pnpm dev` to start [playground](./playground) in development mode
-
-## Thanks
-
-Thanks to [@surmon-china](https://github.com/surmon-china), this project loadScript function is heavily inspired by [surmon-china.github.io](https://github.com/surmon-china/surmon-china.github.io).
 
 ## License
 

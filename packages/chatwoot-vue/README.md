@@ -1,35 +1,28 @@
-# Chatwoot
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/chatwoot-vue.png?raw=true)
 
-Chatwoot is an open-source customer engagement platform that helps companies engage their customers on their website, Facebook page, Twitter, Whatsapp, SMS, ...
+# Chatwoot Vue 3 Module
+This module huntersofbook team created.
 
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/docs/images/chatwoot-vue.png?raw=true)
+> [ChatWoot](https://www.chatwoot.com/help-center) integration for [Vue](https://vuejs.org)
 
-> [Chatwoot](https://www.chatwoot.com/help-center) integration for [Vue](https://vuejs.org)
+## Features
+
+- Zero-config required
+- isOpen support
 
 ## Setup
-
-::code-group
-
-```shell [pnpm]
+```
 pnpm add @huntersofbook/chatwoot-vue
 ```
-
-```shell [yarn]
+```
 yarn add @huntersofbook/chatwoot-vue
 ```
-
-```shell [npm]
+```
 npm add @huntersofbook/chatwoot-vue
 ```
 
-::
-
-
-### Vue Config
-
-```ts [main.ts]
-import { createChatWoot } from '@huntersofbook/chatwoot-vue'
-
+### Add main.ts
+```ts
 const chatwoot = createChatWoot({
   init: {
     websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
@@ -44,19 +37,12 @@ const chatwoot = createChatWoot({
 app.use(chatwoot)
 ```
 
-
 ### Composables
 Add app.vue or add wherever you want.
 
 ```vue
 <script setup lang="ts">
-import { useChatWoot } from '@huntersofbook/chatwoot-vue'
-
-const { isModalVisible, 
-toggle, 
-toggleBubbleVisibility, 
-popoutChatWindow, 
-...more } = useChatWoot()
+const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow } = useChatWoot()
 
 </script>
 

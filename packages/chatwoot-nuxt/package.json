@@ -1,27 +1,24 @@
 {
-  "name": "@huntersofbook/plausible-nuxt",
+  "name": "@huntersofbook/chatwoot-nuxt",
   "version": "0.1.7",
-  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "description": "chatwoot nuxt module",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/huntersofbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/plausible-nuxt#readme",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/chatwoot-nuxt#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/plausible-nuxt"
+    "directory": "packages/chatwoot-nuxt"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
   },
   "keywords": [
     "nuxt 3",
-    "composition",
-    "analytics",
-    "plausible",
-    "plausible analytics",
-    "tracking",
-    "nuxt",
+    "chatwoot",
+    "vue 3",
+    "nuxt 3 module",
     "plugin"
   ],
   "type": "module",
@@ -38,17 +35,17 @@
   ],
   "scripts": {
     "build": "pnpm dev:prepare && pnpm nuxt-module-build",
-    "dev": "nuxi dev playground",
+    "dev": "pnpm dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
   "dependencies": {
-    "@huntersofbook/plausible-vue": "*",
+    "@huntersofbook/chatwoot-vue": "workspace:*",
     "@nuxt/kit": "^3.0.0-rc.11",
     "defu": "^6.1.0"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "latest",
+    "@nuxt/module-builder": "0.1.7",
     "@nuxt/schema": "^3.0.0-rc.11",
     "nuxt": "^3.0.0-rc.11"
   }

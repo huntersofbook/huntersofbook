@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@huntersofbook/form-naiveui": "workspace*",
+    "@huntersofbook/chatwoot-vue": "workspace:*",
     "@vueuse/core": "9.2.0",
     "@vueuse/head": "0.7.11",
     "huntersofbook": "workspace*",
