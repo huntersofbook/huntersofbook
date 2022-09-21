@@ -1,0 +1,19 @@
+{
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "explorer.fileNesting.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.linkedEditing": true,
+    "files.eol": "\n",
+    "eslint.enable": true,
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "git.mergeEditor": true,
+    "mergeEditor.diffAlgorithm": "experimental",
+    "volar.completion.preferredTagNameCase": "pascal",
+    "search.exclude": {
+        "**/dist": true
+    },
+}

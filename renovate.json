@@ -1,51 +1,39 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
-  "labels": [
-    "dependencies"
-  ],
-  "schedule": [
-    "before 8am on Sunday"
-  ],
+  "extends": ["config:base"],
+  "labels": ["dependencies"],
+  "rebaseWhen": "conflicted",
+  "schedule": ["before 6am on the first day of the month"],
+  "baseBranches": ["main"],
   "rangeStrategy": "replace",
   "packageRules": [
     {
-      "matchPaths": [
-        "packages/**"
-      ],
-      "matchPackagePatterns": [
-        "*"
-      ],
+      "matchPaths": ["packages/**"],
+      "matchPackagePatterns": ["*"],
       "groupName": "packages dependencies",
       "groupSlug": "packages-path",
       "rangeStrategy": "replace"
     },
     {
+      "matchPaths": ["examples/**"],
+      "matchPackagePatterns": ["*"],
+      "groupName": "examples dependencies",
+      "groupSlug": "examples-path",
+      "rangeStrategy": "replace"
+    },
+    {
       "groupName": "Types",
-      "packagePatterns": [
-        "^@types/"
-      ],
+      "packagePatterns": ["^@types/"],
       "automerge": true
     },
     {
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["major"],
       "groupName": "NPM dependencies (major)"
     },
     {
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
       "groupName": "NPM dependencies (non-major)"
     }
   ]
