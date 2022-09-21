@@ -12,7 +12,7 @@ export default defineAppConfig({
       github: 'huntersofbook/huntersofbook'
     },
     github: {
-      root: 'apps/nuxt-docs/content',
+      root: 'docs',
       edit: true,
       releases: true
     },
