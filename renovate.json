@@ -8,33 +8,18 @@
   "rangeStrategy": "replace",
   "packageRules": [
     {
-      "matchPaths": ["packages/**"],
-      "matchPackagePatterns": ["*"],
-      "groupName": "packages dependencies",
-      "groupSlug": "packages-path",
-      "rangeStrategy": "replace"
-    },
-    {
       "matchPaths": ["examples/**"],
       "matchPackagePatterns": ["*"],
-      "groupName": "examples dependencies",
-      "groupSlug": "examples-path",
-      "rangeStrategy": "replace"
-    },
-    {
-      "groupName": "Types",
-      "packagePatterns": ["^@types/"],
-      "automerge": true
-    },
-    {
       "matchDatasources": ["npm"],
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": ["minor", "patch"],
       "groupName": "NPM dependencies (major)"
     },
     {
+      "matchPaths": ["packages/**", "apps/**"],
+      "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "NPM dependencies (non-major)"
+      "groupName": "NPM dependencies (major)"
     }
   ]
 }
