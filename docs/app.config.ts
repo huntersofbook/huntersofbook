@@ -1,10 +1,11 @@
 export default defineAppConfig({
   docus: {
     title: 'huntersofbook',
-    description: 'We open the tools we use in our projects to all developers.',
+    description:
+      'It is a community established specifically to improve the vue ecosystem. Our own team will always give this contribution back to the world.',
     layout: 'docs',
-    image: 'https://content.nuxtjs.org/preview.png',
-    url: 'https://content.nuxtjs.org',
+    image: 'https://opensource.huntersofbook.com/preview.png',
+    url: 'https://opensource.huntersofbook.com',
     debug: false,
     socials: {
       twitter: '@huntersofbook',
@@ -17,7 +18,7 @@ export default defineAppConfig({
     },
     cover: {
       src: '/cover.jpg',
-      alt: 'Content made easy for Vue developers'
+      alt: 'huntersofbook open source project was created for developers'
     },
     header: {
       title: false,
