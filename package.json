@@ -31,7 +31,6 @@
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@types/lodash": "^4.14.185",
     "bumpp": "^8.2.1",
-    "docs": "workspace:*",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
