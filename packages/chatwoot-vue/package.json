@@ -1,7 +1,7 @@
 {
   "name": "@huntersofbook/chatwoot-vue",
   "version": "0.1.7",
-  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "description": "chatwoot vue library.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/huntersofbook",
