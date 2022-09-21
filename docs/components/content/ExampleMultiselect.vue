@@ -1,7 +1,3 @@
-<template>
-  <div>Not working on content v2 docs!</div>
-</template>
-
 <script>
 export default {
   props: {
@@ -10,10 +6,14 @@ export default {
       default: () => []
     }
   },
-  data () {
+  data() {
     return {
       value: null
     }
   }
 }
 </script>
+
+<template>
+  <div>Not working on content v2 docs!</div>
+</template>

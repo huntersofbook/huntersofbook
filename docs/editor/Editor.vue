@@ -1,7 +1,3 @@
-<template>
-  <Monaco :value="readOnly? modelValue : raw" :language="language" :read-only="readOnly" @change="update" />
-</template>
-
 <script setup lang="ts">
 import Monaco from './Monaco.vue'
 
@@ -20,11 +16,20 @@ const props = defineProps({
   }
 })
 
-const raw = ref(props.modelValue)
-
 const emit = defineEmits(['update:modelValue'])
 
-function update (content) {
+const raw = ref(props.modelValue)
+
+function update(content) {
   emit('update:modelValue', content)
 }
 </script>
+
+<template>
+  <Monaco
+    :value="readOnly ? modelValue : raw"
+    :language="language"
+    :read-only="readOnly"
+    @change="update"
+  />
+</template>

@@ -4,7 +4,7 @@
  * @internal
  */
 
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 import { IhuntersofbookPlugins } from '.'
 import { loadDateFNSLocale } from '../utils'

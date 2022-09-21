@@ -1,8 +1,10 @@
 <script setup>
 import { computed } from 'vue'
-// eslint-disable-next-line vue/require-prop-types
+
 const props = defineProps(['prop'])
-const propType = computed(() => Array.isArray(props.prop) ? 'array' : typeof props.prop)
+const propType = computed(() =>
+  Array.isArray(props.prop) ? 'array' : typeof props.prop
+)
 </script>
 
 <template>
@@ -10,7 +12,8 @@ const propType = computed(() => Array.isArray(props.prop) ? 'array' : typeof pro
 Type: {{ propType }}
 Value:
 {{ prop }}
-    </pre>
+    </pre
+  >
 </template>
 
 <style scoped>

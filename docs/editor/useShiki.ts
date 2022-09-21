@@ -1,8 +1,20 @@
-import { getHighlighter, BUNDLED_LANGUAGES, BUNDLED_THEMES, Lang, Theme } from 'shiki-es'
-import { useRuntimeConfig } from '#imports'
+import {
+  BUNDLED_LANGUAGES,
+  BUNDLED_THEMES,
+  Lang,
+  Theme,
+  getHighlighter
+} from 'shiki-es'
 import { visit } from 'unist-util-visit'
-import type { HighlightParams, HighlightThemedToken, ParsedContent } from '../../src/runtime/types'
+
 import mdcTMLanguage from '../../src/runtime/assets/mdc.tmLanguage.json'
+import type {
+  HighlightParams,
+  HighlightThemedToken,
+  ParsedContent
+} from '../../src/runtime/types'
+
+import { useRuntimeConfig } from '#imports'
 
 /**
  * Resolve Shiki compatible lang from string.
@@ -10,18 +22,21 @@ import mdcTMLanguage from '../../src/runtime/assets/mdc.tmLanguage.json'
  * Used to resolve lang from both languages id's and aliases.
  */
 const resolveLang = (lang: string): Lang | undefined =>
-  BUNDLED_LANGUAGES.find(l => l.id === lang || l.aliases?.includes(lang))?.id as Lang
+  BUNDLED_LANGUAGES.find((l) => l.id === lang || l.aliases?.includes(lang))
+    ?.id as Lang
 
 /**
  * Resolve Shiki compatible theme from string.
  */
 const resolveTheme = (theme: string): Theme | undefined =>
-  BUNDLED_THEMES.find(t => t === theme)
+  BUNDLED_THEMES.find((t) => t === theme)
 
 /**
  * Resolve Shiki highlighter compatible payload from request body.
  */
-const resolveBody = (body: Partial<HighlightParams>): { code: string, lang?: Lang, theme?: Theme } => {
+const resolveBody = (
+  body: Partial<HighlightParams>
+): { code: string; lang?: Lang; theme?: Theme } => {
   return {
     // Remove trailing carriage returns
     code: body.code.replace(/\n+$/, ''),
@@ -55,7 +70,9 @@ export const useShiki = async () => {
     ] as any[]
   })
 
-  async function highlightCode (params: Partial<HighlightParams>): Promise<HighlightThemedToken[][]> {
+  async function highlightCode(
+    params: Partial<HighlightParams>
+  ): Promise<HighlightThemedToken[][]> {
     const { code, lang, theme } = resolveBody(params)
     if (!cache[`${code}-${lang}-${theme}`]) {
       // Skip highlight if lang is not supported
@@ -121,26 +138,36 @@ export const useShiki = async () => {
     innerCodeNode.children = lines.map((line, lineIndex) => ({
       type: 'element',
       tag: 'span',
-      props: { class: ['line', highlights.includes(lineIndex + 1) ? 'highlight' : ''].join(' ').trim() },
+      props: {
+        class: ['line', highlights.includes(lineIndex + 1) ? 'highlight' : '']
+          .join(' ')
+          .trim()
+      },
       children: line.map(tokenSpan)
     }))
     return node
   }
 
-  return async function highlight (content: ParsedContent) {
+  return async function highlight(content: ParsedContent) {
     const codeBlocks = []
     visit(
       content.body,
       (node: any) => node.tag === 'code' && node?.props.code,
-      (node) => { codeBlocks.push(node) }
+      (node) => {
+        codeBlocks.push(node)
+      }
     )
     await Promise.all(codeBlocks.map(highlightBlock))
 
     const inlineCodes = []
     visit(
       content.body,
-      (node: any) => node.tag === 'code-inline' && (node.props?.lang || node.props?.language),
-      (node) => { inlineCodes.push(node) }
+      (node: any) =>
+        node.tag === 'code-inline' &&
+        (node.props?.lang || node.props?.language),
+      (node) => {
+        inlineCodes.push(node)
+      }
     )
 
     await Promise.all(inlineCodes.map(highlightInline))

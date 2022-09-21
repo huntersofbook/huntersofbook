@@ -1,6 +1,7 @@
-import { watch, Ref, unref, ref } from 'vue'
-import type { editor as Editor } from 'monaco-editor-core'
 import { createSingletonPromise } from '@vueuse/core'
+import type { editor as Editor } from 'monaco-editor-core'
+import { Ref, ref, unref, watch } from 'vue'
+
 import { language as mdcLanguage } from './mdc.tmLanguage'
 
 declare global {
@@ -11,7 +12,8 @@ declare global {
     }
   }
 }
-const MONACO_CDN_BASE = 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.30.1/min/'
+const MONACO_CDN_BASE =
+  'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.30.1/min/'
 
 const loadMonacoScript = (src: string) => {
   return new Promise((resolve, reject) => {
@@ -27,16 +29,17 @@ const loadMonacoScript = (src: string) => {
 const setupMonaco = createSingletonPromise(async () => {
   await loadMonacoScript('vs/loader.min.js')
   window.require.config({ paths: { vs: `${MONACO_CDN_BASE}/vs` } })
-  const monaco = await new Promise<any>(resolve => window.require(['vs/editor/editor.main'], resolve))
+  const monaco = await new Promise<any>((resolve) =>
+    window.require(['vs/editor/editor.main'], resolve)
+  )
 
   window.MonacoEnvironment = {
-    getWorkerUrl: function () {
+    getWorkerUrl() {
       return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
         self.MonacoEnvironment = {
           baseUrl: '${MONACO_CDN_BASE}'
         };
-        importScripts('${MONACO_CDN_BASE}vs/base/worker/workerMain.js');`
-      )}`
+        importScripts('${MONACO_CDN_BASE}vs/base/worker/workerMain.js');`)}`
     }
   }
 
@@ -56,16 +59,26 @@ const setupMonaco = createSingletonPromise(async () => {
   return { monaco }
 })
 
-export function useMonaco (
+export function useMonaco(
   target: Ref,
-  options: { readOnly?: boolean, code: string; language: string; onChanged?: (content: string) => void, onDidCreateEditor?: () => void }
+  options: {
+    readOnly?: boolean
+    code: string
+    language: string
+    onChanged?: (content: string) => void
+    onDidCreateEditor?: () => void
+  }
 ) {
   const isSetup = ref(false)
   let editor: Editor.IStandaloneCodeEditor
 
   const setContent = (content: string) => {
-    if (!isSetup.value) { return }
-    if (editor) { editor.setValue(content) }
+    if (!isSetup.value) {
+      return
+    }
+    if (editor) {
+      editor.setValue(content)
+    }
   }
 
   const init = async () => {
@@ -76,10 +89,18 @@ export function useMonaco (
       () => {
         const el = unref(target)
 
-        if (!el) { return }
+        if (!el) {
+          return
+        }
 
         const extension = () => {
-          if (options.language === 'typescript') { return 'ts' } else if (options.language === 'javascript') { return 'js' } else if (options.language === 'html') { return 'html' }
+          if (options.language === 'typescript') {
+            return 'ts'
+          } else if (options.language === 'javascript') {
+            return 'js'
+          } else if (options.language === 'html') {
+            return 'html'
+          }
         }
 
         const model = monaco.editor.createModel(

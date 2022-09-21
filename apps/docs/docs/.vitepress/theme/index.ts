@@ -5,7 +5,7 @@ import { h } from 'vue'
 
 import Demo from '../../../components/Demo.vue'
 import GithubUrl from '../../../components/GithubUrl.vue'
-import Language from '../../../components/Language.vue'
+// import Language from '../../../components/Language.vue'
 import Tab from '../../../components/Tabs/Tab.vue'
 import Tabs from '../../../components/Tabs/Tabs.vue'
 import { extractFileNameFromPath } from '../../../utils'
