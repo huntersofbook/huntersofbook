@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
 
 jobs:
   cache-and-install:
@@ -40,12 +40,12 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      
+
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
-        
+
       - name: 🛠 Vue Build
         run: pnpm build
 
       - name: 💪 Lint
-        run: pnpm lint    
+        run: pnpm lint
