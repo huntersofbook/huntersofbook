@@ -15,6 +15,7 @@
       "groupName": "examples dependencies (major)"
     },
     {
+      "matchPaths": ["packages/**", "apps/**", "packages.json"],
       "ignorePaths": [
         "**/examples/**"
       ],
