@@ -12,7 +12,7 @@ export default defineAppConfig({
       github: 'huntersofbook/huntersofbook'
     },
     github: {
-      root: 'docs',
+      root: 'docs/content',
       edit: true,
       releases: true
     },
