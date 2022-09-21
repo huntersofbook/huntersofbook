@@ -9,8 +9,8 @@
     "generate": "nuxi generate"
   },
   "devDependencies": {
-    "@huntersofbook/plausible-nuxt": "^0.1.7",
-    "@nuxt-themes/docus": "npm:@nuxt-themes/docus-edge@3.0.0-3d11777",
+    "@huntersofbook/plausible-nuxt": "^0.2.0",
+    "@nuxt-themes/docus": "npm:@nuxt-themes/docus-edge@3.0.0-fa5b4af",
     "@nuxt/content": "^2.1.1",
     "@nuxtlabs/github-module": "npm:@nuxtlabs/github-module-edge@1.3.1-27629534.edb1935",
     "monaco-editor-core": "^0.34.0",
