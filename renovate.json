@@ -11,18 +11,23 @@
       "matchPaths": ["examples/**"],
       "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "examples dependencies (major)"
     },
     {
-      "matchPaths": ["packages/**", "apps/**", "packages.json"],
-      "ignorePaths": [
-        "**/examples/**"
-      ],
+      "matchPaths": ["packages/**", "apps/**"],
+      "ignorePaths": ["**/examples/**"],
       "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "global"
+    },
+    {
+      "groupName": "local",
+      "ignorePaths": ["**/apps/**", "**/packages/**"],
+      "matchFiles": ["package.json"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "matchDatasources": ["npm"]
     }
   ]
 }
