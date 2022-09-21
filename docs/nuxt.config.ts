@@ -7,7 +7,11 @@ export default defineNuxtConfig({
       routes: ['/', '/blog/announcing-v2']
     }
   },
-  modules: ['@nuxtlabs/github-module', '@huntersofbook/plausible-nuxt'],
+  modules: [
+    '@nuxtlabs/github-module',
+    '@huntersofbook/plausible-nuxt',
+    'nuxt-icon'
+  ],
   extends: process.env.DOCUS_THEME_PATH || '@nuxt-themes/docus',
   github: {
     owner: 'huntersofbook',

@@ -4614,6 +4614,14 @@ nuxi@3.0.0-rc.11:
   optionalDependencies:
     fsevents "~2.3.2"
 
+nuxt-icon@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/nuxt-icon/-/nuxt-icon-0.1.6.tgz#141c5929f23e10058a52ecc40143f7f3cd427624"
+  integrity sha512-kxw2a1VcLpqzFp0q84AhRykXOnVO5p8dEIPF0GWbFiAOK0pn1acCbTVRbgKm4sD3H+g1v3Gm8OYvl71TCDDkqg==
+  dependencies:
+    "@iconify/vue" "^3.2.1"
+    "@nuxt/kit" "^3.0.0-rc.9"
+
 nuxt@^3.0.0-rc.11:
   version "3.0.0-rc.11"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.0.0-rc.11.tgz#08f9861b71b68e322bf8f732f8b28956bb92219f"
