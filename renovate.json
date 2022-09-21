@@ -12,14 +12,14 @@
       "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "NPM dependencies (major)"
+      "groupName": "examples dependencies (major)"
     },
     {
       "matchPaths": ["packages/**", "apps/**"],
       "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "NPM dependencies (major)"
+      "groupName": "global"
     }
   ]
 }
