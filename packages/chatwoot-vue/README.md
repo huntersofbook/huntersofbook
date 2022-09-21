@@ -1,5 +1,4 @@
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/apps/docs/images/naive-ui.png?raw=true)
-
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/chatwoot-vue.png?raw=true)
 
 # Chatwoot Vue 3 Module
 This module huntersofbook team created.
@@ -20,15 +19,6 @@ yarn add @huntersofbook/chatwoot-vue
 ```
 ```
 npm add @huntersofbook/chatwoot-vue
-```
-### Nuxt Config
-
-```ts
-export default defineNuxtConfig({
-  modules: [
-    '@huntersofbook/chatwoot-vue'
-  ]
-})
 ```
 
 ### Add main.ts
@@ -52,13 +42,13 @@ Add app.vue or add wherever you want.
 
 ```vue
 <script setup lang="ts">
-const { isOpen, toggle, toggleBubbleVisibility, popoutChatWindow } = useChatWoot()
+const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow } = useChatWoot()
 
 </script>
 
 <template>
   <div class="flex space-x-3">
-    <div>{{ isOpen }}</div>
+    <div>{{ isModalVisible }}</div>
     <button @click="toggle('open')">open</button>
     <button @click="toggle('close')">close</button>
     <div class="flex space-x-3">
@@ -70,6 +60,34 @@ const { isOpen, toggle, toggleBubbleVisibility, popoutChatWindow } = useChatWoot
 </template>
 ```
 
+
+## Init Default
+
+| Option         | Type     | Description                                                       | Default                  |
+| -------------- | -------- | ----------------------------------------------------------------- | ------------------------ |
+| websiteToken         | `string` | The token given to you when you create a chat widget. |    |
+| baseUrl       | `bool`   | Your site's domain, as declared by you in Chatwoot's settings | `https://app.chatwoot.com`    |
+
+
+## useChatWoot
+
+`useChatWoot()` accepts some
+
+| Option         | Type     | Description                                                        |
+| -------------- | -------- | -----------------------------------------------------------------  |
+| isModalVisible   | `boolean` | This chat will show you its open status.    |
+| toggle       | `'open' or 'close' - Function `   |   You can open and close the chat   |
+| setUser       | `key: string, args: ChatwootSetUserProps - Function`   | You can send user information to chatwoot panel.     |
+| setCustomAttributes       | `attributes: { [key: string]: string } - Function`   | You can send custom attributes to chatwoot panel.   |
+| deleteCustomAttribute       | `key: string - Function`   | You can delete custom attributes to chatwoot panel.   |
+| setLocale       | `local: string - Function`   |  Change widget locale  |
+| setLabel       | `label: string - Function`   |  You can send label to chatwoot panel.        |
+| removeLabel       | `label: string - Function`   |  You can delete label to chatwoot panel.        |
+| reset       | `Function` |  You can reset all settings.   |
+| toggleBubbleVisibility       | `'hide' or 'show' - Function`   | You can set the speech bubble's hide state.    |
+| popoutChatWindow       |  | You can open the conversation as a popup.  |
+
+
 ## 💻 Development
 
 - Clone this repository
@@ -77,6 +95,10 @@ const { isOpen, toggle, toggleBubbleVisibility, popoutChatWindow } = useChatWoot
 - Install dependencies using `pnpm install`
 - Stub module with `pnpm dev:prepare`
 - Run `pnpm dev` to start [playground](./playground) in development mode
+
+## Thanks
+
+Thanks to [@surmon-china](https://github.com/surmon-china), this project loadScript function is heavily inspired by [surmon-china.github.io](https://github.com/surmon-china/surmon-china.github.io).
 
 ## License
 

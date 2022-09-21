@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useChatWoot } from '@huntersofbook/chatwoot-vue'
-const { isOpen, toggle, toggleBubbleVisibility, popoutChatWindow } =
+const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow } =
   useChatWoot()
 
 // https://github.com/vueuse/head
@@ -46,7 +46,7 @@ useHead({
 
 <template>
   <div class="flex space-x-3">
-    <div>{{ isOpen }}</div>
+    <div>{{ isModalVisible }}</div>
     <button @click="toggle('open')">open</button>
     <button @click="toggle('close')">close</button>
     <div class="flex space-x-3">

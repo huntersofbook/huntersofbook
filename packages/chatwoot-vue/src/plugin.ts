@@ -115,7 +115,7 @@ export interface ChatwootSdk {
  *
  * */
 export interface Chatwoot {
-  isOpen: boolean
+  isModalVisible: boolean
   toggle: (state?: 'open' | 'close') => void
   setUser: (key: string, args: ChatwootSetUserProps) => void
   setCustomAttributes: (attributes: { [key: string]: string }) => void
@@ -221,7 +221,7 @@ export const useChatWoot = () => {
   const observer = ref<any>(null)
   const start = ref(1)
   let timer: ReturnType<typeof setTimeout>
-  const isOpen = ref(false)
+  const isModalVisible = ref(false)
 
   function observerStart(data: any) {
     try {
@@ -232,9 +232,9 @@ export const useChatWoot = () => {
               'hide'
             )
             if (data) {
-              isOpen.value = true
+              isModalVisible.value = true
             } else {
-              isOpen.value = false
+              isModalVisible.value = false
             }
           }
         }
@@ -307,7 +307,7 @@ export const useChatWoot = () => {
   const popoutChatWindow = () => window.$chatwoot.popoutChatWindow()
 
   return {
-    isOpen,
+    isModalVisible,
     toggle,
     setUser,
     setCustomAttributes,

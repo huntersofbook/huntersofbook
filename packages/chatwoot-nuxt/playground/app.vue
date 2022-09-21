@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const { isOpen, toggle, toggleBubbleVisibility, popoutChatWindow } =
+const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow } =
   useChatWoot()
 </script>
 
 <template>
   <div class="flex space-x-3">
-    <div>{{ isOpen }}</div>
+    <div>{{ isModalVisible }}</div>
     <button @click="toggle('open')">open</button>
     <button @click="toggle('close')">close</button>
     <div class="flex space-x-3">
