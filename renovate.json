@@ -15,7 +15,9 @@
       "groupName": "examples dependencies (major)"
     },
     {
-      "matchPaths": ["packages/**", "apps/**"],
+      "ignorePaths": [
+        "**/examples/**"
+      ],
       "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
