@@ -45,13 +45,13 @@
     "js-cookie": "^3.0.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.26.3",
+    "@antfu/eslint-config": "0.27.0",
     "@capacitor/preferences": "4.0.1",
     "@types/crypto-js": "4.1.1",
     "@types/js-cookie": "3.0.2",
     "@types/node": "17.0.45",
-    "@typescript-eslint/eslint-plugin": "5.37.0",
-    "@typescript-eslint/parser": "5.37.0",
+    "@typescript-eslint/eslint-plugin": "5.38.0",
+    "@typescript-eslint/parser": "5.38.0",
     "axios": "0.27.2",
     "eslint": "8.23.1",
     "eslint-config-prettier": "8.5.0",
