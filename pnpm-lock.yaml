@@ -380,7 +380,7 @@ importers:
 
   packages/plausible-nuxt:
     specifiers:
-      '@huntersofbook/plausible-vue': workspace:^0.2.1
+      '@huntersofbook/plausible-vue': workspace:*
       '@nuxt/kit': ^3.0.0-rc.11
       '@nuxt/module-builder': latest
       '@nuxt/schema': ^3.0.0-rc.11
