@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/monorepo",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "packageManager": "pnpm@7.12.1",
   "scripts": {
