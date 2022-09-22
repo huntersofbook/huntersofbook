@@ -23,7 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     init: {
       baseUrl: process.env.CHATWOOT_URL,
-      websiteToken: process.env.CHATWOOT_TOKEN
+      websiteToken: process.env.CHATWOOT_TOKEN || ''
     }
   },
   setup(options, nuxt) {

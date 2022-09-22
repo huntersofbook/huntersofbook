@@ -48,6 +48,7 @@
     "vue": "^3.2.39"
   },
   "dependencies": {
+    "defu": "^6.1.0",
     "plausible-tracker": "^0.3.8"
   },
   "peerDependencies": {

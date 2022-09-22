@@ -34,7 +34,7 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
-    nuxt.options.appConfig.huntersofbookPlausible = defu(options, {
+    nuxt.options.runtimeConfig.public.plausible = defu(options, {
       init: {
         domain: 'localhost',
         apiHost: 'https://plausible.io',
@@ -57,3 +57,11 @@ export default defineNuxtModule<ModuleOptions>({
     ])
   }
 })
+
+declare module '@nuxt/schema' {
+  interface ConfigSchema {
+    publicRuntimeConfig?: {
+      plausible?: ModuleOptions
+    }
+  }
+}
