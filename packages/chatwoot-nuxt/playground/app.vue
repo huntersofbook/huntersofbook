@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow } =
   useChatWoot()
+
+onMounted(() => {
+  toggleBubbleVisibility('hide')
+})
 </script>
 
 <template>

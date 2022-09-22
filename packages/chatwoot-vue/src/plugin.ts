@@ -250,8 +250,8 @@ export const useChatWoot = () => {
       start.value += 1
       const data = document.querySelector('.woot-widget-holder')
       if (data || start.value > 100) {
-        observerStart(data)
         clearInterval(timer)
+        observerStart(data)
       }
     }, 100)
   })
@@ -304,9 +304,9 @@ export const useChatWoot = () => {
   const toggleBubbleVisibility = (
     visibility: Parameters<Chatwoot['toggleBubbleVisibility']>[0]
   ) => {
-    isLoadTimer().then(() =>
+    isLoadTimer().then(() => {
       window.$chatwoot.toggleBubbleVisibility(visibility)
-    )
+    })
   }
 
   const popoutChatWindow = () => {
@@ -332,14 +332,25 @@ function isLoadTimer() {
   return new Promise((resolve, reject) => {
     let loadNumber = 0
     const timer = setInterval(() => {
+      const data = document.querySelector('.woot-widget-holder')
+      const widgetElm = document.querySelector('.woot--bubble-holder')
+
       loadNumber += 1
-      if (window.chatwootSDK) {
+
+      if (
+        data &&
+        window.chatwootSDK &&
+        widgetElm &&
+        window.$chatwoot &&
+        window
+      ) {
         clearInterval(timer)
         resolve('Chatwoot loaded')
-      } else if (loadNumber === 30) {
+      } else if (loadNumber === 200) {
+        clearInterval(timer)
         reject(new Error('Chatwoot not loaded'))
       }
-    }, 100)
+    }, 150)
   })
 }
 
