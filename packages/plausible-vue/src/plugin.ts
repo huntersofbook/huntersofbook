@@ -24,6 +24,7 @@ const loadScript = (
     script.defer = defer
     script.async = async
     script.src = src || source
+    script.setAttribute('data-domain', options['data-domain'])
 
     Object.keys(restAttrs).forEach((key) => {
       ;(script as any)[key] = (restAttrs as any)[key]
@@ -89,7 +90,7 @@ export const createPlausible = (options: OptionPlugin) => {
 
       loadScript(`${options.init.apiHost}/js/script.js`, {
         defer: true,
-        'data-domain': 'https://plausible.io'
+        'data-domain': options.init.apiHost || 'https://plausible.io'
       })
 
       app.config.globalProperties.$plausible = plausible
