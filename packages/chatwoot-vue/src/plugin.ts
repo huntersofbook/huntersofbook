@@ -185,9 +185,7 @@ export const createChatWoot = (options: OptionPlugin) => {
         init: { baseUrl: 'https://app.chatwoot.com' }
       } as OptionPlugin)
 
-      app.config.globalProperties.$chatwoot = chatwoot
-
-      const chatwootSettings: Partial<ChatwootSettings> = {
+      const chatwootSettings: ChatwootSettings = {
         showPopoutButton: false,
         darkMode: 'auto',
         hideMessageBubble: false,
@@ -195,8 +193,10 @@ export const createChatWoot = (options: OptionPlugin) => {
         locale: 'en',
         launcherTitle: 'Chat with us',
         type: 'expanded_bubble',
-        ...chatwoot
+        ...chatwoot.settings
       }
+      chatwoot.settings = chatwootSettings
+      app.config.globalProperties.$chatwoot = chatwoot
 
       loadScript(`${chatwoot.init.baseUrl}/packs/js/sdk.js`, {
         async: true,
