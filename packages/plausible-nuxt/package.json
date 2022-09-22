@@ -43,7 +43,7 @@
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
   "dependencies": {
-    "@huntersofbook/plausible-vue": "*",
+    "@huntersofbook/plausible-vue": "workspace:^0.2.1",
     "@nuxt/kit": "^3.0.0-rc.11",
     "defu": "^6.1.0"
   },

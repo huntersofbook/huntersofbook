@@ -1,6 +1,40 @@
+import defu from 'defu'
 import Plausible from 'plausible-tracker'
 import type { PlausibleOptions } from 'plausible-tracker'
 import { App, inject } from 'vue'
+interface ScriptLoaderOption extends Partial<HTMLScriptElement> {
+  'data-domain': string
+}
+
+const loadScript = (
+  source: string,
+  options: ScriptLoaderOption = {} as ScriptLoaderOption
+) => {
+  return new Promise((resolve, reject) => {
+    const head = document.head || document.getElementsByTagName('head')[0]
+    const script = document.createElement('script')
+    const {
+      src,
+      type = 'text/javascript',
+      defer = false,
+      async = false,
+      ...restAttrs
+    } = options
+    script.type = type
+    script.defer = defer
+    script.async = async
+    script.src = src || source
+    script.setAttribute('data-domain', options['data-domain'])
+
+    Object.keys(restAttrs).forEach((key) => {
+      ;(script as any)[key] = (restAttrs as any)[key]
+    })
+
+    head.appendChild(script)
+    script.onload = resolve
+    script.onerror = reject
+  })
+}
 
 export type IPlausible = typeof Plausible
 export type ReturnUsePlasuible = Omit<
@@ -43,13 +77,21 @@ export interface InstallOptions {
 export const createPlausible = (options: OptionPlugin) => {
   const plausible = {
     install(app: App): void {
-      const plausible = Plausible(options.init)
+      const data = defu(options.init, {
+        apiHost: 'https://plausible.io'
+      } as OptionPlugin['init'])
+      const plausible = Plausible(data)
 
       if (options.settings.enableAutoPageviews === true)
         plausible.enableAutoPageviews()
 
       if (options.settings.enableAutoOutboundTracking === true)
         plausible.enableAutoOutboundTracking()
+
+      loadScript(`${options.init.apiHost}/js/script.js`, {
+        defer: true,
+        'data-domain': options.init.apiHost || 'https://plausible.io'
+      })
 
       app.config.globalProperties.$plausible = plausible
       app.provide('$plausible', plausible)

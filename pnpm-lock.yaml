@@ -380,7 +380,7 @@ importers:
 
   packages/plausible-nuxt:
     specifiers:
-      '@huntersofbook/plausible-vue': '*'
+      '@huntersofbook/plausible-vue': workspace:^0.2.1
       '@nuxt/kit': ^3.0.0-rc.11
       '@nuxt/module-builder': latest
       '@nuxt/schema': ^3.0.0-rc.11
@@ -397,10 +397,12 @@ importers:
 
   packages/plausible-vue:
     specifiers:
+      defu: ^6.1.0
       plausible-tracker: ^0.3.8
       unconfig: ^0.3.5
       vue: ^3.2.39
     dependencies:
+      defu: 6.1.0
       plausible-tracker: 0.3.8
     devDependencies:
       unconfig: 0.3.5

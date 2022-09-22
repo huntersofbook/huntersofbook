@@ -1,11 +1,11 @@
 import { createPlausible } from '@huntersofbook/plausible-vue'
 import type { ReturnUsePlasuible } from '@huntersofbook/plausible-vue'
 
-import { defineNuxtPlugin, useAppConfig } from '#app'
+import { defineNuxtPlugin, useRuntimeConfig } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const { huntersofbookPlausible } = useAppConfig() as any
-  const hob = createPlausible(huntersofbookPlausible)
+  const config = useRuntimeConfig()
+  const hob = createPlausible(config.public.plausible)
   nuxtApp.vueApp.use(hob)
   nuxtApp.provide(
     'plausible',
