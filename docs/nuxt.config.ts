@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark'
   },
-  huntersofbookPlausible: {
+  plausible: {
     init: {
       apiHost: process.env.PLAUSIBLE,
       domain: 'opensource.huntersofbook.com'

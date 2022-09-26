@@ -15,7 +15,7 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,
-    configKey: 'huntersofbookPlausible',
+    configKey: 'plausible',
     compatibility: {
       nuxt: '^3.0.0-rc.11'
     }

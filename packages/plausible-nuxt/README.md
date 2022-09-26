@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   modules: [
     '@huntersofbook/plausible-nuxt'
   ],
-  huntersofbookPlausible: {
+  plausible: {
     init: {
       domain: 'localhost',
       apiHost: 'https://site.com',

@@ -1,10 +1,10 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
-import huntersofbookPlausible from '..'
+import plausible from '..'
 
 export default defineNuxtConfig({
-  modules: [huntersofbookPlausible],
-  huntersofbookPlausible: {
+  modules: [plausible],
+  plausible: {
     init: {
       domain: 'localhost',
       apiHost: 'https://site.com',

@@ -4,7 +4,7 @@ import chatwoot from '..'
 
 export default defineNuxtConfig({
   modules: [chatwoot],
-  huntersofbookChatwoot: {
+  chatwoot: {
     init: {
       websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
     },
