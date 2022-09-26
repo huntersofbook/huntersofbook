@@ -22,7 +22,7 @@ importers:
       eslint-plugin-prettier: ^4.2.1
       huntersofbook: workspace:*
       lodash: 4.17.21
-      pnpm: 7.12.1
+      pnpm: 7.12.2
       prettier: 2.7.1
       prettier-eslint: ^15.0.1
       prettier-plugin-tailwindcss: ^0.1.13
@@ -53,7 +53,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_cabrci5exjdaojcvd6xoxgeowu
       huntersofbook: link:packages/huntersofbook
       lodash: 4.17.21
-      pnpm: 7.12.1
+      pnpm: 7.12.2
       prettier: 2.7.1
       prettier-eslint: 15.0.1
       prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
@@ -8542,6 +8542,12 @@ packages:
 
   /pnpm/7.12.1:
     resolution: {integrity: sha512-kk60T3TKXutcEnpUNAlJBpG+PzVdYZ3e/g4eivgvmWsY4H3R/8c/nVWTS5Ji/NCPfzO2oUudkN5AyCd0eTKODQ==}
+    engines: {node: '>=14.6'}
+    hasBin: true
+    dev: true
+
+  /pnpm/7.12.2:
+    resolution: {integrity: sha512-8QvnKANKN+YZXDmVYGI7zRJysdKldZI+w3AYnxu9IwtnLv1x6WuzrJr0nxMcTeuUAT908RjDqK+/6KJB9wNqxA==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
