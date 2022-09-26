@@ -6,19 +6,25 @@ import {
   createResolver,
   defineNuxtModule
 } from '@nuxt/kit'
+import defu from 'defu'
+import { GlobalThemeOverrides } from 'naive-ui'
 
 import { name, version } from '../package.json'
 
-export default defineNuxtModule({
+export interface ModuleOptions {
+  themeOverrides?: GlobalThemeOverrides
+}
+
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,
-    configKey: 'huntersofbookNaiveUI',
+    configKey: 'naiveUI',
     compatibility: {
       nuxt: '^3.0.0-rc.11'
     }
   },
-  setup(_options, nuxt) {
+  setup(moduleOptions, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     if (nuxt.options.dev) {
       nuxt.options.build.transpile.push('@juggle/resize-observer')
@@ -46,6 +52,17 @@ export default defineNuxtModule({
 
     nuxt.options.head.meta.push({ name: 'naive-ui-style' })
     addPlugin({ src: resolve('./runtime/plugin'), mode: 'server' })
+
+    if (moduleOptions) {
+      // Store options for later use in the runtime plugin
+      nuxt.options.runtimeConfig.public.naiveUI = defu(
+        nuxt.options.runtimeConfig.public.naiveUI,
+        {
+          themeOverrides: moduleOptions.themeOverrides
+        }
+      )
+      addPlugin({ src: resolve('./runtime/config') })
+    }
 
     // Add auto-imported components
     NaiveComponentNames.map((name) =>
@@ -213,3 +230,13 @@ const NaiveUIHooks = [
   'useNotification',
   'useLoadingBar'
 ]
+
+declare module '@nuxt/schema' {
+  interface ConfigSchema {
+    runtimeConfig: {
+      public?: {
+        naiveUI?: ModuleOptions
+      }
+    }
+  }
+}
