@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: ['@huntersofbook/chatwoot-nuxt', '@nuxtjs/tailwindcss'],
 
-  huntersofbookChatwoot: {
+  chatwoot: {
     init: {
       websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
     },

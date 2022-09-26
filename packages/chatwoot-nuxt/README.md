@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     '@huntersofbook/chatwoot-nuxt'
   ],
   
-  huntersofbookChatwoot: {
+  chatwoot: {
     init: {
       websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
     },
