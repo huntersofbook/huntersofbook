@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <NConfigProvider :theme="darkTheme">
+    <NConfigProvider>
       <NGlobalStyle />
       <div class="mx-auto mt-4 max-w-sm">
         <NButton>Default</NButton>
