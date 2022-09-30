@@ -12,14 +12,14 @@ import { DeepPartial } from './misc'
 
 export type VueNode = VNodeChild | JSX.Element
 
-export interface IForm<T> {
+export interface IForm<T, K extends Array<String>> {
   component?: Component
   footer?: {
     render?: () => VueTypeValidableDef<VueNode>
     text?: string
   }
   id: HTMLAttributes['id']
-  name: keyof T | string
+  name: keyof T | K[number]
   label: string
   width?: string[]
   init?: any
@@ -51,11 +51,15 @@ export interface IFormProps {
     | null
 }
 
-export interface FormData<T> {
+export interface FormData<T, K extends Array<String> = []> {
   schema: any
-  forms: IForm<T>[]
+  forms: IForm<T, K>[]
 }
 
-export type InputSchema<T, ARRAY extends string> = {
-  [key in ARRAY]: FormData<T>
+export type InputSchema<
+  T,
+  ARRAY extends string,
+  K extends Array<String> = []
+> = {
+  [key in ARRAY]: FormData<T, K>
 }

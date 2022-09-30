@@ -25,7 +25,7 @@ const schema: FYup.SchemaOf<SignInInput> = FYup.object({
   data4: FYup.boolean().required(),
   data5: FYup.boolean().required()
 })
-const schemas: InputSchema<SignInInput, 'one'> = {
+const schemas: InputSchema<SignInInput, 'one', ['test']> = {
   one: {
     schema,
     forms: [
