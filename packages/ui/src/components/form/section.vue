@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useAttrs } from 'vue'
+import { PropType, useAttrs } from 'vue'
 
 import AtomSectionTitle from '../atom/section-title.vue'
 
-interface Props {
-  forms?: any
-  theme?: 'default' | 'design'
-}
-const props = withDefaults(defineProps<Props>(), {
-  theme: 'default',
+const props = defineProps({
+  forms: {
+    default: () => [],
+    type: Array as PropType<Record<string, string>[]>,
+  },
+  theme: { default: 'default', type: String as PropType<'default' | 'design'> },
 })
 
 const emit = defineEmits<{ (e: 'post', value: Event): void }>()

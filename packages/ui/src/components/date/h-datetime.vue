@@ -3,49 +3,27 @@ import {
   localizedFormat,
   localizedFormatDistance,
   localizedFormatDistanceStrict,
-  useHuntersofbook,
 } from '@huntersofbook/core'
 import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { PropType, computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
-interface Props {
-  value: string
-  type:
-    | 'dateTime'
-    | 'date'
-    | 'time'
-    | 'timestamp'
-    | 'unixMillisecondTimestamp'
-    | DateFormat
-  format?: string
-  relative?: boolean
-  strict?: boolean
-  round?: 'round' | 'floor' | 'ceil'
-  suffix?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  format: 'long',
-  relative: false,
-  strict: false,
-  round: 'round',
-  suffix: true,
-  value: '',
-  type: 'ISOString',
+const props = defineProps({
+  format: {
+    type: String as PropType<string>,
+    default: 'PPP HH:mm:ss',
+  },
+  relative: Boolean,
+  strict: Boolean,
+  round: {
+    default: 'round',
+    type: String as PropType<'round' | 'floor' | 'ceil' | undefined>,
+  },
+  suffix: Boolean,
+  value: String,
+  type: String as PropType<
+    'dateTime' | 'date' | 'time' | 'timestamp' | 'unixMillisecondTimestamp'
+  >,
 })
-
-const EDateFormat = {
-  dateTimeISO: 'yyyy-MM-dd HH:mm:ss',
-  dateTimeJP: 'yyyy年MM月dd日 HH時mm分ss秒',
-  timestampISO: 'yyyy-MM-dd HH:mm:ss.SSS',
-  ISOString: "yyy-MM-dd'T'HH:mm:ssX",
-} as const
-
-type DateFormat = keyof typeof EDateFormat
-
-const { t } = useI18n()
-const { global } = useHuntersofbook()
 
 const displayValue = ref<string | null>(null)
 
@@ -67,7 +45,7 @@ const localValue = computed(() => {
     return parse(props.value, 'HH:mm:ss', new Date())
 
   try {
-    parse(props.value, EDateFormat[props.type], new Date())
+    parse(props.value, 'yyyy-MM-dd HH:mm:ss', new Date())
   } catch (error) {
     return null
   }
@@ -97,29 +75,7 @@ watch(
     if (props.relative) {
       displayValue.value = relativeFormat(newValue)
     } else {
-      let format
-      if (props.format === 'long') {
-        format = `${t('date-fns_date')} ${t('date-fns_time')}`
-        if (props.type === 'date') {
-          format = String(t('date-fns_date'))
-        }
-        if (props.type === 'time') {
-          format = String(t('date-fns_time'))
-        }
-      } else if (props.format === 'short') {
-        format = `${t('date-fns_date_short')} ${t('date-fns_time_short')}`
-        if (props.type === 'date') {
-          format = String(t('date-fns_date_short'))
-        }
-        if (props.type === 'time') {
-          format = String(t('date-fns_time_short'))
-        }
-      } else {
-        format = props.format
-      }
-      displayValue.value = localizedFormat(newValue, format, {
-        locale: global.dateLocale.value,
-      })
+      displayValue.value = localizedFormat(newValue, props.format)
     }
   },
   { immediate: true },

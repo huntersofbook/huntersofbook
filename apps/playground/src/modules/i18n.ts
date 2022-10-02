@@ -17,12 +17,12 @@ const messages = Object.fromEntries(
     return [key.slice(14, yaml ? -5 : -4), value.default]
   })
 )
-const defaultLocal = await loadDateFNSLocale('tr')
+const defaultLocal = await loadDateFNSLocale('en')
 
 // setup i18n instance with global
 export const install: UserModule = ({ app }) => {
   const i18n = createI18n({
-    locale: 'tr',
+    locale: 'en',
     messages
   })
   const huntersofbook = createHuntersofbook({

@@ -1,4 +1,4 @@
-import path from 'path'
+import path, { resolve } from 'path'
 
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
@@ -17,14 +17,15 @@ export default defineConfig({
     vueSetupExtend(),
     dtsPlugin({
       outputDir: 'dist/types',
-      compilerOptions: {
-        sourceMap: true,
-        esModuleInterop: true,
-      },
+      include: 'src',
       insertTypesEntry: true,
-      staticImport: true,
     }),
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),

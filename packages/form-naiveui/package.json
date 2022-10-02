@@ -49,7 +49,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "vue": "^3.2.39",
+    "vue": "^3.2.40",
     "yup": "^0.32.11",
     "vee-validate": "^4.6.7",
     "naive-ui": "^2.33.3",
@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "8.5.0",
-    "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue": "^3.1.2",
     "@vue/compiler-sfc": "3.2.40",
     "sass": "1.55.0",
     "vite": "3.1.4",
