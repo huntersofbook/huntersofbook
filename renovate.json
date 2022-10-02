@@ -17,6 +17,9 @@
     {
       "matchPaths": ["packages/**", "apps/**"],
       "ignorePaths": ["**/examples/**"],
+      "matchPackagePatterns": ["*"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "global"
     },
     {
