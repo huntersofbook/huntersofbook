@@ -141,7 +141,7 @@ importers:
       '@vitejs/plugin-vue': ^3.1.0
       '@vue/test-utils': 2.1.0
       '@vueuse/core': 9.3.0
-      '@vueuse/head': 0.7.13
+      '@vueuse/head': 0.8.0
       autoprefixer: 10.4.12
       cross-env: 7.0.3
       eslint: 8.24.0
@@ -173,7 +173,7 @@ importers:
       '@huntersofbook/chatwoot-vue': link:../../packages/chatwoot-vue
       '@huntersofbook/form-naiveui': link:../../packages/form-naiveui
       '@vueuse/core': 9.3.0_vue@3.2.40
-      '@vueuse/head': 0.7.13_vue@3.2.40
+      '@vueuse/head': 0.8.0_vue@3.2.40
       huntersofbook: link:../../packages/huntersofbook
       naive-ui: 2.33.3_vue@3.2.40
       nprogress: 0.2.0
@@ -2803,7 +2803,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.4_sass@1.55.0
+      vite: 3.1.4_sass@1.54.9
       vue: 3.2.39
     dev: true
 
@@ -3078,11 +3078,12 @@ packages:
       - '@vue/composition-api'
     dev: true
 
-  /@vueuse/head/0.7.13_vue@3.2.40:
-    resolution: {integrity: sha512-VHSla/0uOAUii/mz+NWLFKMrMbz/lQoYxEcpS/ri7drepYjdB5QdbTnD2KdOX8EmQM/b07qpjKanr7erGrd3XA==}
+  /@vueuse/head/0.8.0_vue@3.2.40:
+    resolution: {integrity: sha512-e/1Zh3GAa1dkunHfxHkda/TBxxDgj2isQyND7wYazBhClyfrschXbNfPn1UbyrZRFFaXZjpt6RFukSgph3gG0A==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
+      '@vueuse/shared': 9.3.0_vue@3.2.40
       '@zhead/schema-vue': 0.7.3_vue@3.2.40
       vue: 3.2.40
     transitivePeerDependencies:
@@ -11967,7 +11968,7 @@ packages:
       fs-extra: 10.1.0
       kolorist: 1.6.0
       ts-morph: 16.0.0
-      vite: 3.1.4_sass@1.55.0
+      vite: 3.1.4_sass@1.54.9
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -12019,7 +12020,7 @@ packages:
     dependencies:
       '@vue/compiler-sfc': 3.2.40
       magic-string: 0.25.9
-      vite: 3.1.4_sass@1.55.0
+      vite: 3.1.4_sass@1.54.9
     dev: true
 
   /vite-ssg-sitemap/0.4.3:
