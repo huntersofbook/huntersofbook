@@ -22,6 +22,7 @@
     "@antfu/eslint-config": "^0.27.0",
     "@huntersofbook/auth-vue": "workspace:*",
     "@huntersofbook/core": "workspace:*",
+    "@huntersofbook/core-nuxt": "workspace:*",
     "@huntersofbook/form-naiveui": "workspace:*",
     "@huntersofbook/plausible-nuxt": "workspace:*",
     "@huntersofbook/plausible-vue": "workspace:*",

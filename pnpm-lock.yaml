@@ -8,6 +8,7 @@ importers:
       '@huntersofbook/auth-vue': workspace:*
       '@huntersofbook/chatwoot-vue': workspace:*
       '@huntersofbook/core': workspace:*
+      '@huntersofbook/core-nuxt': workspace:*
       '@huntersofbook/form-naiveui': workspace:*
       '@huntersofbook/naive-ui-nuxt': workspace:*
       '@huntersofbook/plausible-nuxt': workspace:*
@@ -38,6 +39,7 @@ importers:
       '@huntersofbook/auth-vue': link:packages/auth-vue
       '@huntersofbook/chatwoot-vue': link:packages/chatwoot-vue
       '@huntersofbook/core': link:packages/core
+      '@huntersofbook/core-nuxt': link:packages/core-nuxt
       '@huntersofbook/form-naiveui': link:packages/form-naiveui
       '@huntersofbook/naive-ui-nuxt': link:packages/naive-ui-nuxt
       '@huntersofbook/plausible-nuxt': link:packages/plausible-nuxt
@@ -301,6 +303,25 @@ importers:
     devDependencies:
       magic-string: 0.26.2
       unconfig: 0.3.5
+
+  packages/core-nuxt:
+    specifiers:
+      '@huntersofbook/core': workspace:*
+      '@nuxt/kit': ^3.0.0-rc.11
+      '@nuxt/module-builder': latest
+      '@nuxt/schema': ^3.0.0-rc.11
+      defu: ^6.1.0
+      nuxt: ^3.0.0-rc.11
+      pathe: ^0.3.8
+    dependencies:
+      '@huntersofbook/core': link:../core
+      '@nuxt/kit': 3.0.0-rc.11
+      defu: 6.1.0
+      pathe: 0.3.8
+    devDependencies:
+      '@nuxt/module-builder': 0.1.7
+      '@nuxt/schema': 3.0.0-rc.11
+      nuxt: 3.0.0-rc.11
 
   packages/form-naiveui:
     specifiers:
@@ -2755,7 +2776,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.4_sass@1.55.0
+      vite: 3.1.4
       vue: 3.2.40
     dev: true
 

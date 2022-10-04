@@ -3,6 +3,7 @@ import {
   localizedFormat,
   localizedFormatDistance,
   localizedFormatDistanceStrict,
+  useHuntersofbook,
 } from '@huntersofbook/core'
 import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
 import { PropType, computed, onMounted, onUnmounted, ref, watch } from 'vue'
@@ -12,7 +13,10 @@ const props = defineProps({
     type: String as PropType<string>,
     default: 'PPP HH:mm:ss',
   },
-  relative: Boolean,
+  relative: {
+    type: Boolean,
+    default: false,
+  },
   strict: Boolean,
   round: {
     default: 'round',
@@ -45,7 +49,7 @@ const localValue = computed(() => {
     return parse(props.value, 'HH:mm:ss', new Date())
 
   try {
-    parse(props.value, 'yyyy-MM-dd HH:mm:ss', new Date())
+    parse(props.value, props.format, new Date())
   } catch (error) {
     return null
   }
@@ -68,6 +72,8 @@ const relativeFormat = (value: Date) => {
 watch(
   localValue,
   async (newValue) => {
+    const { global } = useHuntersofbook()
+
     if (newValue === null) {
       displayValue.value = null
       return
@@ -75,7 +81,9 @@ watch(
     if (props.relative) {
       displayValue.value = relativeFormat(newValue)
     } else {
-      displayValue.value = localizedFormat(newValue, props.format)
+      displayValue.value = localizedFormat(newValue, props.format, {
+        locale: global.dateLocale.value,
+      })
     }
   },
   { immediate: true },

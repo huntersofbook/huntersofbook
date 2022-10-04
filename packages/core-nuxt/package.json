@@ -1,0 +1,62 @@
+{
+  "name": "@huntersofbook/core-nuxt",
+  "version": "0.3.2",
+  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/huntersofbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/core-nuxt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/core-nuxt"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "nuxt 3",
+    "composition",
+    "huntersofbook",
+    "core",
+    "nuxt",
+    "plugin"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm dev:prepare && pnpm nuxt-module-build && esbuild --minify dist/script.mjs --outfile=dist/script.min.js",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+  },
+  "dependencies": {
+    "@huntersofbook/core": "workspace:*",
+    "@nuxt/kit": "^3.0.0-rc.11",
+    "defu": "^6.1.0",
+    "pathe": "^0.3.8"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "latest",
+    "@nuxt/schema": "^3.0.0-rc.11",
+    "nuxt": "^3.0.0-rc.11"
+  },
+  "build": {
+    "entries": [
+      "src/script"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -17,17 +17,40 @@ const messages = Object.fromEntries(
     return [key.slice(14, yaml ? -5 : -4), value.default]
   })
 )
-const defaultLocal = await loadDateFNSLocale('en')
+
+const getLang = () => {
+  if (localStorage.getItem('lang')) {
+    return localStorage.getItem('lang')
+  } else {
+    switch (navigator.language) {
+      case 'tr-TR':
+        localStorage.setItem('lang', 'tr')
+        return 'tr'
+      case 'en-US':
+        localStorage.setItem('lang', 'en')
+        return 'en'
+    }
+  }
+}
+
+async function useI18n() {
+  const i18n = createI18n({
+    locale: getLang() || 'en',
+    messages,
+    globalInjection: true,
+    legacy: false
+  })
+
+  // Load date-fns locale
+  const locale = await loadDateFNSLocale(i18n.global.locale.value)
+  return { i18n, locale }
+}
 
 // setup i18n instance with global
-export const install: UserModule = ({ app }) => {
-  const i18n = createI18n({
-    locale: 'en',
-    messages
-  })
+export const install: UserModule = async ({ app }) => {
+  const { i18n, locale } = await useI18n()
   const huntersofbook = createHuntersofbook({
-    i18n,
-    dateFnsLanguage: defaultLocal
+    dateFnsLanguage: locale
   })
   app.use(i18n)
   app.use(huntersofbook)

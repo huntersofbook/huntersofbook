@@ -17,8 +17,3 @@ const data = useTimeFromNow(date, 1000)
     />
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: home
-</route>
