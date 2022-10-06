@@ -19,8 +19,7 @@
       "scripthost"
     ],
     "skipLibCheck": true,
-    "outDir": "lib",
-    "baseUrl": ".",
+    "outDir": "dist",
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "types": [
@@ -28,8 +27,7 @@
       "vite/client",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client",
-      "naive-ui/volar",
-      "vite-plugin-glob/client"
+      "naive-ui/volar"    
     ]
   },
   "include": [

@@ -8,7 +8,7 @@ interface ScriptLoaderOption extends Partial<HTMLScriptElement> {
 
 const loadScript = (
   source: string,
-  options: ScriptLoaderOption = {} as ScriptLoaderOption
+  options: ScriptLoaderOption = {} as ScriptLoaderOption,
 ) => {
   return new Promise((resolve, reject) => {
     const head = document.head || document.getElementsByTagName('head')[0]
@@ -27,7 +27,7 @@ const loadScript = (
     script.setAttribute('data-domain', options['data-domain'])
 
     Object.keys(restAttrs).forEach((key) => {
-      ;(script as any)[key] = (restAttrs as any)[key]
+      (script as any)[key] = (restAttrs as any)[key]
     })
 
     head.appendChild(script)
@@ -78,7 +78,8 @@ export const createPlausible = (options: OptionPlugin) => {
   const plausible = {
     install(app: App): void {
       const data = defu(options.init, {
-        apiHost: 'https://plausible.io'
+        apiHost: 'https://plausible.io',
+        enableAutoPageviews: true,
       } as OptionPlugin['init'])
       const plausible = Plausible(data)
 
@@ -89,13 +90,13 @@ export const createPlausible = (options: OptionPlugin) => {
         plausible.enableAutoOutboundTracking()
 
       loadScript(`${options.init.apiHost}/js/script.js`, {
-        defer: true,
-        'data-domain': options.init.apiHost || 'https://plausible.io'
+        'defer': true,
+        'data-domain': options.init.apiHost || 'https://plausible.io',
       })
 
       app.config.globalProperties.$plausible = plausible
       app.provide('$plausible', plausible)
-    }
+    },
   }
   return plausible
 }
@@ -104,7 +105,7 @@ export const usePlausible = () => {
   const plausible = inject('$plausible') as ReturnUsePlasuible
 
   return {
-    ...plausible
+    ...plausible,
   }
 }
 

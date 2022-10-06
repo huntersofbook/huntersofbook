@@ -41,14 +41,17 @@
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.3",
     "date-fns": "^2.29.2",
+    "defu": "^6.1.0",
+    "es-cookie": "^1.4.0",
+    "lodash": "^4.17.21",
     "vee-validate": "^4.6.5",
-    "vue": "^3.2.39",
-    "vue-i18n": "^9.3.0-beta.3",
+    "vue": "^3.2.40",
+    "vue-i18n": "^9.3.0-beta.6",
     "vue-types": "^4.2.1",
     "yup": "^0.32.11"
   },
   "peerDependencies": {
-    "vue": "^3.2.39"
+    "vue": "^3.2.40"
   },
   "devDependencies": {
     "magic-string": "^0.26.2",

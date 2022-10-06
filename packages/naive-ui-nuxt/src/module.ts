@@ -4,7 +4,7 @@ import {
   addImportsSources,
   addPlugin,
   createResolver,
-  defineNuxtModule
+  defineNuxtModule,
 } from '@nuxt/kit'
 import defu from 'defu'
 import { GlobalThemeOverrides } from 'naive-ui'
@@ -21,8 +21,8 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'naiveUI',
     compatibility: {
-      nuxt: '^3.0.0-rc.11'
-    }
+      nuxt: '^3.0.0-rc.11',
+    },
   },
   setup(moduleOptions, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -31,22 +31,23 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.vite.optimizeDeps?.include?.push(
         'naive-ui',
         'vueuc',
-        'date-fns-tz/esm/formatInTimeZone'
+        'date-fns-tz/esm/formatInTimeZone',
       )
-    } else {
+    }
+    else {
       nuxt.options.build.transpile.push(
         'naive-ui',
         'vueuc',
         '@css-render/vue3-ssr',
         '@juggle/resize-observer',
-        'date-fns'
+        'date-fns',
       )
     }
 
     nuxt.hook('prepare:types', ({ tsConfig, references }) => {
       tsConfig.compilerOptions!.types.push('naive-ui/volar')
       references.push({
-        path: resolve(nuxt.options.buildDir, 'types/naive-ui.d.ts')
+        path: resolve(nuxt.options.buildDir, 'types/naive-ui.d.ts'),
       })
     })
 
@@ -58,28 +59,28 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.runtimeConfig.public.naiveUI = defu(
         nuxt.options.runtimeConfig.public.naiveUI,
         {
-          themeOverrides: moduleOptions.themeOverrides
-        }
+          themeOverrides: moduleOptions.themeOverrides,
+        },
       )
       addPlugin({ src: resolve('./runtime/config') })
     }
 
     // Add auto-imported components
-    NaiveComponentNames.map((name) =>
+    NaiveComponentNames.map(name =>
       addComponent({
         name,
         export: name,
-        filePath: 'naive-ui'
-      })
+        filePath: 'naive-ui',
+      }),
     )
 
     addImportsSources([
       {
         from: 'naive-ui',
-        imports: [...NaiveUIHooks]
-      }
+        imports: [...NaiveUIHooks],
+      },
     ])
-  }
+  },
 })
 
 const NaiveComponentNames = [
@@ -221,14 +222,14 @@ const NaiveComponentNames = [
   'NUploadDragger',
   'NUploadFileList',
   'NUploadTrigger',
-  'NWatermark'
+  'NWatermark',
 ]
 
 const NaiveUIHooks = [
   'useDialog',
   'useMessage',
   'useNotification',
-  'useLoadingBar'
+  'useLoadingBar',
 ]
 
 declare module '@nuxt/schema' {

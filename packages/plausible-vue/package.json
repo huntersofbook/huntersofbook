@@ -45,13 +45,13 @@
   },
   "devDependencies": {
     "unconfig": "^0.3.5",
-    "vue": "^3.2.39"
+    "vue": "^3.2.40"
   },
   "dependencies": {
     "defu": "^6.1.0",
     "plausible-tracker": "^0.3.8"
   },
   "peerDependencies": {
-    "vue": "^3.2.39"
+    "vue": "^3.2.40"
   }
 }

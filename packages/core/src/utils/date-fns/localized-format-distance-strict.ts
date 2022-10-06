@@ -6,9 +6,9 @@ export type LocalizedFormatDistanceStrict = (
 export const localizedFormatDistanceStrict: LocalizedFormatDistanceStrict = (
   date,
   baseDate,
-  options
+  options,
 ): string => {
   return formatDistanceStrict(date, baseDate, {
-    ...options
+    ...options,
   })
 }

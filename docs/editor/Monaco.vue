@@ -21,16 +21,17 @@ onMounted(async () => {
       },
       onDidCreateEditor() {
         editorState.value = 'ready'
-      }
+      },
     })
 
     watch(
       () => props.value,
-      () => setContent(props.value)
+      () => setContent(props.value),
     )
 
     emit('change', props.value)
-  } catch (_) {
+  }
+  catch (_) {
     editorState.value = 'error'
   }
 })

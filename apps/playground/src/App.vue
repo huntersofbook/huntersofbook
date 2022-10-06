@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useChatWoot } from '@huntersofbook/chatwoot-vue'
-const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow } =
-  useChatWoot()
+const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow }
+  = useChatWoot()
 
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
@@ -17,7 +17,7 @@ onMounted(() => {
 })
 provide('isDark', {
   changeDark,
-  dark
+  dark,
 })
 useHead({
   title: 'Vitesse',
@@ -25,34 +25,44 @@ useHead({
     { name: 'description', content: 'huntersofbook open-source' },
     {
       name: 'theme-color',
-      content: computed(() => (isDark.value ? '#00aba9' : '#ffffff'))
-    }
+      content: computed(() => (isDark.value ? '#00aba9' : '#ffffff')),
+    },
   ],
   htmlAttrs: {
     lang: 'en',
-    class: computed(() => (dark.value ? 'dark' : 'light'))
+    class: computed(() => (dark.value ? 'dark' : 'light')),
   },
   link: [
     {
       rel: 'icon',
       type: 'image/svg+xml',
       href: computed(() =>
-        preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'
-      )
-    }
-  ]
+        preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
+      ),
+    },
+  ],
 })
 </script>
 
 <template>
   <div class="flex space-x-3">
     <div>{{ isModalVisible }}</div>
-    <button @click="toggle('open')">open</button>
-    <button @click="toggle('close')">close</button>
+    <button @click="toggle('open')">
+      open
+    </button>
+    <button @click="toggle('close')">
+      close
+    </button>
     <div class="flex space-x-3">
-      <button @click="toggleBubbleVisibility('hide')">hide</button>
-      <button @click="toggleBubbleVisibility('show')">show</button>
-      <button @click="popoutChatWindow">open popup</button>
+      <button @click="toggleBubbleVisibility('hide')">
+        hide
+      </button>
+      <button @click="toggleBubbleVisibility('show')">
+        show
+      </button>
+      <button @click="popoutChatWindow">
+        open popup
+      </button>
     </div>
   </div>
   <RouterView />

@@ -4,16 +4,16 @@ import Monaco from './Monaco.vue'
 const props = defineProps({
   modelValue: {
     type: String,
-    required: true
+    required: true,
   },
   language: {
     type: String,
-    default: 'mdc'
+    default: 'mdc',
   },
   readOnly: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const emit = defineEmits(['update:modelValue'])

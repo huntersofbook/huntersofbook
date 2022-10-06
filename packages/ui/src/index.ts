@@ -1,3 +1,3 @@
-export * from './components'
+import './index.css'
 
-export default {}
+export * from './components'

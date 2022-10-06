@@ -5,6 +5,6 @@ import { useNuxtApp } from '#app'
 export const usePlausible = (): ReturnUsePlasuible => {
   const plausible = useNuxtApp().$plausible
   return {
-    ...plausible
+    ...plausible,
   }
 }

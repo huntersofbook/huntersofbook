@@ -36,12 +36,12 @@
       "import": "./dist/style.css"
     },
     "./src": {
-      "import": "./dist/src/index.ts"
+      "import": "./src/index.ts"
     }
   },
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "vite build",
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
     "dev": "vite build --watch",
     "lint": "eslint \"./**/*.{ts,vue}\"",
     "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
@@ -52,28 +52,28 @@
     "@zxcvbn-ts/core": "^2.0.4",
     "naive-ui": "^2.33.3",
     "sass": "^1.54.9",
-    "vue": "^3.2.39",
-    "vue-i18n": "^9.3.0-beta.3"
+    "vue": "^3.2.40"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "8.5.0",
-    "@vitejs/plugin-vue": "^3.1.0",
-    "@vue/compiler-sfc": "3.2.40",
-    "autoprefixer": "10.4.12",
-    "eslint": "8.24.0",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vue/compiler-sfc": "^3.2.40",
+    "autoprefixer": "^10.4.12",
+    "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "postcss": "8.4.17",
-    "prettier": "2.7.1",
+    "postcss": "^8.4.17",
+    "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "rollup-plugin-postcss": "4.0.2",
-    "tailwindcss": "3.1.8",
-    "typescript": "4.8.4",
-    "vite": "3.1.4",
-    "vite-plugin-dts": "1.6.4",
-    "vite-plugin-vue-setup-extend": "0.4.0",
-    "vite-svg-loader": "3.6.0",
-    "vue-eslint-parser": "9.1.0"
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.4",
+    "vite-plugin-dts": "^1.6.4",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vite-svg-loader": "^3.6.0",
+    "vue-eslint-parser": "^9.1.0",
+    "vue-tsc": "0.40.13"
   },
   "peerDependencies": {
     "naive-ui": "^2.33.3",

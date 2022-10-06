@@ -9,39 +9,39 @@ export default defineAppConfig({
     debug: false,
     socials: {
       twitter: '@huntersofbook',
-      github: 'huntersofbook/huntersofbook'
+      github: 'huntersofbook/huntersofbook',
     },
     github: {
       root: 'docs/content',
       edit: true,
-      releases: true
+      releases: true,
     },
     cover: {
       src: '/cover.jpg',
-      alt: 'huntersofbook open source project was created for developers'
+      alt: 'huntersofbook open source project was created for developers',
     },
     header: {
       title: false,
-      logo: false
+      logo: false,
     },
     footer: {
       credits: {
         icon: 'IconDocus',
         text: 'Powered by Docus',
-        href: 'https://docus.com'
+        href: 'https://docus.com',
       },
       icons: [
         {
           label: 'NuxtJS',
           href: 'https://nuxtjs.org',
-          component: 'IconNuxt'
+          component: 'IconNuxt',
         },
         {
           label: 'VueJS',
           href: 'https://vuejs.org',
-          component: 'uim:vuejs'
-        }
-      ]
-    }
-  }
+          component: 'uim:vuejs',
+        },
+      ],
+    },
+  },
 })

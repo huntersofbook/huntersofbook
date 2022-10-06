@@ -4,7 +4,7 @@ defineProps({
   logo: String,
   description: String,
   username: String,
-  href: String
+  href: String,
 })
 </script>
 
@@ -29,11 +29,11 @@ defineProps({
       <div
         class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-gray-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800/50 sm:-inset-x-6 sm:rounded-2xl"
       />
-      <NuxtLink :to="href"
-        ><span
+      <NuxtLink :to="href">
+        <span
           class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"
-        /><span class="relative z-10">{{ title }}</span></NuxtLink
-      >
+        /><span class="relative z-10">{{ title }}</span>
+      </NuxtLink>
     </h2>
     <p class="relative z-10 mt-2 text-sm text-gray-600 dark:text-gray-400">
       {{ description }}

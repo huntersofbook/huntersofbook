@@ -33,7 +33,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
                 <button
                   class="group flex w-full items-center rounded-md px-2 py-2 text-sm"
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
                   ]"
                 >
                   <UnoIcon
@@ -46,7 +46,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
                 <button
                   class="group flex w-full items-center rounded-md px-2 py-2 text-sm"
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
                   ]"
                 >
                   <UnoIcon
@@ -61,7 +61,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
                 <button
                   class="group flex w-full items-center rounded-md px-2 py-2 text-sm"
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
                   ]"
                 >
                   <UnoIcon
@@ -74,7 +74,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
                 <button
                   class="group flex w-full items-center rounded-md px-2 py-2 text-sm"
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
                   ]"
                 >
                   <UnoIcon
@@ -90,7 +90,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
                 <button
                   class="group flex w-full items-center rounded-md px-2 py-2 text-sm"
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
                   ]"
                 >
                   <UnoIcon

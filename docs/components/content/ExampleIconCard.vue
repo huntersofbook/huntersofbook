@@ -2,16 +2,16 @@
 defineProps({
   title: {
     type: String,
-    default: 'Default title'
+    default: 'Default title',
   },
   description: {
     type: String,
-    default: 'Default description'
+    default: 'Default description',
   },
   icon: {
     type: String,
-    default: 'IconMarkdown'
-  }
+    default: 'IconMarkdown',
+  },
 })
 </script>
 

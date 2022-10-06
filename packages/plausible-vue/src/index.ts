@@ -3,5 +3,5 @@ export type {
   InstallOptions,
   OptionPlugin,
   IPlausible,
-  ReturnUsePlasuible
+  ReturnUsePlasuible,
 } from './plugin'

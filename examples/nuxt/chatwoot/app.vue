@@ -14,16 +14,22 @@ const {
       <div class="col-span-full bg-gray-200 p-4">
         isModalVisible: <span class="font-black"> {{ isModalVisible }}</span>
       </div>
-      <HButton @click="toggle('open')">toggle open</HButton>
-      <HButton @click="toggle('close')">toggle close</HButton>
+      <HButton @click="toggle('open')">
+        toggle open
+      </HButton>
+      <HButton @click="toggle('close')">
+        toggle close
+      </HButton>
 
-      <HButton @click="toggleBubbleVisibility('hide')"
-        >toggleBubbleVisibility-hide</HButton
-      >
-      <HButton @click="toggleBubbleVisibility('show')"
-        >toggleBubbleVisibility-show</HButton
-      >
-      <HButton @click="popoutChatWindow()">popoutChatWindow</HButton>
+      <HButton @click="toggleBubbleVisibility('hide')">
+        toggleBubbleVisibility-hide
+      </HButton>
+      <HButton @click="toggleBubbleVisibility('show')">
+        toggleBubbleVisibility-show
+      </HButton>
+      <HButton @click="popoutChatWindow()">
+        popoutChatWindow
+      </HButton>
     </div>
   </div>
 </template>

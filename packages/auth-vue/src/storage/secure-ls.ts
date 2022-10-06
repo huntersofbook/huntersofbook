@@ -11,7 +11,8 @@ export class SecureLocalStorage implements AuthStorage {
     try {
       const bytes = CryptoJS.AES.decrypt(defaultValue, key) as any
       return bytes.toString(CryptoJS.enc.Utf8) || defaultValue
-    } catch {
+    }
+    catch {
       return defaultValue
     }
   }

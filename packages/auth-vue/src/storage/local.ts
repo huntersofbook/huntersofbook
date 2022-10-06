@@ -9,7 +9,8 @@ export class LocalStorage implements AuthStorage {
     try {
       const value = localStorage.getItem(key)
       return JSON.parse(value!)
-    } catch {
+    }
+    catch {
       return defaultValue
     }
   }

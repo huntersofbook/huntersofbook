@@ -9,7 +9,7 @@ import * as pkg from './package.json'
 
 const externals = [
   ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {})
+  ...Object.keys(pkg.peerDependencies || {}),
 ]
 
 export default defineConfig({
@@ -20,24 +20,24 @@ export default defineConfig({
       outputDir: 'dist/types',
       compilerOptions: {
         sourceMap: true,
-        esModuleInterop: true
+        esModuleInterop: true,
       },
       insertTypesEntry: true,
-      staticImport: true
-    })
+      staticImport: true,
+    }),
   ],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'form-naiveui',
       formats: ['es'],
-      fileName: (format) => `form-naiveui.${format}.js`
+      fileName: format => `form-naiveui.${format}.js`,
     },
     rollupOptions: {
       external: externals,
       output: {
-        format: 'es'
-      }
-    }
-  }
+        format: 'es',
+      },
+    },
+  },
 })

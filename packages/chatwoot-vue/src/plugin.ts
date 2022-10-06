@@ -13,7 +13,7 @@ export interface ScriptLoaderOption extends Partial<HTMLScriptElement> {}
 
 export const loadScript = (
   source: string,
-  options: ScriptLoaderOption = {} as ScriptLoaderOption
+  options: ScriptLoaderOption = {} as ScriptLoaderOption,
 ) => {
   return new Promise((resolve, reject) => {
     const head = document.head || document.getElementsByTagName('head')[0]
@@ -31,7 +31,7 @@ export const loadScript = (
     script.src = src || source
 
     Object.keys(restAttrs).forEach((key) => {
-      ;(script as any)[key] = (restAttrs as any)[key]
+      (script as any)[key] = (restAttrs as any)[key]
     })
 
     head.appendChild(script)
@@ -182,7 +182,7 @@ export const createChatWoot = (options: OptionPlugin) => {
   const ChatWoot = {
     install(app: App): void {
       const chatwoot = defu(options, {
-        init: { baseUrl: 'https://app.chatwoot.com' }
+        init: { baseUrl: 'https://app.chatwoot.com' },
       } as OptionPlugin)
 
       const chatwootSettings: ChatwootSettings = {
@@ -193,7 +193,7 @@ export const createChatWoot = (options: OptionPlugin) => {
         locale: 'en',
         launcherTitle: 'Chat with us',
         type: 'expanded_bubble',
-        ...chatwoot.settings
+        ...chatwoot.settings,
       }
 
       chatwoot.settings = chatwootSettings
@@ -201,19 +201,19 @@ export const createChatWoot = (options: OptionPlugin) => {
 
       loadScript(`${chatwoot.init.baseUrl}/packs/js/sdk.js`, {
         async: true,
-        defer: true
+        defer: true,
       }).then(() => {
         window.chatwootSettings = chatwootSettings
         if (window.chatwootSDK) {
           window.chatwootSDK.run({
             websiteToken: options.init.websiteToken,
-            baseUrl: chatwoot.init.baseUrl
+            baseUrl: chatwoot.init.baseUrl,
           })
         }
       })
 
       app.provide('$chatwoot', chatwoot)
-    }
+    },
   }
   return ChatWoot
 }
@@ -230,19 +230,19 @@ export const useChatWoot = () => {
         for (const mutation of mutationList) {
           if (mutation.type === 'attributes') {
             const data = (mutation.target as HTMLElement).className.includes(
-              'hide'
+              'hide',
             )
-            if (data) {
+            if (data)
               isModalVisible.value = false
-            } else {
+            else
               isModalVisible.value = true
-            }
           }
         }
       }
       observer.value = new MutationObserver(callback)
       observer.value.observe(data, { attributes: true })
-    } catch (e) {}
+    }
+    catch (e) {}
   }
 
   onMounted(() => {
@@ -257,9 +257,8 @@ export const useChatWoot = () => {
   })
 
   onBeforeUnmount(() => {
-    if (observer.value) {
+    if (observer.value)
       observer.value.disconnect()
-    }
   })
 
   const toggle = (state: Parameters<Chatwoot['toggle']>[0]) => {
@@ -268,21 +267,23 @@ export const useChatWoot = () => {
 
   const setUser = (
     key: Parameters<Chatwoot['setUser']>[0],
-    args: Parameters<Chatwoot['setUser']>[1]
+    args: Parameters<Chatwoot['setUser']>[1],
   ) => {
     isLoadTimer().then(() => window.$chatwoot.setUser(key, args))
   }
 
   const setCustomAttributes = (
-    attributes: Parameters<Chatwoot['setCustomAttributes']>[0]
+    attributes: Parameters<Chatwoot['setCustomAttributes']>[0],
   ) => {
     isLoadTimer().then(() => window.$chatwoot.setCustomAttributes(attributes))
   }
 
   const deleteCustomAttribute = (
-    attributes: Parameters<Chatwoot['deleteCustomAttribute']>[0]
+    attributes: Parameters<Chatwoot['deleteCustomAttribute']>[0],
   ) => {
-    isLoadTimer().then(() => window.$chatwoot.deleteCustomAttribute(attributes))
+    isLoadTimer().then(() =>
+      window.$chatwoot.deleteCustomAttribute(attributes),
+    )
   }
 
   const setLocale = (local: Parameters<Chatwoot['setLocale']>[0]) => {
@@ -302,7 +303,7 @@ export const useChatWoot = () => {
   }
 
   const toggleBubbleVisibility = (
-    visibility: Parameters<Chatwoot['toggleBubbleVisibility']>[0]
+    visibility: Parameters<Chatwoot['toggleBubbleVisibility']>[0],
   ) => {
     isLoadTimer().then(() => {
       window.$chatwoot.toggleBubbleVisibility(visibility)
@@ -324,7 +325,7 @@ export const useChatWoot = () => {
     removeLabel,
     reset,
     toggleBubbleVisibility,
-    popoutChatWindow
+    popoutChatWindow,
   }
 }
 
@@ -338,15 +339,16 @@ function isLoadTimer() {
       loadNumber += 1
 
       if (
-        data &&
-        window.chatwootSDK &&
-        widgetElm &&
-        window.$chatwoot &&
-        window
+        data
+        && window.chatwootSDK
+        && widgetElm
+        && window.$chatwoot
+        && window
       ) {
         clearInterval(timer)
         resolve('Chatwoot loaded')
-      } else if (loadNumber === 200) {
+      }
+      else if (loadNumber === 200) {
         clearInterval(timer)
         reject(new Error('Chatwoot not loaded'))
       }

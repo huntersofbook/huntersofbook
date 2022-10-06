@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 const props = defineProps(['prop'])
 const propType = computed(() =>
-  Array.isArray(props.prop) ? 'array' : typeof props.prop
+  Array.isArray(props.prop) ? 'array' : typeof props.prop,
 )
 </script>
 
@@ -12,8 +12,7 @@ const propType = computed(() =>
 Type: {{ propType }}
 Value:
 {{ prop }}
-    </pre
-  >
+    </pre>
 </template>
 
 <style scoped>

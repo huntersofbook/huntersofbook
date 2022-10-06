@@ -10,7 +10,8 @@ export class CapacitorStorage implements AuthStorageAsync {
     try {
       const { value } = await Preferences.get({ key })
       return JSON.parse(value!)
-    } catch {
+    }
+    catch {
       return defaultValue
     }
   }

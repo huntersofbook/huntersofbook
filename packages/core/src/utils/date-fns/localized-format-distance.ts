@@ -7,9 +7,9 @@ export type LocalizedFormatDistance = (
 export const localizedFormatDistance: LocalizedFormatDistance = (
   date,
   baseDate,
-  options
+  options,
 ): string => {
   return formatDistance(date, baseDate, {
-    ...options
+    ...options,
   })
 }

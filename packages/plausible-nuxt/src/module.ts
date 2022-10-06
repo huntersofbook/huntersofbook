@@ -1,9 +1,9 @@
-import { OptionPlugin } from '@huntersofbook/plausible-vue'
+import type { OptionPlugin } from '@huntersofbook/plausible-vue'
 import {
   addImports,
   addPlugin,
   createResolver,
-  defineNuxtModule
+  defineNuxtModule,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
@@ -17,19 +17,19 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'plausible',
     compatibility: {
-      nuxt: '^3.0.0-rc.11'
-    }
+      nuxt: '^3.0.0-rc.11',
+    },
   },
   defaults: {
     init: {
-      domain: 'location.hostname',
+      domain: 'localhost',
       apiHost: 'https://plausible.io',
-      trackLocalhost: false
+      trackLocalhost: false,
     },
     settings: {
       enableAutoOutboundTracking: false,
-      enableAutoPageviews: true
-    }
+      enableAutoPageviews: true,
+    },
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -38,24 +38,24 @@ export default defineNuxtModule<ModuleOptions>({
       init: {
         domain: 'localhost',
         apiHost: 'https://plausible.io',
-        trackLocalhost: true
+        trackLocalhost: false,
       },
       settings: {
         enableAutoOutboundTracking: false,
-        enableAutoPageviews: true
-      }
+        enableAutoPageviews: true,
+      },
     })
 
     addPlugin({ src: resolve('./runtime/plugin'), mode: 'client' })
 
     addImports([
-      ...['usePlausible'].map((key) => ({
+      ...['usePlausible'].map(key => ({
         name: key,
         as: key,
-        from: resolve('./runtime/composables')
-      }))
+        from: resolve('./runtime/composables'),
+      })),
     ])
-  }
+  },
 })
 
 declare module '@nuxt/schema' {

@@ -18,7 +18,7 @@ export interface ICallBackUser extends ICallBack {
 
 export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
   const storage: AuthStorage | AuthStorageAsync = useStorage(
-    options.storage.driver
+    options.storage.driver,
   )
 
   async function authInit() {
@@ -34,13 +34,16 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         if (decoded.exp) {
           storage.set(options.expiredStorage, decoded.exp)
           return decoded
-        } else {
+        }
+        else {
           return null
         }
-      } catch {
+      }
+      catch {
         return null
       }
-    } else {
+    }
+    else {
       storage.set(options.expiredStorage, generateExpDate())
       return null
     }
@@ -89,7 +92,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         setTokenHeaderAxios(token)
         const { data } = await axios.request({
           ...options.endpoints.logout,
-          data: options.logout.graphqlQuery
+          data: options.logout.graphqlQuery,
         })
 
         if (data) {
@@ -100,7 +103,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
           }, 300)
         }
         return data
-      } catch (e: any) {
+      }
+      catch (e: any) {
         if (e.response)
           callback?.onError?.(e.response?.data?.message || e.message)
         else callback?.onError?.(e)
@@ -108,7 +112,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         callback?.onLoading?.(false)
         return e.response
       }
-    } else {
+    }
+    else {
       const data = await forceLogout()
       if (data) callback?.onSuccess?.(data)
       callback?.onLoading?.(false)
@@ -129,8 +134,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         case 'graphql':
           res = await axios.request(
             merge(options.endpoints.user, {
-              data: options.user.graphqlQuery
-            })
+              data: options.user.graphqlQuery,
+            }),
           )
           break
         default:
@@ -143,7 +148,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       setUser(user)
       callback?.onSuccess?.(user)
       return data
-    } catch (e: any) {
+    }
+    catch (e: any) {
       callback?.onError?.(e)
       return e.response.data
     }
@@ -151,12 +157,13 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
 
   async function setTokenHeaderAxios(tokenData: string) {
     if (tokenData) {
-      ;(axios.defaults.headers as any)[
+      (axios.defaults.headers as any)[
         options.token.name
       ] = `${options.token.type} ${tokenData}`
-    } else {
-      const newToken = await getToken()
-      ;(axios.defaults.headers as any)[
+    }
+    else {
+      const newToken = await getToken();
+      (axios.defaults.headers as any)[
         options.token.name
       ] = `${options.token.type} ${newToken}`
     }
@@ -164,7 +171,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
 
   async function login<P = AxiosRequestConfig>(
     payload: P,
-    callback: ICallBackUser
+    callback: ICallBackUser,
   ) {
     callback?.onLoading?.(true)
     try {
@@ -189,12 +196,13 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         await fetchUser({
           onSuccess: (res) => {
             callback.onUser?.(res)
-          }
+          },
         })
         callback.onSuccess?.(options.redirect.home)
         callback.onLoading?.(false)
         return
-      } else if (options.token.autoDecode) {
+      }
+      else if (options.token.autoDecode) {
         const decoded = setTokenExpiration(tokenData)
         const user = (decoded?.user as AuthUser) || decoded
         if (user) {
@@ -206,24 +214,27 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       }
       callback.onLoading?.(false)
       return callback
-    } catch (e: any) {
+    }
+    catch (e: any) {
       resetState()
-      if (e.response) callback.onError?.(e.response?.data?.message || e.message)
+      if (e.response)
+        callback.onError?.(e.response?.data?.message || e.message)
       else callback.onError?.(e)
       callback.onLoading?.(false)
-    } finally {
+    }
+    finally {
       callback.onLoading?.(false)
     }
   }
 
   async function forgotPassword<P = AxiosRequestConfig>(
     payload: P,
-    callback: ICallBack
+    callback: ICallBack,
   ) {
     callback?.onLoading?.(true)
     try {
       const res = await axios.request(
-        merge(options.endpoints.forgotPassword, payload)
+        merge(options.endpoints.forgotPassword, payload),
       )
       if (get(res.data, options.errorProperty)) {
         resetState()
@@ -231,19 +242,22 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       }
       callback.onSuccess?.(res.data)
       return res
-    } catch (e: any) {
+    }
+    catch (e: any) {
       resetState()
-      if (e.response) callback.onError?.(e.response?.data?.message || e.message)
+      if (e.response)
+        callback.onError?.(e.response?.data?.message || e.message)
       else callback.onError?.(e)
       callback.onLoading?.(false)
-    } finally {
+    }
+    finally {
       callback.onLoading?.(false)
     }
   }
 
   async function signup<P = AxiosRequestConfig>(
     payload: P,
-    callback: ICallBackUser
+    callback: ICallBackUser,
   ) {
     callback?.onLoading?.(true)
     try {
@@ -267,7 +281,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         await fetchUser()
         callback.onSuccess?.(options.redirect.home)
         return null
-      } else if (options.token.autoDecode) {
+      }
+      else if (options.token.autoDecode) {
         const decoded = setTokenExpiration(tokenData)
 
         const user = (decoded?.user as AuthUser) || decoded
@@ -279,12 +294,15 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       }
 
       return res
-    } catch (e: any) {
+    }
+    catch (e: any) {
       resetState()
-      if (e.response) callback.onError?.(e.response?.data?.message || e.message)
+      if (e.response)
+        callback.onError?.(e.response?.data?.message || e.message)
       else callback.onError?.(e)
       callback.onLoading?.(false)
-    } finally {
+    }
+    finally {
       callback.onLoading?.(false)
     }
   }
@@ -313,7 +331,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       callback?.onSuccess?.(user)
       callback?.onLoading?.(false)
       return user
-    } else {
+    }
+    else {
       const user = getLocalUser()
       callback?.onSuccess?.(user)
       callback?.onLoading?.(false)
@@ -338,7 +357,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     if (await isExpired()) {
       await refreshToken()
       return getFreshToken()
-    } else {
+    }
+    else {
       return await getFreshToken()
     }
   }
@@ -386,18 +406,19 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
         `,
           variables: {
             data: {
-              refreshToken
-            }
-          }
+              refreshToken,
+            },
+          },
         }
-      } else {
+      }
+      else {
         data = {
-          [refreshTokenName]: refreshToken
+          [refreshTokenName]: refreshToken,
         }
       }
       const res = await axios.request({
         ...options.endpoints.refresh,
-        data
+        data,
       })
 
       if (get(res.data, options.errorProperty)) {
@@ -415,7 +436,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
 
       const refreshData = get(
         res.data,
-        options.refreshToken.refreshTokenProperty
+        options.refreshToken.refreshTokenProperty,
       )
 
       storage.set(options.refreshToken.storageName, refreshData)
@@ -423,10 +444,12 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       callback?.onSuccess?.(newTokens)
       callback?.onLoading?.(false)
       return newTokens
-    } catch (e: any) {
+    }
+    catch (e: any) {
       callback?.onError?.(e)
       return handleRefreshTokenFailed(e)
-    } finally {
+    }
+    finally {
       callback?.onLoading?.(false)
     }
   }
@@ -452,7 +475,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     isExpired,
     getToken,
     setRefreshToken,
-    refreshToken
+    refreshToken,
   }
   //   initStore() {
 

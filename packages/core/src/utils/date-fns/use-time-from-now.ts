@@ -1,26 +1,34 @@
 import { formatDistance } from 'date-fns'
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
 
-import { useHuntersofbook } from '../../plugins'
+import { useGlobalConfigSafe } from '../../service/global-config/global-config'
 import { localizedFormatDistance } from './localized-format-distance'
 type IFormatDistance = Parameters<typeof formatDistance>
 export function useTimeFromNow(
   date: Date | number,
   autoUpdate = 60000,
   options?: IFormatDistance[2],
-  hook?: false
+  hook?: false,
 ): Ref<string> {
   const interval = ref(0)
-  const { global } = useHuntersofbook()
+
+  const gc = useGlobalConfigSafe()
+
+  if (!gc) {
+    throw new Error(
+      'useColors must be used in setup function or huntersofbook GlobalConfigPlugin is not registered!',
+    )
+  }
+  const { globalConfig } = gc
 
   const formatOptions = {
     addSuffix: true,
     ...options,
-    locale: global.dateLocale.value
+    locale: globalConfig.value.dateLocale,
   } as IFormatDistance[2]
 
   const formattedDate = ref(
-    localizedFormatDistance(date, new Date(), formatOptions)
+    localizedFormatDistance(date, new Date(), formatOptions),
   )
 
   if (hook) {
@@ -30,7 +38,7 @@ export function useTimeFromNow(
           formattedDate.value = localizedFormatDistance(
             date,
             new Date(),
-            formatOptions
+            formatOptions,
           )
         }, autoUpdate)
       }

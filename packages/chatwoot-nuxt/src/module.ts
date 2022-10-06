@@ -3,7 +3,7 @@ import {
   addImportsSources,
   addPlugin,
   createResolver,
-  defineNuxtModule
+  defineNuxtModule,
 } from '@nuxt/kit'
 import defu from 'defu'
 
@@ -17,14 +17,14 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'chatwoot',
     compatibility: {
-      nuxt: '^3.0.0-rc.11'
-    }
+      nuxt: '^3.0.0-rc.11',
+    },
   },
   defaults: {
     init: {
       baseUrl: process.env.CHATWOOT_URL,
-      websiteToken: process.env.CHATWOOT_TOKEN || ''
-    }
+      websiteToken: process.env.CHATWOOT_TOKEN || '',
+    },
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -33,8 +33,8 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.runtimeConfig.public.chatwoot,
       {
         init: options.init,
-        settings: options.settings
-      } as ModuleOptions
+        settings: options.settings,
+      } as ModuleOptions,
     )
 
     addPlugin({ src: resolve('./runtime/plugin'), mode: 'client' })
@@ -43,10 +43,10 @@ export default defineNuxtModule<ModuleOptions>({
       {
         from: '@huntersofbook/chatwoot-vue',
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        imports: [...ChatwootHooks]
-      }
+        imports: [...ChatwootHooks],
+      },
     ])
-  }
+  },
 })
 
 const ChatwootHooks = ['useChatWoot']

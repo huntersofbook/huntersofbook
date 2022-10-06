@@ -1,1 +1,1 @@
-export { default as HDateTime } from './h-date-time.vue'
+export { default as HDateTime } from './h-datetime.vue'

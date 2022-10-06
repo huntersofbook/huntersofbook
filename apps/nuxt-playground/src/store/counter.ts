@@ -9,11 +9,11 @@ interface CounterState {
 export const useCounter = defineStore('counter', {
   state: (): CounterState => ({
     n: 5,
-    myRef: ref('hello')
+    myRef: ref('hello'),
   }),
   actions: {
     increment() {
       this.n++
-    }
-  }
+    },
+  },
 })

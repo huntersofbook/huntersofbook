@@ -22,9 +22,17 @@ const cb4 = () => {
 
 <template>
   <NSpace>
-    <NButton @click="cb1">useMessage</NButton>
-    <NButton @click="cb2">useNotification</NButton>
-    <NButton @click="cb3">useDialog</NButton>
-    <NButton @click="cb4">useLoadingBar</NButton>
+    <NButton @click="cb1">
+      useMessage
+    </NButton>
+    <NButton @click="cb2">
+      useNotification
+    </NButton>
+    <NButton @click="cb3">
+      useDialog
+    </NButton>
+    <NButton @click="cb4">
+      useLoadingBar
+    </NButton>
   </NSpace>
 </template>

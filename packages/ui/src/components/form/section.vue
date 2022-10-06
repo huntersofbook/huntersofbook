@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useAttrs } from 'vue'
+import { PropType, useAttrs } from 'vue'
 
 import AtomSectionTitle from '../atom/section-title.vue'
 
-interface Props {
-  forms?: any
-  theme?: 'default' | 'design'
-}
-const props = withDefaults(defineProps<Props>(), {
-  theme: 'default',
+const props = defineProps({
+  forms: {
+    default: () => [],
+    type: Array as PropType<Record<string, string>[]>,
+  },
+  theme: { default: 'default', type: String as PropType<'default' | 'design'> },
 })
 
 const emit = defineEmits<{ (e: 'post', value: Event): void }>()
@@ -27,11 +27,13 @@ const post = (e: Event) => {
           ? attrs.class
           : 'mb-4 grid grid-cols-6 lg:grid-cols-12 gap-8'
       "
-      @submit.prevent="post($event)">
+      @submit.prevent="post($event)"
+    >
       <div
         v-for="item in props.forms"
         :key="item.name"
-        :class="item.width ? item.width : 'col-span-full'">
+        :class="item.width ? item.width : 'col-span-full'"
+      >
         <slot name="itemsHeader" v-bind="item" />
         <component
           :is="item.component"
@@ -41,9 +43,10 @@ const post = (e: Event) => {
           :label="item.label"
           :options="item.options"
           :footer="item.footer"
-          v-bind="item.attrs" />
-        <!-- 
-          <component :is="item.renderComponent" v-if="item.renderComponent" /> 
+          v-bind="item.attrs"
+        />
+        <!--
+          <component :is="item.renderComponent" v-if="item.renderComponent" />
         -->
         <slot name="itemsFooter" v-bind="item" />
       </div>
@@ -65,18 +68,21 @@ const post = (e: Event) => {
         class="mt-5 md:mt-0"
         :class="
           $slots.title || $slots.description ? 'md:col-span-2' : 'col-span-full'
-        ">
+        "
+      >
         <form @submit.prevent="post($event)">
           <div
             :class="
               attrs.class
                 ? attrs.class
                 : 'mb-4 grid grid-cols-6 lg:grid-cols-12 gap-8 md:gap-0 md:grid-cols-1'
-            ">
+            "
+          >
             <div
               v-for="item in attrs.forms"
               :key="item.name"
-              :class="item.width ? item.width : 'col-span-full'">
+              :class="item.width ? item.width : 'col-span-full'"
+            >
               <component
                 :is="item.component"
                 v-if="!$slots.form"
@@ -85,14 +91,16 @@ const post = (e: Event) => {
                 :init="item.init"
                 :label="item.label"
                 :options="item.options"
-                v-bind="item.attrs" />
+                v-bind="item.attrs"
+              />
             </div>
             <slot name="form" />
           </div>
 
           <div
             v-if="$slots.actions"
-            class="flex items-center justify-end py-3 text-right">
+            class="flex items-center justify-end py-3 text-right"
+          >
             <slot name="actions" />
           </div>
         </form>

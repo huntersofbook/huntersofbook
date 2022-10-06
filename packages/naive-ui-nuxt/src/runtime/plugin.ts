@@ -9,7 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.ssrContext.renderMeta = () => {
       if (!originalRenderMeta) {
         return {
-          headTags: collect()
+          headTags: collect(),
         }
       }
       const originalMeta = originalRenderMeta()
@@ -17,13 +17,14 @@ export default defineNuxtPlugin((nuxtApp) => {
         return originalMeta.then((resolvedOriginalMeta) => {
           return {
             ...resolvedOriginalMeta,
-            headTags: resolvedOriginalMeta.headTags + collect()
+            headTags: resolvedOriginalMeta.headTags + collect(),
           }
         })
-      } else {
+      }
+      else {
         return {
           ...originalMeta,
-          headTags: originalMeta.headTags + collect()
+          headTags: originalMeta.headTags + collect(),
         }
       }
     }

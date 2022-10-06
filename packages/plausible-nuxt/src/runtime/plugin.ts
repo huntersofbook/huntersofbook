@@ -9,7 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(hob)
   nuxtApp.provide(
     'plausible',
-    nuxtApp.vueApp.config.globalProperties.$plausible
+    nuxtApp.vueApp.config.globalProperties.$plausible,
   )
 })
 

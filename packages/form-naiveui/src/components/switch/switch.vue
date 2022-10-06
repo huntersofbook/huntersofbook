@@ -15,28 +15,28 @@ const {
   value: inputValue,
   handleChange,
   handleBlur,
-  errorMessage
+  errorMessage,
 } = useField(attrs.name, undefined, {
   initialValue: attrs.init ? (attrs.init as string) : undefined,
-  validateOnValueUpdate: false
+  validateOnValueUpdate: false,
 })
 
 const validationListeners = {
-  blur: handleBlur,
+  'blur': handleBlur,
   'on-update:value': handleChange,
-  'on-value': (e: boolean) => handleChange(e, !!errorMessage.value)
+  'on-value': (e: boolean) => handleChange(e, !!errorMessage.value),
 }
 
 const getBindValue = computed(() => ({
   ...unref(attrs),
   ...props,
-  ...validationListeners
+  ...validationListeners,
 }))
 </script>
 
 <script lang="ts">
 export default defineComponent({
-  inheritAttrs: false
+  inheritAttrs: false,
 })
 </script>
 
@@ -45,7 +45,7 @@ export default defineComponent({
     v-if="attrs.label && !attrs.hideLabel"
     :for="$attrs.id as string"
     class="block text-sm font-medium text-gray-900 dark:text-gray-200"
-    >{{ attrs.label }}
+  >{{ attrs.label }}
   </label>
   <NSwitch
     v-bind="getBindValue"
