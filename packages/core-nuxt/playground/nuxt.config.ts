@@ -4,5 +4,7 @@ import huntersofbook from '..'
 
 export default defineNuxtConfig({
   modules: [huntersofbook],
-  huntersofbook: {}
+  huntersofbook: {
+    defaultLocale: 'tr'
+  }
 })
