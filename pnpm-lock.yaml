@@ -127,7 +127,7 @@ importers:
     specifiers:
       '@antfu/eslint-config': 0.27.0
       '@huntersofbook/chatwoot-vue': workspace:*
-      '@huntersofbook/form-naiveui': workspace*
+      '@huntersofbook/form-naiveui': workspace:*
       '@iconify-json/carbon': 1.1.8
       '@intlify/vite-plugin-vue-i18n': 7.0.0-beta.4
       '@types/markdown-it-link-attributes': 3.0.1
@@ -140,7 +140,7 @@ importers:
       cross-env: 7.0.3
       eslint: 8.24.0
       https-localhost: 4.7.1
-      huntersofbook: workspace*
+      huntersofbook: workspace:*
       naive-ui: 2.33.3
       nprogress: 0.2.0
       pinia: 2.0.22
@@ -278,7 +278,7 @@ importers:
   packages/core:
     specifiers:
       '@formkit/auto-animate': ^1.0.0-beta.3
-      date-fns: ^2.29.2
+      date-fns: ^2.29.3
       defu: ^6.1.0
       es-cookie: ^1.4.0
       lodash: ^4.17.21
@@ -291,7 +291,7 @@ importers:
       yup: ^0.32.11
     dependencies:
       '@formkit/auto-animate': 1.0.0-beta.3
-      date-fns: 2.29.2
+      date-fns: 2.29.3
       defu: 6.1.0
       es-cookie: 1.4.0
       lodash: 4.17.21
@@ -4113,17 +4113,12 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
-  /date-fns-tz/1.3.6_date-fns@2.29.2:
+  /date-fns-tz/1.3.6_date-fns@2.29.3:
     resolution: {integrity: sha512-C8q7mErvG4INw1ZwAFmPlGjEo5Sv4udjKVbTc03zpP9cu6cp5AemFzKhz0V68LGcWEtX5mJudzzg3G04emIxLA==}
     peerDependencies:
       date-fns: '>=2.0.0'
     dependencies:
-      date-fns: 2.29.2
-    dev: false
-
-  /date-fns/2.29.2:
-    resolution: {integrity: sha512-0VNbwmWJDS/G3ySwFSJA3ayhbURMTJLtwM2DTxf9CWondCnh6DTNlO9JgRSq6ibf4eD0lfMJNBxUdEAHHix+bA==}
-    engines: {node: '>=0.11'}
+      date-fns: 2.29.3
     dev: false
 
   /date-fns/2.29.3:
@@ -8167,8 +8162,8 @@ packages:
       '@types/lodash-es': 4.17.6
       async-validator: 4.2.5
       css-render: 0.15.10
-      date-fns: 2.29.2
-      date-fns-tz: 1.3.6_date-fns@2.29.2
+      date-fns: 2.29.3
+      date-fns-tz: 1.3.6_date-fns@2.29.3
       evtd: 0.2.4
       highlight.js: 11.6.0
       lodash: 4.17.21
@@ -8191,8 +8186,8 @@ packages:
       '@types/lodash-es': 4.17.6
       async-validator: 4.2.5
       css-render: 0.15.10
-      date-fns: 2.29.2
-      date-fns-tz: 1.3.6_date-fns@2.29.2
+      date-fns: 2.29.3
+      date-fns-tz: 1.3.6_date-fns@2.29.3
       evtd: 0.2.4
       highlight.js: 11.6.0
       lodash: 4.17.21
