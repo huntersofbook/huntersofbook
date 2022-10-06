@@ -22,7 +22,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     init: {
-      domain: 'location.hostname',
+      domain: 'localhost',
       apiHost: 'https://plausible.io',
       trackLocalhost: false
     },
