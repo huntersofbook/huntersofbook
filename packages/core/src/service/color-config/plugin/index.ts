@@ -6,7 +6,7 @@ import { createColorConfigPlugin } from './create-color-config-plugin'
 export const ColorConfigPlugin = defineHuntersofbookPlugin(() => ({
   install(app) {
     defineGlobalProperty(app, '$hobColorConfig', createColorConfigPlugin(app))
-  }
+  },
 }))
 
 declare module 'vue' {

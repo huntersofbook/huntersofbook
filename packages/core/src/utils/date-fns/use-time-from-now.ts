@@ -8,7 +8,7 @@ export function useTimeFromNow(
   date: Date | number,
   autoUpdate = 60000,
   options?: IFormatDistance[2],
-  hook?: false
+  hook?: false,
 ): Ref<string> {
   const interval = ref(0)
 
@@ -16,7 +16,7 @@ export function useTimeFromNow(
 
   if (!gc) {
     throw new Error(
-      'useColors must be used in setup function or huntersofbook GlobalConfigPlugin is not registered!'
+      'useColors must be used in setup function or huntersofbook GlobalConfigPlugin is not registered!',
     )
   }
   const { globalConfig } = gc
@@ -24,11 +24,11 @@ export function useTimeFromNow(
   const formatOptions = {
     addSuffix: true,
     ...options,
-    locale: globalConfig.value.dateLocale
+    locale: globalConfig.value.dateLocale,
   } as IFormatDistance[2]
 
   const formattedDate = ref(
-    localizedFormatDistance(date, new Date(), formatOptions)
+    localizedFormatDistance(date, new Date(), formatOptions),
   )
 
   if (hook) {
@@ -38,7 +38,7 @@ export function useTimeFromNow(
           formattedDate.value = localizedFormatDistance(
             date,
             new Date(),
-            formatOptions
+            formatOptions,
           )
         }, autoUpdate)
       }

@@ -5,7 +5,7 @@ import {
   HNInput,
   HNInputNumber,
   HNSelect,
-  HNSwitch
+  HNSwitch,
 } from '@huntersofbook/form-naiveui'
 import { HPasswordMetter } from '@huntersofbook/ui'
 import type { InputSchema } from 'huntersofbook'
@@ -23,7 +23,7 @@ const schema: FYup.SchemaOf<SignInInput> = FYup.object({
   data2: FYup.number().required(),
   data3: FYup.string().required(),
   data4: FYup.boolean().required(),
-  data5: FYup.boolean().required()
+  data5: FYup.boolean().required(),
 })
 const schemas: InputSchema<SignInInput, 'one', ['test']> = {
   one: {
@@ -39,7 +39,7 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
             // eslint-disable-next-line @typescript-eslint/no-use-before-define
             return h(HPasswordMetter, { password: form.values.data1 })
           },
-          text: 'Password meter'
+          text: 'Password meter',
         },
         options: [
           {
@@ -48,10 +48,10 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
               id: 'suffix',
               render() {
                 return h('div', {
-                  class: 'i-carbon-sun text-blue-500 h-full flex items-center'
+                  class: 'i-carbon-sun text-blue-500 h-full flex items-center',
                 })
-              }
-            }
+              },
+            },
           },
           {
             slot: 'password-visible-icon',
@@ -61,12 +61,12 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
                 return h(
                   'div',
                   {
-                    class: 'i-carbon-sun text-red-500 h-full flex items-center'
+                    class: 'i-carbon-sun text-red-500 h-full flex items-center',
                   },
-                  ''
+                  '',
                 )
-              }
-            }
+              },
+            },
           },
           {
             slot: 'password-visible-icon',
@@ -74,15 +74,15 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
               id: 'suffix',
               render() {
                 return h(HPasswordMetter, { password: '123456' })
-              }
-            }
-          }
+              },
+            },
+          },
         ],
         attrs: {
-          type: 'password',
+          'type': 'password',
           'on-update:value': () => console.log('asdasd'),
-          'show-password-on': 'click'
-        } as InputProps
+          'show-password-on': 'click',
+        } as InputProps,
       },
       {
         id: 'data2',
@@ -93,8 +93,8 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
           {
             slot: 'prefix',
             meta: {
-              value: 'prefix'
-            }
+              value: 'prefix',
+            },
           },
           {
             slot: 'suffix',
@@ -104,12 +104,12 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
                 return h(
                   'div',
                   { class: 'i-carbon-sun h-full flex items-center' },
-                  'new'
+                  'new',
                 )
-              }
-            }
-          }
-        ]
+              },
+            },
+          },
+        ],
       },
       {
         id: 'data3',
@@ -119,13 +119,13 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
         options: [
           {
             label: 's',
-            value: 's'
+            value: 's',
           },
           {
             label: 's1',
-            value: 's1'
-          }
-        ]
+            value: 's1',
+          },
+        ],
       },
       {
         id: 'data4',
@@ -135,15 +135,15 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
         options: [],
         attrs: {
           checkedValue: true,
-          uncheckedValue: false
-        }
+          uncheckedValue: false,
+        },
       },
       {
         id: 'data5',
         name: 'data5',
         label: 'HNSwitch',
         component: HNSwitch,
-        options: []
+        options: [],
       },
       {
         id: 'data5',
@@ -154,8 +154,8 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
           {
             slot: 'prefix',
             meta: {
-              value: 'prefix'
-            }
+              value: 'prefix',
+            },
           },
           {
             slot: 'icon',
@@ -165,18 +165,18 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
                 return h(
                   'div',
                   { class: 'i-carbon-sun h-full flex items-center' },
-                  'new'
+                  'new',
                 )
-              }
-            }
-          }
+              },
+            },
+          },
         ],
         attrs: {
-          data: 'suffix'
-        }
-      }
-    ]
-  }
+          data: 'suffix',
+        },
+      },
+    ],
+  },
 }
 const { form, onInvalidSubmit } = useFormSection<SignInInput>(
   schemas.one.schema,
@@ -185,8 +185,8 @@ const { form, onInvalidSubmit } = useFormSection<SignInInput>(
     data2: 123,
     data3: 's',
     data4: false,
-    data5: false
-  }
+    data5: false,
+  },
 )
 const onSubmit = form.handleSubmit(async (values) => {
   console.log(values)

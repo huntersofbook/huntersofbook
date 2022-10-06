@@ -21,14 +21,13 @@ const plugin: VuePlugin = {
       mergedThemeRef: computed(() => undefined),
       mergedThemeOverridesRef: computed(() => options.themeOverrides),
       inlineThemeDisabled: false,
-      preflightStyleDisabled: false
+      preflightStyleDisabled: false,
     })
-  }
+  },
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()?.public?.naiveUI
-  if (config) {
+  if (config)
     nuxtApp.vueApp.use(plugin, config)
-  }
 })

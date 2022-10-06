@@ -3,7 +3,7 @@ import {
   BUNDLED_THEMES,
   Lang,
   Theme,
-  getHighlighter
+  getHighlighter,
 } from 'shiki-es'
 import { visit } from 'unist-util-visit'
 
@@ -11,7 +11,7 @@ import mdcTMLanguage from '../../src/runtime/assets/mdc.tmLanguage.json'
 import type {
   HighlightParams,
   HighlightThemedToken,
-  ParsedContent
+  ParsedContent,
 } from '../../src/runtime/types'
 
 import { useRuntimeConfig } from '#imports'
@@ -22,27 +22,27 @@ import { useRuntimeConfig } from '#imports'
  * Used to resolve lang from both languages id's and aliases.
  */
 const resolveLang = (lang: string): Lang | undefined =>
-  BUNDLED_LANGUAGES.find((l) => l.id === lang || l.aliases?.includes(lang))
+  BUNDLED_LANGUAGES.find(l => l.id === lang || l.aliases?.includes(lang))
     ?.id as Lang
 
 /**
  * Resolve Shiki compatible theme from string.
  */
 const resolveTheme = (theme: string): Theme | undefined =>
-  BUNDLED_THEMES.find((t) => t === theme)
+  BUNDLED_THEMES.find(t => t === theme)
 
 /**
  * Resolve Shiki highlighter compatible payload from request body.
  */
 const resolveBody = (
-  body: Partial<HighlightParams>
+  body: Partial<HighlightParams>,
 ): { code: string; lang?: Lang; theme?: Theme } => {
   return {
     // Remove trailing carriage returns
     code: body.code.replace(/\n+$/, ''),
     // Resolve lang & theme (i.e check if shiki supports them)
     lang: resolveLang(body.lang),
-    theme: resolveTheme(body.theme)
+    theme: resolveTheme(body.theme),
   }
 }
 
@@ -65,30 +65,27 @@ export const useShiki = async () => {
         scopeName: 'text.markdown.mdc',
         path: 'mdc.tmLanguage.json',
         aliases: ['markdown'],
-        grammar: mdcTMLanguage
-      }
-    ] as any[]
+        grammar: mdcTMLanguage,
+      },
+    ] as any[],
   })
 
   async function highlightCode(
-    params: Partial<HighlightParams>
+    params: Partial<HighlightParams>,
   ): Promise<HighlightThemedToken[][]> {
     const { code, lang, theme } = resolveBody(params)
     if (!cache[`${code}-${lang}-${theme}`]) {
       // Skip highlight if lang is not supported
-      if (!lang) {
+      if (!lang)
         return [[{ content: code }]]
-      }
 
       // Load supported language on-demand
-      if (!highlighter.getLoadedLanguages().includes(lang)) {
+      if (!highlighter.getLoadedLanguages().includes(lang))
         await highlighter.loadLanguage(lang)
-      }
 
       // Load supported theme on-demand
-      if (theme && !highlighter.getLoadedThemes().includes(theme)) {
+      if (theme && !highlighter.getLoadedThemes().includes(theme))
         await highlighter.loadTheme(theme)
-      }
 
       // Highlight code
       const highlightedCode = highlighter.codeToThemedTokens(code, lang, theme)
@@ -103,7 +100,7 @@ export const useShiki = async () => {
     type: 'element',
     tag: 'span',
     props: { style: { color } },
-    children: [{ type: 'text', value: content }]
+    children: [{ type: 'text', value: content }],
   })
 
   const highlightInline = async (node) => {
@@ -112,7 +109,7 @@ export const useShiki = async () => {
     // Fetch highlighted tokens
     const lines = await highlightCode({
       code,
-      lang: node.props.lang || node.props.language
+      lang: node.props.lang || node.props.language,
     })
 
     // Generate highlighted children
@@ -130,7 +127,7 @@ export const useShiki = async () => {
     // Fetch highlighted tokens
     const lines = await highlightCode({
       code,
-      lang
+      lang,
     })
 
     // Generate highlighted children
@@ -141,9 +138,9 @@ export const useShiki = async () => {
       props: {
         class: ['line', highlights.includes(lineIndex + 1) ? 'highlight' : '']
           .join(' ')
-          .trim()
+          .trim(),
       },
-      children: line.map(tokenSpan)
+      children: line.map(tokenSpan),
     }))
     return node
   }
@@ -155,7 +152,7 @@ export const useShiki = async () => {
       (node: any) => node.tag === 'code' && node?.props.code,
       (node) => {
         codeBlocks.push(node)
-      }
+      },
     )
     await Promise.all(codeBlocks.map(highlightBlock))
 
@@ -163,11 +160,11 @@ export const useShiki = async () => {
     visit(
       content.body,
       (node: any) =>
-        node.tag === 'code-inline' &&
-        (node.props?.lang || node.props?.language),
+        node.tag === 'code-inline'
+        && (node.props?.lang || node.props?.language),
       (node) => {
         inlineCodes.push(node)
-      }
+      },
     )
 
     await Promise.all(inlineCodes.map(highlightInline))

@@ -4,7 +4,7 @@ import {
   NGlobalStyle,
   NSpace,
   darkTheme,
-  lightTheme
+  lightTheme,
 } from 'naive-ui'
 const { dark } = inject('isDark') as any
 </script>

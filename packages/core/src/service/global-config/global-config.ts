@@ -18,24 +18,26 @@ export interface ProvidedGlobalConfig {
   mergeGlobalConfig: (updater: GlobalConfig | GlobalConfigUpdater) => void
 }
 
-export const HUNTERSOFBOOK_GLOBAL_CONFIG = Symbol('HUNTERSOFBOOK_GLOBAL_CONFIG')
+export const HUNTERSOFBOOK_GLOBAL_CONFIG = Symbol(
+  'HUNTERSOFBOOK_GLOBAL_CONFIG',
+)
 
 export const createGlobalConfig = () => {
   const globalConfig = ref<GlobalConfig>({
     colors: colorsPresets.default,
-    dateLocale: enUS
+    dateLocale: enUS,
   })
 
   const getGlobalConfig = (): GlobalConfig => globalConfig.value
   const setGlobalConfig = (updater: GlobalConfig | GlobalConfigUpdater) => {
-    const config =
-      typeof updater === 'function' ? updater(globalConfig.value) : updater
+    const config
+      = typeof updater === 'function' ? updater(globalConfig.value) : updater
     globalConfig.value = cloneDeep(config)
   }
 
   const mergeGlobalConfig = (updater: GlobalConfig | GlobalConfigUpdater) => {
-    const config =
-      typeof updater === 'function' ? updater(globalConfig.value) : updater
+    const config
+      = typeof updater === 'function' ? updater(globalConfig.value) : updater
     globalConfig.value = merge(cloneDeep(globalConfig.value), config)
   }
 
@@ -43,7 +45,7 @@ export const createGlobalConfig = () => {
     getGlobalConfig,
     setGlobalConfig,
     mergeGlobalConfig,
-    globalConfig
+    globalConfig,
   }
 }
 
@@ -57,15 +59,13 @@ export function useGlobalConfig(): ProvidedGlobalConfig {
 
   if (!injected) {
     const vm = getCurrentInstance()
-    if (!vm) {
+    if (!vm)
       throw new Error('useGlobalConfig must be called in setup function')
-    }
 
     const config = getGlobalProperty(vm.appContext, '$hobConfig')
 
-    if (!config) {
+    if (!config)
       throw new Error('huntersofbook GlobalConfigPlugin is not registered')
-    }
 
     return config
   }

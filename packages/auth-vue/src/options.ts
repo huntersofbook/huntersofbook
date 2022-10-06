@@ -4,34 +4,34 @@ export const defaultOptions: AuthOptions = {
   endpoints: {
     login: {
       url: '/auth/login',
-      method: 'post'
+      method: 'post',
     },
     signup: {
       url: '/auth/signup',
-      method: 'post'
+      method: 'post',
     },
     logout: {
       url: '/auth/logout',
-      method: 'delete'
+      method: 'delete',
     },
     user: {
       url: '/auth/me',
-      method: 'get'
+      method: 'get',
     },
     refresh: {
       url: '/auth/refresh',
-      method: 'post'
+      method: 'post',
     },
     forgotPassword: {
       url: '/auth/forgot-password',
-      method: 'post'
-    }
+      method: 'post',
+    },
   },
   errorProperty: 'errors',
   signup: {
     accessTokenProperty: 'accessToken',
     enabled: false,
-    refreshTokenProperty: 'refreshToken'
+    refreshTokenProperty: 'refreshToken',
   },
   logout: {},
   token: {
@@ -39,12 +39,12 @@ export const defaultOptions: AuthOptions = {
     type: 'Bearer',
     storageName: 'auth.token',
     autoDecode: false,
-    name: 'Authorization'
+    name: 'Authorization',
   },
   user: {
     autoFetch: true,
     property: 'data',
-    storageName: 'auth.user'
+    storageName: 'auth.user',
   },
   refreshToken: {
     enabled: false,
@@ -54,20 +54,20 @@ export const defaultOptions: AuthOptions = {
     maxAge: 60 * 60 * 24 * 30, // default 30 days
     storageName: 'auth.refresh_token',
     name: 'refresh_token',
-    autoLogout: true
+    autoLogout: true,
   },
   moduleName: 'auth',
   expiredStorage: 'auth.expired',
   redirect: {
     home: '/',
     login: '/auth/login',
-    logout: '/auth/login'
+    logout: '/auth/login',
   },
   registerAxiosInterceptors: true,
   storage: {
     driver: 'secureLs',
-    async: false
+    async: false,
   },
   restApiType: 'graphql',
-  baseURL: ''
+  baseURL: '',
 }

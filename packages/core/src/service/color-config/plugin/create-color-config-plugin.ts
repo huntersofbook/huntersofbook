@@ -8,7 +8,7 @@ import { cssVariableName } from '../utils'
 export const setCSSVariable = (
   name: string,
   value: string,
-  root: HTMLElement
+  root: HTMLElement,
 ) => {
   root.style.setProperty(cssVariableName(name), value)
 }
@@ -16,25 +16,23 @@ export const createColorConfigPlugin = (app: App) => {
   const globalConfig = getGlobalProperty(app, '$hobConfig').globalConfig
   /** Renders CSS variables string. Use this in SSR mode */
   const renderCSSVariables = (
-    colors: GlobalConfig['colors'] = globalConfig.value.colors
+    colors: GlobalConfig['colors'] = globalConfig.value.colors,
   ) => {
-    if (!colors) {
+    if (!colors)
       return
-    }
 
     const colorNames = Object.keys(colors)
     return colorNames
-      .map((key) => `${cssVariableName(key)}: ${colors[key]}`)
+      .map(key => `${cssVariableName(key)}: ${colors[key]}`)
       .join(';')
   }
 
   const updateColors = (newValue: GlobalConfig['colors']) => {
-    if (!newValue) {
+    if (!newValue)
       return
-    }
-    if (isServer()) {
+
+    if (isServer())
       return
-    }
 
     const root = document.documentElement
 
@@ -59,11 +57,11 @@ export const createColorConfigPlugin = (app: App) => {
     (newValue) => {
       updateColors(newValue)
     },
-    { immediate: true, deep: true }
+    { immediate: true, deep: true },
   )
 
   return {
     renderCSSVariables,
-    updateColors
+    updateColors,
   }
 }

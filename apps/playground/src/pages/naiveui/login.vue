@@ -17,10 +17,10 @@ const schema: FYup.SchemaOf<SignInInput> = FYup.object({
     .required()
     .matches(
       /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-      t('profile.settings.password_matches')
+      t('profile.settings.password_matches'),
     ),
   rememberMe: FYup.boolean().required(),
-  isCookies: FYup.boolean().required()
+  isCookies: FYup.boolean().required(),
 })
 
 const schemas: InputSchema<SignInInput, 'one'> = {
@@ -32,7 +32,7 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         name: 'email',
         label: t('login.email'),
         component: HNInput,
-        options: []
+        options: [],
       },
       {
         id: 'password',
@@ -42,11 +42,11 @@ const schemas: InputSchema<SignInInput, 'one'> = {
         options: [],
         attrs: {
           type: 'password',
-          placeholder: '********'
-        }
-      }
-    ]
-  }
+          placeholder: '********',
+        },
+      },
+    ],
+  },
 }
 
 const { form, onInvalidSubmit } = useFormSection<SignInInput>(
@@ -55,8 +55,8 @@ const { form, onInvalidSubmit } = useFormSection<SignInInput>(
     email: 'hi@productdevbook.com',
     password: '}c3!c+zs6~X+eJ)q',
     isCookies: false,
-    rememberMe: false
-  }
+    rememberMe: false,
+  },
 )
 
 const onSubmit = form.handleSubmit(async (values) => {
@@ -69,8 +69,12 @@ const isLoading = ref(false)
 <template>
   <div class="grid w-full p-4">
     <div class="mb-10">
-      <h2 class="mt-6 text-2xl font-extrabold">Sign in to your account</h2>
-      <p class="mt-2 text-sm text-gray-600">productdevbook mobile app</p>
+      <h2 class="mt-6 text-2xl font-extrabold">
+        Sign in to your account
+      </h2>
+      <p class="mt-2 text-sm text-gray-600">
+        productdevbook mobile app
+      </p>
     </div>
     <FormSection :forms="schemas.one.forms" @post="onSubmit">
       <template #actions>
@@ -84,7 +88,7 @@ const isLoading = ref(false)
             :class="{ 'opacity-25': form.isSubmitting.value }"
             @keypress.enter="onSubmit"
           >
-            {{ t('login.login-in') }}
+            {{ t("login.login-in") }}
           </NButton>
         </div>
       </template>
@@ -94,7 +98,7 @@ const isLoading = ref(false)
             to="/auth/signup"
             class="ion-margin-top text-muted-blue-500 font-semibold underline"
           >
-            {{ t('login.create-new') }}
+            {{ t("login.create-new") }}
           </router-link>
         </div>
       </div>

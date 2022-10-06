@@ -11,13 +11,13 @@ export function useTimeFromNowStrict(
   autoUpdate = 60000,
   hook = false,
   mounted = false,
-  options?: IFormatDistanceStrict[2]
+  options?: IFormatDistanceStrict[2],
 ): Ref<string> {
   const gc = useGlobalConfigSafe()
 
   if (!gc) {
     throw new Error(
-      'useColors must be used in setup function or huntersofbook GlobalConfigPlugin is not registered!'
+      'useColors must be used in setup function or huntersofbook GlobalConfigPlugin is not registered!',
     )
   }
   const { globalConfig } = gc
@@ -27,11 +27,11 @@ export function useTimeFromNowStrict(
   const formatOptions = {
     addSuffix: true,
     ...options,
-    locale: globalConfig.value.dateLocale
+    locale: globalConfig.value.dateLocale,
   } as IFormatDistanceStrict[2]
 
   const formattedDate = ref(
-    localizedFormatDistanceStrict(date, new Date(), formatOptions)
+    localizedFormatDistanceStrict(date, new Date(), formatOptions),
   )
 
   if (hook && !isServer()) {
@@ -40,7 +40,7 @@ export function useTimeFromNowStrict(
         formattedDate.value = localizedFormatDistanceStrict(
           date,
           new Date(),
-          formatOptions
+          formatOptions,
         )
       }, autoUpdate)
     }
@@ -53,7 +53,7 @@ export function useTimeFromNowStrict(
           formattedDate.value = localizedFormatDistanceStrict(
             date,
             new Date(),
-            formatOptions
+            formatOptions,
           )
         }, autoUpdate)
       }

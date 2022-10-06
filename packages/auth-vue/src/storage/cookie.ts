@@ -11,7 +11,8 @@ export class CookieStorage implements AuthStorage {
     try {
       const value = Cookies.get(key)
       return JSON.parse(value!)
-    } catch {
+    }
+    catch {
       return defaultValue
     }
   }

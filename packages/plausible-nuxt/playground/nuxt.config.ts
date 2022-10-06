@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     init: {
       domain: 'localhost',
       apiHost: 'https://site.com',
-      trackLocalhost: true
-    }
-  }
+      trackLocalhost: true,
+    },
+  },
 })

@@ -1,7 +1,7 @@
 import { App, AppContext, ComponentCustomProperties, InjectionKey } from 'vue'
 
 export const HUNTERSOFBOOK_CONFIG = Symbol(
-  'HUNTERSOFBOOK_CONFIG'
+  'HUNTERSOFBOOK_CONFIG',
 ) as InjectionKey<string>
 
 /** Type safe return app global properties for assign */
@@ -22,12 +22,12 @@ declare module 'vue' {
  */
 export const defineGlobalProperty = <
   Key extends keyof ComponentCustomProperties,
-  Value extends ComponentCustomProperties[Key]
+  Value extends ComponentCustomProperties[Key],
 >(
-  app: App,
-  key: Key,
-  v: Value
-) => {
+    app: App,
+    key: Key,
+    v: Value,
+  ) => {
   const globalProperties = extractGlobalProperties(app)
   globalProperties[key] = v
 }
@@ -35,7 +35,7 @@ export const defineGlobalProperty = <
 /** Type safe return vue global property */
 export const getGlobalProperty = <Key extends keyof ComponentCustomProperties>(
   app: App | AppContext,
-  key: Key
+  key: Key,
 ): ComponentCustomProperties[Key] => {
   return extractGlobalProperties(app)[key]
 }

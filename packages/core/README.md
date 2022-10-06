@@ -13,7 +13,7 @@ const locale = await loadDateFNSLocale({
 })
 
 const huntersofbook = createHuntersofbookEssential({
-    config: { dateLocale: locale }
+  config: { dateLocale: locale }
 })
 app.use(i18n)
 

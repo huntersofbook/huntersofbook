@@ -7,7 +7,7 @@ const nowDatea = useTimeFromNowStrict(
   new Date('2022-10-06 06:01:00+00'),
   1000,
   false,
-  true
+  true,
 )
 const data = useTimeFromNow(date, 1000)
 </script>

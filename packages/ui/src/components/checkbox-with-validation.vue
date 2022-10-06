@@ -46,12 +46,13 @@ export default {
           },
         ]"
         class="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
-        :aria-invalid="errorMessage ? true : false" />
+        :aria-invalid="errorMessage ? true : false"
+      />
       <label
         v-if="label"
         :for="$attrs.id as string"
         class="ml-2 block text-sm text-gray-900 dark:text-gray-200"
-        >{{ label }}
+      >{{ label }}
       </label>
     </div>
     <p v-show="errorMessage" class="mt-2 text-sm text-red-600">

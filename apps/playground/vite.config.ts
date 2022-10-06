@@ -13,7 +13,7 @@ import Layouts from 'vite-plugin-vue-layouts'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`
+      '~/': `${path.resolve(__dirname, 'src')}/`,
     },
     dedupe: [
       'vue',
@@ -23,8 +23,8 @@ export default defineConfig({
       'vue-i18n',
       'vue-meta',
       'vue-i18n',
-      'huntersofbook'
-    ]
+      'huntersofbook',
+    ],
   },
 
   plugins: [
@@ -44,11 +44,11 @@ export default defineConfig({
         'vue-i18n',
         'vue/macros',
         '@vueuse/head',
-        '@vueuse/core'
+        '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: ['src/composables', 'src/store'],
-      vueTemplate: true
+      vueTemplate: true,
     }),
 
     // https://github.com/antfu/unplugin-vue-components
@@ -57,7 +57,7 @@ export default defineConfig({
       extensions: ['vue'],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/],
-      dts: 'src/components.d.ts'
+      dts: 'src/components.d.ts',
     }),
 
     // https://github.com/antfu/unocss
@@ -67,24 +67,24 @@ export default defineConfig({
         presetIcons({
           scale: 1.2,
           extraProperties: {
-            display: 'inline-block'
+            display: 'inline-block',
           },
-          prefix: 'i-'
-        })
+          prefix: 'i-',
+        }),
       ],
-      safelist: ['i-ph-activity-duotone']
+      safelist: ['i-ph-activity-duotone'],
     }),
 
     // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [path.resolve(__dirname, 'locales/**')]
-    })
+      include: [path.resolve(__dirname, 'locales/**')],
+    }),
   ],
   build: {
-    target: 'esnext'
-  }
+    target: 'esnext',
+  },
 
   // // https://github.com/vitest-dev/vitest
   // test: {

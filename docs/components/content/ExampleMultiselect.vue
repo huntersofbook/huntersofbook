@@ -3,14 +3,14 @@ export default {
   props: {
     options: {
       type: [Array, String],
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
-      value: null
+      value: null,
     }
-  }
+  },
 }
 </script>
 

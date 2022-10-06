@@ -22,17 +22,17 @@ export const app = createApp(App)
 const head = createHead()
 const chatwoot = createChatWoot({
   init: {
-    websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
+    websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB',
   },
   settings: {
     locale: 'en',
     position: 'left',
-    launcherTitle: 'Hello Chat'
-  }
+    launcherTitle: 'Hello Chat',
+  },
 })
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 app.use(router)
@@ -42,12 +42,13 @@ app.use(chatwoot)
 async function init() {
   try {
     Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map(
-      (i: any) => i.install?.({ app, router })
+      (i: any) => i.install?.({ app, router }),
     )
     router.isReady().then(() => {
       app.mount('#app')
     })
-  } catch (e) {
+  }
+  catch (e) {
     console.error(e)
   }
 }

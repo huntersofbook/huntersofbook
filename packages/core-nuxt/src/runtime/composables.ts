@@ -3,5 +3,5 @@ import {
   useFormSection,
   useGlobalConfig,
   useTimeFromNow,
-  useTimeFromNowStrict
+  useTimeFromNowStrict,
 } from 'huntersofbook'

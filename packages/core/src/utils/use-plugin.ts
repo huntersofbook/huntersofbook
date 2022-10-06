@@ -3,7 +3,7 @@ import type { App } from 'vue'
 import { HuntersofbookPlugin, HuntersofbookPluginFabric } from '../types'
 
 const isPluginFabric = (
-  plugin: HuntersofbookPlugin | HuntersofbookPluginFabric
+  plugin: HuntersofbookPlugin | HuntersofbookPluginFabric,
 ): plugin is HuntersofbookPluginFabric => typeof plugin === 'function'
 
 /**
@@ -29,9 +29,8 @@ export const usePlugin = <O>(
   plugin: HuntersofbookPlugin | HuntersofbookPluginFabric<O[]>,
   ...options: O[]
 ) => {
-  if (isPluginFabric(plugin)) {
+  if (isPluginFabric(plugin))
     app.use(plugin(...(options as [])))
-  } else {
+  else
     app.use(plugin) // Do not pass options, because it should be passed to fabric
-  }
 }

@@ -4,5 +4,5 @@ export type {
   ChatwootSettings,
   ChatwootSetUserProps,
   Chatwoot,
-  ChatwootSdk
+  ChatwootSdk,
 } from './plugin'

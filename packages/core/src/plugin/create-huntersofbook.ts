@@ -16,6 +16,6 @@ export const createHuntersofbook = defineHuntersofbookPlugin(
 
       usePlugin(app, GlobalConfigPlugin(config))
       usePlugin(app, ColorConfigPlugin)
-    }
-  })
+    },
+  }),
 )

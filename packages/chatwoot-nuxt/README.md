@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   modules: [
     '@huntersofbook/chatwoot-nuxt'
   ],
-  
+
   chatwoot: {
     init: {
       websiteToken: 'b6BejyTTuxF4yPt61ZTZHjdB'
@@ -51,18 +51,27 @@ Add app.vue or add wherever you want.
 ```vue
 <script setup lang="ts">
 const { isModalVisible, toggle, toggleBubbleVisibility, popoutChatWindow, ...more } = useChatWoot()
-
 </script>
 
 <template>
   <div class="flex space-x-3">
     <div>{{ isModalVisible }}</div>
-    <button @click="toggle('open')">open</button>
-    <button @click="toggle('close')">close</button>
+    <button @click="toggle('open')">
+      open
+    </button>
+    <button @click="toggle('close')">
+      close
+    </button>
     <div class="flex space-x-3">
-      <button @click="toggleBubbleVisibility('hide')">hide</button>
-      <button @click="toggleBubbleVisibility('show')">show</button>
-      <button @click="popoutChatWindow()">open popup</button>
+      <button @click="toggleBubbleVisibility('hide')">
+        hide
+      </button>
+      <button @click="toggleBubbleVisibility('show')">
+        show
+      </button>
+      <button @click="popoutChatWindow()">
+        open popup
+      </button>
     </div>
   </div>
 </template>

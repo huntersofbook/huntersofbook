@@ -8,10 +8,10 @@ import { distDir } from '../dirs'
 /** Register huntersofbook composables globally with auto-import */
 export const useHuntersofbookComposables = () => {
   const composablesFrom = resolve(distDir, './runtime/composables.mjs')
-  const autoImportsList = importNames.map<Import>((item) => ({
+  const autoImportsList = importNames.map<Import>(item => ({
     name: item,
     as: item,
-    from: composablesFrom
+    from: composablesFrom,
   }))
 
   addImports(autoImportsList)

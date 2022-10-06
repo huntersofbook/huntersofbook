@@ -4,7 +4,7 @@ import { GlobalConfig } from '../service/global-config/types'
 import {
   HuntersofbookPlugin,
   HuntersofbookPluginFabric,
-  defineHuntersofbookPlugin
+  defineHuntersofbookPlugin,
 } from '../types'
 import { usePlugin } from '../utils/use-plugin'
 
@@ -30,7 +30,7 @@ export const createHuntersofbookEssential = defineHuntersofbookPlugin(
     options: {
       config?: GlobalConfig
       plugins?: Record<string, HuntersofbookPlugin | HuntersofbookPluginFabric>
-    } = {}
+    } = {},
   ) => ({
     install(app) {
       const { config, plugins } = options
@@ -41,9 +41,9 @@ export const createHuntersofbookEssential = defineHuntersofbookPlugin(
 
       if (plugins) {
         Object.entries(plugins).forEach(([name, plugin]) => {
-          if (ESSENTIAL_PLUGIN_NAMES.includes(name)) {
+          if (ESSENTIAL_PLUGIN_NAMES.includes(name))
             return
-          }
+
           usePlugin(app, plugin)
         })
       }
@@ -53,6 +53,6 @@ export const createHuntersofbookEssential = defineHuntersofbookPlugin(
       //       app.component(name, component)
       //     })
       //   }
-    }
-  })
+    },
+  }),
 )

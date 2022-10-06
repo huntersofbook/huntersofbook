@@ -5,6 +5,8 @@ const { trackEvent } = usePlausible()
 <template>
   <div>
     Nuxt module playground!
-    <button @click="trackEvent('nuxt')">click me</button>
+    <button @click="trackEvent('nuxt')">
+      click me
+    </button>
   </div>
 </template>

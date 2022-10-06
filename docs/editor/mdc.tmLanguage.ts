@@ -6,32 +6,32 @@ import type { languages } from 'monaco-editor-core'
 
 export const conf: languages.LanguageConfiguration = {
   comments: {
-    blockComment: ['<!--', '-->']
+    blockComment: ['<!--', '-->'],
   },
   brackets: [
     ['{', '}'],
     ['[', ']'],
-    ['(', ')']
+    ['(', ')'],
   ],
   autoClosingPairs: [
     { open: '{', close: '}' },
     { open: '[', close: ']' },
     { open: '(', close: ')' },
-    { open: '<', close: '>', notIn: ['string'] }
+    { open: '<', close: '>', notIn: ['string'] },
   ],
   surroundingPairs: [
     { open: '(', close: ')' },
     { open: '[', close: ']' },
-    { open: '`', close: '`' }
+    { open: '`', close: '`' },
   ],
   folding: {
     markers: {
       // eslint-disable-next-line prefer-regex-literals
       start: new RegExp('^\\s*<!--\\s*#?region\\b.*-->'),
       // eslint-disable-next-line prefer-regex-literals
-      end: new RegExp('^\\s*<!--\\s*#?endregion\\b.*-->')
-    }
-  }
+      end: new RegExp('^\\s*<!--\\s*#?endregion\\b.*-->'),
+    },
+  },
 }
 
 export const language = <languages.IMonarchLanguage>{
@@ -60,13 +60,13 @@ export const language = <languages.IMonarchLanguage>{
     'isindex',
     'link',
     'meta',
-    'param'
+    'param',
   ],
 
   tokenizer: {
     root: [
       [/^---$/, { token: '', next: '@frontmatter', nextEmbedded: 'yaml' }],
-      { include: 'markdown' }
+      { include: 'markdown' },
     ],
 
     frontmatter: [
@@ -76,17 +76,17 @@ export const language = <languages.IMonarchLanguage>{
           token: '',
           next: '@markdown',
           nextEmbedded: '@pop',
-          bracket: '@close'
-        }
+          bracket: '@close',
+        },
       ],
-      [/.*$/, 'variable.source']
+      [/.*$/, 'variable.source'],
     ],
 
     markdown: [
       // headers (with #)
       [
         /^(\s{0,3})(#+)((?:[^\\#]|@escapes)+)((?:#+)?)/,
-        ['white', 'keyword', 'keyword', 'keyword']
+        ['white', 'keyword', 'keyword', 'keyword'],
       ],
 
       // headers (with =)
@@ -107,13 +107,13 @@ export const language = <languages.IMonarchLanguage>{
       // code block (3 tilde)
       [
         /^\s*~~~\s*((?:\w|[\/\-#])+)?\s*$/,
-        { token: 'string', next: '@codeblock' }
+        { token: 'string', next: '@codeblock' },
       ],
 
       // github style code blocks (with backticks and language)
       [
         /^\s*```\s*((?:\w|[\/\-#])+)\s*$/,
-        { token: 'string', next: '@codeblockgh', nextEmbedded: '$1' }
+        { token: 'string', next: '@codeblockgh', nextEmbedded: '$1' },
       ],
 
       // github style code blocks (with backticks but no language)
@@ -123,31 +123,31 @@ export const language = <languages.IMonarchLanguage>{
       [/^\s*(:{2,})([\w-]+)/, 'tag', '@componentWithData'],
 
       // markup within lines
-      { include: '@linecontent' }
+      { include: '@linecontent' },
     ],
 
     componentWithData: [
       [/{/, 'tag', '@attributes'],
       [
         /^\s*---\s*$/,
-        { token: '', next: '@componentData', nextEmbedded: 'yaml' }
+        { token: '', next: '@componentData', nextEmbedded: 'yaml' },
       ],
       [/^\s*::+\s*$/, 'tag', '@pop'],
-      { include: '@component' }
+      { include: '@component' },
     ],
 
     component: [
       // #slots
       [/^\s*#[\w_-]*\s*$/, 'attribute.name.html'],
-      { include: '@markdown' }
+      { include: '@markdown' },
     ],
 
     componentData: [
       [
         /^\s*---\s*$/,
-        { token: '', next: '@pop', nextEmbedded: '@pop', bracket: '@close' }
+        { token: '', next: '@pop', nextEmbedded: '@pop', bracket: '@close' },
       ],
-      [/.*$/, 'variable.source']
+      [/.*$/, 'variable.source'],
     ],
 
     attributes: [
@@ -155,25 +155,25 @@ export const language = <languages.IMonarchLanguage>{
       [/[^}=][^\s=}]*[\s.#]*/, 'attribute.name.html'],
       [
         /[^}=][^\s=}]*(})/,
-        ['attribute.name.html', { token: 'tag', next: '@pop' }]
+        ['attribute.name.html', { token: 'tag', next: '@pop' }],
       ],
       [/(=)("[^"]*"|[^"\s=]*)/, ['', 'string.html']],
-      [/}/, 'tag', '@pop']
+      [/}/, 'tag', '@pop'],
     ],
 
     codeblock: [
       [/^\s*~~~\s*$/, { token: 'string', next: '@pop' }],
       [/^\s*```\s*$/, { token: 'string', next: '@pop' }],
-      [/.*$/, 'variable.source']
+      [/.*$/, 'variable.source'],
     ],
 
     // github style code blocks
     codeblockgh: [
       [
         /```\s*$/,
-        { token: 'variable.source', next: '@pop', nextEmbedded: '@pop' }
+        { token: 'variable.source', next: '@pop', nextEmbedded: '@pop' },
       ],
-      [/[^`]+/, 'variable.source']
+      [/[^`]+/, 'variable.source'],
     ],
 
     linecontent: [
@@ -194,7 +194,7 @@ export const language = <languages.IMonarchLanguage>{
       [/[^\*\_\)\]]\{+[^}]*\}+/, 'string.link'],
       [
         /(!?\[)((?:[^\]\\]|@escapes)*)(\]\([^\)]+\))/,
-        ['string.link', '', 'string.link']
+        ['string.link', '', 'string.link'],
       ],
       // [/(!?\[)((?:[^\]\\]|@escapes)*)(\])/, 'string.link'],
 
@@ -212,13 +212,13 @@ export const language = <languages.IMonarchLanguage>{
           'string.link',
           '',
           'string.link',
-          { token: 'tag', next: '@attributes' }
-        ]
+          { token: 'tag', next: '@attributes' },
+        ],
       ],
       [/(\[)([^\]]*)(\])/, ['string.link', '', 'string.link']],
 
       // or html
-      { include: 'html' }
+      { include: 'html' },
     ],
 
     // Note: it is tempting to rather switch to the real HTML mode instead of building our own here
@@ -234,20 +234,20 @@ export const language = <languages.IMonarchLanguage>{
         {
           cases: {
             '@empty': { token: 'tag', next: '@tag.$1' },
-            '@default': { token: 'tag', next: '@tag.$1' }
-          }
-        }
+            '@default': { token: 'tag', next: '@tag.$1' },
+          },
+        },
       ],
       [/<\/(\w+)\s*>/, { token: 'tag' }],
 
-      [/<!--/, 'comment', '@comment']
+      [/<!--/, 'comment', '@comment'],
     ],
 
     comment: [
       [/[^<\-]+/, 'comment.content'],
       [/-->/, 'comment', '@pop'],
       [/<!--/, 'comment.content.invalid'],
-      [/[<\-]/, 'comment.content']
+      [/[<\-]/, 'comment.content'],
     ],
 
     // Almost full HTML tag matching, complete with embedded scripts & styles
@@ -261,8 +261,8 @@ export const language = <languages.IMonarchLanguage>{
 
           'string.html',
           { token: 'string.html', switchTo: '@tag.$S2.$4' },
-          'string.html'
-        ]
+          'string.html',
+        ],
       ],
       [
         /(type)(\s*=\s*)(')([^']+)(')/,
@@ -272,12 +272,12 @@ export const language = <languages.IMonarchLanguage>{
 
           'string.html',
           { token: 'string.html', switchTo: '@tag.$S2.$4' },
-          'string.html'
-        ]
+          'string.html',
+        ],
       ],
       [
         /(\w+)(\s*=\s*)("[^"]*"|'[^']*')/,
-        ['attribute.name.html', 'delimiter.html', 'string.html']
+        ['attribute.name.html', 'delimiter.html', 'string.html'],
       ],
       [/\w+/, 'attribute.name.html'],
       [/\/>/, 'tag', '@pop'],
@@ -288,44 +288,44 @@ export const language = <languages.IMonarchLanguage>{
             '$S2==style': {
               token: 'tag',
               switchTo: 'embeddedStyle',
-              nextEmbedded: 'text/css'
+              nextEmbedded: 'text/css',
             },
             '$S2==script': {
               cases: {
-                $S3: {
+                '$S3': {
                   token: 'tag',
                   switchTo: 'embeddedScript',
-                  nextEmbedded: '$S3'
+                  nextEmbedded: '$S3',
                 },
                 '@default': {
                   token: 'tag',
                   switchTo: 'embeddedScript',
-                  nextEmbedded: 'text/javascript'
-                }
-              }
+                  nextEmbedded: 'text/javascript',
+                },
+              },
             },
-            '@default': { token: 'tag', next: '@pop' }
-          }
-        }
-      ]
+            '@default': { token: 'tag', next: '@pop' },
+          },
+        },
+      ],
     ],
 
     embeddedStyle: [
       [/[^<]+/, ''],
       [
         /<\/style\s*>/,
-        { token: '@rematch', next: '@pop', nextEmbedded: '@pop' }
+        { token: '@rematch', next: '@pop', nextEmbedded: '@pop' },
       ],
-      [/</, '']
+      [/</, ''],
     ],
 
     embeddedScript: [
       [/[^<]+/, ''],
       [
         /<\/script\s*>/,
-        { token: '@rematch', next: '@pop', nextEmbedded: '@pop' }
+        { token: '@rematch', next: '@pop', nextEmbedded: '@pop' },
       ],
-      [/</, '']
-    ]
-  }
+      [/</, ''],
+    ],
+  },
 }

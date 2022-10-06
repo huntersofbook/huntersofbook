@@ -10,8 +10,8 @@ const regexMatcher: Matcher = {
   Matching: class MatchMinLength {
     match({ password }: { password: string }) {
       const matches: Match[] = []
-      const re =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+      const re
+        = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
       if (re.test(password)) {
         matches.push({
           pattern: 'regex',
@@ -19,7 +19,8 @@ const regexMatcher: Matcher = {
           i: 0,
           j: 1,
         })
-      } else {
+      }
+      else {
         matches.push({
           pattern: 'regex',
           token: password,

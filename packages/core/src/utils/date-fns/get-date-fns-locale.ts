@@ -21,40 +21,47 @@ export async function loadDateFNSLocale(lang: DateFNSLocale): Promise<Locale> {
   const options = defu(lang, {
     locale: 'en-US',
     storageKey: 'locale',
-    nuxt: false
+    nuxt: false,
   } as DateFNSLocale)
 
-  const importLocale = () => import(`date-fns/locale`)
+  const importLocale = () => import('date-fns/locale')
   const locales = (await importLocale()) as Record<string, Locale>
 
-  if (isServer() && !options.nuxt) {
+  if (isServer() && !options.nuxt)
     return enUS
-  }
 
   if (options.storageKey && !options.nuxt) {
     const cookie = getCookie(options.storageKey)
 
     if (!cookie) {
       setCookie(options.storageKey, options.locale)
-    } else {
+    }
+    else {
       const localesToTry = [cookie, cookie.split('-')[0], 'en-US']
 
       for (const l of localesToTry) {
         try {
           const data = locales[l]
           return data
-        } catch (error) {
+        }
+        catch (error) {
           continue
         }
       }
     }
-  } else {
-    const localesToTry = [options.locale, options.locale.split('-')[0], 'en-US']
+  }
+  else {
+    const localesToTry = [
+      options.locale,
+      options.locale.split('-')[0],
+      'en-US',
+    ]
     for (const l of localesToTry) {
       try {
         const data = locales[l]
         return data
-      } catch (error) {
+      }
+      catch (error) {
         continue
       }
     }

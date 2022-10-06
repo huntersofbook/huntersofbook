@@ -33,10 +33,12 @@ const getPasswordStrength = computed(() => {
 
 <template>
   <div
-    class="relative h-6 mt-10 w-full mb-6 mr-auto ml-auto password-strength-meter-bar">
+    class="relative h-6 mt-10 w-full mb-6 mr-auto ml-auto password-strength-meter-bar"
+  >
     <div
       class="password-strength-meter-bar--fill"
-      :data-score="getPasswordStrength" />
+      :data-score="getPasswordStrength"
+    />
   </div>
 </template>
 

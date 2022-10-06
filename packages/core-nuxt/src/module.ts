@@ -11,25 +11,25 @@ export default defineNuxtModule<HuntersofbookOptions>({
     version,
     configKey: 'huntersofbook',
     compatibility: {
-      nuxt: '^3.0.0-rc.11'
-    }
+      nuxt: '^3.0.0-rc.11',
+    },
   },
   defaults: {
     defaultLocale: 'en',
-    storageKey: 'locale'
+    storageKey: 'locale',
   },
   async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
     nuxt.options.runtimeConfig.public.huntersofbook = defu(options, {
       defaultLocale: 'en',
-      storageKey: 'locale'
+      storageKey: 'locale',
     })
 
     addPlugin({ src: resolver.resolve('./runtime/plugin') })
 
     useHuntersofbookComposables()
-  }
+  },
 })
 
 declare module '@nuxt/schema' {

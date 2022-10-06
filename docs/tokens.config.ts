@@ -12,7 +12,7 @@ export default defineTokens({
       600: { value: '#059669' },
       700: { value: '#047857' },
       800: { value: '#065f46' },
-      900: { value: '#064e3b' }
-    }
-  }
+      900: { value: '#064e3b' },
+    },
+  },
 })

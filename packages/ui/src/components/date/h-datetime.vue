@@ -31,25 +31,25 @@ const props = defineProps({
 const displayValue = ref<string | null>(null)
 
 const localValue = computed(() => {
-  if (!props.value) {
+  if (!props.value)
     return null
-  }
-  if (props.type === 'unixMillisecondTimestamp')
+
+  if (props.type === 'unixMillisecondTimestamp') {
     return parseISO(
       fromUnixTime(millisecondsToSeconds(Number(props.value))).toISOString(),
     )
+  }
   else if (props.type === 'timestamp') {
     return parseISO(props.value)
-  } else if (props.type === 'dateTime')
-    return parse(props.value, "yyyy-MM-dd'T'HH:mm:ss", new Date())
-  else if (props.type === 'date')
-    return parse(props.value, 'yyyy-MM-dd', new Date())
-  else if (props.type === 'time')
-    return parse(props.value, 'HH:mm:ss', new Date())
+  }
+  else if (props.type === 'dateTime') { return parse(props.value, 'yyyy-MM-dd\'T\'HH:mm:ss', new Date()) }
+  else if (props.type === 'date') { return parse(props.value, 'yyyy-MM-dd', new Date()) }
+  else if (props.type === 'time') { return parse(props.value, 'HH:mm:ss', new Date()) }
 
   try {
     parse(props.value, props.format, new Date())
-  } catch (error) {
+  }
+  catch (error) {
     return null
   }
   return null
@@ -58,13 +58,13 @@ const localValue = computed(() => {
 const relativeFormat = (value: Date) => {
   const fn = props.strict
     ? localizedFormatDistanceStrict(value, new Date(), {
-        addSuffix: props.suffix,
-        roundingMethod: props.round,
-      })
+      addSuffix: props.suffix,
+      roundingMethod: props.round,
+    })
     : localizedFormatDistance(value, new Date(), {
-        addSuffix: props.suffix,
-        includeSeconds: true,
-      })
+      addSuffix: props.suffix,
+      includeSeconds: true,
+    })
   return fn
 }
 
@@ -75,33 +75,30 @@ watch(
       displayValue.value = null
       return
     }
-    if (props.relative) {
+    if (props.relative)
       displayValue.value = relativeFormat(newValue)
-    } else {
+    else
       displayValue.value = localizedFormat(newValue, props.format)
-    }
   },
   { immediate: true },
 )
 
 let refreshInterval: number | null = null
 onMounted(async () => {
-  if (!props.relative) {
+  if (!props.relative)
     return
-  }
+
   refreshInterval = window.setInterval(async () => {
-    if (!localValue.value) {
+    if (!localValue.value)
       return
-    }
 
     displayValue.value = relativeFormat(localValue.value)
   }, 60000)
 })
 
 onUnmounted(() => {
-  if (refreshInterval) {
+  if (refreshInterval)
     clearInterval(refreshInterval)
-  }
 })
 </script>
 

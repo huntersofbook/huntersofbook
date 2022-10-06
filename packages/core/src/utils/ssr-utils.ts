@@ -8,11 +8,12 @@ export const getDocument = (): Document | undefined =>
 const fakeGlobal = {}
 export const getGlobal = () => {
   if (isServer()) {
-    if (typeof globalThis === 'undefined') {
+    if (typeof globalThis === 'undefined')
       return fakeGlobal as Window
-    }
+
     return globalThis as any as Window
-  } else {
+  }
+  else {
     return window
   }
 }

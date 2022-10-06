@@ -4,7 +4,7 @@ import { App } from 'vue'
 const autoAnimatePlugin = {
   install(app: App) {
     app.use(plugin)
-  }
+  },
 }
 
 export default autoAnimatePlugin

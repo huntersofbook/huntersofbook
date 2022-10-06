@@ -42,11 +42,10 @@ export default defineComponent({
     const isFilter = ref(false)
     const isHeaderScroll = ref(false)
     const isScroll = (e: Event) => {
-      if ((e.target as HTMLElement).scrollTop > 50) {
+      if ((e.target as HTMLElement).scrollTop > 50)
         isHeaderScroll.value = true
-      } else {
+      else
         isHeaderScroll.value = false
-      }
     }
     const localActive = ref(false)
     const mainEl = ref<Element>()
@@ -78,7 +77,8 @@ export default defineComponent({
     v-model="internalActive"
     :persistent="persistent"
     placement="right"
-    @esc="$emit('cancel')">
+    @esc="$emit('cancel')"
+  >
     <template #activator="{ on }">
       <slot name="activator" v-bind="{ on }" />
     </template>
@@ -90,7 +90,8 @@ export default defineComponent({
             ? 'border-b border-toprak-300 dark:border-dark-300'
             : ''
         "
-        class="grid h-14 grid-cols-3 place-content-center px-4">
+        class="grid h-14 grid-cols-3 place-content-center px-4"
+      >
         <div class="flex w-full items-center space-x-2">
           <AtomHButton
             v-if="cancelable"
@@ -100,13 +101,15 @@ export default defineComponent({
             secondary
             kind="danger"
             size="sm"
-            @click="$emit('cancel')">
+            @click="$emit('cancel')"
+          >
             <AtomHIcon name="i-ph-x-light" />
           </AtomHButton>
           <slot name="header:right" />
         </div>
         <div
-          class="flex h-full w-full items-center justify-center place-self-center">
+          class="flex h-full w-full items-center justify-center place-self-center"
+        >
           <Transition>
             <div v-show="isHeaderScroll" class="text-sm font-semibold">
               {{ title }}
@@ -120,21 +123,24 @@ export default defineComponent({
       <NScrollbar
         ref="scrollContainerRef"
         :native-scrollbar="false"
-        @scroll="isScroll($event)">
+        @scroll="isScroll($event)"
+      >
         <h1 class="mt-1 px-4 text-lg font-bold">
           {{ title }}
         </h1>
         <div class="flex flex-col p-4 lg:flex-row">
           <nav
             v-if="$slots.sidebar"
-            class="sidebar hidden w-full max-w-[250px] flex-none flex-col border-r border-toprak-100 pr-2 dark:border-dark-200 lg:flex">
+            class="sidebar hidden w-full max-w-[250px] flex-none flex-col border-r border-toprak-100 pr-2 dark:border-dark-200 lg:flex"
+          >
             <slot name="sidebar" />
           </nav>
           <main ref="mainEl" class="main lg:w-2/3">
             <AtomHDetail
               v-if="$slots.sidebar"
               class="mobile-sidebar"
-              :label="sidebarLabel">
+              :label="sidebarLabel"
+            >
               <nav>
                 <slot name="sidebar" />
               </nav>

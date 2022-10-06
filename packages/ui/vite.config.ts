@@ -31,7 +31,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       formats: ['es'],
       name: 'huntersofbook-ui',
-      fileName: (format) => `huntersofbook-ui.${format}.js`,
+      fileName: format => `huntersofbook-ui.${format}.js`,
     },
     rollupOptions: {
       external: externals,

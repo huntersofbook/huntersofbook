@@ -4,7 +4,7 @@ import {
   ListboxButton,
   ListboxLabel,
   ListboxOption,
-  ListboxOptions
+  ListboxOptions,
 } from '@headlessui/vue'
 import { useI18n } from 'vue-i18n'
 
@@ -25,7 +25,9 @@ watch(localeUserSetting, () => {
       as="div"
       class="relative flex items-center"
     >
-      <ListboxLabel class="sr-only"> Theme </ListboxLabel>
+      <ListboxLabel class="sr-only">
+        Theme
+      </ListboxLabel>
       <ListboxButton type="button" title="Change Language">
         <div
           class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700"
@@ -45,7 +47,7 @@ watch(localeUserSetting, () => {
             'text-white-500 bg-gray-200 dark:bg-gray-500/50':
               localeUserSetting === lang.iso,
             'hover:bg-gray-200 dark:hover:bg-gray-700/30':
-              localeUserSetting !== lang.iso
+              localeUserSetting !== lang.iso,
           }"
         >
           <span class="truncate">

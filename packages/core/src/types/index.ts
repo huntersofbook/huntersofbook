@@ -14,5 +14,5 @@ export type HuntersofbookPluginFabric<O extends any[] = []> = (
 ) => HuntersofbookPlugin
 
 export const defineHuntersofbookPlugin = <O extends any[]>(
-  fabric: HuntersofbookPluginFabric<O>
+  fabric: HuntersofbookPluginFabric<O>,
 ) => fabric

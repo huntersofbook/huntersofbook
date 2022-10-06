@@ -12,8 +12,8 @@ declare global {
     }
   }
 }
-const MONACO_CDN_BASE =
-  'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.30.1/min/'
+const MONACO_CDN_BASE
+  = 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.30.1/min/'
 
 const loadMonacoScript = (src: string) => {
   return new Promise((resolve, reject) => {
@@ -29,8 +29,8 @@ const loadMonacoScript = (src: string) => {
 const setupMonaco = createSingletonPromise(async () => {
   await loadMonacoScript('vs/loader.min.js')
   window.require.config({ paths: { vs: `${MONACO_CDN_BASE}/vs` } })
-  const monaco = await new Promise<any>((resolve) =>
-    window.require(['vs/editor/editor.main'], resolve)
+  const monaco = await new Promise<any>(resolve =>
+    window.require(['vs/editor/editor.main'], resolve),
   )
 
   window.MonacoEnvironment = {
@@ -40,7 +40,7 @@ const setupMonaco = createSingletonPromise(async () => {
           baseUrl: '${MONACO_CDN_BASE}'
         };
         importScripts('${MONACO_CDN_BASE}vs/base/worker/workerMain.js');`)}`
-    }
+    },
   }
 
   monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
@@ -49,7 +49,7 @@ const setupMonaco = createSingletonPromise(async () => {
     noUnusedParameters: false,
     allowUnreachableCode: true,
     allowUnusedLabels: true,
-    strict: true
+    strict: true,
   })
 
   monaco.languages.register({ id: 'mdc' })
@@ -67,18 +67,17 @@ export function useMonaco(
     language: string
     onChanged?: (content: string) => void
     onDidCreateEditor?: () => void
-  }
+  },
 ) {
   const isSetup = ref(false)
   let editor: Editor.IStandaloneCodeEditor
 
   const setContent = (content: string) => {
-    if (!isSetup.value) {
+    if (!isSetup.value)
       return
-    }
-    if (editor) {
+
+    if (editor)
       editor.setValue(content)
-    }
   }
 
   const init = async () => {
@@ -89,24 +88,22 @@ export function useMonaco(
       () => {
         const el = unref(target)
 
-        if (!el) {
+        if (!el)
           return
-        }
 
         const extension = () => {
-          if (options.language === 'typescript') {
+          if (options.language === 'typescript')
             return 'ts'
-          } else if (options.language === 'javascript') {
+          else if (options.language === 'javascript')
             return 'js'
-          } else if (options.language === 'html') {
+          else if (options.language === 'html')
             return 'html'
-          }
         }
 
         const model = monaco.editor.createModel(
           options.code,
           options.language,
-          monaco.Uri.parse(`file:///root/${Date.now()}.${extension()}`)
+          monaco.Uri.parse(`file:///root/${Date.now()}.${extension()}`),
         )
 
         editor = monaco.editor.create(el, {
@@ -124,9 +121,9 @@ export function useMonaco(
           automaticLayout: true,
           theme: 'vs-dark',
           minimap: {
-            enabled: false
+            enabled: false,
           },
-          onDidCreateEditor: options?.onDidCreateEditor
+          onDidCreateEditor: options?.onDidCreateEditor,
         })
 
         isSetup.value = true
@@ -137,14 +134,14 @@ export function useMonaco(
       },
       {
         flush: 'post',
-        immediate: true
-      }
+        immediate: true,
+      },
     )
   }
 
   init()
 
   return {
-    setContent
+    setContent,
   }
 }
