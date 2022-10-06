@@ -44,9 +44,7 @@
     "defu": "^6.1.0",
     "es-cookie": "^1.4.0",
     "lodash": "^4.17.21",
-    "vee-validate": "^4.6.5",
-    "vue": "^3.2.40",
-    "vue-i18n": "^9.3.0-beta.6",
+    "vee-validate": "^4.6.10",
     "vue-types": "^4.2.1",
     "yup": "^0.32.11"
   },
@@ -54,8 +52,7 @@
     "vue": "^3.2.40"
   },
   "devDependencies": {
-    "magic-string": "^0.26.2",
     "unconfig": "^0.3.5",
-    "vee-validate": "^4.6.6"
+    "vue": "^3.2.40"
   }
 }

@@ -282,11 +282,9 @@ importers:
       defu: ^6.1.0
       es-cookie: ^1.4.0
       lodash: ^4.17.21
-      magic-string: ^0.26.2
       unconfig: ^0.3.5
-      vee-validate: ^4.6.5
+      vee-validate: ^4.6.10
       vue: ^3.2.40
-      vue-i18n: ^9.3.0-beta.6
       vue-types: ^4.2.1
       yup: ^0.32.11
     dependencies:
@@ -295,14 +293,12 @@ importers:
       defu: 6.1.0
       es-cookie: 1.4.0
       lodash: 4.17.21
-      vee-validate: 4.6.5_vue@3.2.40
-      vue: 3.2.40
-      vue-i18n: 9.3.0-beta.6_vue@3.2.40
+      vee-validate: 4.6.10_vue@3.2.40
       vue-types: 4.2.1_vue@3.2.40
       yup: 0.32.11
     devDependencies:
-      magic-string: 0.26.2
       unconfig: 0.3.5
+      vue: 3.2.40
 
   packages/core-nuxt:
     specifiers:
@@ -11537,15 +11533,6 @@ packages:
 
   /vee-validate/4.6.10_vue@3.2.40:
     resolution: {integrity: sha512-B5zdWnz3uijuio/6wV6PlM2m+pyt0+hfKJnz8B7JzT/umUo+TRsQ6PsZynUVhq5S8P54vLWbw3ay908fITWtsw==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      '@vue/devtools-api': 6.2.1
-      vue: 3.2.40
-    dev: false
-
-  /vee-validate/4.6.5_vue@3.2.40:
-    resolution: {integrity: sha512-lh3aV7z7iwzzfRZ8/zcW74G1K7aWCQ4sINcliVordHin9TRBfLMdJvzzfwLHdTqYmtq25y+GUu1bNN4S2lreCA==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:

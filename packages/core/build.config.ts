@@ -13,6 +13,5 @@ export default defineBuildConfig({
   externals,
   rollup: {
     emitCJS: true,
-    inlineDependencies: true,
   },
 })
