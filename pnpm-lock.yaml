@@ -285,6 +285,9 @@ importers:
     specifiers:
       '@formkit/auto-animate': ^1.0.0-beta.3
       date-fns: ^2.29.2
+      defu: ^6.1.0
+      es-cookie: ^1.4.0
+      lodash: ^4.17.21
       magic-string: ^0.26.2
       unconfig: ^0.3.5
       vee-validate: ^4.6.5
@@ -295,6 +298,9 @@ importers:
     dependencies:
       '@formkit/auto-animate': 1.0.0-beta.3
       date-fns: 2.29.2
+      defu: 6.1.0
+      es-cookie: 1.4.0
+      lodash: 4.17.21
       vee-validate: 4.6.5_vue@3.2.40
       vue: 3.2.40
       vue-i18n: 9.3.0-beta.6_vue@3.2.40
@@ -311,12 +317,14 @@ importers:
       '@nuxt/module-builder': latest
       '@nuxt/schema': ^3.0.0-rc.11
       defu: ^6.1.0
+      huntersofbook: workspace:*
       nuxt: ^3.0.0-rc.11
       pathe: ^0.3.8
     dependencies:
       '@huntersofbook/core': link:../core
       '@nuxt/kit': 3.0.0-rc.11
       defu: 6.1.0
+      huntersofbook: link:../huntersofbook
       pathe: 0.3.8
     devDependencies:
       '@nuxt/module-builder': 0.1.7
@@ -2776,7 +2784,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.4
+      vite: 3.1.4_sass@1.55.0
       vue: 3.2.40
     dev: true
 
@@ -4526,6 +4534,10 @@ packages:
       string.prototype.trimstart: 1.0.5
       unbox-primitive: 1.0.2
     dev: true
+
+  /es-cookie/1.4.0:
+    resolution: {integrity: sha512-V4bHxyGBmwwiV+CKTLUPLmwhcutTxGEC5n4HWaUDSnTvkNvfIjkMw8qIVTVgPeNCWojgR5IUzFnGenNvCoKQ5A==}
+    dev: false
 
   /es-get-iterator/1.1.2:
     resolution: {integrity: sha512-+DTO8GYwbMCwbywjimwZMHp8AuYXOS2JZFWoi2AlPOS3ebnII9w/NLpNZtA7A0YLaVDw+O7KFCeoIV7OPvM7hQ==}

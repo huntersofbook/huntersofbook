@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { HNInput } from '@huntersofbook/form-naiveui'
-import { AtomButton } from '@huntersofbook/ui'
 import { FYup, FormSection, useFormSection } from 'huntersofbook'
 import type { InputSchema } from 'huntersofbook'
 
@@ -76,7 +75,7 @@ const isLoading = ref(false)
     <FormSection :forms="schemas.one.forms" @post="onSubmit">
       <template #actions>
         <div class="mb-8 w-full">
-          <AtomButton
+          <NButton
             type="primary"
             attr-type="submit"
             block
@@ -86,7 +85,7 @@ const isLoading = ref(false)
             @keypress.enter="onSubmit"
           >
             {{ t('login.login-in') }}
-          </AtomButton>
+          </NButton>
         </div>
       </template>
       <div class="flex flex-col items-center justify-center">

@@ -81,7 +81,10 @@ export default defineConfig({
       compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')]
     })
-  ]
+  ],
+  build: {
+    target: 'esnext'
+  }
 
   // // https://github.com/vitest-dev/vitest
   // test: {
