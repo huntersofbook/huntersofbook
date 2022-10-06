@@ -78,7 +78,8 @@ export const createPlausible = (options: OptionPlugin) => {
   const plausible = {
     install(app: App): void {
       const data = defu(options.init, {
-        apiHost: 'https://plausible.io'
+        apiHost: 'https://plausible.io',
+        enableAutoPageviews: true
       } as OptionPlugin['init'])
       const plausible = Plausible(data)
 

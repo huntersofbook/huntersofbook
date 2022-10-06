@@ -1,6 +1,5 @@
-import type { ReturnUsePlasuible } from '@huntersofbook/plausible-vue'
-
 import { useNuxtApp } from '#app'
+import type { ReturnUsePlasuible } from '@huntersofbook/plausible-vue'
 
 export const usePlausible = (): ReturnUsePlasuible => {
   const plausible = useNuxtApp().$plausible

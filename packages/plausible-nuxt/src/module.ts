@@ -38,7 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
       init: {
         domain: 'localhost',
         apiHost: 'https://plausible.io',
-        trackLocalhost: true
+        trackLocalhost: false
       },
       settings: {
         enableAutoOutboundTracking: false,

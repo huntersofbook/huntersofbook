@@ -1,7 +1,6 @@
+import { defineNuxtPlugin, useRuntimeConfig } from '#app'
 import { createPlausible } from '@huntersofbook/plausible-vue'
 import type { ReturnUsePlasuible } from '@huntersofbook/plausible-vue'
-
-import { defineNuxtPlugin, useRuntimeConfig } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()
