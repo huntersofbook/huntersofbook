@@ -3,6 +3,7 @@ import { ILink } from '~/types'
 const { t } = useLang()
 
 const lists = computed<ILink[]>(() => [
+  { id: 0, title: 'huntersofbook', url: 'huntersofbook', icon: 'i-carbon-store' },
   { id: 1, title: 'Pinia Store', url: 'pinia', icon: 'i-carbon-store' },
   { id: 1, title: t('modal'), url: 'modal', icon: 'i-carbon-collapse-all' },
   { id: 1, title: 'Menu', url: 'menu', icon: 'i-carbon-menu' },

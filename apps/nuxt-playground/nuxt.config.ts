@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     // https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt
     '@huntersofbook/naive-ui-nuxt',
+    '@huntersofbook/core-nuxt',
   ],
   build: {
     transpile: ['@headlessui/vue'],
@@ -42,6 +43,9 @@ export default defineNuxtConfig({
       availableLocales: ['en-US', 'tr-TR'],
       sync: true,
     },
+  },
+  huntersofbook: {
+    storageKey: 'locale',
   },
 
   typescript: {
