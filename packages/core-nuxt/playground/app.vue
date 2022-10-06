@@ -2,7 +2,7 @@
 import { HDateTime } from '@huntersofbook/ui'
 import { useTimeFromNow, useTimeFromNowStrict } from 'huntersofbook'
 const date = new Date('2022-08-24 04:49:00+00')
-const nowDate = new Date()
+const nowDate = useTimeFromNowStrict(new Date(), 1000, true)
 const nowDatea = useTimeFromNowStrict(
   new Date('2022-10-06 06:01:00+00'),
   1000,
@@ -15,7 +15,7 @@ const data = useTimeFromNow(date, 1000)
 <template>
   <div class="mt-20">
     <div>{{ data }}</div>
-    <div>{{ useTimeFromNowStrict(nowDate, 1000, true) }}</div>
+    <div>{{ nowDate }}</div>
     <div>{{ nowDatea }}</div>
     <HDateTime
       value="1661182742000"

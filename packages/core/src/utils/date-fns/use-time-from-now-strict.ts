@@ -2,14 +2,15 @@ import { formatDistanceStrict } from 'date-fns'
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
 
 import { useGlobalConfigSafe } from '../../service/global-config/global-config'
+import { isServer } from '../ssr-utils'
 import { localizedFormatDistanceStrict } from './localized-format-distance-strict'
 type IFormatDistanceStrict = Parameters<typeof formatDistanceStrict>
 
 export function useTimeFromNowStrict(
   date: Date | number,
   autoUpdate = 60000,
-  hook?: false,
-  mounted?: false,
+  hook = false,
+  mounted = false,
   options?: IFormatDistanceStrict[2]
 ): Ref<string> {
   const gc = useGlobalConfigSafe()
@@ -33,7 +34,7 @@ export function useTimeFromNowStrict(
     localizedFormatDistanceStrict(date, new Date(), formatOptions)
   )
 
-  if (hook) {
+  if (hook && !isServer()) {
     if (autoUpdate !== 0) {
       interval.value = window.setInterval(() => {
         formattedDate.value = localizedFormatDistanceStrict(

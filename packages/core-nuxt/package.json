@@ -18,7 +18,6 @@
     "nuxt 3",
     "composition",
     "huntersofbook",
-    "core",
     "nuxt",
     "plugin"
   ],
@@ -48,7 +47,7 @@
     "pathe": "^0.3.8"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "latest",
+    "@nuxt/module-builder": "^0.1.7",
     "@nuxt/schema": "^3.0.0-rc.11",
     "nuxt": "^3.0.0-rc.11"
   },

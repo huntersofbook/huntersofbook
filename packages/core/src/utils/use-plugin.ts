@@ -24,13 +24,13 @@ const isPluginFabric = (
  * })
  * ```
  */
-export const usePlugin = <O extends any>(
+export const usePlugin = <O>(
   app: App,
   plugin: HuntersofbookPlugin | HuntersofbookPluginFabric<O[]>,
   ...options: O[]
 ) => {
   if (isPluginFabric(plugin)) {
-    app.use(plugin(...options))
+    app.use(plugin(...(options as [])))
   } else {
     app.use(plugin) // Do not pass options, because it should be passed to fabric
   }

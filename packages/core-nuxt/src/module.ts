@@ -24,7 +24,7 @@ export default defineNuxtModule<HuntersofbookOptions>({
     nuxt.options.runtimeConfig.public.huntersofbook = defu(options, {
       defaultLocale: 'en',
       storageKey: 'locale'
-    } as HuntersofbookOptions)
+    })
 
     addPlugin({ src: resolver.resolve('./runtime/plugin') })
 
@@ -36,7 +36,7 @@ declare module '@nuxt/schema' {
   interface ConfigSchema {
     runtimeConfig: {
       public?: {
-        huntersofbook: HuntersofbookOptions
+        huntersofbook?: HuntersofbookOptions
       }
     }
   }
