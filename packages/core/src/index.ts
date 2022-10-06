@@ -1,6 +1,10 @@
 import * as FYup from 'yup'
 export * from './types'
 export * from './utils'
-export { createHuntersofbook, useHuntersofbook } from './plugins'
-export type { Ihuntersofbook, IhuntersofbookPlugins } from './plugins'
+export * from './plugin'
+export {
+  useGlobalConfig,
+  useGlobalConfigSafe
+} from './service/global-config/global-config'
+export * from './service/global-config/types'
 export { FYup }

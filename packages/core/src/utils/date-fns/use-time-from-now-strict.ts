@@ -1,24 +1,32 @@
 import { formatDistanceStrict } from 'date-fns'
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
 
-import { useHuntersofbook } from '../../plugins'
+import { useGlobalConfigSafe } from '../../service/global-config/global-config'
 import { localizedFormatDistanceStrict } from './localized-format-distance-strict'
 type IFormatDistanceStrict = Parameters<typeof formatDistanceStrict>
 
 export function useTimeFromNowStrict(
   date: Date | number,
   autoUpdate = 60000,
-  options?: IFormatDistanceStrict[2],
-  hook?: false
+  hook?: false,
+  mounted?: false,
+  options?: IFormatDistanceStrict[2]
 ): Ref<string> {
-  const { global } = useHuntersofbook()
+  const gc = useGlobalConfigSafe()
+
+  if (!gc) {
+    throw new Error(
+      'useColors must be used in setup function or huntersofbook GlobalConfigPlugin is not registered!'
+    )
+  }
+  const { globalConfig } = gc
 
   const interval = ref(0)
 
   const formatOptions = {
     addSuffix: true,
     ...options,
-    locale: global.dateLocale.value
+    locale: globalConfig.value.dateLocale
   } as IFormatDistanceStrict[2]
 
   const formattedDate = ref(
@@ -26,6 +34,18 @@ export function useTimeFromNowStrict(
   )
 
   if (hook) {
+    if (autoUpdate !== 0) {
+      interval.value = window.setInterval(() => {
+        formattedDate.value = localizedFormatDistanceStrict(
+          date,
+          new Date(),
+          formatOptions
+        )
+      }, autoUpdate)
+    }
+  }
+
+  if (mounted) {
     onMounted(() => {
       if (autoUpdate !== 0) {
         interval.value = window.setInterval(() => {

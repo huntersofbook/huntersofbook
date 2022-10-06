@@ -1,65 +1,18 @@
-import {
-  Component,
-  ComponentOptions,
-  HTMLAttributes,
-  InputHTMLAttributes,
-  VNodeChild
-} from 'vue'
-import { VueTypeValidableDef } from 'vue-types'
+import type { App, Plugin } from 'vue'
 
-import { Field } from './fields'
-import { DeepPartial } from './misc'
+export type { FormData, IForm, IFormProps, InputSchema } from './form'
 
-export type VueNode = VNodeChild | JSX.Element
+type PluginInstallFn<ARGS = []> = (app: App, ...options: ARGS[]) => void
 
-export interface IForm<T, K extends Array<String>> {
-  component?: Component
-  footer?: {
-    render?: () => VueTypeValidableDef<VueNode>
-    text?: string
-  }
-  id: HTMLAttributes['id']
-  name: keyof T | K[number]
-  label: string
-  width?: string[]
-  init?: any
-  attrs?: Record<string, unknown> | InputHTMLAttributes
-  options:
-    | DeepPartial<Field>[]
-    | {
-        standard: DeepPartial<Field>[]
-        advanced: DeepPartial<Field>[]
-      }
-    | ComponentOptions
-    | null
-}
+/** Huntersofbook internal plugin */
+export type HuntersofbookPlugin = {
+  install: PluginInstallFn<[]>
+} & Plugin
 
-export interface IFormProps {
-  id: string
-  name: string
-  label: string
-  width?: string[]
-  init?: any
-  attrs?: Record<string, unknown> | InputHTMLAttributes
-  options:
-    | DeepPartial<Field>[]
-    | {
-        standard: DeepPartial<Field>[]
-        advanced: DeepPartial<Field>[]
-      }
-    | ComponentOptions
-    | null
-}
+export type HuntersofbookPluginFabric<O extends any[] = []> = (
+  ...args: O
+) => HuntersofbookPlugin
 
-export interface FormData<T, K extends Array<String> = []> {
-  schema: any
-  forms: IForm<T, K>[]
-}
-
-export type InputSchema<
-  T,
-  ARRAY extends string,
-  K extends Array<String> = []
-> = {
-  [key in ARRAY]: FormData<T, K>
-}
+export const defineHuntersofbookPlugin = <O extends any[]>(
+  fabric: HuntersofbookPluginFabric<O>
+) => fabric
