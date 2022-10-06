@@ -1,4 +1,4 @@
-import { formatDistance } from 'date-fns'
+import type formatDistance from 'date-fns/esm/formatDistance/index.js'
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
 
 import { useGlobalConfigSafe } from '../../service/global-config/global-config'
