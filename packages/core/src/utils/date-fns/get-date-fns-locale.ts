@@ -1,5 +1,5 @@
 import type { Locale } from 'date-fns'
-import { enUS } from 'date-fns/locale'
+import enUS from 'date-fns/esm/locale/en-US'
 import { defu } from 'defu'
 import { get as getCookie, set as setCookie } from 'es-cookie'
 
@@ -80,165 +80,165 @@ async function loadLocale(locale: string): Promise<Locale> {
 async function importDateLocale(locale: string): Promise<any> {
   switch (locale) {
     case 'af':
-      return await import('date-fns/locale/af/index.js')
+      return await import('date-fns/esm/locale/af')
     case 'ar-DZ':
-      return await import('date-fns/locale/ar-DZ/index.js')
+      return await import('date-fns/esm/locale/ar-DZ')
     case 'ar-MA':
-      return await import('date-fns/locale/ar-MA/index.js')
+      return await import('date-fns/esm/locale/ar-MA')
     case 'ar-SA':
-      return await import('date-fns/locale/ar-SA/index.js')
+      return await import('date-fns/esm/locale/ar-SA')
     case 'az':
-      return await import('date-fns/locale/az/index.js')
+      return await import('date-fns/esm/locale/az')
     case 'be':
-      return await import('date-fns/locale/be/index.js')
+      return await import('date-fns/esm/locale/be')
     case 'bg':
-      return await import('date-fns/locale/bg/index.js')
+      return await import('date-fns/esm/locale/bg')
     case 'bn':
-      return await import('date-fns/locale/bn/index.js')
+      return await import('date-fns/esm/locale/bn')
     case 'ca':
-      return await import('date-fns/locale/ca/index.js')
+      return await import('date-fns/esm/locale/ca')
     case 'cs':
-      return await import('date-fns/locale/cs/index.js')
+      return await import('date-fns/esm/locale/cs')
     case 'cy':
-      return await import('date-fns/locale/cy/index.js')
+      return await import('date-fns/esm/locale/cy')
     case 'da':
-      return await import('date-fns/locale/da/index.js')
+      return await import('date-fns/esm/locale/da')
     case 'de':
-      return await import('date-fns/locale/de/index.js')
+      return await import('date-fns/esm/locale/de')
     case 'de-AT':
-      return await import('date-fns/locale/de-AT/index.js')
+      return await import('date-fns/esm/locale/de-AT')
     case 'el':
-      return await import('date-fns/locale/el/index.js')
+      return await import('date-fns/esm/locale/el')
     case 'en-AU':
-      return await import('date-fns/locale/en-AU/index.js')
+      return await import('date-fns/esm/locale/en-AU')
     case 'en-CA':
-      return await import('date-fns/locale/en-CA/index.js')
+      return await import('date-fns/esm/locale/en-CA')
     case 'en-GB':
-      return await import('date-fns/locale/en-GB/index.js')
+      return await import('date-fns/esm/locale/en-GB')
     case 'en-IN':
-      return await import('date-fns/locale/en-IN/index.js')
+      return await import('date-fns/esm/locale/en-IN')
     case 'en-NZ':
-      return await import('date-fns/locale/en-NZ/index.js')
+      return await import('date-fns/esm/locale/en-NZ')
     case 'en-US':
-      return await import('date-fns/locale/en-US/index.js')
+      return await import('date-fns/esm/locale/en-US')
     case 'en-ZA':
-      return await import('date-fns/locale/en-ZA/index.js')
+      return await import('date-fns/esm/locale/en-ZA')
     case 'eo':
-      return await import('date-fns/locale/eo/index.js')
+      return await import('date-fns/esm/locale/eo')
     case 'es':
-      return await import('date-fns/locale/es/index.js')
+      return await import('date-fns/esm/locale/es')
     case 'et':
-      return await import('date-fns/locale/et/index.js')
+      return await import('date-fns/esm/locale/et')
     case 'eu':
-      return await import('date-fns/locale/eu/index.js')
+      return await import('date-fns/esm/locale/eu')
     case 'fa-IR':
-      return await import('date-fns/locale/fa-IR/index.js')
+      return await import('date-fns/esm/locale/fa-IR')
     case 'fi':
-      return await import('date-fns/locale/fi/index.js')
+      return await import('date-fns/esm/locale/fi')
     case 'fr':
-      return await import('date-fns/locale/fr/index.js')
+      return await import('date-fns/esm/locale/fr')
     case 'fr-CA':
-      return await import('date-fns/locale/fr-CA/index.js')
+      return await import('date-fns/esm/locale/fr-CA')
     case 'fr-CH':
-      return await import('date-fns/locale/fr-CH/index.js')
+      return await import('date-fns/esm/locale/fr-CH')
     case 'gd':
-      return await import('date-fns/locale/gd/index.js')
+      return await import('date-fns/esm/locale/gd')
     case 'gl':
-      return await import('date-fns/locale/gl/index.js')
+      return await import('date-fns/esm/locale/gl')
     case 'gu':
-      return await import('date-fns/locale/gu/index.js')
+      return await import('date-fns/esm/locale/gu')
     case 'he':
-      return await import('date-fns/locale/he/index.js')
+      return await import('date-fns/esm/locale/he')
     case 'hi':
-      return await import('date-fns/locale/hi/index.js')
+      return await import('date-fns/esm/locale/hi')
     case 'hr':
-      return await import('date-fns/locale/hr/index.js')
+      return await import('date-fns/esm/locale/hr')
     case 'ht':
-      return await import('date-fns/locale/ht/index.js')
+      return await import('date-fns/esm/locale/ht')
     case 'hu':
-      return await import('date-fns/locale/hu/index.js')
+      return await import('date-fns/esm/locale/hu')
     case 'hy':
-      return await import('date-fns/locale/hy/index.js')
+      return await import('date-fns/esm/locale/hy')
     case 'id':
-      return await import('date-fns/locale/id/index.js')
+      return await import('date-fns/esm/locale/id')
     case 'is':
-      return await import('date-fns/locale/is/index.js')
+      return await import('date-fns/esm/locale/is')
     case 'it':
-      return await import('date-fns/locale/it/index.js')
+      return await import('date-fns/esm/locale/it')
     case 'ja':
-      return await import('date-fns/locale/ja/index.js')
+      return await import('date-fns/esm/locale/ja')
     case 'ka':
-      return await import('date-fns/locale/ka/index.js')
+      return await import('date-fns/esm/locale/ka')
     case 'kk':
-      return await import('date-fns/locale/kk/index.js')
+      return await import('date-fns/esm/locale/kk')
     case 'kn':
-      return await import('date-fns/locale/kn/index.js')
+      return await import('date-fns/esm/locale/kn')
     case 'ko':
-      return await import('date-fns/locale/ko/index.js')
+      return await import('date-fns/esm/locale/ko')
     case 'lb':
-      return await import('date-fns/locale/lb/index.js')
+      return await import('date-fns/esm/locale/lb')
     case 'lt':
-      return await import('date-fns/locale/lt/index.js')
+      return await import('date-fns/esm/locale/lt')
     case 'lv':
-      return await import('date-fns/locale/lv/index.js')
+      return await import('date-fns/esm/locale/lv')
     case 'mk':
-      return await import('date-fns/locale/mk/index.js')
+      return await import('date-fns/esm/locale/mk')
     case 'mn':
-      return await import('date-fns/locale/mn/index.js')
+      return await import('date-fns/esm/locale/mn')
     case 'ms':
-      return await import('date-fns/locale/ms/index.js')
+      return await import('date-fns/esm/locale/ms')
     case 'mt':
-      return await import('date-fns/locale/mt/index.js')
+      return await import('date-fns/esm/locale/mt')
     case 'nb':
-      return await import('date-fns/locale/nb/index.js')
+      return await import('date-fns/esm/locale/nb')
     case 'nl':
-      return await import('date-fns/locale/nl/index.js')
+      return await import('date-fns/esm/locale/nl')
     case 'nl-BE':
-      return await import('date-fns/locale/nl-BE/index.js')
+      return await import('date-fns/esm/locale/nl-BE')
     case 'nn':
-      return await import('date-fns/locale/nn/index.js')
+      return await import('date-fns/esm/locale/nn')
     case 'pl':
-      return await import('date-fns/locale/pl/index.js')
+      return await import('date-fns/esm/locale/pl')
     case 'pt':
-      return await import('date-fns/locale/pt/index.js')
+      return await import('date-fns/esm/locale/pt')
     case 'pt-BR':
-      return await import('date-fns/locale/pt-BR/index.js')
+      return await import('date-fns/esm/locale/pt-BR')
     case 'ro':
-      return await import('date-fns/locale/ro/index.js')
+      return await import('date-fns/esm/locale/ro')
     case 'ru':
-      return await import('date-fns/locale/ru/index.js')
+      return await import('date-fns/esm/locale/ru')
     case 'sk':
-      return await import('date-fns/locale/sk/index.js')
+      return await import('date-fns/esm/locale/sk')
     case 'sl':
-      return await import('date-fns/locale/sl/index.js')
+      return await import('date-fns/esm/locale/sl')
     case 'sq':
-      return await import('date-fns/locale/sq/index.js')
+      return await import('date-fns/esm/locale/sq')
     case 'sr':
-      return await import('date-fns/locale/sr/index.js')
+      return await import('date-fns/esm/locale/sr')
     case 'sr-Latn':
-      return await import('date-fns/locale/sr-Latn/index.js')
+      return await import('date-fns/esm/locale/sr-Latn')
     case 'sv':
-      return await import('date-fns/locale/sv/index.js')
+      return await import('date-fns/esm/locale/sv')
     case 'ta':
-      return await import('date-fns/locale/ta/index.js')
+      return await import('date-fns/esm/locale/ta')
     case 'te':
-      return await import('date-fns/locale/te/index.js')
+      return await import('date-fns/esm/locale/te')
     case 'th':
-      return await import('date-fns/locale/th/index.js')
+      return await import('date-fns/esm/locale/th')
     case 'tr':
-      return await import('date-fns/locale/tr/index.js')
+      return await import('date-fns/esm/locale/tr')
     case 'ug':
-      return await import('date-fns/locale/ug/index.js')
+      return await import('date-fns/esm/locale/ug')
     case 'uk':
-      return await import('date-fns/locale/uk/index.js')
+      return await import('date-fns/esm/locale/uk')
     case 'uz':
-      return await import('date-fns/locale/uz/index.js')
+      return await import('date-fns/esm/locale/uz')
     case 'vi':
-      return await import('date-fns/locale/vi/index.js')
+      return await import('date-fns/esm/locale/vi')
     case 'zh-CN':
-      return await import('date-fns/locale/zh-CN/index.js')
+      return await import('date-fns/esm/locale/zh-CN')
     case 'zh-TW':
-      return await import('date-fns/locale/zh-TW/index.js')
+      return await import('date-fns/esm/locale/zh-TW')
     default:
       return Promise.resolve()
   }

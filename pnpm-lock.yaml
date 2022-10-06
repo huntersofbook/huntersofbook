@@ -62,6 +62,7 @@ importers:
     specifiers:
       '@antfu/eslint-config': 0.27.0
       '@headlessui/vue': 1.7.3
+      '@huntersofbook/core-nuxt': workspace:*
       '@huntersofbook/naive-ui-nuxt': workspace:*
       '@iconify-json/carbon': 1.1.8
       '@iconify-json/ic': 1.1.9
@@ -91,6 +92,7 @@ importers:
       typescript: 4.8.4
     dependencies:
       '@headlessui/vue': 1.7.3
+      '@huntersofbook/core-nuxt': link:../../packages/core-nuxt
       '@huntersofbook/naive-ui-nuxt': link:../../packages/naive-ui-nuxt
       '@pinia/nuxt': 0.4.2_typescript@4.8.4
       '@tailwindcss/aspect-ratio': 0.4.2

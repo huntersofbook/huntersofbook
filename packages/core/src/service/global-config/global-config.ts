@@ -1,4 +1,4 @@
-import enUS from 'date-fns/esm/locale/en-US/index.js'
+import enUS from 'date-fns/esm/locale/en-US'
 import cloneDeep from 'lodash/cloneDeep.js'
 import merge from 'lodash/merge.js'
 import { Ref, getCurrentInstance, inject, ref } from 'vue'
