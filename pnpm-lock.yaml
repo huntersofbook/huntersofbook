@@ -77,6 +77,7 @@ importers:
       '@tailwindcss/line-clamp': 0.4.2
       '@tailwindcss/typography': 0.5.7
       '@unocss/nuxt': 0.45.26
+      '@vueuse/motion': ^2.0.0-beta.23
       '@vueuse/nuxt': 9.3.0
       date-fns: ^2.29.3
       eslint: 8.24.0
@@ -99,6 +100,7 @@ importers:
       '@tailwindcss/forms': 0.5.3
       '@tailwindcss/line-clamp': 0.4.2
       '@tailwindcss/typography': 0.5.7
+      '@vueuse/motion': 2.0.0-beta.23
       date-fns: 2.29.3
       pinia: 2.0.22_typescript@4.8.4
     devDependencies:
@@ -136,6 +138,7 @@ importers:
       '@vue/test-utils': 2.1.0
       '@vueuse/core': 9.3.0
       '@vueuse/head': 0.8.0
+      '@vueuse/motion': ^2.0.0-beta.23
       autoprefixer: 10.4.12
       cross-env: 7.0.3
       eslint: 8.24.0
@@ -168,6 +171,7 @@ importers:
       '@huntersofbook/form-naiveui': link:../../packages/form-naiveui
       '@vueuse/core': 9.3.0_vue@3.2.40
       '@vueuse/head': 0.8.0_vue@3.2.40
+      '@vueuse/motion': 2.0.0-beta.23_vite@3.1.4+vue@3.2.40
       huntersofbook: link:../../packages/huntersofbook
       naive-ui: 2.33.3_vue@3.2.40
       nprogress: 0.2.0
@@ -1912,7 +1916,7 @@ packages:
       postcss-custom-properties: 12.1.9_postcss@8.4.16
       postcss-nesting: 10.1.10_postcss@8.4.16
       tailwind-config-viewer: 1.7.2_tailwindcss@3.1.8
-      tailwindcss: 3.1.8_postcss@8.4.16
+      tailwindcss: 3.1.8
       ufo: 0.8.5
     transitivePeerDependencies:
       - esbuild
@@ -2806,7 +2810,7 @@ packages:
       '@babel/plugin-syntax-import-meta': 7.10.4_@babel+core@7.19.1
       '@babel/plugin-transform-typescript': 7.19.1_@babel+core@7.19.1
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.19.1
-      vite: 3.1.4
+      vite: 3.1.4_sass@1.55.0
       vue: 3.2.40
     transitivePeerDependencies:
       - supports-color
@@ -2996,7 +3000,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
 
   /@vueuse/core/9.3.0_vue@3.2.40:
     resolution: {integrity: sha512-64Rna8IQDWpdrJxgitDg7yv1yTp41ZmvV8zlLEylK4QQLWAhz1OFGZDPZ8bU4lwcGgbEJ2sGi2jrdNh4LttUSQ==}
@@ -3034,6 +3037,28 @@ packages:
 
   /@vueuse/metadata/9.3.0:
     resolution: {integrity: sha512-GnnfjbzIPJIh9ngL9s9oGU1+Hx/h5/KFqTfJykzh/1xjaHkedV9g0MASpdmPZIP+ynNhKAcEfA6g5i8KXwtoMA==}
+
+  /@vueuse/motion/2.0.0-beta.23:
+    resolution: {integrity: sha512-xYAhqn/J/lMEL8XX4TGkj7v320fYAQ4q9J9e/BlakemFxfUewO1j53wu62kJ9Wm4qo1rDHiDNoRwoMc3ppkjeg==}
+    peerDependencies:
+      vue: '>=3.0.0'
+    dependencies:
+      '@vueuse/core': 9.3.0
+      '@vueuse/shared': 9.3.0
+      csstype: 3.1.1
+      framesync: 6.1.2
+      popmotion: 11.0.5
+      style-value-types: 5.1.2
+    optionalDependencies:
+      '@nuxt/kit': 3.0.0-rc.11
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - esbuild
+      - rollup
+      - supports-color
+      - vite
+      - webpack
+    dev: false
 
   /@vueuse/motion/2.0.0-beta.23_vite@3.1.4+vue@3.2.40:
     resolution: {integrity: sha512-xYAhqn/J/lMEL8XX4TGkj7v320fYAQ4q9J9e/BlakemFxfUewO1j53wu62kJ9Wm4qo1rDHiDNoRwoMc3ppkjeg==}
@@ -3086,7 +3111,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
 
   /@vueuse/shared/9.3.0_vue@3.2.40:
     resolution: {integrity: sha512-caGUWLY0DpPC6l31KxeUy6vPVNA0yKxx81jFYLoMpyP6cF84FG5Dkf69DfSUqL57wX8JcUkJDMnQaQIZPWFEQQ==}
@@ -9176,18 +9200,6 @@ packages:
       resolve: 1.22.1
     dev: true
 
-  /postcss-import/14.1.0_postcss@8.4.16:
-    resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      postcss: ^8.0.0
-    dependencies:
-      postcss: 8.4.16
-      postcss-value-parser: 4.2.0
-      read-cache: 1.0.0
-      resolve: 1.22.1
-    dev: true
-
   /postcss-import/14.1.0_postcss@8.4.17:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
@@ -9210,16 +9222,6 @@ packages:
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.1
-    dev: true
-
-  /postcss-js/4.0.0_postcss@8.4.16:
-    resolution: {integrity: sha512-77QESFBwgX4irogGVPgQ5s07vLvFqWr228qZY+w6lW599cRlK/HmnlivnnVUxkjHnCu4J16PDMHcH+e+2HbvTQ==}
-    engines: {node: ^12 || ^14 || >= 16}
-    peerDependencies:
-      postcss: ^8.3.3
-    dependencies:
-      camelcase-css: 2.0.1
-      postcss: 8.4.16
     dev: true
 
   /postcss-js/4.0.0_postcss@8.4.17:
@@ -9245,23 +9247,6 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.0.6
-      yaml: 1.10.2
-    dev: true
-
-  /postcss-load-config/3.1.4_postcss@8.4.16:
-    resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
-    engines: {node: '>= 10'}
-    peerDependencies:
-      postcss: '>=8.0.9'
-      ts-node: '>=9.0.0'
-    peerDependenciesMeta:
-      postcss:
-        optional: true
-      ts-node:
-        optional: true
-    dependencies:
-      lilconfig: 2.0.6
-      postcss: 8.4.16
       yaml: 1.10.2
     dev: true
 
@@ -9420,16 +9405,6 @@ packages:
       postcss-modules-scope: 3.0.0_postcss@8.4.17
       postcss-modules-values: 4.0.0_postcss@8.4.17
       string-hash: 1.1.3
-    dev: true
-
-  /postcss-nested/5.0.6_postcss@8.4.16:
-    resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.2.14
-    dependencies:
-      postcss: 8.4.16
-      postcss-selector-parser: 6.0.10
     dev: true
 
   /postcss-nested/5.0.6_postcss@8.4.17:
@@ -10634,17 +10609,15 @@ packages:
       open: 7.4.2
       portfinder: 1.0.32
       replace-in-file: 6.3.5
-      tailwindcss: 3.1.8_postcss@8.4.16
+      tailwindcss: 3.1.8
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /tailwindcss/3.1.8_postcss@8.4.16:
+  /tailwindcss/3.1.8:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -10659,11 +10632,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.16
-      postcss-import: 14.1.0_postcss@8.4.16
-      postcss-js: 4.0.0_postcss@8.4.16
-      postcss-load-config: 3.1.4_postcss@8.4.16
-      postcss-nested: 5.0.6_postcss@8.4.16
+      postcss: 8.4.17
+      postcss-import: 14.1.0_postcss@8.4.17
+      postcss-js: 4.0.0_postcss@8.4.17
+      postcss-load-config: 3.1.4_postcss@8.4.17
+      postcss-nested: 5.0.6_postcss@8.4.17
       postcss-selector-parser: 6.0.10
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
@@ -11483,7 +11456,7 @@ packages:
       chokidar: 3.5.3
       esbuild: 0.15.8
       rollup: 2.79.0
-      vite: 3.1.4
+      vite: 3.1.4_sass@1.55.0
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
     dev: true

@@ -12,6 +12,8 @@ module.exports = {
     './app.vue',
     './assets/**/*.scss',
     './assets/**/*.css',
+    './node_modules/@huntersofbook/**/dist/**/*.js',
+    './node_modules/huntersofbook/dist/**/*.js',
   ],
   theme: {
     extend: {

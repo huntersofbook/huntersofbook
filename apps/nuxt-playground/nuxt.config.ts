@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     // https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt
     '@huntersofbook/naive-ui-nuxt',
     '@huntersofbook/core-nuxt',
+    '@vueuse/motion/nuxt',
   ],
   build: {
     transpile: ['@headlessui/vue'],

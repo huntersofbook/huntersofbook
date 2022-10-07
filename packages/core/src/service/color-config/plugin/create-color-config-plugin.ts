@@ -48,6 +48,14 @@ export const createColorConfigPlugin = (app: App) => {
     //     root
     //   )
     // })
+
+    const body = document.querySelector('body')
+
+    const dialog = document.createElement('div')
+    dialog.className = 'dark'
+    dialog.id = 'dialog-outlet'
+    if (body)
+      body.appendChild(dialog)
   }
 
   updateColors(globalConfig.value.colors)

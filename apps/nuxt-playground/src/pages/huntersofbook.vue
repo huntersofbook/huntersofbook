@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HDateTime } from '@huntersofbook/ui'
+import { HColorModal, HDateTime } from '@huntersofbook/ui'
 import { useTimeFromNow, useTimeFromNowStrict } from 'huntersofbook'
 const date = new Date('2022-08-24 04:49:00+00')
 const nowDate = useTimeFromNowStrict(new Date(), 1000, true)
@@ -10,6 +10,10 @@ const nowDatea = useTimeFromNowStrict(
   true,
 )
 const data = useTimeFromNow(date, 1000)
+const open = ref(false)
+const close = () => {
+  open.value = !open.value
+}
 </script>
 
 <template>
@@ -21,6 +25,12 @@ const data = useTimeFromNow(date, 1000)
         <TemColorChange />
       </div>
     </div>
+    <ClientOnly>
+      <HColorModal :visible="open" @close="() => (open = false)" />
+    </ClientOnly>
+    <button @click="open = !open">
+      open
+    </button>
     <div class="mt-20">
       <div>{{ data }}</div>
       <div>{{ nowDate }}</div>

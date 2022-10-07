@@ -38,6 +38,9 @@ export default defineConfig({
       external: externals,
       output: {
         format: 'es',
+        globals: {
+          vue: 'Vue',
+        },
       },
     },
   },

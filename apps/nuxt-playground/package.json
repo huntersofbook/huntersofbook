@@ -14,13 +14,14 @@
   },
   "dependencies": {
     "@headlessui/vue": "1.7.3",
-    "@huntersofbook/naive-ui-nuxt": "workspace:*",
     "@huntersofbook/core-nuxt": "workspace:*",
+    "@huntersofbook/naive-ui-nuxt": "workspace:*",
     "@pinia/nuxt": "0.4.2",
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/line-clamp": "0.4.2",
     "@tailwindcss/typography": "0.5.7",
+    "@vueuse/motion": "^2.0.0-beta.23",
     "date-fns": "^2.29.3",
     "pinia": "2.0.22"
   },

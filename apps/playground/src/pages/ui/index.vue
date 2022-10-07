@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { HDateTime } from '@huntersofbook/ui'
+import { HColorModal, HDateTime } from '@huntersofbook/ui'
 import { useGlobalConfig, useTimeFromNow } from 'huntersofbook'
 const date = new Date('2022-08-24 04:49:00+00')
 const { getGlobalConfig } = useGlobalConfig()
 const data = useTimeFromNow(date, 1000)
+
+const open = ref(false)
+const close = () => {
+  open.value = !open.value
+}
 </script>
 
 <template>
@@ -18,6 +23,10 @@ const data = useTimeFromNow(date, 1000)
     <div>
       {{ getGlobalConfig() }}
     </div>
+    <HColorModal :visible="open" @close="() => (open = false)" />
+    <button @click="open = !open">
+      open
+    </button>
   </div>
 </template>
 

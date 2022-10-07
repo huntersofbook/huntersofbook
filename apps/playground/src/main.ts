@@ -3,6 +3,8 @@ import { createHead } from '@vueuse/head'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { MotionPlugin } from "@vueuse/motion"
+
 
 import App from './App.vue'
 
@@ -34,6 +36,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+app.use(MotionPlugin)
 
 app.use(router)
 app.use(head)

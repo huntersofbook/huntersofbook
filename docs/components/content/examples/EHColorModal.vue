@@ -5,6 +5,11 @@ const isOpen = ref(false)
 
 <template>
   <div>
-    <HColorModal />
+    <ClientOnly>
+      <HColorModal :visible="isOpen" />
+    </ClientOnly>
+    <button @click="isOpen = !isOpen">
+      open
+    </button>
   </div>
 </template>

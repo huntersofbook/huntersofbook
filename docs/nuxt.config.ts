@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@huntersofbook/core-nuxt',
     '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
     '@vueuse/motion/nuxt',
   ],
   extends: process.env.DOCUS_THEME_PATH || '@nuxt-themes/docus',
