@@ -1,4 +1,4 @@
-import type formatDistance from 'date-fns/esm/formatDistance/index.js'
+import type { formatDistance } from 'date-fns'
 import { Ref, onMounted, onUnmounted, ref } from 'vue'
 
 import { useGlobalConfigSafe } from '../../service/global-config/global-config'
@@ -7,8 +7,8 @@ type IFormatDistance = Parameters<typeof formatDistance>
 export function useTimeFromNow(
   date: Date | number,
   autoUpdate = 60000,
+  hook = false,
   options?: IFormatDistance[2],
-  hook?: false,
 ): Ref<string> {
   const interval = ref(0)
 

@@ -21,12 +21,6 @@ export default defineNuxtModule<HuntersofbookOptions>({
   async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    if (!nuxt.options.dev) {
-      nuxt.options.build.transpile.push(
-        'date-fns',
-      )
-    }
-
     nuxt.options.runtimeConfig.public.huntersofbook = defu(options, {
       defaultLocale: 'en',
       storageKey: 'locale',

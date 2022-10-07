@@ -1,5 +1,4 @@
 import type { Locale } from 'date-fns'
-// import { ComputedRef } from 'vue'
 
 import { ColorConfig } from '../color-config'
 

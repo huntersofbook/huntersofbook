@@ -1,4 +1,4 @@
-import formatDistance from 'date-fns/esm/formatDistance/index.js'
+import { formatDistance } from 'date-fns'
 
 export type LocalizedFormatDistance = (
   ...a: Parameters<typeof formatDistance>

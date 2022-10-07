@@ -1,4 +1,4 @@
-import { format } from 'date-fns/esm'
+import { format } from 'date-fns'
 
 import { useGlobalConfigSafe } from '../../service/global-config/global-config'
 
