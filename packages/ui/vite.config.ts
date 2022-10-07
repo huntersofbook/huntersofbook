@@ -18,6 +18,7 @@ export default defineConfig({
     dtsPlugin({
       outputDir: 'dist/types',
       include: 'src',
+      staticImport: true,
       insertTypesEntry: true,
     }),
   ],
