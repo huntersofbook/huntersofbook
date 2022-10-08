@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useMotions } from '@vueuse/motion'
-import { Teleport, toRefs } from 'vue'
+import { PropType, Teleport, toRefs } from 'vue'
 const props = defineProps({
-  visible: { type: Boolean },
+  visible: { type: Boolean as PropType<boolean>, default: false },
 })
 const emit = defineEmits(['update:visible', 'close'])
 const { visible } = toRefs(props)

@@ -5,6 +5,7 @@ export {
   localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict,
   localizedFormatInTimeZone,
 } from './date-fns'
+export type { timeZone } from './date-fns'
 
 const hasSymbol
   = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol'

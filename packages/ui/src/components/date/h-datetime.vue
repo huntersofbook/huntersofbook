@@ -4,7 +4,8 @@ import {
   localizedFormatDistance,
   localizedFormatDistanceStrict,
   localizedFormatInTimeZone,
-  useGlobalConfigSafe,
+  timeZone,
+  useGlobalConfig,
 } from '@huntersofbook/core'
 import { fromUnixTime } from 'date-fns'
 import { PropType, computed } from 'vue'
@@ -12,18 +13,14 @@ import { PropType, computed } from 'vue'
 const props = defineProps({
   format: {
     type: String as PropType<string>,
-    default: 'PPP HH:mm:ss',
-  },
-  relative: {
-    type: Boolean,
-    default: false,
+    default: undefined,
   },
   strict: Boolean,
   round: {
     default: 'round',
     type: String as PropType<'round' | 'floor' | 'ceil' | undefined>,
   },
-  suffix: Boolean,
+  suffix: { type: Boolean, default: true },
   time: {
     type: [Number, Date] as PropType<number | Date>,
     default: undefined, // For unix or non unix mode, it should be different default value
@@ -33,10 +30,10 @@ const props = defineProps({
     default: undefined, // the same as `time` prop
   },
   type: {
-    type: String as PropType<'date' | 'datetime'>,
+    type: String as PropType<'date' | 'datetime' | 'relative'>,
     default: 'dateTime',
   },
-  timeZone: String,
+  timeZone: String as PropType<timeZone>,
   autoUpdate: {
     type: [Number, Boolean],
     required: false,
@@ -65,17 +62,19 @@ const mergedFormatRef = computed(() => {
     return localizedFormat(time, _format, options)
   }
 })
-
-const dateFnsOptionsRef = computed(() => {
-  const gc = useGlobalConfigSafe()
+const config = computed(() => {
+  const gc = useGlobalConfig()
   if (!gc) {
     throw new Error(
       'huntersofbook GlobalConfigPlugin is not registered!',
     )
   }
   const { globalConfig } = gc
+  return globalConfig.value
+})
+const dateFnsOptionsRef = computed(() => {
   return {
-    locale: globalConfig.value.dateLocale,
+    locale: config.value.dateLocale,
   }
 })
 
@@ -97,14 +96,14 @@ const mergedTimeRef = computed(() => {
   return time ?? now
 })
 
-const relativeFormat = (value: number | Date, to: number | Date) => {
+const relativeFormat = (time: number | Date, to: number | Date) => {
   const fn = props.strict
-    ? localizedFormatDistanceStrict(value, to, {
+    ? localizedFormatDistanceStrict(time, to, {
       addSuffix: props.suffix,
       roundingMethod: props.round,
       locale: dateFnsOptionsRef.value.locale,
     })
-    : localizedFormatDistance(value, to, {
+    : localizedFormatDistance(time, to, {
       addSuffix: props.suffix,
       includeSeconds: true,
       locale: dateFnsOptionsRef.value.locale,
@@ -123,19 +122,22 @@ const renderedTimeRef = computed(() => {
   else if (props.type === 'date') {
     return mergedFormatRef.value(
       mergedTimeRef.value,
-      props.format,
+      config.value.i18nDateFormat ?? 'yyyy-MM-dd',
       dateFnsOptionsRef.value,
     )
   }
   else if (props.type === 'datetime') {
     return mergedFormatRef.value(
       mergedTimeRef.value,
-      props.format,
+      config.value.i18nDateFormat ?? 'yyyy-MM-dd',
       dateFnsOptionsRef.value,
     )
   }
-  else {
+  else if (props.type === 'relative') {
     return relativeFormat(mergedTimeRef.value, mergedToRef.value)
+  }
+  else {
+    throw new Error('Invalid type')
   }
 })
 </script>

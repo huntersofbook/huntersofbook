@@ -8,6 +8,7 @@ export interface GlobalConfig {
    * date-fns locale
    */
   dateLocale: Locale
+  i18nDateFormat?: string
 }
 
 export interface SizeConfig {
