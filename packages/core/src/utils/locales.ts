@@ -1,4 +1,4 @@
-export type HLanguage = 'en-US' | 'en-GB' | 'fr-FR' | 'zh-CN' | 'zh-TW' | 'ja-JP' | 'tr'
+export type HLanguage = 'en-US' | 'en-GB' | 'fr-FR' | 'zh-CN' | 'zh-TW' | 'ja-JP' | 'tr-TR'
 export const DEFAULT_LOCALE: HLanguage = 'en-US'
 
 export interface TranslatedStr {
@@ -22,8 +22,8 @@ const locales: Record<HLanguage, LocaleDict> = {
       }
     },
   },
-  'tr': {
-    display: 'English (US)',
+  'tr-TR': {
+    display: 'Türkçe (TR)',
     dir: 'ltr',
     async getStrings() {
       return {

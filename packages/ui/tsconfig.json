@@ -27,7 +27,8 @@
       "vite/client",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client",
-      "naive-ui/volar"    
+      "naive-ui/volar",
+      "unplugin-vue-macros/macros-global"    
     ]
   },
   "include": [

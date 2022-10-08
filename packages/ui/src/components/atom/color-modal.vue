@@ -2,7 +2,7 @@
 import { useMotions } from '@vueuse/motion'
 import { Teleport, toRefs } from 'vue'
 const props = defineProps({
-  visible: { type: Boolean, default: false },
+  visible: { type: Boolean },
 })
 const emit = defineEmits(['update:visible', 'close'])
 const { visible } = toRefs(props)
