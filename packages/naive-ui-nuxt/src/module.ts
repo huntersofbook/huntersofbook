@@ -51,8 +51,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    nuxt.options.head.meta.push({ name: 'naive-ui-style' })
-    addPlugin({ src: resolve('./runtime/plugin'), mode: 'server' })
+    addPlugin({ src: resolve('./runtime/plugin') })
 
     if (moduleOptions) {
       // Store options for later use in the runtime plugin
