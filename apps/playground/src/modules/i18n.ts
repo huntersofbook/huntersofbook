@@ -36,7 +36,7 @@ export const install: UserModule = ({ app }) => {
   app.use(i18n)
 
   const huntersofbook = createHuntersofbookEssential({
-    config: { dateLocale: locale, i18nDateFormat: i18n.global.t('date-fns_date') },
+    config: { dateFns: { locale, dateFormat: i18n.global.t('date-fns_date'), dateTimeFormat: i18n.global.t('date-fns_time') } },
   })
   app.use(huntersofbook)
 }

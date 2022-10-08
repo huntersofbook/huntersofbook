@@ -25,8 +25,11 @@ export const HUNTERSOFBOOK_GLOBAL_CONFIG = Symbol(
 export const createGlobalConfig = () => {
   const globalConfig = ref<GlobalConfig>({
     colors: colorsPresets.default,
-    dateLocale: enUS,
-    i18nDateFormat: 'yyyy-MM-dd',
+    dateFns: {
+      locale: enUS,
+      dateFormat: 'PPP',
+      dateTimeFormat: 'h:mm:ss a',
+    },
   })
 
   const getGlobalConfig = (): GlobalConfig => globalConfig.value
