@@ -2,7 +2,7 @@ import {
   createHuntersofbookEssential,
   loadDateFNSLocale,
 } from '@huntersofbook/core'
-import { useI18n } from 'vue-i18n'
+// import { useI18n } from 'vue-i18n'
 
 import { defineNuxtPlugin, useCookie, useRuntimeConfig } from '#app'
 
