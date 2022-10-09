@@ -1,6 +1,4 @@
 import presetIcons from '@unocss/preset-icons'
-import { defineNuxtConfig } from 'nuxt'
-
 export default defineNuxtConfig({
   srcDir: 'src',
   modules: [

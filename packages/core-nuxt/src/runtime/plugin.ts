@@ -14,10 +14,11 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   if (!value)
     useCookie(config.storageKey || 'locale').value = config.defaultLocale
 
-  const $i18n = useI18n({ useScope: 'global' })
   const dateFnsData = await loadDateFNSLocale({ locale: value, nuxt: true })
+  const $i18n = useI18n({ useScope: 'global' })
+  console.log($i18n)
   const hob = createHuntersofbookEssential({
-    config: { dateFns: { locale: dateFnsData, dateFormat: $i18n.t('date-fns_date'), dateTimeFormat: $i18n.t('date-fns_time') } },
+    config: { dateFns: { locale: dateFnsData } },
   })
 
   nuxtApp.vueApp.use(hob)
