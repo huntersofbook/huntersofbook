@@ -4,6 +4,7 @@ import { ColorConfig } from '../color-config'
 
 export interface GlobalConfig {
   colors?: ColorConfig
+  size?: string
   /**
    * date-fns locale
    */

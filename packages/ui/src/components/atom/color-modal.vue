@@ -2,10 +2,10 @@
 import { useMotions } from '@vueuse/motion'
 import { PropType, Teleport, toRefs } from 'vue'
 const props = defineProps({
-  visible: { type: Boolean as PropType<boolean>, default: false },
+  opened: { type: Boolean as PropType<boolean>, default: false },
 })
-const emit = defineEmits(['update:visible', 'close'])
-const { visible } = toRefs(props)
+const emit = defineEmits(['update:opened', 'close'])
+const { opened } = toRefs(props)
 
 const leaveTransition = async () => {
   const { windowTransition, overlayTransition } = useMotions()
@@ -17,13 +17,13 @@ const leaveTransition = async () => {
 const close = async () => {
   await leaveTransition()
   emit('close')
-  emit('update:visible', false)
+  emit('update:opened', false)
 }
 </script>
 
 <template>
   <Teleport to="#dialog-outlet">
-    <div v-if="visible" class="fixed z-[99999] h-screen w-screen">
+    <div v-if="opened" class="fixed z-[99999] h-screen w-screen">
       <div
         v-motion="'overlayTransition'"
         :initial="{

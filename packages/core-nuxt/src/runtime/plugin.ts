@@ -15,8 +15,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     useCookie(config.storageKey || 'locale').value = config.defaultLocale
 
   const dateFnsData = await loadDateFNSLocale({ locale: value, nuxt: true })
-  const $i18n = useI18n({ useScope: 'global' })
-  console.log($i18n)
+  // const $i18n = useI18n({ useScope: 'global' })
+  // console.log($i18n)
   const hob = createHuntersofbookEssential({
     config: { dateFns: { locale: dateFnsData } },
   })

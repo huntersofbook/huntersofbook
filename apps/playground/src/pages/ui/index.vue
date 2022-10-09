@@ -43,7 +43,7 @@ const close = () => {
     <div>
       {{ getGlobalConfig() }}
     </div>
-    <HColorModal :visible="isOpen" @close="close" />
+    <HColorModal :opened="isOpen" @close="close" />
     <button @click="isOpen = !isOpen">
       open
     </button>
