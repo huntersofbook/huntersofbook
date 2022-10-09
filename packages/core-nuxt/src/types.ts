@@ -15,6 +15,10 @@ export interface HuntersofbookOptions {
    * @default 'en'
    */
   defaultLocale?: string
+
+  i18n?: {
+    localeDir?: string
+  }
 }
 
 /** Declare Huntersofbook module options in NuxtConfig */

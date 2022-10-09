@@ -26,4 +26,4 @@ MIT License &copy; 2022-PRESENT [productdevbook](https://github.com/productdevbo
 
 ## Thanks
 
-Thanks to [@epicmaxco](https://github.com/epicmaxco/vuestic-admin), this project is inspired by code structure.
+Thanks to [@epicmaxco](https://github.com/epicmaxco/vuestic-ui), this project is inspired by code structure.

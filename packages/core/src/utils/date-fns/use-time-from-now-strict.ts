@@ -27,7 +27,7 @@ export function useTimeFromNowStrict(
   const formatOptions = {
     addSuffix: true,
     ...options,
-    locale: globalConfig.value.dateLocale,
+    locale: globalConfig.value.dateFns.locale,
   } as IFormatDistanceStrict[2]
 
   const formattedDate = ref(

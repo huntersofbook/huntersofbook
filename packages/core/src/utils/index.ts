@@ -1,5 +1,11 @@
 export { useFormSection } from './section'
-export { loadDateFNSLocale, useTimeFromNow, useTimeFromNowStrict, localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict } from './date-fns'
+export {
+  loadDateFNSLocale,
+  useTimeFromNow, useTimeFromNowStrict,
+  localizedFormat, localizedFormatDistance, localizedFormatDistanceStrict,
+  localizedFormatInTimeZone,
+} from './date-fns'
+export type { timeZone } from './date-fns'
 
 const hasSymbol
   = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol'

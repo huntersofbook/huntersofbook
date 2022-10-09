@@ -4,7 +4,11 @@ const { trackEvent } = usePlausible()
 
 <template>
   <DocsPageContent class="min-h-page">
+    <div class="z-999 absolute top-0">
+      <LanguageChange />
+    </div>
     <slot />
+
     <a
       href="https://github.com/sponsors/productdevbook"
       target="_blank"

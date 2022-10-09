@@ -26,6 +26,8 @@ export default defineNuxtModule<HuntersofbookOptions>({
       storageKey: 'locale',
     })
 
+    // await installModule('@nuxtjs/i18n')
+
     addPlugin({ src: resolver.resolve('./runtime/plugin') })
 
     useHuntersofbookComposables()

@@ -1,107 +1,182 @@
-<script setup lang="ts">
+<script lang="ts">
 import {
   localizedFormat,
   localizedFormatDistance,
   localizedFormatDistanceStrict,
+  localizedFormatInTimeZone,
+  timeZone,
+  useGlobalConfigSafe,
 } from '@huntersofbook/core'
-import { fromUnixTime, millisecondsToSeconds, parse, parseISO } from 'date-fns'
-import { PropType, computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { fromUnixTime } from 'date-fns'
+import enUS from 'date-fns/locale/en-US/index.js'
+import { PropType, computed, defineComponent, onMounted, ref, watch } from 'vue'
 
-const props = defineProps({
-  format: {
-    type: String as PropType<string>,
-    default: 'PPP HH:mm:ss',
+export default defineComponent({
+  props: {
+    format: {
+      type: String as PropType<string>,
+      default: undefined,
+    },
+    strict: Boolean,
+    round: {
+      default: 'round',
+      type: String as PropType<'round' | 'floor' | 'ceil' | undefined>,
+    },
+    suffix: { type: Boolean, default: true },
+    time: {
+      type: [Number, Date] as PropType<number | Date>,
+      default: new Date(), // For unix or non unix mode, it should be different default value
+    },
+    to: {
+      type: [Number, Date] as PropType<number | Date>,
+      default: undefined, // the same as `time` prop
+    },
+    type: {
+      type: String as PropType<'date' | 'datetime' | 'relative'>,
+      default: 'dateTime',
+    },
+    timeZone: String as PropType<timeZone>,
+    autoUpdate: {
+      type: [Number, Boolean],
+      required: false,
+      default: null,
+    },
+    text: Boolean,
+    unix: Boolean,
   },
-  relative: {
-    type: Boolean,
-    default: false,
-  },
-  strict: Boolean,
-  round: {
-    default: 'round',
-    type: String as PropType<'round' | 'floor' | 'ceil' | undefined>,
-  },
-  suffix: Boolean,
-  value: String,
-  type: String as PropType<
-    'dateTime' | 'date' | 'time' | 'timestamp' | 'unixMillisecondTimestamp'
-  >,
-})
+  setup(props) {
+    const now = Date.now()
+    const TIMEDATA = ref()
+    const updateTimer = ref<ReturnType<typeof setInterval>>()
 
-const displayValue = ref<string | null>(null)
-
-const localValue = computed(() => {
-  if (!props.value)
-    return null
-
-  if (props.type === 'unixMillisecondTimestamp') {
-    return parseISO(
-      fromUnixTime(millisecondsToSeconds(Number(props.value))).toISOString(),
-    )
-  }
-  else if (props.type === 'timestamp') {
-    return parseISO(props.value)
-  }
-  else if (props.type === 'dateTime') { return parse(props.value, 'yyyy-MM-dd\'T\'HH:mm:ss', new Date()) }
-  else if (props.type === 'date') { return parse(props.value, 'yyyy-MM-dd', new Date()) }
-  else if (props.type === 'time') { return parse(props.value, 'HH:mm:ss', new Date()) }
-
-  try {
-    parse(props.value, props.format, new Date())
-  }
-  catch (error) {
-    return null
-  }
-  return null
-})
-
-const relativeFormat = (value: Date) => {
-  const fn = props.strict
-    ? localizedFormatDistanceStrict(value, new Date(), {
-      addSuffix: props.suffix,
-      roundingMethod: props.round,
+    const mergedFormat = computed(() => {
+      const { timeZone } = props
+      if (timeZone) {
+        return (
+          time: number | Date,
+          _format: string,
+          options: { locale: Locale },
+        ) => {
+          return localizedFormatInTimeZone(time, timeZone, _format, options)
+        }
+      }
+      return (
+        time: number | Date,
+        _format: string,
+        options: { locale: Locale },
+      ) => {
+        return localizedFormat(time, _format, options)
+      }
     })
-    : localizedFormatDistance(value, new Date(), {
-      addSuffix: props.suffix,
-      includeSeconds: true,
-    })
-  return fn
-}
 
-watch(
-  localValue,
-  async (newValue) => {
-    if (newValue === null) {
-      displayValue.value = null
-      return
+    const gc = useGlobalConfigSafe()
+    if (!gc) {
+      throw new Error(
+        'huntersofbook GlobalConfigPlugin is not registered!',
+      )
     }
-    if (props.relative)
-      displayValue.value = relativeFormat(newValue)
-    else
-      displayValue.value = localizedFormat(newValue, props.format)
+    const { globalConfig } = gc
+
+    const mergedTo = computed(() => {
+      const { to } = props
+      if (props.unix) {
+        if (to === undefined) return now
+        return fromUnixTime(typeof to === 'number' ? to : to.valueOf())
+      }
+      return to ?? now
+    })
+
+    const mergedTime = computed(() => {
+      const { time } = props
+      if (props.unix) {
+        if (time === undefined) return now
+        return fromUnixTime(typeof time === 'number' ? time : time.valueOf())
+      }
+      return time ?? now
+    })
+
+    const relativeFormat = (time: number | Date, to: number | Date) => {
+      const fn = props.strict
+        ? localizedFormatDistanceStrict(time, to, {
+          addSuffix: props.suffix,
+          roundingMethod: props.round,
+          locale: globalConfig.value.dateFns.locale || enUS,
+        })
+        : localizedFormatDistance(time, to, {
+          addSuffix: props.suffix,
+          includeSeconds: true,
+          locale: globalConfig.value.dateFns.locale || enUS,
+        })
+      return fn
+    }
+    function dataTableDark() {
+      if (props.format) {
+        return mergedFormat.value(
+          mergedTime.value,
+          props.format,
+          { locale: globalConfig.value.dateFns.locale || enUS },
+        )
+      }
+      else if (props.type === 'date') {
+        return mergedFormat.value(
+          mergedTime.value,
+          globalConfig.value.dateFns.dateFormat ?? 'yyyy-MM-dd',
+          { locale: globalConfig.value.dateFns.locale || enUS },
+        )
+      }
+      else if (props.type === 'datetime') {
+        return mergedFormat.value(
+          mergedTime.value,
+          globalConfig.value.dateFns.dateTimeFormat ?? 'yyyy-MM-dd',
+          { locale: globalConfig.value.dateFns.locale || enUS },
+        )
+      }
+      else {
+        return !props.autoUpdate ? relativeFormat(mergedTime.value, mergedTo.value) : relativeFormat(new Date(), props.time)
+      }
+    }
+
+    const renderedTimeRef = computed(() => {
+      return dataTableDark()
+    })
+
+    // startUpdater starts a new update timer based on the user's input
+    function startUpdater() {
+      if (props.autoUpdate) {
+        const autoUpdate = props.autoUpdate === true ? 0 : props.autoUpdate
+        updateTimer.value = setInterval(() => {
+          TIMEDATA.value = dataTableDark()
+        }, autoUpdate * 1000)
+      }
+    }
+
+    // stopUpdater stops the current update timer
+    function stopUpdater() {
+      if (updateTimer.value) {
+        clearInterval(updateTimer.value)
+        updateTimer.value = undefined
+      }
+    }
+
+    onMounted(() => {
+      if (props.autoUpdate)
+        startUpdater()
+    })
+    // update converter if property changed
+    watch(
+      () => props.autoUpdate,
+      (newValue) => {
+        stopUpdater()
+        if (newValue)
+          startUpdater()
+      },
+    )
+
+    return { renderedTimeRef, auto: props.autoUpdate, TIMEDATA }
   },
-  { immediate: true },
-)
-
-let refreshInterval: number | null = null
-onMounted(async () => {
-  if (!props.relative)
-    return
-
-  refreshInterval = window.setInterval(async () => {
-    if (!localValue.value)
-      return
-
-    displayValue.value = relativeFormat(localValue.value)
-  }, 60000)
-})
-
-onUnmounted(() => {
-  if (refreshInterval)
-    clearInterval(refreshInterval)
 })
 </script>
 
 <template>
-  <span v-bind="$attrs">{{ displayValue }}</span>
+  <time>{{ auto ? TIMEDATA : renderedTimeRef }}</time>
 </template>

@@ -23,24 +23,20 @@ const locale = await loadDateFNSLocale({
   storageKey: 'locale',
 })
 
-function useI18n() {
+// setup i18n instance with global
+export const install: UserModule = ({ app }) => {
   const i18n = createI18n({
     locale: 'en',
     messages,
     globalInjection: true,
     legacy: false,
+    sync: true,
   })
 
-  // Load date-fns locale
-  return { i18n }
-}
-
-// setup i18n instance with global
-export const install: UserModule = ({ app }) => {
-  const { i18n } = useI18n()
-  const huntersofbook = createHuntersofbookEssential({
-    config: { dateLocale: locale },
-  })
   app.use(i18n)
+
+  const huntersofbook = createHuntersofbookEssential({
+    config: { dateFns: { locale, dateFormat: i18n.global.t('date-fns_date'), dateTimeFormat: i18n.global.t('date-fns_time') } },
+  })
   app.use(huntersofbook)
 }

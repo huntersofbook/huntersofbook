@@ -8,7 +8,5 @@ export const localizedFormatDistanceStrict: LocalizedFormatDistanceStrict = (
   baseDate,
   options,
 ): string => {
-  return formatDistanceStrict(date, baseDate, {
-    ...options,
-  })
+  return formatDistanceStrict(date, baseDate, options)
 }

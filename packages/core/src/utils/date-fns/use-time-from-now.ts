@@ -24,9 +24,8 @@ export function useTimeFromNow(
   const formatOptions = {
     addSuffix: true,
     ...options,
-    locale: globalConfig.value.dateLocale,
+    locale: globalConfig.value.dateFns.locale,
   } as IFormatDistance[2]
-
   const formattedDate = ref(
     localizedFormatDistance(date, new Date(), formatOptions),
   )
