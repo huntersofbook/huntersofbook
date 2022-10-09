@@ -9,8 +9,8 @@ export interface GlobalConfig {
    */
   dateFns: {
     locale: Locale
-    dateFormat: string
-    dateTimeFormat: string
+    dateFormat?: string
+    dateTimeFormat?: string
   }
 }
 

@@ -6,11 +6,11 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/i18n',
     // pinia plugin - https://pinia.esm.dev
     '@pinia/nuxt',
     // unocss plugin - https://github.com/unocss/unocss
     '@unocss/nuxt',
-    '@intlify/nuxt3',
     '@nuxtjs/color-mode',
     // https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt
     '@huntersofbook/naive-ui-nuxt',
@@ -34,17 +34,33 @@ export default defineNuxtConfig({
     ],
     safelist: ['i-twemoji-flag-us-outlying-islands', 'i-twemoji-flag-turkey'],
   },
-
   // localization - i18n config
-  intlify: {
-    localeDir: 'locales',
+  i18n: {
+    locales: [
+      {
+        code: 'en-US',
+        file: 'en-US.json',
+      },
+      { code: 'tr-TR', file: 'tr-TR.json' },
+    ],
+    defaultLocale: 'tr-TR',
+    lazy: true,
+    langDir: 'locales/',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'locale',
+      redirectOn: 'root', // recommended
+    },
     vueI18n: {
-      locale: 'en-US',
-      fallbackLocale: 'en-US',
+      legacy: false,
+      locale: 'tr-TR',
+      globalInjection: true,
+      fallbackLocale: 'tr-TR',
       availableLocales: ['en-US', 'tr-TR'],
-      sync: true,
     },
   },
+
   huntersofbook: {
     storageKey: 'locale',
   },

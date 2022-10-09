@@ -1,4 +1,6 @@
-import { addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
+// import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
+// import { VitePluginVueI18nOptions } from '@intlify/vite-plugin-vue-i18n/lib/options'
+import { addPlugin, createResolver, defineNuxtModule, installModule } from '@nuxt/kit'
 import { defu } from 'defu'
 
 import { name, version } from '../package.json'
@@ -25,6 +27,8 @@ export default defineNuxtModule<HuntersofbookOptions>({
       defaultLocale: 'en',
       storageKey: 'locale',
     })
+
+    // await installModule('@nuxtjs/i18n')
 
     addPlugin({ src: resolver.resolve('./runtime/plugin') })
 

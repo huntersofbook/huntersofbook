@@ -19,6 +19,8 @@ const close = () => {
       :to="new Date()"
       type="relative"
       strict
+
+      round="round"
       :auto-update="true"
     />
     <HDateTime

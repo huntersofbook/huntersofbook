@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { useTimeFromNow, useTimeFromNowStrict } from '@huntersofbook/core'
 import { HDateTime } from '@huntersofbook/ui'
-import { useTimeFromNow, useTimeFromNowStrict } from 'huntersofbook'
 const date = new Date('2022-08-24 04:49:00+00')
 const nowDate = useTimeFromNowStrict(new Date(), 1000, true)
 const nowDatea = useTimeFromNowStrict(
@@ -19,7 +19,6 @@ const data = useTimeFromNow(date, 1000)
     <div>{{ nowDatea }}</div>
     <HDateTime
       value="1661182742000"
-      type="unixMillisecondTimestamp"
       format="yyyy MMMM"
       strict
     />

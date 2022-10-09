@@ -9,7 +9,6 @@ import {
 } from '@huntersofbook/core'
 import { fromUnixTime } from 'date-fns'
 import enUS from 'date-fns/locale/en-US/index.js'
-import { dataTableDark } from 'naive-ui'
 import { PropType, computed, defineComponent, onMounted, ref, watch } from 'vue'
 
 export default defineComponent({
@@ -144,7 +143,7 @@ export default defineComponent({
     // startUpdater starts a new update timer based on the user's input
     function startUpdater() {
       if (props.autoUpdate) {
-        const autoUpdate = props.autoUpdate === true ? 1 : props.autoUpdate
+        const autoUpdate = props.autoUpdate === true ? 0 : props.autoUpdate
         updateTimer.value = setInterval(() => {
           TIMEDATA.value = dataTableDark()
         }, autoUpdate * 1000)
