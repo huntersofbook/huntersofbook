@@ -801,16 +801,16 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@nuxt-themes/docus@npm:@nuxt-themes/docus-edge@0.1.0-6533b67":
-  version "0.1.0-6533b67"
-  resolved "https://registry.yarnpkg.com/@nuxt-themes/docus-edge/-/docus-edge-0.1.0-6533b67.tgz#8292dc8d15a748411914b7a40b028c7cc3ece42e"
-  integrity sha512-rsNG2omVm6aUp7s/cabpp5ZTmkCizNrRhDLy2KhiTqnE0QK56WRnMzexn4XQfVJDkza1gQ6Ulohd/grdsNpGJw==
+"@nuxt-themes/docus@npm:@nuxt-themes/docus-edge@0.1.0-f39f325":
+  version "0.1.0-f39f325"
+  resolved "https://registry.yarnpkg.com/@nuxt-themes/docus-edge/-/docus-edge-0.1.0-f39f325.tgz#7250f9402da217a9ee11d8ff80854dd4b59abdad"
+  integrity sha512-lnOiU+kWkGYQVV9Eb+XA7ElFiZEW/0cOb/Gn/7Zx/HpwwAJLfWnu+DIqMk9UEihvRWdF0PxYeC8k6N5I/lbNqQ==
   dependencies:
     "@docsearch/css" "^3.2.1"
     "@docsearch/js" "^3.2.1"
     "@fontsource/inter" "^4.5.12"
     "@iconify/vue" "^4.0.0"
-    "@nuxt/content" "npm:@nuxt/content-edge@latest"
+    "@nuxt/content" "2.1.1"
     "@nuxtjs/algolia" "^1.1.1"
     "@nuxtjs/color-mode" "^3.1.5"
     "@nuxtjs/tailwindcss" "^5.3.3"
@@ -821,54 +821,12 @@
     "@vueuse/core" "^9.2.0"
     "@vueuse/nuxt" "^9.2.0"
     pinceau latest
-    socket.io-client "^4.5.2"
     vue-plausible "^1.3.2"
 
-"@nuxt/content@^2.1.1":
+"@nuxt/content@2.1.1", "@nuxt/content@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.1.1.tgz#b3ebed4ad14c49bbc84f748e6bfd6413c8e800ec"
   integrity sha512-yYjmPmG9FRl6/vDQNobbHZlr0LNe9cP5PJcz4WfQN/alOAQaym0NRhlhZTkMe6Qb6yVjycE5IH2zU1f+o98c6g==
-  dependencies:
-    "@nuxt/kit" "^3.0.0-rc.10"
-    consola "^2.15.3"
-    defu "^6.1.0"
-    destr "^1.1.1"
-    detab "^3.0.1"
-    html-tags "^3.2.0"
-    json5 "^2.2.1"
-    knitwork "^0.1.2"
-    listhen "^0.2.15"
-    mdast-util-to-hast "^12.2.2"
-    mdurl "^1.0.1"
-    ohash "^0.1.5"
-    pathe "^0.3.7"
-    property-information "^6.1.1"
-    rehype-external-links "^2.0.1"
-    rehype-raw "^6.1.1"
-    rehype-slug "^5.0.1"
-    rehype-sort-attribute-values "^4.0.0"
-    rehype-sort-attributes "^4.0.0"
-    remark-emoji "^3.0.2"
-    remark-gfm "^3.0.1"
-    remark-mdc "^1.0.7"
-    remark-parse "^10.0.1"
-    remark-rehype "^10.1.0"
-    remark-squeeze-paragraphs "^5.0.1"
-    scule "^0.3.2"
-    shiki-es "^0.1.2"
-    slugify "^1.6.5"
-    ufo "^0.8.5"
-    unified "^10.1.2"
-    unist-builder "^3.0.0"
-    unist-util-position "^4.0.3"
-    unist-util-visit "^4.1.1"
-    unstorage "^0.5.6"
-    ws "^8.8.1"
-
-"@nuxt/content@npm:@nuxt/content-edge@latest":
-  version "2.1.1-27727951.e610874"
-  resolved "https://registry.yarnpkg.com/@nuxt/content-edge/-/content-edge-2.1.1-27727951.e610874.tgz#ab1c3f142193c9b8f8b096384241dfe5c4b904d2"
-  integrity sha512-gV/iLcLybNWbWYUtjM7bYMmKOn2x+mbQmU/ZJwggMFASO/xgV9z52Q6hU/EiOCaD6pevXqU2VGUM6OWtdPrIgg==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.10"
     consola "^2.15.3"
@@ -1361,11 +1319,6 @@
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.6.0.tgz#3c7c9c46e678feefe7a2e5bb609d3dbd665ffb3f"
   integrity sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==
-
-"@socket.io/component-emitter@~3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
-  integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
 "@szmarczak/http-timer@^4.0.5":
   version "4.0.6"
@@ -2902,7 +2855,7 @@ debug@2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3, debug@^4.3.4, debug@~4.3.1, debug@~4.3.2:
+debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3, debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
@@ -3174,22 +3127,6 @@ end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
-
-engine.io-client@~6.2.1:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.2.2.tgz#c6c5243167f5943dcd9c4abee1bfc634aa2cbdd0"
-  integrity sha512-8ZQmx0LQGRTYkHuogVZuGSpDqYZtCM/nv8zQ68VZ+JkOpazJ7ICdsSpaO6iXwvaU30oFg5QJOJWj8zWqhbKjkQ==
-  dependencies:
-    "@socket.io/component-emitter" "~3.1.0"
-    debug "~4.3.1"
-    engine.io-parser "~5.0.3"
-    ws "~8.2.3"
-    xmlhttprequest-ssl "~2.0.0"
-
-engine.io-parser@~5.0.3:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/engine.io-parser/-/engine.io-parser-5.0.4.tgz#0b13f704fa9271b3ec4f33112410d8f3f41d0fc0"
-  integrity sha512-+nVFp+5z1E3HcToEnO7ZIj3g+3k9389DvWtvJZz0T6/eOCPIyyxehFcedoYrZQrp0LgQbD9pPXhpMBKMd5QURg==
 
 enhanced-resolve@^4.1.1:
   version "4.5.0"
@@ -7108,24 +7045,6 @@ snake-case@^3.0.4:
     dot-case "^3.0.4"
     tslib "^2.0.3"
 
-socket.io-client@^4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.5.2.tgz#9481518c560388c980c88b01e3cf62f367f04c96"
-  integrity sha512-naqYfFu7CLDiQ1B7AlLhRXKX3gdeaIMfgigwavDzgJoIUYulc1qHH5+2XflTsXTPY7BlPH5rppJyUjhjrKQKLg==
-  dependencies:
-    "@socket.io/component-emitter" "~3.1.0"
-    debug "~4.3.2"
-    engine.io-client "~6.2.1"
-    socket.io-parser "~4.2.0"
-
-socket.io-parser@~4.2.0:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-4.2.1.tgz#01c96efa11ded938dcb21cbe590c26af5eff65e5"
-  integrity sha512-V4GrkLy+HeF1F/en3SpUaM+7XxYXpuMUWLGde1kSSh5nQMN4hLrbPIkD+otwh6q9R6NOQBN4AMaOZ2zVjui82g==
-  dependencies:
-    "@socket.io/component-emitter" "~3.1.0"
-    debug "~4.3.1"
-
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
@@ -8125,16 +8044,6 @@ ws@^8.8.1:
   version "8.8.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.8.1.tgz#5dbad0feb7ade8ecc99b830c1d77c913d4955ff0"
   integrity sha512-bGy2JzvzkPowEJV++hF07hAD6niYSr0JzBNo/J29WsB57A2r7Wlc1UFcTR9IzrPvuNVO4B8LGqF8qcpsVOhJCA==
-
-ws@~8.2.3:
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
-  integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
-
-xmlhttprequest-ssl@~2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/xmlhttprequest-ssl/-/xmlhttprequest-ssl-2.0.0.tgz#91360c86b914e67f44dce769180027c0da618c67"
-  integrity sha512-QKxVRxiRACQcVuQEYFsI1hhkrMlrXHPegbbd1yn9UHOmRxY+si12nQYzri3vbzt8VdTTRviqcKxcyllFas5z2A==
 
 xtend@^4.0.2:
   version "4.0.2"
