@@ -2,7 +2,7 @@
   "name": "@huntersofbook/monorepo",
   "version": "0.3.10-beta.9",
   "private": true,
-  "packageManager": "pnpm@7.12.2",
+  "packageManager": "pnpm@7.13.4",
   "scripts": {
     "build": "pnpm rimraf packages/*/dist && pnpm -r --filter=./packages/* run build",
     "doc:generate": "pnpm -r --filter=./apps/nuxt-docs run build",
@@ -36,7 +36,7 @@
     "eslint-plugin-import": "^2.26.0",
     "huntersofbook": "workspace:*",
     "lodash": "4.17.21",
-    "pnpm": "7.12.2",
+    "pnpm": "7.13.4",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "rimraf": "^3.0.2",
     "rollup": "^2.79.0",

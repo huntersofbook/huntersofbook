@@ -21,7 +21,7 @@ importers:
       eslint-plugin-import: ^2.26.0
       huntersofbook: workspace:*
       lodash: 4.17.21
-      pnpm: 7.12.2
+      pnpm: 7.13.4
       prettier-plugin-tailwindcss: ^0.1.13
       rimraf: ^3.0.2
       rollup: ^2.79.0
@@ -48,7 +48,7 @@ importers:
       eslint-plugin-import: 2.26.0_eslint@8.23.1
       huntersofbook: link:packages/huntersofbook
       lodash: 4.17.21
-      pnpm: 7.12.2
+      pnpm: 7.13.4
       prettier-plugin-tailwindcss: 0.1.13
       rimraf: 3.0.2
       rollup: 2.79.0
@@ -1205,7 +1205,7 @@ packages:
       '@intlify/shared': 9.3.0-beta.6
       jsonc-eslint-parser: 1.4.1
       source-map: 0.6.1
-      vue-i18n: 9.3.0-beta.6
+      vue-i18n: 9.3.0-beta.6_vue@3.2.40
       yaml-eslint-parser: 0.3.2
 
   /@intlify/core-base/9.3.0-beta.6:
@@ -9338,6 +9338,12 @@ packages:
     hasBin: true
     dev: true
 
+  /pnpm/7.13.4:
+    resolution: {integrity: sha512-ZaP5+PRzXI0g4KijU7zx4hi7RUJcSYBJIb90e+lyTeQyRw91+peJoFAzWa63+4fjJIz6CqY0cNkP7trZXh5l8w==}
+    engines: {node: '>=14.6'}
+    hasBin: true
+    dev: true
+
   /popmotion/11.0.5:
     resolution: {integrity: sha512-la8gPM1WYeFznb/JqF4GiTkRRPZsfaj2+kCxqQgr2MJylMmIKUwBfWW8Wa5fml/8gmtlD5yI01MP1QCZPWmppA==}
     dependencies:
@@ -12427,6 +12433,7 @@ packages:
       '@intlify/shared': 9.3.0-beta.6
       '@intlify/vue-devtools': 9.3.0-beta.6
       '@vue/devtools-api': 6.2.1
+    dev: false
 
   /vue-i18n/9.3.0-beta.6_vue@3.2.40:
     resolution: {integrity: sha512-NG43FbAqabXyJBHSFT3dkkLx1k9ZSWQGwbVJagKk3ZpV2Ra45yRabRpkBVAjUh/OXeL79cPwgKQ4pIrBUYwyQQ==}
