@@ -57,7 +57,7 @@
     "vue": "^3.2.40"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.5.0",
+    "@rollup/plugin-typescript": "^9.0.0",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/compiler-sfc": "^3.2.40",
     "autoprefixer": "^10.4.12",
