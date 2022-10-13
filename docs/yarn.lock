@@ -535,23 +535,24 @@
   resolved "https://registry.yarnpkg.com/@formkit/auto-animate/-/auto-animate-1.0.0-beta.3.tgz#d5eb724ccb44afba9348df32ce0b8bb10037a7ee"
   integrity sha512-glsi+ytwQpxT/Ctr9GtcIfVr4dO6mJ04mQbNU8MFSdCdqMopHtyfU5Fib0+9lNFIeR0luY4/0NW95/2R5pKsag==
 
-"@huntersofbook/core-nuxt@v0.3.10-beta.7":
-  version "0.3.10-beta.7"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/core-nuxt/-/core-nuxt-0.3.10-beta.7.tgz#3d0a391c748e8f71a1fa32c959f21dcc374039ea"
-  integrity sha512-wIrpY/LvqbNldYHeisOOD033NEwfEoTfX+JDCqyfYASYAxbLhGkE9l7GvmgiTMNxT3WtygAYhErkjB2dr72QLw==
+"@huntersofbook/core-nuxt@0.3.10-beta.9":
+  version "0.3.10-beta.9"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/core-nuxt/-/core-nuxt-0.3.10-beta.9.tgz#6bb17889036e38aa1f032303b410873497e5de39"
+  integrity sha512-UTzm0UvL8s+fhSQg9EgO9B+0OPGnDdB7+ByyTsyC9bD9Ys6KUSgteMbf1xJdWI7za/DyHyItSudaa4/V88mKSw==
   dependencies:
-    "@huntersofbook/core" "0.3.10-beta.7"
+    "@huntersofbook/core" "0.3.10-beta.9"
     "@nuxt/kit" "^3.0.0-rc.11"
     defu "^6.1.0"
-    huntersofbook "0.3.10-beta.7"
+    huntersofbook "0.3.10-beta.9"
     pathe "^0.3.8"
 
-"@huntersofbook/core@0.3.10-beta.7":
-  version "0.3.10-beta.7"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/core/-/core-0.3.10-beta.7.tgz#351ec51004bc337978ceff8451f3020e5bfd3582"
-  integrity sha512-TWP13L6S+oGZ7MSjOQHPGhG/POnNVtaavojxsF7YxKJ9PGU/QDxV2xtllgSQ6rzc1z92yfJe0d0FCSfxV4pcxw==
+"@huntersofbook/core@0.3.10-beta.9":
+  version "0.3.10-beta.9"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/core/-/core-0.3.10-beta.9.tgz#fa6c0adf8c89fe02374f52f5a248dc4b234b2252"
+  integrity sha512-mYtngX8/wwRjjM9rFfy+xdBlln6yl7DDs+dFYpQfSjYqN65MibAx7T01LKuDR1ghEYZ7RhPfieV2a5aezU7A1A==
   dependencies:
     "@formkit/auto-animate" "^1.0.0-beta.3"
+    "@types/lodash" "^4.14.185"
     date-fns "^2.29.3"
     date-fns-tz "^1.3.7"
     defu "^6.1.0"
@@ -578,13 +579,15 @@
     defu "^6.1.0"
     plausible-tracker "^0.3.8"
 
-"@huntersofbook/ui@0.3.10-beta.7":
-  version "0.3.10-beta.7"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/ui/-/ui-0.3.10-beta.7.tgz#4e9e15a462c87eaae29d04850ac01f1bc024da7f"
-  integrity sha512-xLQsKYEsBecMTHyk7ZEPIszvlNF9QunYsMd94+0j4EpFh2B6sSYgIEOHyHQgDbZFsqBN4CdxivJ9ENThFk9hQw==
+"@huntersofbook/ui@0.3.10-beta.9":
+  version "0.3.10-beta.9"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/ui/-/ui-0.3.10-beta.9.tgz#6efaa11c5dd7b7cfe782248a977c329845f0c2a8"
+  integrity sha512-BIe9aKp038QYGfE0tjKvxSlKJVogMJWnLME9vjfmXFA+wgxlmvCNn95KnsFHaZiCqilXFrMDQz4kWkwxNBlENw==
   dependencies:
-    "@huntersofbook/core" "0.3.10-beta.7"
+    "@huntersofbook/core" "0.3.10-beta.9"
+    "@vueuse/motion" "^2.0.0-beta.23"
     "@zxcvbn-ts/core" "^2.0.4"
+    date-fns "^2.29.3"
     naive-ui "^2.33.3"
     sass "^1.54.9"
     vue "^3.2.40"
@@ -1427,7 +1430,7 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash@*", "@types/lodash@^4.14.175", "@types/lodash@^4.14.181":
+"@types/lodash@*", "@types/lodash@^4.14.175", "@types/lodash@^4.14.181", "@types/lodash@^4.14.185":
   version "4.14.186"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.186.tgz#862e5514dd7bd66ada6c70ee5fce844b06c8ee97"
   integrity sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==
@@ -4151,13 +4154,13 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-huntersofbook@0.3.10-beta.7:
-  version "0.3.10-beta.7"
-  resolved "https://registry.yarnpkg.com/huntersofbook/-/huntersofbook-0.3.10-beta.7.tgz#15711a1c1c3b5b6355cc17724247a030b740fb95"
-  integrity sha512-KP5ID1rtuzk5e3Ts+U3PsK+OM1VAdiuEDV+bzPB+4kwrRjXcMnQ4shfOFq9FW1W4JDY9pgiM3/L4bpz/SJ+Hjw==
+huntersofbook@0.3.10-beta.9:
+  version "0.3.10-beta.9"
+  resolved "https://registry.yarnpkg.com/huntersofbook/-/huntersofbook-0.3.10-beta.9.tgz#f24c54352a0a66916d9ec2330bfb396885383a26"
+  integrity sha512-cWTSieNg2npI9FOc5X63pHg0QeeNL4SHD1e3QAWPPjPHrgiNQHAMWmYY5EuJw+qXzDaiM02CYC4d79yv5d3mkQ==
   dependencies:
-    "@huntersofbook/core" "0.3.10-beta.7"
-    "@huntersofbook/ui" "0.3.10-beta.7"
+    "@huntersofbook/core" "0.3.10-beta.9"
+    "@huntersofbook/ui" "0.3.10-beta.9"
 
 iconv-lite@^0.4.24:
   version "0.4.24"
