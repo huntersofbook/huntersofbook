@@ -39,7 +39,7 @@
     "pnpm": "7.13.4",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rollup": "^2.79.0",
+    "rollup": "^3.0.0",
     "semver": "^7.3.7",
     "simple-git-hooks": "^2.8.0",
     "splitpanes": "^3.1.1",
