@@ -16,7 +16,7 @@
     },
     {
       "matchPaths": ["packages/**", "apps/**"],
-      "ignorePaths": ["**/examples/**"],
+      "ignorePaths": ["examples/**"],
       "matchPackagePatterns": ["*"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
@@ -24,7 +24,7 @@
     },
     {
       "groupName": "local",
-      "ignorePaths": ["**/apps/**", "**/packages/**"],
+      "ignorePaths": ["apps/**", "packages/**"],
       "matchFiles": ["package.json"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "matchDatasources": ["npm"]
