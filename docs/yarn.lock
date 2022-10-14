@@ -1060,10 +1060,10 @@
     lodash.template "^4.5.0"
     pathe "^0.3.5"
 
-"@nuxtjs/i18n@^8.0.0-alpha.2":
-  version "8.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-8.0.0-alpha.2.tgz#6b044e154b8eb0caec6166f4b8b4810c86eec1b1"
-  integrity sha512-F8WphTRKlA8UxAqYpBV9Vp0VDFta1C7Cb8spBjEozWZhUUteHz50nlEZ6/+gFov5OwQXN7ywnGVKITW1Ptz0Xg==
+"@nuxtjs/i18n@^8.0.0-alpha.3":
+  version "8.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-8.0.0-alpha.3.tgz#353ec0fd9b41daf1ecd8c49b4fd9f16a526501f6"
+  integrity sha512-owbjvQfF5Fd2cyGAXdCqGg3FrDCgrtQ7urdHsp7tpqTocSemjG+X4uLNgH/hT/wzhyvbON0+6pPYJn2D8g/v5g==
   dependencies:
     "@intlify/bundle-utils" "^3.2.1"
     "@intlify/shared" "9.3.0-beta.6"
@@ -1072,12 +1072,16 @@
     cookie-es "^0.5.0"
     debug "^4.3.2"
     defu "^6.0.0"
+    is-https "^4.0.0"
     js-cookie "^3.0.1"
     knitwork "^0.1.2"
+    magic-string "^0.26.5"
     mlly "^0.5.4"
     pathe "^0.3.2"
+    ufo "^0.8.5"
+    unplugin "^0.9.6"
     vue-i18n "^9.3.0-beta.6"
-    vue-i18n-routing "^0.3.0"
+    vue-i18n-routing "^0.6.0"
 
 "@nuxtjs/tailwindcss@^5.3.3":
   version "5.3.3"
@@ -4382,6 +4386,11 @@ is-hexadecimal@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/is-hexadecimal/-/is-hexadecimal-2.0.1.tgz#86b5bf668fca307498d319dfc03289d781a90027"
   integrity sha512-DgZQp241c8oO6cA1SbTEWiXeoxV42vlcJxgH+B3hi1AiqqKruZR3ZGF8In3fj4+/y/7rHvlOZLZtgJ/4ttYGZg==
+
+is-https@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/is-https/-/is-https-4.0.0.tgz#9ee725a334fb517b988278d2674efc96e4f348ed"
+  integrity sha512-FeMLiqf8E5g6SdiVJsPcNZX8k4h2fBs1wp5Bb6uaNxn58ufK1axBqQZdmAQsqh0t9BuwFObybrdVJh6MKyPlyg==
 
 is-interactive@^2.0.0:
   version "2.0.0"
@@ -7879,10 +7888,10 @@ vue-devtools-stub@^0.1.0:
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
 
-vue-i18n-routing@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/vue-i18n-routing/-/vue-i18n-routing-0.3.0.tgz#20bd4a2158d81085992a83a5d31ebdcd22079498"
-  integrity sha512-LHZzohbF6nC22vjextgv0GE9VSifRtBv8FzQlqKqDUUBLQIL4fauzyVW4MgtuPeL9HiWN6wlRSjFpjda0IJxag==
+vue-i18n-routing@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n-routing/-/vue-i18n-routing-0.6.0.tgz#27e3b740736211be4412ad8835a675914e4f7d93"
+  integrity sha512-uijhq4ZbhA1+0CiQnGmbs4c6+Ej+wfEo+4j8/T2hQzp9Ne2Aw0zlf7ivGrVFVeIFEoQ13uIYSE+crUGWAP+hSg==
   dependencies:
     "@intlify/shared" next
     "@intlify/vue-i18n-bridge" "^0.7.0"
