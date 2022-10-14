@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "jose": "^4.9.2",
+    "jose": "^4.10.0",
     "js-cookie": "^3.0.1"
   },
   "devDependencies": {
