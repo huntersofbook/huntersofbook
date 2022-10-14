@@ -5,6 +5,7 @@ export const colorsPresets: Record<string, ColorConfig> = {
     // Accent
     primary: '#154ec1',
     secondary: '#767C88',
-    success: '#40e583',
+    success: '#22c55e',
+    error: '#dc2626',
   },
 }

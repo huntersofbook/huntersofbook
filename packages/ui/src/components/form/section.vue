@@ -6,7 +6,7 @@ import AtomSectionTitle from '../atom/section-title.vue'
 const props = defineProps({
   forms: {
     default: () => [],
-    type: Array as PropType<Record<string, string>[]>,
+    type: Array as PropType<Record<any, any>[]>,
   },
   theme: { default: 'default', type: String as PropType<'default' | 'design'> },
 })
@@ -42,6 +42,7 @@ const post = (e: Event) => {
           :init="item.init"
           :label="item.label"
           :options="item.options"
+          :success-message="item.successMessage"
           :footer="item.footer"
           v-bind="item.attrs"
         />

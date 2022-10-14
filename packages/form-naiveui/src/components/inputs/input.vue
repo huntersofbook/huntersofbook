@@ -2,23 +2,27 @@
 import { NInput } from 'naive-ui'
 import type { InputProps } from 'naive-ui'
 import { useField } from 'vee-validate'
-import { computed, defineComponent, unref, useAttrs } from 'vue'
+import { computed, defineComponent, toRef, unref, useAttrs } from 'vue'
 
 interface Props extends InputProps {
   data?: any
   options?: any
   footer?: any
+  name: string
+  successMessage?: string
 }
 const props = defineProps<Props>()
 
 const attrs = useAttrs() as any
+const name = toRef(props, 'name')
 
 const {
   value: inputValue,
   handleChange,
   handleBlur,
   errorMessage,
-} = useField<string>(attrs.name as string, undefined, {
+  meta,
+} = useField<string>(name, undefined, {
   initialValue: attrs.init ? attrs.init : undefined,
   validateOnValueUpdate: false,
 })
@@ -43,31 +47,46 @@ export default defineComponent({
 </script>
 
 <template>
-  <label
-    v-if="attrs.label && !attrs.hideLabel"
-    :for="$attrs.id as string"
-    class="block text-sm font-medium text-gray-900 dark:text-gray-200"
-  >{{ attrs.label }}
-  </label>
-  <NInput
-    v-bind="getBindValue"
-    :status="errorMessage ? 'error' : 'success'"
-    :value="inputValue"
-    :aria-invalid="errorMessage ? true : false"
+  <div
+    class="FormField"
+    :class="{ 'has-error': !!errorMessage, 'success': meta.valid }"
   >
-    <template v-for="child in options" #[child.slot] :key="child.meta.id">
-      {{ child.meta.value }}
-      <component :is="child.meta.render" />
-    </template>
-  </NInput>
+    <label
+      v-if="attrs.label && !attrs.hideLabel"
+      :for="$attrs.id as string"
+      class="block text-sm font-medium text-gray-900 dark:text-gray-200"
+    >{{ attrs.label }}
+    </label>
+    <NInput
+      v-bind="getBindValue"
+      :status="errorMessage ? 'error' : 'success'"
+      :value="inputValue"
+      :aria-invalid="errorMessage ? true : false"
+    >
+      <template v-for="child in options" #[child.slot] :key="child.meta.id">
+        {{ child.meta.value }}
+        <component :is="child.meta.render" />
+      </template>
+    </NInput>
 
-  <component :is="footer.render" v-if="footer && footer.render" />
+    <component :is="footer.render" v-if="footer && footer.render" />
 
-  <p v-if="footer && footer.text">
-    {{ footer.text }}
-  </p>
+    <p v-if="footer && footer.text">
+      {{ footer.text }}
+    </p>
 
-  <p v-show="errorMessage" class="mt-2 text-sm text-red-600">
-    {{ errorMessage }}
-  </p>
+    <p v-show="errorMessage || meta.valid" class="help-message">
+      {{ errorMessage || successMessage }}
+    </p>
+  </div>
 </template>
+
+<style scoped>
+.FormField.has-error .help-message {
+  color: var(--hob-error);
+}
+
+.FormField.success .help-message {
+  color: var(--hob-success);
+}
+</style>

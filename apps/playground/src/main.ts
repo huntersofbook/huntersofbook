@@ -9,6 +9,8 @@ import App from './App.vue'
 
 import './styles/main.css'
 import '@huntersofbook/ui/style'
+import '@huntersofbook/form-naiveui/style'
+
 import 'uno.css'
 import generatedRoutes from '~pages'
 

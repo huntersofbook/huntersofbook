@@ -5,7 +5,6 @@ import {
   InputHTMLAttributes,
   VNodeChild,
 } from 'vue'
-import { VueTypeValidableDef } from 'vue-types'
 
 import { Field } from './fields'
 import { DeepPartial } from './misc'
@@ -15,11 +14,12 @@ export type VueNode = VNodeChild | JSX.Element
 export interface IForm<T, K extends Array<String>> {
   component?: Component
   footer?: {
-    render?: () => VueTypeValidableDef<VueNode>
+    render?: () => VueNode
     text?: string
   }
   id: HTMLAttributes['id']
   name: keyof T | K[number]
+  successMessage?: string
   label: string
   width?: string[]
   init?: any

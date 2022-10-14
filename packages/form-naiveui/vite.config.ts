@@ -27,11 +27,13 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'form-naiveui',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
     rollupOptions: {
       external: externals,
-
+      output: {
+        format: 'es',
+      },
     },
   },
 })

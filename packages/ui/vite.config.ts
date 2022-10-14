@@ -14,7 +14,6 @@ const externals = [
 export default defineConfig({
   plugins: [
     vue(),
-
     vueSetupExtend(),
     dtsPlugin({
       outputDir: 'dist/types',
@@ -39,9 +38,6 @@ export default defineConfig({
       external: externals,
       output: {
         format: 'es',
-        globals: {
-          vue: 'Vue',
-        },
       },
     },
   },
