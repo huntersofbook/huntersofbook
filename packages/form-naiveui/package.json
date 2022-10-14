@@ -27,11 +27,13 @@
     "src",
     "volar.d.ts"
   ],
-  "main": "./dist/form-naiveui.umd.js",
-  "module": "./dist/form-naiveui.es.js",
+  "main": "./dist/form-naiveui.js",
+  "module": "./dist/form-naiveui.mjs",
   "exports": {
     ".": {
-      "import": "./dist/form-naiveui.es.js"
+      "require": "./dist/form-naiveui.js",
+      "import": "./dist/form-naiveui.mjs",
+      "types": "./dist/types/index.d.ts"
     },
     "./style": {
       "import": "./dist/style.css"
@@ -51,31 +53,29 @@
   "dependencies": {
     "vue": "^3.2.40",
     "yup": "^0.32.11",
-    "vee-validate": "^4.6.7",
     "naive-ui": "^2.33.3",
     "@huntersofbook/core": "workspace:*",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "9.0.1",
+    "@rollup/plugin-typescript": "^9.0.1",
     "@vitejs/plugin-vue": "^3.1.2",
-    "@vue/compiler-sfc": "3.2.40",
-    "sass": "1.55.0",
-    "vite": "3.1.8",
-    "vite-plugin-dts": "1.6.6",
-    "vite-plugin-vue-setup-extend": "0.4.0",
-    "vite-svg-loader": "3.6.0",
-    "rollup-plugin-postcss": "4.0.2",
-    "vue-eslint-parser": "9.1.0",
-    "tailwindcss": "3.1.8",
-    "autoprefixer": "10.4.12",
-    "postcss": "8.4.18",
-    "vite-ssg": "0.21.1",
-    "vite-ssg-sitemap": "0.4.3"
+    "sass": "^1.55.0",
+    "vite": "^3.1.8",
+    "vite-plugin-dts": "^1.6.6",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vite-svg-loader": "^3.6.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "vue-eslint-parser": "^9.1.0",
+    "tailwindcss": "^3.1.8",
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.18",
+    "vite-ssg": "^0.21.1",
+    "vite-ssg-sitemap": "^0.4.3",
+    "vee-validate": "^4.7.0"
   },
   "peerDependencies": {
     "typescript": "^4.7.4",
-    "naive-ui": "^2.33.3",
-    "vee-validate": "^4.6.4"
+    "naive-ui": "^2.33.3"
   }
 }

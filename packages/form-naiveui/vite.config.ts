@@ -18,26 +18,20 @@ export default defineConfig({
     vueSetupExtend(),
     dtsPlugin({
       outputDir: 'dist/types',
-      compilerOptions: {
-        sourceMap: true,
-        esModuleInterop: true,
-      },
-      insertTypesEntry: true,
+      include: 'src',
       staticImport: true,
+      insertTypesEntry: true,
     }),
   ],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'form-naiveui',
-      formats: ['es'],
-      fileName: format => `form-naiveui.${format}.js`,
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: externals,
-      output: {
-        format: 'es',
-      },
+
     },
   },
 })

@@ -46,7 +46,7 @@
     "defu": "^6.1.0",
     "es-cookie": "^1.4.0",
     "lodash": "^4.17.21",
-    "vee-validate": "^4.6.10",
+    "vee-validate": "^4.7.0",
     "vue-types": "^4.2.1",
     "yup": "^0.32.11"
   },
