@@ -185,7 +185,7 @@ export const createChatWoot = (options: OptionPlugin) => {
         init: { baseUrl: 'https://app.chatwoot.com' },
       } as OptionPlugin)
 
-      const chatwootSettings: ChatwootSettings = {
+      const chatwootSettings: ChatwootSettings = defu(chatwoot.settings, {
         showPopoutButton: false,
         darkMode: 'auto',
         hideMessageBubble: false,
@@ -193,8 +193,7 @@ export const createChatWoot = (options: OptionPlugin) => {
         locale: 'en',
         launcherTitle: 'Chat with us',
         type: 'expanded_bubble',
-        ...chatwoot.settings,
-      }
+      } as ChatwootSettings)
 
       chatwoot.settings = chatwootSettings
       app.config.globalProperties.$chatwoot = chatwoot
