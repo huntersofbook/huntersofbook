@@ -5,6 +5,7 @@ export interface ColorConfigEssentialColors {
   primary: CssColor
   secondary: CssColor
   success: CssColor
+  error: CssColor
 }
 
 export type ColorConfig = {
