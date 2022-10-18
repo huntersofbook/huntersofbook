@@ -1,7 +1,7 @@
 {
   "name": "playground",
   "private": true,
-  "packageManager": "pnpm@7.13.4",
+  "packageManager": "pnpm@7.13.5",
   "sideEffects": false,
   "scripts": {
     "build": "vite-ssg build",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@huntersofbook/chatwoot-vue": "workspace:*",
     "@huntersofbook/form-naiveui": "workspace:*",
-    "@vueuse/core": "^9.3.0",
+    "@vueuse/core": "^9.3.1",
     "@vueuse/head": "^0.9.8",
     "@vueuse/motion": "^2.0.0-beta.23",
     "date-fns": "^2.29.3",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
-    "@iconify-json/carbon": "^1.1.8",
+    "@iconify-json/carbon": "^1.1.9",
     "@intlify/vite-plugin-vue-i18n": "^7.0.0-beta.4",
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/nprogress": "^0.2.0",
@@ -46,7 +46,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.25.0",
     "https-localhost": "^4.7.1",
-    "pnpm": "^7.13.4",
+    "pnpm": "^7.13.5",
     "postcss": "^8.4.18",
     "postcss-import": "^15.0.0",
     "postcss-nesting": "^10.2.0",
