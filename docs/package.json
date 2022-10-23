@@ -20,7 +20,7 @@
   "dependencies": {
     "@huntersofbook/core-nuxt": "0.3.10-beta.13",
     "@nuxtjs/i18n": "^8.0.0-beta.1",
-    "@nuxtjs/tailwindcss": "^5.3.5",
+    "@nuxtjs/tailwindcss": "^6.1.0",
     "@typescript/ata": "^0.9.3",
     "@vueuse/motion": "^2.0.0-beta.24",
     "date-fns": "^2.29.3",
