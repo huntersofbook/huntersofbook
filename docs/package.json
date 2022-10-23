@@ -15,7 +15,7 @@
     "@nuxtlabs/github-module": "npm:@nuxtlabs/github-module-edge@1.3.1-27629534.edb1935",
     "monaco-editor-core": "^0.34.0",
     "nuxt": "^3.0.0-rc.12",
-    "nuxt-icon": "^0.1.6"
+    "nuxt-icon": "^0.1.7"
   },
   "dependencies": {
     "@huntersofbook/core-nuxt": "0.3.10-beta.13",
