@@ -55,6 +55,6 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@nuxtjs/i18n": "^8.0.0-alpha.3"
+    "@nuxtjs/i18n": "^8.0.0-beta.1"
   }
 }
