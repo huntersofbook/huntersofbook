@@ -4,6 +4,7 @@ import { CookieAttributes } from 'js-cookie'
 import { AuthStorage, AuthStorageAsync } from './storage'
 
 export interface AuthOptions {
+  apiType: 'rest' | 'graphql'
   endpoints: {
     login: AxiosRequestConfig
     signup: AxiosRequestConfig
@@ -59,7 +60,6 @@ export interface AuthOptions {
     allClear: boolean
     async: boolean
   }
-  restApiType: 'rest' | 'graphql'
   cookie?: CookieAttributes
   baseURL?: string
 }
