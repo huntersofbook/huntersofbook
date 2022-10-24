@@ -18,7 +18,7 @@
     "nuxt-icon": "^0.1.7"
   },
   "dependencies": {
-    "@huntersofbook/core-nuxt": "0.3.10-beta.13",
+    "@huntersofbook/core-nuxt": "0.4.0",
     "@nuxtjs/i18n": "^8.0.0-beta.1",
     "@nuxtjs/tailwindcss": "^6.1.1",
     "@typescript/ata": "^0.9.3",
