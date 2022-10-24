@@ -1,3 +1,4 @@
+import { CookieStorage } from './storage'
 import { AuthOptions } from './types'
 
 export const defaultOptions: AuthOptions = {
@@ -65,7 +66,8 @@ export const defaultOptions: AuthOptions = {
   },
   registerAxiosInterceptors: true,
   storage: {
-    driver: 'secureLs',
+    driver: () => new CookieStorage(),
+    allClear: false,
     async: false,
   },
   restApiType: 'graphql',

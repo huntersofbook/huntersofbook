@@ -1,10 +1,7 @@
 import { AxiosRequestConfig } from 'axios'
 import { CookieAttributes } from 'js-cookie'
-export type SupportedAuthStorage =
-  | 'local'
-  | 'secureLs'
-  | 'cookie'
-  | 'capacitor'
+
+import { AuthStorage, AuthStorageAsync } from './storage'
 
 export interface AuthOptions {
   endpoints: {
@@ -58,7 +55,8 @@ export interface AuthOptions {
   }
   registerAxiosInterceptors: boolean
   storage: {
-    driver: SupportedAuthStorage
+    driver: () => AuthStorage | AuthStorageAsync
+    allClear: boolean
     async: boolean
   }
   restApiType: 'rest' | 'graphql'

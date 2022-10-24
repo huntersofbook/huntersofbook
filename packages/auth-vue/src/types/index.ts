@@ -2,7 +2,7 @@ import { AxiosInstance } from 'axios'
 
 import { AuthOptions } from './options'
 
-export type { AuthOptions, SupportedAuthStorage } from './options'
+export type { AuthOptions } from './options'
 export type { AuthStorage, AuthStorageAsync } from './storage'
 export type { AuthError, AuthUser } from './plugin'
 

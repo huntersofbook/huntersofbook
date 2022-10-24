@@ -20,4 +20,8 @@ export class SecureLocalStorage implements AuthStorage {
   clear(_options?: AuthOptions): void {}
 
   remove(_key: string): void {}
+
+  allClear(): void {
+
+  }
 }
