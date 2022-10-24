@@ -1190,10 +1190,10 @@
     tailwindcss "^3.1.8"
     ufo "^0.8.5"
 
-"@nuxtjs/tailwindcss@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-6.1.0.tgz#729cbac79b51129b3d8e51bb4fa690cbdc21962c"
-  integrity sha512-B5CkSVLb5w7KeJLB2U+TW3MrKAfWIBykrCq+pnhymQhrNp1aLCBzZLYP2glyqwWETq9AS9UlCigKZ1bcUIvXCA==
+"@nuxtjs/tailwindcss@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-6.1.1.tgz#6a44072805f7cc26f9528756949a8344134eba36"
+  integrity sha512-8yrGk2y7IUAMOW3+b0S/nWQmyZXtLge7pYYDXfiEhU4voL7zMoMdtp+ovmUr5LvTuEn3w5zCDczaBexvy0nmDw==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.12"
     "@nuxt/postcss8" "^1.1.3"
