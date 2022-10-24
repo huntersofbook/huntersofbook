@@ -138,7 +138,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     try {
       let res: AxiosResponse
       setTokenHeaderAxios(token)
-      switch (options.restApiType) {
+      switch (options.apiType) {
         case 'graphql':
           res = await axios.request(
             merge(options.endpoints.user, {

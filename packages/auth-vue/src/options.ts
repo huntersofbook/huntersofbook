@@ -2,6 +2,8 @@ import { CookieStorage } from './storage'
 import { AuthOptions } from './types'
 
 export const defaultOptions: AuthOptions = {
+  apiType: 'graphql',
+  baseURL: '',
   endpoints: {
     login: {
       url: '/auth/login',
@@ -70,6 +72,4 @@ export const defaultOptions: AuthOptions = {
     allClear: false,
     async: false,
   },
-  restApiType: 'graphql',
-  baseURL: '',
 }
