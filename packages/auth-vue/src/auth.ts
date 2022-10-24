@@ -410,7 +410,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       }
 
       let data: object
-      if (options.restApiType === 'graphql') {
+      if (options.apiType === 'graphql') {
         data = {
           query: `
             mutation RefreshToken($data: RefreshTokenInput!) {
