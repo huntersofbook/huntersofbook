@@ -545,21 +545,21 @@
   resolved "https://registry.yarnpkg.com/@formkit/auto-animate/-/auto-animate-1.0.0-beta.3.tgz#d5eb724ccb44afba9348df32ce0b8bb10037a7ee"
   integrity sha512-glsi+ytwQpxT/Ctr9GtcIfVr4dO6mJ04mQbNU8MFSdCdqMopHtyfU5Fib0+9lNFIeR0luY4/0NW95/2R5pKsag==
 
-"@huntersofbook/core-nuxt@0.3.10-beta.13":
-  version "0.3.10-beta.13"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/core-nuxt/-/core-nuxt-0.3.10-beta.13.tgz#b877a2197a5c46a63f41fe5b1fc759af847dc831"
-  integrity sha512-Nis8/uH2S1V5FTNBOd88txwKuKY+ukkOi0ZcSKlquEPCt3cECxKz2+R+6ktxJtjtoIEHT/58d7/IbM+W9Fblhw==
+"@huntersofbook/core-nuxt@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/core-nuxt/-/core-nuxt-0.4.0.tgz#b8f22fda6827d5c892229084ed7b1e5e351f0554"
+  integrity sha512-G1v8WFjKi192MzWtfOKiFS4skBamCBBxg54MMXgCfT0ZKZSVilf3bNGQ7+H14UKX126D0H8nNqE9JHtEgLq5NA==
   dependencies:
-    "@huntersofbook/core" "0.3.10-beta.13"
-    "@nuxt/kit" "^3.0.0-rc.11"
+    "@huntersofbook/core" "0.4.0"
+    "@nuxt/kit" "^3.0.0-rc.12"
     defu "^6.1.0"
-    huntersofbook "0.3.10-beta.13"
+    huntersofbook "0.4.0"
     pathe "^0.3.9"
 
-"@huntersofbook/core@0.3.10-beta.13":
-  version "0.3.10-beta.13"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/core/-/core-0.3.10-beta.13.tgz#b1d37f5abb8adf7433e90cff04a8230566a96bf5"
-  integrity sha512-Dw+pWrFG/u3XOzv5/z0rhkkbq+yqwxY5xlkQsp2e7qk8absjbna8oPOqf1w498vCp6ocoB7ouBl7Cn1UnFDcVg==
+"@huntersofbook/core@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/core/-/core-0.4.0.tgz#34d73e3f9137088b29468a1fb8eff7b747b4a155"
+  integrity sha512-msV/0RLXoyk0xWscdIX3d4QtLX9lOYSG44X+1/Sn589N3eP+WlrcV8wJCoqJ8pf5N2S/Ne8CQ+cQ7saLH/H17w==
   dependencies:
     "@formkit/auto-animate" "^1.0.0-beta.3"
     "@types/lodash" "^4.14.186"
@@ -568,7 +568,7 @@
     defu "^6.1.0"
     es-cookie "^1.4.0"
     lodash "^4.17.21"
-    vee-validate "^4.7.0"
+    vee-validate "^4.7.1"
     vue-types "^4.2.1"
     yup "^0.32.11"
 
@@ -589,14 +589,14 @@
     defu "^6.1.0"
     plausible-tracker "^0.3.8"
 
-"@huntersofbook/ui@0.3.10-beta.13":
-  version "0.3.10-beta.13"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/ui/-/ui-0.3.10-beta.13.tgz#c75cf281405679accb1f9bd5ee967bda6c4b7f64"
-  integrity sha512-9OSvN8CLewV5F80L5Y3UUYkDc1IAMRZ2O+lgl1Hr65B7Oamng9OkRotb4hOVquWNZLH1vEUsrpEfUSOysLgdIQ==
+"@huntersofbook/ui@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/ui/-/ui-0.4.0.tgz#35e552b2b3eb10517aed4179653df1634fdd9fb1"
+  integrity sha512-QO7WT+2Oty8o+PSqii1kYRovSJh8TtMXt+6AGWs+59Ep3Fy819ILs/tpeXq3ZAcW7Db3XXW2MN8WzEZMVq8IPA==
   dependencies:
-    "@huntersofbook/core" "0.3.10-beta.13"
-    "@vueuse/motion" "^2.0.0-beta.23"
-    "@zxcvbn-ts/core" "^2.0.5"
+    "@huntersofbook/core" "0.4.0"
+    "@vueuse/motion" "^2.0.0-beta.24"
+    "@zxcvbn-ts/core" "^2.1.0"
     date-fns "^2.29.3"
     naive-ui "^2.33.5"
     sass "^1.55.0"
@@ -1923,7 +1923,7 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.41.tgz#fbc95422df654ea64e8428eced96ba6ad555d2bb"
   integrity sha512-W9mfWLHmJhkfAmV+7gDjcHeAWALQtgGT3JErxULl0oz6R6+3ug91I7IErs93eCFhPCZPHBs4QJS7YWEV7A3sxw==
 
-"@vueuse/core@9.3.0", "@vueuse/core@^9.2.0", "@vueuse/core@^9.3.0":
+"@vueuse/core@9.3.0", "@vueuse/core@^9.2.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-9.3.0.tgz#74d855bd19cb5eadd2edb30c871918fac881e8b8"
   integrity sha512-64Rna8IQDWpdrJxgitDg7yv1yTp41ZmvV8zlLEylK4QQLWAhz1OFGZDPZ8bU4lwcGgbEJ2sGi2jrdNh4LttUSQ==
@@ -1962,20 +1962,6 @@
   resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-9.3.1.tgz#4e04d76df1e16f1aede28590c8b7a113ea3d3a7e"
   integrity sha512-G1BPhtx3OHaL/y4OZBofh6Xt02G1VA9PuOO8nac9sTKMkMqfyez5VfkF3D9GUjSRNO7cVWyH4rceeGXfr2wdMg==
 
-"@vueuse/motion@^2.0.0-beta.23":
-  version "2.0.0-beta.23"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-2.0.0-beta.23.tgz#a62c48b7baa23d5eb312adab173f11bb2e26ecd1"
-  integrity sha512-xYAhqn/J/lMEL8XX4TGkj7v320fYAQ4q9J9e/BlakemFxfUewO1j53wu62kJ9Wm4qo1rDHiDNoRwoMc3ppkjeg==
-  dependencies:
-    "@vueuse/core" "^9.3.0"
-    "@vueuse/shared" "^9.3.0"
-    csstype "^3.1.1"
-    framesync "^6.1.2"
-    popmotion "^11.0.5"
-    style-value-types "^5.1.2"
-  optionalDependencies:
-    "@nuxt/kit" "^3.0.0-rc.11"
-
 "@vueuse/motion@^2.0.0-beta.24":
   version "2.0.0-beta.24"
   resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-2.0.0-beta.24.tgz#797ccbc86b8a224f89768fefc8a07e868423ac02"
@@ -2001,7 +1987,7 @@
     local-pkg "^0.4.2"
     vue-demi "*"
 
-"@vueuse/shared@9.3.0", "@vueuse/shared@^9.3.0":
+"@vueuse/shared@9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-9.3.0.tgz#40fc138ba4e379c894075830aa2e15404aaa8a5b"
   integrity sha512-caGUWLY0DpPC6l31KxeUy6vPVNA0yKxx81jFYLoMpyP6cF84FG5Dkf69DfSUqL57wX8JcUkJDMnQaQIZPWFEQQ==
@@ -2035,10 +2021,10 @@
   resolved "https://registry.yarnpkg.com/@zhead/schema/-/schema-0.9.8.tgz#9a484a555279927bdfd9ed51a01a45aba206972b"
   integrity sha512-6aQo7eyS5tBwYFuZ4YTEvAsIbG+pWXqFxNnMKLdaR6e0vyxtxzgjS96istTEIPta2Tby9IdKWJM5sVHPTzB7uQ==
 
-"@zxcvbn-ts/core@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@zxcvbn-ts/core/-/core-2.0.5.tgz#99debbc612da289f9dfc3a173d08895a50645a85"
-  integrity sha512-2bHIFR5jsAF2J/dU/mPLgAO5YPNkffVo5tQdnz7rw+32bz9+Y+7/7j9wygCzHpXjxuKgTG+Cd6OX0fxw1sSdTA==
+"@zxcvbn-ts/core@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@zxcvbn-ts/core/-/core-2.1.0.tgz#026ffaba5b09cb05ee80f28b0183f75217d267d1"
+  integrity sha512-doxol9xrO7LgyVJhguXe7vO0xthnIYmsOKoDwrLg0Ho2kkpQaVtM+AOQw+BkEiKIqNg1V48eUf4/cTzMElXdiA==
 
 abbrev@1:
   version "1.1.1"
@@ -4526,13 +4512,13 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-huntersofbook@0.3.10-beta.13:
-  version "0.3.10-beta.13"
-  resolved "https://registry.yarnpkg.com/huntersofbook/-/huntersofbook-0.3.10-beta.13.tgz#aeed4c7bea91155fcc689c6670b64cd85f4f7362"
-  integrity sha512-cW9jak3KLQfG4igv2TP1IUEMI+bEclh4KoqnDDcv82kMILpnTclZjBFPJ0PYQI5XBotDcyJc9qcXz70TCSKOHw==
+huntersofbook@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/huntersofbook/-/huntersofbook-0.4.0.tgz#90822e32ca5891ec3c9c39ad31a13e288abd6786"
+  integrity sha512-5+zSZAKOOYQDEwZLUXCBBA71sWyVcVVU9i5ZeIMLNOFsrjHFGK+taVWcAMvZZm0PHAGNswQnW3zl13CfDbo16w==
   dependencies:
-    "@huntersofbook/core" "0.3.10-beta.13"
-    "@huntersofbook/ui" "0.3.10-beta.13"
+    "@huntersofbook/core" "0.4.0"
+    "@huntersofbook/ui" "0.4.0"
 
 iconv-lite@^0.4.24:
   version "0.4.24"
@@ -8320,10 +8306,10 @@ vdirs@^0.1.4, vdirs@^0.1.8:
   dependencies:
     evtd "^0.2.2"
 
-vee-validate@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.7.0.tgz#442c0a9b8dad28790ea10b37b6855f25f3e4f5a8"
-  integrity sha512-7HW2RE8mWaT57Jn+JU7jwczFqtlc1rIAwSbp8kD1L2sO0plhT9YeDNKW5iaI9baosc4h+iyb6itMlXtqAAqAfw==
+vee-validate@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.7.1.tgz#cbf8607402d5c6da192d5a25ee9b60678aa3d91a"
+  integrity sha512-ekSy7msvCVdyXdIcLz+kpD+5BFmPi4o88wtPZX6xISr9MP6uiilwkRZbTOkafq0uYuWMqw+OpQBtnpaFzqI86A==
   dependencies:
     "@vue/devtools-api" "^6.1.4"
 
