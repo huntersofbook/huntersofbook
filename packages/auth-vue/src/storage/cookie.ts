@@ -27,4 +27,9 @@ export class CookieStorage implements AuthStorage {
     Cookies.remove(options.expiredStorage, options.cookie)
     Cookies.remove(options.refreshToken.storageName, options.cookie)
   }
+
+  allClear() {
+    const allCookies = Cookies.get()
+    Object.keys(allCookies).forEach(key => Cookies.remove(key))
+  }
 }

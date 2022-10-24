@@ -2,10 +2,11 @@ import { merge } from 'lodash'
 
 import { AuthFunc } from './auth'
 import { defaultOptions } from './options'
-import { AppContext, AuthOptions } from './types'
-export type { AppContext, AuthOptions }
+import { CookieStorage, LocalStorage, SecureLocalStorage } from './storage'
+import { AppContext, AuthOptions, AuthStorageAsync } from './types'
+export type { AppContext, AuthOptions, AuthStorageAsync }
 
-export { defaultOptions }
+export { defaultOptions, CookieStorage, LocalStorage, SecureLocalStorage }
 
 export function AuthClient(ctx: AppContext) {
   const options = merge(defaultOptions, ctx.options)

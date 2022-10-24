@@ -1,3 +1,4 @@
+```ts
 import { Preferences } from '@capacitor/preferences'
 
 import { AuthOptions, AuthStorageAsync } from '../types/index'
@@ -27,3 +28,4 @@ export class CapacitorStorage implements AuthStorageAsync {
     await Preferences.remove({ key: options.refreshToken.storageName })
   }
 }
+```

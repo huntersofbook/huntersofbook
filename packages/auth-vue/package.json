@@ -36,7 +36,6 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "peerDependencies": {
-    "@capacitor/preferences": "^4.0.1",
     "crypto-js": "^4.1.1"
   },
   "dependencies": {
@@ -56,7 +55,6 @@
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.1",
     "lodash": "^4.17.21",
     "prettier": "^2.7.1",
     "tsup": "^6.3.0",

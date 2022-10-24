@@ -78,7 +78,10 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
 
   function forceLogout(callback?: ICallBack) {
     callback?.onLoading?.(true)
-    storage.clear()
+    storage.clear(options)
+    if (options.storage.allClear)
+      storage.allClear()
+
     resetState()
     callback?.onLoading?.(false)
     return Promise.resolve(true)
@@ -89,7 +92,12 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     if (options.endpoints.logout) {
       try {
         const token = await getToken()
-        setTokenHeaderAxios(token)
+        if (token)
+          setTokenHeaderAxios(token)
+
+        else
+          forceLogout()
+
         const { data } = await axios.request({
           ...options.endpoints.logout,
           data: options.logout.graphqlQuery,
@@ -130,7 +138,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     try {
       let res: AxiosResponse
       setTokenHeaderAxios(token)
-      switch (options.restApiType) {
+      switch (options.apiType) {
         case 'graphql':
           res = await axios.request(
             merge(options.endpoints.user, {
@@ -325,7 +333,11 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
   async function getUser(callback?: ICallBack) {
     callback?.onLoading?.(true)
     const token = await getToken()
-    setTokenHeaderAxios(token)
+    if (token)
+      setTokenHeaderAxios(token)
+
+    else
+      forceLogout()
     if (options.user.autoFetch) {
       const user = await fetchUser()
       callback?.onSuccess?.(user)
@@ -349,11 +361,15 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     return data
   }
 
-  async function getFreshToken() {
-    return await storage.get<string>(options.token.storageName)
+  async function getFreshToken(): Promise<string | null> {
+    const token = await storage.get<string>(options.token.storageName)
+    if (token)
+      return token
+    else
+      return null
   }
 
-  async function getToken() {
+  async function getToken(): Promise<string | null> {
     if (await isExpired()) {
       await refreshToken()
       return getFreshToken()
@@ -394,7 +410,7 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
       }
 
       let data: object
-      if (options.restApiType === 'graphql') {
+      if (options.apiType === 'graphql') {
         data = {
           query: `
             mutation RefreshToken($data: RefreshTokenInput!) {

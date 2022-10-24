@@ -22,4 +22,8 @@ export class LocalStorage implements AuthStorage {
   clear() {
     localStorage.clear()
   }
+
+  allClear(): void {
+
+  }
 }
