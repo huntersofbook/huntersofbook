@@ -10,5 +10,6 @@ export default defineNuxtConfig({
       apiHost: 'https://site.com',
       trackLocalhost: true,
     },
+    partytown: true,
   },
 })

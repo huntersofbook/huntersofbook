@@ -18,6 +18,7 @@ const plausible = createPlausible({
     enableAutoOutboundTracking: true,
     enableAutoPageviews: true,
   },
+  partytown: false,
 })
 
 app.use(plausible)

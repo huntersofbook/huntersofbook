@@ -31,7 +31,8 @@ const chatwoot = createChatWoot({
     locale: 'en',
     position: 'left',
     launcherTitle: 'Hello Chat'
-  }
+  },
+  partytown: false,
 })
 
 app.use(chatwoot)

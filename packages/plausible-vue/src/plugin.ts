@@ -2,8 +2,10 @@ import defu from 'defu'
 import Plausible from 'plausible-tracker'
 import type { PlausibleOptions } from 'plausible-tracker'
 import { App, inject } from 'vue'
+
 interface ScriptLoaderOption extends Partial<HTMLScriptElement> {
   'data-domain': string
+  partytown: boolean
 }
 
 const loadScript = (
@@ -15,7 +17,7 @@ const loadScript = (
     const script = document.createElement('script')
     const {
       src,
-      type = 'text/javascript',
+      type = options.partytown ? 'text/partytown' : 'text/javascript',
       defer = false,
       async = false,
       ...restAttrs
@@ -54,6 +56,13 @@ export interface OptionPlugin {
    * @type InstallOptions
    */
   settings: InstallOptions
+
+  /** Partytown support
+  * @default false
+  * @type boolean
+  * @link https://partytown.builder.io/how-does-partytown-work
+  */
+  partytown?: boolean
 }
 
 export interface InstallOptions {
@@ -89,9 +98,10 @@ export const createPlausible = (options: OptionPlugin) => {
       if (options.settings.enableAutoOutboundTracking === true)
         plausible.enableAutoOutboundTracking()
 
-      loadScript(`${options.init.apiHost}/js/script.js`, {
+      loadScript(`${data.apiHost}/js/script.js`, {
         'defer': true,
-        'data-domain': options.init.apiHost || 'https://plausible.io',
+        'data-domain': data.apiHost || 'https://plausible.io',
+        'partytown': options.partytown || false,
       })
 
       app.config.globalProperties.$plausible = plausible

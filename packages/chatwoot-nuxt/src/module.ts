@@ -25,6 +25,7 @@ export default defineNuxtModule<ModuleOptions>({
       baseUrl: process.env.CHATWOOT_URL,
       websiteToken: process.env.CHATWOOT_TOKEN || '',
     },
+    partytown: false,
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -34,6 +35,7 @@ export default defineNuxtModule<ModuleOptions>({
       {
         init: options.init,
         settings: options.settings,
+        partytown: false,
       } as ModuleOptions,
     )
 
