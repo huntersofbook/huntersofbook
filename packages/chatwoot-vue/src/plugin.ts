@@ -9,7 +9,9 @@ declare global {
   }
 }
 
-export interface ScriptLoaderOption extends Partial<HTMLScriptElement> {}
+export interface ScriptLoaderOption extends Partial<HTMLScriptElement> {
+  partytown: boolean
+}
 
 export const loadScript = (
   source: string,
@@ -20,7 +22,7 @@ export const loadScript = (
     const script = document.createElement('script')
     const {
       src,
-      type = 'text/javascript',
+      type = options.partytown ? 'text/partytown' : 'text/javascript',
       defer = false,
       async = false,
       ...restAttrs
@@ -176,6 +178,13 @@ export interface OptionPlugin {
    * @type ChatwootSettings
    */
   settings?: ChatwootSettings
+
+  /** Partytown support
+   * @default false
+   * @type boolean
+   * @link https://partytown.builder.io/how-does-partytown-work
+   */
+  partytown?: boolean
 }
 
 export const createChatWoot = (options: OptionPlugin) => {
@@ -183,6 +192,7 @@ export const createChatWoot = (options: OptionPlugin) => {
     install(app: App): void {
       const chatwoot = defu(options, {
         init: { baseUrl: 'https://app.chatwoot.com' },
+        partytown: false,
       } as OptionPlugin)
 
       const chatwootSettings: ChatwootSettings = defu(chatwoot.settings, {
@@ -201,6 +211,7 @@ export const createChatWoot = (options: OptionPlugin) => {
       loadScript(`${chatwoot.init.baseUrl}/packs/js/sdk.js`, {
         async: true,
         defer: true,
+        partytown: chatwoot.partytown || false,
       }).then(() => {
         window.chatwootSettings = chatwootSettings
         if (window.chatwootSDK) {

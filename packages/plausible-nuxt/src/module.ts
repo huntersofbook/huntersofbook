@@ -30,6 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
       enableAutoOutboundTracking: false,
       enableAutoPageviews: true,
     },
+    partytown: false,
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -44,6 +45,7 @@ export default defineNuxtModule<ModuleOptions>({
         enableAutoOutboundTracking: false,
         enableAutoPageviews: true,
       },
+      partytown: false,
     })
 
     addPlugin({ src: resolve('./runtime/plugin'), mode: 'client' })
