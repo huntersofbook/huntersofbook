@@ -1,5 +1,6 @@
 import path from 'path'
 
+import { CompileTSServiceWorker } from '@huntersofbook/vite-ts-sw'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import presetIcons from '@unocss/preset-icons'
 import Vue from '@vitejs/plugin-vue'
@@ -9,7 +10,6 @@ import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
-
 export default defineConfig({
   resolve: {
     alias: {
@@ -71,6 +71,13 @@ export default defineConfig({
       compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),
+
+    CompileTSServiceWorker([
+      {
+        inputFile: 'src/sw.ts',
+        outputFile: 'public/sw.js',
+      },
+    ]),
   ],
   build: {
     target: 'esnext',

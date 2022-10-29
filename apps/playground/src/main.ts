@@ -12,6 +12,8 @@ import '@huntersofbook/ui/style'
 import '@huntersofbook/form-naiveui/style'
 
 import 'uno.css'
+import swDev from './workers/swDev'
+
 import generatedRoutes from '~pages'
 
 const routes = setupLayouts(generatedRoutes)
@@ -49,6 +51,7 @@ async function init() {
       (i: any) => i.install?.({ app, router }),
     )
     router.isReady().then(() => {
+      swDev()
       app.mount('#app')
     })
   }
