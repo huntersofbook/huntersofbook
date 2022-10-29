@@ -8,10 +8,11 @@ import { normalize, resolve } from 'pathe'
 import { debounce } from 'perfect-debounce'
 
 import { loadHuntersofbookConfig } from '../loader/config'
-import { resolveChokidarOptions } from '../node/watch'
 import { CompileTSServiceWorker } from '../plugins/TStoJS.plugin'
 import { HuntersofbookConfig } from '../types'
+import { questions } from '../utils/questions'
 import * as time from '../utils/time'
+import { resolveChokidarOptions } from '../utils/watch'
 import { defineNuxtCommand } from './index'
 
 export default defineNuxtCommand({
@@ -61,6 +62,9 @@ export default defineNuxtCommand({
       const isDirChange = ['addDir', 'unlinkDir'].includes(event)
       const isFileChange = ['add', 'unlink'].includes(event)
       const settingFile = file.match(/(huntersofbook\.config\.(js|ts|mjs|cjs))$/)
+
+      if (settingFile)
+        await questions()
 
       const hextPath = createHash('sha256').update(_file.toString()).digest('hex')
       if (hexUrl === hextPath || settingFile) {
