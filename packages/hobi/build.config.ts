@@ -15,6 +15,7 @@ export default defineBuildConfig({
     resolve: {
       exportConditions: ['production', 'node'] as any,
     },
+
   },
   alias: {
     // we can always use non-transpiled code since we support 14.18.0+
