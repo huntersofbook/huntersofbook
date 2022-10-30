@@ -1,6 +1,5 @@
 import path from 'path'
 
-import { CompileTSServiceWorker } from '@huntersofbook/vite-ts-sw'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import presetIcons from '@unocss/preset-icons'
 import Vue from '@vitejs/plugin-vue'
@@ -72,12 +71,6 @@ export default defineConfig({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 
-    CompileTSServiceWorker([
-      {
-        inputFile: 'src/sw.ts',
-        outputFile: 'public/sw.js',
-      },
-    ]),
   ],
   build: {
     target: 'esnext',

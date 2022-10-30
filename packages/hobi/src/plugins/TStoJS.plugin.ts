@@ -11,12 +11,12 @@ import { basename } from 'pathe'
 import type { TSConfig } from 'pkg-types'
 import type { InputOptions, OutputOptions } from 'rollup'
 import { rollup } from 'rollup'
-import esbuild from 'rollup-plugin-esbuild'
+import cleanup from 'rollup-plugin-cleanup'
+import esbuild, { minify } from 'rollup-plugin-esbuild'
 
 import { asyncForEach } from '../utils/asyncForEach'
 import { finishTime, voidTimer } from '../utils/time'
 import { PluginInvokeResult, definePluginCommand } from './index'
-
 export interface CompileFileConfig {
   /**
    * @param {string} inputFile
@@ -51,13 +51,15 @@ const writeSWFile = async () => {
       },
     } as TSConfig)
     const inputOptions: InputOptions = {
-      plugins: [esbuild(), nodeResolve({}), typescript({ ...tsSettings }), terser()],
+      plugins: [minify(), nodeResolve({}), typescript({ ...tsSettings }), cleanup({ comments: 'none' })],
       input: config.inputFile,
     }
     const outputOptions: OutputOptions = {
       file: config.outputFile,
       format: 'es',
-
+      generatedCode: { constBindings: true },
+      externalLiveBindings: false,
+      freeze: false,
     }
     try {
       const bundle = await rollup(inputOptions)
