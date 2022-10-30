@@ -21,6 +21,7 @@ export interface HuntersofbookPluginCommandMeta {
 
 export interface PluginInvokeResult {
   status: void | 'error' | 'wait'
+  message: string
   data?: any
   ignored?: string[]
 }

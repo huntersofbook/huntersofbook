@@ -1,12 +1,10 @@
-import { existsSync, readFileSync, statSync } from 'fs'
+import { statSync } from 'fs'
 import { createHash } from 'node:crypto'
 
 import chokidar from 'chokidar'
-import { blue, red } from 'colorette'
+import { blue, green, yellow } from 'colorette'
 import consola from 'consola'
-import defu from 'defu'
-import lodash from 'lodash'
-import { normalize, resolve } from 'pathe'
+import { basename, normalize, resolve } from 'pathe'
 import { debounce } from 'perfect-debounce'
 
 import { loadHuntersofbookConfig } from '../loader/config'
@@ -20,9 +18,14 @@ import { resolveChokidarOptions } from '../utils/watch'
 import { defineNuxtCommand } from './index'
 
 const returnFilePath = (files: any[], cwd: string) => {
-  return files.map((file) => {
-    return resolve(cwd, file)
+  const _files: string[] = []
+  files.forEach((file) => {
+    if (!file.includes('**'))
+      _files.push(resolve(cwd, file))
+    else
+      _files.push(file)
   })
+  return _files
 }
 
 export default defineNuxtCommand({
@@ -49,6 +52,17 @@ export default defineNuxtCommand({
 
         const data = await cmd.invoke(args, __config, watch)
 
+        switch (data.status) {
+          case 'wait':
+            break
+          case 'error':
+            process.exit(1)
+            break
+          case 'success':
+            process.exit(1)
+            break
+        }
+
         if (data.ignored)
           ignored.push(...returnFilePath(data.ignored, cwd))
 
@@ -60,13 +74,12 @@ export default defineNuxtCommand({
 
       await data()
     }
+
     await load()
 
     const watcher = chokidar.watch([rootDir], {
       ...blockWatch,
     })
-
-    console.log(watcher.options.ignored, 'watcher')
 
     let modifiedTime: number
     let hexUrl: string
@@ -97,11 +110,11 @@ export default defineNuxtCommand({
     }
 
     watcher.on('all', async (event, _file) => {
-      const start = time.current()
+      const startTime = time.current()
       const stats = statSync(_file)
       const file = normalize(_file)
-      console.log(file, 'file')
-
+      const data = (yellow(`[${basename(file)}]`), blue(event))
+      consola.start(data)
       const config = await loadHuntersofbookConfig({ cwd })
 
       const isDirChange = ['addDir', 'unlinkDir'].includes(event)
@@ -121,8 +134,8 @@ export default defineNuxtCommand({
       else { hexUrl = hextPath }
       if (settingFile || !isDirChange || !isFileChange) load({ event, file: _file }, config)
 
-      const elapsed = time.current() - start
-      consola.info(blue(`🚄 ${elapsed.toFixed(3)}s`))
+      const elapsed = time.current() - startTime
+      consola.info(data + green(` ${elapsed.toFixed(3)}s`))
     })
 
     return 'wait' as const
