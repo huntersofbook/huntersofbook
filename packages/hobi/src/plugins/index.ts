@@ -1,25 +1,39 @@
 import type { Argv } from 'mri'
 
+import { HuntersofbookConfig, IWatch } from '../types'
+import { QuestionPlugin } from '../utils/questions'
+
 export const _rDefault = (r: any) => r.default || r
 
-export const commands = {
-  dev: () => import('./TStoJS.plugin').then(_rDefault),
+export const plugins = {
+  tsTOjs: (): Promise<HuntersofbookPluginCommand> => import('./TStoJS.plugin').then(_rDefault),
 }
 
-export type Command = keyof typeof commands
+export type PluginCommand = keyof typeof plugins
 
 export interface HuntersofbookPluginCommandMeta {
   name: string
   usage: string
   description: string
+  questions?: QuestionPlugin[]
   [key: string]: any
 }
 
-export type PluginInvokeResult = void | 'error' | 'wait'
+export interface PluginInvokeResult {
+  status: void | 'error' | 'wait'
+  data?: any
+  ignored?: string[]
+}
 
 export interface HuntersofbookPluginCommand {
-  invoke(args: Argv): Promise<PluginInvokeResult> | PluginInvokeResult
   meta: HuntersofbookPluginCommandMeta
+  invoke(
+    args: Argv,
+    config: HuntersofbookConfig,
+    watch?: IWatch): Promise<PluginInvokeResult> | PluginInvokeResult
+  watch?: {
+    ignored: string[]
+  }
 }
 
 export function definePluginCommand(command: HuntersofbookPluginCommand): HuntersofbookPluginCommand {

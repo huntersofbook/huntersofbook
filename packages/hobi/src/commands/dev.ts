@@ -4,16 +4,26 @@ import { createHash } from 'node:crypto'
 import chokidar from 'chokidar'
 import { blue, red } from 'colorette'
 import consola from 'consola'
+import defu from 'defu'
+import lodash from 'lodash'
 import { normalize, resolve } from 'pathe'
 import { debounce } from 'perfect-debounce'
 
 import { loadHuntersofbookConfig } from '../loader/config'
-import { CompileTSServiceWorker } from '../plugins/TStoJS.plugin'
+import { plugins } from '../plugins'
 import { HuntersofbookConfig } from '../types'
-import { questions } from '../utils/questions'
+import { IWatch } from '../types/watch'
+import { getJson } from '../utils/hasCheckPackage'
+import { QuestionPlugin } from '../utils/questions'
 import * as time from '../utils/time'
 import { resolveChokidarOptions } from '../utils/watch'
 import { defineNuxtCommand } from './index'
+
+const returnFilePath = (files: any[], cwd: string) => {
+  return files.map((file) => {
+    return resolve(cwd, file)
+  })
+}
 
 export default defineNuxtCommand({
   meta: {
@@ -24,32 +34,65 @@ export default defineNuxtCommand({
   async invoke(args) {
     const rootDir = resolve(args._[0] || '.')
     const cwd = resolve(args.cwd || '.')
-    const _config = await loadHuntersofbookConfig({ cwd })
 
-    const blockWatch = resolveChokidarOptions(_config.blockedWatch.options)
+    let blockWatch: chokidar.WatchOptions = {}
 
-    const watcher = chokidar.watch([rootDir], { ...blockWatch })
+    const load = async (watch?: IWatch, config?: HuntersofbookConfig) => {
+      const ignored: string[] = []
+      const data = debounce(async () => {
+        const __config = config || await loadHuntersofbookConfig({ cwd })
+        ignored.push(...returnFilePath(__config.blockedWatch?.files, cwd) || [])
 
-    const debounced = debounce(async (config: HuntersofbookConfig) => {
-      if (config.tsTOjs && config.tsTOjs.length !== 0)
-        await CompileTSServiceWorker(config.tsTOjs)
+        const cmd = await plugins.tsTOjs()
+        if (cmd.watch && cmd.watch.ignored)
+          ignored.push(...returnFilePath(cmd.watch.ignored, cwd))
+
+        const data = await cmd.invoke(args, __config, watch)
+
+        if (data.ignored)
+          ignored.push(...returnFilePath(data.ignored, cwd))
+
+        blockWatch = resolveChokidarOptions({
+          ...__config.blockedWatch.options,
+          ignored,
+        })
+      })
+
+      await data()
+    }
+    await load()
+
+    const watcher = chokidar.watch([rootDir], {
+      ...blockWatch,
     })
-    debounced(_config)
+
+    console.log(watcher.options.ignored, 'watcher')
 
     let modifiedTime: number
     let hexUrl: string
 
-    const load = async (event: 'addDir' | 'unlinkDir' | 'add' | 'unlink' | 'change', _file: string, config: HuntersofbookConfig, settingFile: string) => {
-      if (config.tsTOjs && config.tsTOjs.length !== 0) {
-        config.tsTOjs.forEach(async (file) => {
-          const fileDir = resolve(file.inputFile)
-          const hasFiles = existsSync(fileDir) ? readFileSync(fileDir).length > 0 : false
-          if (!hasFiles)
-            consola.error(red('Dont input files create'))
+    const _plugins: QuestionPlugin[] = []
+    const packageCheck = getJson(cwd)
 
-          if ((_file.includes(file.inputFile) && hasFiles) || (settingFile && hasFiles))
-            await debounced(config)
-        })
+    if (packageCheck && packageCheck.dependencies) {
+      // eslint-disable-next-line dot-notation
+      const depen = packageCheck.dependencies['hobia']
+      // eslint-disable-next-line dot-notation
+      const dev = (packageCheck.devDependencies ? packageCheck.devDependencies['hobia'] : undefined)
+
+      if (!depen && !dev) {
+        _plugins.push(...[
+          {
+            display: 'ttttttttt',
+            name: 'compile-plugin',
+            variants: [
+              {
+                name: 'ts-to-js',
+                customCommand: 'bbbbbbbbbbbb',
+                display: 'bbb',
+              },
+            ],
+          }])
       }
     }
 
@@ -57,14 +100,13 @@ export default defineNuxtCommand({
       const start = time.current()
       const stats = statSync(_file)
       const file = normalize(_file)
+      console.log(file, 'file')
+
       const config = await loadHuntersofbookConfig({ cwd })
 
       const isDirChange = ['addDir', 'unlinkDir'].includes(event)
       const isFileChange = ['add', 'unlink'].includes(event)
       const settingFile = file.match(/(huntersofbook\.config\.(js|ts|mjs|cjs))$/)
-
-      if (settingFile)
-        await questions()
 
       const hextPath = createHash('sha256').update(_file.toString()).digest('hex')
       if (hexUrl === hextPath || settingFile) {
@@ -77,8 +119,7 @@ export default defineNuxtCommand({
           modifiedTime = +stats.mtime
       }
       else { hexUrl = hextPath }
-      if (settingFile || !isDirChange || !isFileChange)
-        await load(event, _file, config, settingFile)
+      if (settingFile || !isDirChange || !isFileChange) load({ event, file: _file }, config)
 
       const elapsed = time.current() - start
       consola.info(blue(`🚄 ${elapsed.toFixed(3)}s`))
