@@ -32,7 +32,7 @@ const returnFilePath = (files: any[], cwd: string) => {
 export default defineNuxtCommand({
   meta: {
     name: 'dev',
-    usage: 'hobi dev',
+    usage: 'huntersofbook dev',
     description: 'Run Huntersofbook in development mode',
   },
   async invoke(args) {
@@ -40,7 +40,6 @@ export default defineNuxtCommand({
     const cwd = resolve(args.cwd || '.')
 
     const _package = getJson(cwd)
-
     const packageInstallCheck = async (file: PackageJson) => {
       const __config = await loadHuntersofbookConfig({ cwd })
       const _plugins: string[] = []

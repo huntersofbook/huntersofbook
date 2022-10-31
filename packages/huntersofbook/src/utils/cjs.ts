@@ -6,9 +6,9 @@ import { normalize } from 'pathe'
 const _require = createRequire(process.cwd())
 
 export function getModulePaths(paths?: string | string[]): string[] {
-  const a = Array.isArray(paths) ? paths : [paths]
   return [].concat(
-    ...a,
+    // @ts-expect-error
+    ...Array.isArray(paths) ? paths : [paths],
     process.cwd(),
   ).filter(Boolean)
 }

@@ -74,7 +74,7 @@ const writeSWFile = async () => {
 export default definePluginCommand({
   meta: {
     name: 'tsTOjs',
-    usage: 'hobi dev',
+    usage: 'huntersofbook dev',
     description: 'Run Huntersofbook in development mode',
   },
   watch: {

@@ -27,7 +27,6 @@
     "@huntersofbook/plausible-nuxt": "workspace:*",
     "@huntersofbook/plausible-vue": "workspace:*",
     "@huntersofbook/chatwoot-vue": "workspace:*",
-    "hobi": "workspace:*",
     "@huntersofbook/naive-ui-nuxt": "workspace:*",
     "@huntersofbook/ui": "workspace:*",
     "@nuxtjs/eslint-config-typescript": "^11.0.0",

@@ -2,7 +2,7 @@ import { LoadConfigOptions, loadConfig } from 'c12'
 import { resolve } from 'pathe'
 import { applyDefaults } from 'untyped'
 
-import { HuntersofbookConfig, HuntersofbookConfigSchema } from '../types'
+import { HuntersofbookConfig } from '../types'
 
 export interface LoadHuntersofbookConfigOptions extends LoadConfigOptions<HuntersofbookConfig> { }
 
@@ -49,5 +49,5 @@ export async function loadHuntersofbookConfig(opts: LoadHuntersofbookConfigOptio
   }
 
   // Resolve and apply defaults
-  return await applyDefaults(HuntersofbookConfigSchema, huntersofbookConfig) as HuntersofbookConfig
+  return await applyDefaults({}, huntersofbookConfig) as HuntersofbookConfig
 }

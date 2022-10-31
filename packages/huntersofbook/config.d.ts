@@ -1,2 +1,2 @@
-import { HuntersofbookConfig } from "hobi";
+import { HuntersofbookConfig } from "huntersofbook";
 export declare function defineHuntersofbookConfig(config: HuntersofbookConfig): HuntersofbookConfig

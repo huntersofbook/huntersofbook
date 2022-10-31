@@ -1,4 +1,4 @@
-// declare module 'hobi' {
+// declare module 'huntersofbook' {
 //     interface HuntersofbookConfig { 
 //         araba: string
 //      }

@@ -1,11 +1,11 @@
 
 declare global {
-    const defineHuntersofbookConfig: typeof import('hobi/config')['defineHuntersofbookConfig']
+    const defineHuntersofbookConfig: typeof import('huntersofbook/config')['defineHuntersofbookConfig']
 }
 
 import { HuntersofbookConfig as Config } from './src/types/config'
 
-declare module 'hobi' {
+declare module 'huntersofbook' {
     interface HuntersofbookConfig extends Config {
     }
 }

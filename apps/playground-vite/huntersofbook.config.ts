@@ -1,4 +1,4 @@
-import { defineHuntersofbookConfig } from 'hobi/config'
+import { defineHuntersofbookConfig } from 'huntersofbook/config'
 
 export default defineHuntersofbookConfig({
   deneme: 'asdsd',
