@@ -1,12 +1,11 @@
 import { existsSync, readFileSync } from 'fs'
-import { resolve } from 'path'
 
 import nodeResolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import { red } from 'colorette'
 import consola from 'consola'
 import { defu } from 'defu'
-import { basename } from 'pathe'
+import { basename, resolve } from 'pathe'
 import type { TSConfig } from 'pkg-types'
 import type { InputOptions, OutputOptions } from 'rollup'
 import { rollup } from 'rollup'
@@ -50,7 +49,7 @@ const writeSWFile = async () => {
       },
     } as TSConfig)
     const inputOptions: InputOptions = {
-      plugins: [minify(), nodeResolve({}), typescript({ ...tsSettings }), cleanup({ comments: 'none' })],
+      plugins: [minify(), nodeResolve({}), typescript({ ...tsSettings }), cleanup({ comments: 'none', sourcemap: true })],
       input: config.inputFile,
     }
     const outputOptions: OutputOptions = {
@@ -82,14 +81,21 @@ export default definePluginCommand({
   },
   async invoke(args, config, watch) {
     const status: PluginInvokeResult['status'] = 'wait'
-
     // const rootDir = resolve(args._[0] || '.')
-    // const cwd = resolve(args.cwd || '.')
-
+    const cwd = resolve(args.cwd || '.')
     if (config.tsTOjs && config.tsTOjs.length !== 0) {
       serviceFiles = config.tsTOjs
 
-      await asyncForEach(config.tsTOjs, async (file: CompileFileConfig) => {
+      const data = config.tsTOjs.filter((config: CompileFileConfig) => {
+        if (!existsSync(config.inputFile)) {
+          consola.error(red(`The file ${config.inputFile} does not exist`))
+          process.exit(1)
+        }
+        if (watch?.file && (resolve(cwd, config.inputFile) === watch.file))
+          return config
+      })
+
+      await asyncForEach(data.length ? data : config.tsTOjs, async (file: CompileFileConfig) => {
         await voidTimer(async (timer) => {
           consola.start(`${basename(file.outputFile || watch?.file || '')}`)
           const fileDir = resolve(file.inputFile)
