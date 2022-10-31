@@ -1,7 +1,6 @@
 import { defineHuntersofbookConfig } from 'huntersofbook/config'
 
 export default defineHuntersofbookConfig({
-  deneme: 'asdsd',
   tsTOjs: [
     {
       inputFile: 'src/sw.ts',

@@ -16,7 +16,7 @@
   },
   "bin": "./bin/huntersofbook.mjs",
   "main": "./dist/index.js",
-  "types": "./types.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "bin",

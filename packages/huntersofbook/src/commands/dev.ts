@@ -84,9 +84,9 @@ export default defineNuxtCommand({
 
     let blockWatch: chokidar.WatchOptions = {}
     const ignored: string[] = []
-    const __config = await loadHuntersofbookConfig({ cwd })
 
     const load = async (watch?: IWatch) => {
+      const __config = await loadHuntersofbookConfig({ cwd })
       const data = debounce(async () => {
         ignored.push(...returnFilePath(__config.blockedWatch?.files, cwd) || [])
 
@@ -126,6 +126,7 @@ export default defineNuxtCommand({
     }
 
     const middleware = async () => {
+      const __config = await loadHuntersofbookConfig({ cwd })
       for await (const [key] of Object.entries(plugins)) {
         for await (const [_key] of Object.entries(__config)) {
           if (key === _key) {
