@@ -6,7 +6,7 @@ import { QuestionPlugin } from '../utils/questions'
 export const _rDefault = (r: any) => r.default || r
 
 export const plugins = {
-  tsTOjs: (): Promise<HuntersofbookPluginCommand> => import('./TStoJS.plugin').then(_rDefault),
+  tsTOjs: () => import('./TStoJS.plugin').then(_rDefault),
 }
 
 export type PluginCommand = keyof typeof plugins
@@ -35,6 +35,7 @@ export interface HuntersofbookPluginCommand {
   watch?: {
     ignored: string[]
   }
+  middleware?: (configKey: string, config: HuntersofbookConfig) => Promise<Record<any, any>>
 }
 
 export function definePluginCommand(command: HuntersofbookPluginCommand): HuntersofbookPluginCommand {

@@ -72,12 +72,20 @@ const writeSWFile = async () => {
 
 export default definePluginCommand({
   meta: {
-    name: 'dev',
+    name: 'tsTOjs',
     usage: 'hobi dev',
     description: 'Run Huntersofbook in development mode',
   },
   watch: {
     ignored: ['**/node_modules/**'],
+  },
+  middleware: async (title, config) => {
+    if (title === 'tsTOjs') {
+      return {
+        ignored: config.tsTOjs && config.tsTOjs.map(file => file.outputFile),
+      }
+    }
+    return {}
   },
   async invoke(args, config, watch) {
     const status: PluginInvokeResult['status'] = 'wait'
@@ -91,8 +99,7 @@ export default definePluginCommand({
           consola.error(red(`The file ${config.inputFile} does not exist`))
           process.exit(1)
         }
-        if (watch?.file && (resolve(cwd, config.inputFile) === watch.file))
-          return config
+        return (watch?.file && (resolve(cwd, config.inputFile) === watch.file))
       })
 
       await asyncForEach(data.length ? data : config.tsTOjs, async (file: CompileFileConfig) => {

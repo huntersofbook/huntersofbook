@@ -9,11 +9,7 @@ export default defineHuntersofbookConfig({
     },
     {
       inputFile: 'src/sw.ts',
-      outputFile: 'public/swasadsd.js',
-    },
-    {
-      inputFile: 'src/sw_t.ts',
-      outputFile: 'public/bb.js',
+      outputFile: 'public/yen1i1.js',
     },
   ],
   blockedWatch: {
