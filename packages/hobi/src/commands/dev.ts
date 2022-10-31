@@ -2,20 +2,22 @@ import { statSync } from 'fs'
 import { createHash } from 'node:crypto'
 
 import chokidar from 'chokidar'
+import { red } from 'colorette'
 import consola from 'consola'
+import { execaCommandSync } from 'execa'
 import { normalize, resolve } from 'pathe'
 import { debounce } from 'perfect-debounce'
+import prompts from 'prompts'
+import { PackageJson } from 'type-fest'
 
-import { LoadHuntersofbookConfigOptions, loadHuntersofbookConfig } from '../loader/config'
+import { loadHuntersofbookConfig } from '../loader/config'
 import { HuntersofbookPluginCommand, PluginCommand, plugins } from '../plugins'
 import { HuntersofbookConfig } from '../types'
 import { IWatch } from '../types/watch'
 import { getJson } from '../utils/hasCheckPackage'
-import { QuestionPlugin } from '../utils/questions'
 import * as time from '../utils/time'
 import { resolveChokidarOptions } from '../utils/watch'
 import { defineNuxtCommand } from './index'
-
 const returnFilePath = (files: any[], cwd: string) => {
   const _files: string[] = []
   files.forEach((file) => {
@@ -36,6 +38,50 @@ export default defineNuxtCommand({
   async invoke(args) {
     const rootDir = resolve(args._[0] || '.')
     const cwd = resolve(args.cwd || '.')
+
+    const _package = getJson(cwd)
+
+    const packageInstallCheck = async (file: PackageJson) => {
+      const __config = await loadHuntersofbookConfig({ cwd })
+      const _plugins: string[] = []
+
+      for await (const [key] of Object.entries(plugins)) {
+        for await (const [_key] of Object.entries(__config)) {
+          if (key === _key) {
+            const cmd = await plugins[key as PluginCommand]() as HuntersofbookPluginCommand
+
+            cmd.packagesName?.forEach((name) => {
+              if (file && file.dependencies) {
+                const depen = file.dependencies[name]
+
+                const dev = (file.devDependencies ? file.devDependencies[name] : undefined)
+
+                if (!depen && !dev)
+                  _plugins.push(name)
+              }
+            })
+          }
+        }
+      }
+
+      if (_plugins.length > 0) {
+        const { install } = await prompts([{
+          name: 'install',
+          type: 'confirm',
+          message: `These libraries need to be installed. Download ? ${red(_plugins.join(', '))}`,
+        }])
+
+        if (install) {
+          const data = execaCommandSync(`npx ni ${_plugins.join(' ')}`, { cwd }).stdout.toString()
+          consola.info(data)
+        }
+        if (!install)
+          process.exit(1)
+      }
+    }
+
+    if (_package)
+      await packageInstallCheck(_package)
 
     let blockWatch: chokidar.WatchOptions = {}
     const ignored: string[] = []
@@ -106,31 +152,6 @@ export default defineNuxtCommand({
 
     let modifiedTime: number
     let hexUrl: string
-
-    const _plugins: QuestionPlugin[] = []
-    const packageCheck = getJson(cwd)
-
-    if (packageCheck && packageCheck.dependencies) {
-      // eslint-disable-next-line dot-notation
-      const depen = packageCheck.dependencies['hobia']
-      // eslint-disable-next-line dot-notation
-      const dev = (packageCheck.devDependencies ? packageCheck.devDependencies['hobia'] : undefined)
-
-      if (!depen && !dev) {
-        _plugins.push(...[
-          {
-            display: 'ttttttttt',
-            name: 'compile-plugin',
-            variants: [
-              {
-                name: 'ts-to-js',
-                customCommand: 'bbbbbbbbbbbb',
-                display: 'bbb',
-              },
-            ],
-          }])
-      }
-    }
 
     watcher.on('all', async (event, _file) => {
       await middleware()

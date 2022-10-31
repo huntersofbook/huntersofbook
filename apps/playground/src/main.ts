@@ -5,6 +5,7 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
+// eslint-disable-next-line import/order
 import App from './App.vue'
 
 import './styles/main.css'

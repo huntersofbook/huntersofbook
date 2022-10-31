@@ -31,6 +31,7 @@ export interface CompileFileConfig {
   outputFile: string
 
   tsOptions?: TSConfig
+
 }
 
 let serviceFiles: CompileFileConfig[]
@@ -87,6 +88,7 @@ export default definePluginCommand({
     }
     return {}
   },
+  packagesName: ['typescript', 'huntersofbook'],
   async invoke(args, config, watch) {
     const status: PluginInvokeResult['status'] = 'wait'
     // const rootDir = resolve(args._[0] || '.')

@@ -36,6 +36,7 @@ export interface HuntersofbookPluginCommand {
     ignored: string[]
   }
   middleware?: (configKey: string, config: HuntersofbookConfig) => Promise<Record<any, any>>
+  packagesName?: string[]
 }
 
 export function definePluginCommand(command: HuntersofbookPluginCommand): HuntersofbookPluginCommand {

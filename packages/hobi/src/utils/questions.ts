@@ -1,18 +1,4 @@
-import {
-  Colorette,
-  blue,
-  cyan,
-
-  green,
-  magenta,
-  red,
-  reset,
-  yellow,
-} from 'colorette'
-import consola from 'consola'
 import prompts from 'prompts'
-
-type ColorFunc = (str: string | number) => string
 
 export interface QuestionPlugin {
   name: string

@@ -1,5 +1,5 @@
-import { existsSync, readdirSync } from 'fs'
-import { dirname, resolve } from 'path'
+import { existsSync } from 'fs'
+import { resolve } from 'path'
 
 import consola from 'consola'
 import { normalize } from 'pathe'
