@@ -13,17 +13,6 @@ export default defineHuntersofbookCommand({
     usage: 'init',
   },
   async invoke(_args) {
-    //   for (let i = 0; i < 1000; i++) {
-    //     imports += `import { Comp${i} } from './components/comp${i}.jsx'\n`
-    //     renderCode += `<Comp${i}/>\n`
-    //     fs.writeFileSync(
-    //       `src/components/comp${i}.jsx`,
-    //       `export function Comp${i}() {
-    //   return <div>hello ${i}</div>
-    // }`,
-    //     )
-    //   }
-
     const code = `
 import { defineHuntersofbookConfig } from 'huntersofbook/config'
 
