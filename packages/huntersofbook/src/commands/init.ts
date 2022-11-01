@@ -1,5 +1,4 @@
 import fs from 'node:fs'
-import { resolve } from 'path'
 
 import clear from 'clear'
 import consola from 'consola'
@@ -12,7 +11,7 @@ export default defineHuntersofbookCommand({
     description: 'Init settings',
     usage: 'init',
   },
-  async invoke(args) {
+  async invoke(_args) {
     //   for (let i = 0; i < 1000; i++) {
     //     imports += `import { Comp${i} } from './components/comp${i}.jsx'\n`
     //     renderCode += `<Comp${i}/>\n`
