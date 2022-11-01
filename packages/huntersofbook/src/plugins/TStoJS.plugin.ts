@@ -88,7 +88,7 @@ export default definePluginCommand({
     }
     return {}
   },
-  packagesName: ['typescript', 'huntersofbook'],
+  packagesName: ['typescript'],
   async invoke(args, config, watch) {
     const status: PluginInvokeResult['status'] = 'wait'
     // const rootDir = resolve(args._[0] || '.')
