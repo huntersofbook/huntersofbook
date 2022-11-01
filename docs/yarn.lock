@@ -872,15 +872,15 @@
     unstorage "^0.5.6"
     ws "^8.8.1"
 
-"@nuxt/content@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.2.0.tgz#51bd254333f9a2e19f4b25be3b0cf97963840f66"
-  integrity sha512-+RNRw88XDP6Am4S5MiYaHZJyd7REgBfAvrVI3N+Cl/4F8semHJ/NEDVaK95bZzcgKJMEK7kKFsC9sKdIvw3wWg==
+"@nuxt/content@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.2.1.tgz#8138e091a8acca05d8e8b5e195de3c2f5414c775"
+  integrity sha512-vmBiKqNBXkjY0vQm07cifmh/OFOFiMdqfkQC7firBRI5DAl0Z7aHnrv5Z/8UWXcFduYWdEK62DfgaU7eci4OBg==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.12"
     consola "^2.15.3"
     defu "^6.1.0"
-    destr "^1.1.1"
+    destr "^1.2.0"
     detab "^3.0.1"
     html-tags "^3.2.0"
     json5 "^2.2.1"
@@ -898,7 +898,7 @@
     rehype-sort-attributes "^4.0.0"
     remark-emoji "^3.0.2"
     remark-gfm "^3.0.1"
-    remark-mdc "^1.0.7"
+    remark-mdc "^1.1.0"
     remark-parse "^10.0.1"
     remark-rehype "^10.1.0"
     remark-squeeze-paragraphs "^5.0.1"
@@ -912,7 +912,7 @@
     unist-util-position "^4.0.3"
     unist-util-visit "^4.1.1"
     unstorage "^0.6.0"
-    ws "^8.9.0"
+    ws "^8.10.0"
 
 "@nuxt/devalue@^2.0.0":
   version "2.0.0"
@@ -5698,6 +5698,29 @@ micromark@^3.0.0, micromark@^3.0.10:
     micromark-util-types "^1.0.1"
     uvu "^0.5.0"
 
+micromark@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/micromark/-/micromark-3.1.0.tgz#eeba0fe0ac1c9aaef675157b52c166f125e89f62"
+  integrity sha512-6Mj0yHLdUZjHnOPgr5xfWIMqMWS12zDN6iws9SLuSz76W8jTtAv24MN4/CL7gJrl5vtxGInkkqDv/JIoRsQOvA==
+  dependencies:
+    "@types/debug" "^4.0.0"
+    debug "^4.0.0"
+    decode-named-character-reference "^1.0.0"
+    micromark-core-commonmark "^1.0.1"
+    micromark-factory-space "^1.0.0"
+    micromark-util-character "^1.0.0"
+    micromark-util-chunked "^1.0.0"
+    micromark-util-combine-extensions "^1.0.0"
+    micromark-util-decode-numeric-character-reference "^1.0.0"
+    micromark-util-encode "^1.0.0"
+    micromark-util-normalize-identifier "^1.0.0"
+    micromark-util-resolve-all "^1.0.0"
+    micromark-util-sanitize-uri "^1.0.0"
+    micromark-util-subtokenize "^1.0.0"
+    micromark-util-symbol "^1.0.0"
+    micromark-util-types "^1.0.1"
+    uvu "^0.5.0"
+
 micromatch@^4.0.2, micromatch@^4.0.4, micromatch@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.5.tgz#bc8999a7cbbf77cdc89f132f6e467051b49090c6"
@@ -7112,6 +7135,26 @@ remark-mdc@^1.0.7:
     unist-util-visit "^4.1.0"
     unist-util-visit-parents "^5.1.0"
 
+remark-mdc@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/remark-mdc/-/remark-mdc-1.1.0.tgz#e957acd19c98089fdf60e1ab1679cead1ee863ae"
+  integrity sha512-mUGNjzOqT6bBk4MyQjGHQzLWMmjEaxnomB5ZM8FFL7uSlPzUlQsVnwv9NpG4+usU6BA6YJoGNnSAws840+oq9A==
+  dependencies:
+    flat "^5.0.2"
+    js-yaml "^4.1.0"
+    mdast-util-from-markdown "^1.2.0"
+    mdast-util-to-markdown "^1.3.0"
+    micromark "^3.1.0"
+    micromark-core-commonmark "^1.0.6"
+    micromark-factory-space "^1.0.0"
+    micromark-factory-whitespace "^1.0.0"
+    micromark-util-character "^1.1.0"
+    parse-entities "^4.0.0"
+    scule "^0.3.2"
+    stringify-entities "^4.0.3"
+    unist-util-visit "^4.1.1"
+    unist-util-visit-parents "^5.1.1"
+
 remark-parse@^10.0.1:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-10.0.1.tgz#6f60ae53edbf0cf38ea223fe643db64d112e0775"
@@ -7634,7 +7677,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-stringify-entities@^4.0.2:
+stringify-entities@^4.0.2, stringify-entities@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/stringify-entities/-/stringify-entities-4.0.3.tgz#cfabd7039d22ad30f3cc435b0ca2c1574fc88ef8"
   integrity sha512-BP9nNHMhhfcMbiuQKCqMjhDP5yBCAxsPu4pHFFzJ6Alo9dZgY4VLDPutXqIjpRiMoKdp7Av85Gr73Q5uH9k7+g==
@@ -8602,6 +8645,11 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
+
+ws@^8.10.0:
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.10.0.tgz#00a28c09dfb76eae4eb45c3b565f771d6951aa51"
+  integrity sha512-+s49uSmZpvtAsd2h37vIPy1RBusaLawVe8of+GyEPsaJTCMpj/2v8NpeK1SHXjBlQ95lQTmQofOJnFiLoaN3yw==
 
 ws@^8.8.1:
   version "8.8.1"
