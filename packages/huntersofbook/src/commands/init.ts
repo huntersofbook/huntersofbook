@@ -13,9 +13,6 @@ export default defineHuntersofbookCommand({
     usage: 'init',
   },
   async invoke(args) {
-    const imports = ''
-    const renderCode = 'bbb'
-
     //   for (let i = 0; i < 1000; i++) {
     //     imports += `import { Comp${i} } from './components/comp${i}.jsx'\n`
     //     renderCode += `<Comp${i}/>\n`
@@ -36,7 +33,7 @@ export default defineHuntersofbookConfig({
 `
 
     // Resolve rootDir
-    const rootDir = resolve(args._[0] || '.')
+    // const rootDir = resolve(args._[0] || '.')
     clear()
     consola.info('Init Huntersofbook')
     fs.writeFileSync('huntersofbook.config.ts', code)
