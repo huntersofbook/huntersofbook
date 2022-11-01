@@ -572,19 +572,19 @@
     vue-types "^4.2.1"
     yup "^0.32.11"
 
-"@huntersofbook/plausible-nuxt@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/plausible-nuxt/-/plausible-nuxt-0.4.0.tgz#74a19a6e91f5adef18f75a390970b6cf4c965fa4"
-  integrity sha512-Loqhk+5F/CwmnH0aP3I+9sgSBYehZsi/eNZbJtYHRxXxc43MkBd2rcWNkqHSabriEesfA9ntxtsz3REexcnBWg==
+"@huntersofbook/plausible-nuxt@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/plausible-nuxt/-/plausible-nuxt-0.4.1.tgz#72c913a3647aa032b1ad65f2ac6fb69d56b031a6"
+  integrity sha512-RKCpFFpcq0ogxqT1lkITT1WwcPt23POgj4VfM3VVyV8iywvYrwzH7W5qNA0ROkfCel8JqN+leYVxyGzxoIx8Ag==
   dependencies:
-    "@huntersofbook/plausible-vue" "0.4.0"
+    "@huntersofbook/plausible-vue" "0.4.1"
     "@nuxt/kit" "^3.0.0-rc.12"
     defu "^6.1.0"
 
-"@huntersofbook/plausible-vue@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/plausible-vue/-/plausible-vue-0.4.0.tgz#1121b4743a5c0d40e29fd13fb05a4efb94ad5dc5"
-  integrity sha512-3a1sqNhOXP0vH0VXXZ44u3HQUiv3dYS32skQJIV7SMONrJUmbsNQDEjwSj3hcvUvdjhwdoFwKtTJzzzpTBFewA==
+"@huntersofbook/plausible-vue@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/plausible-vue/-/plausible-vue-0.4.1.tgz#f3a341e4814d6483b29a1a999b78a5e2a4c04b9b"
+  integrity sha512-GNFtIjKiBhBJLjENcDIoKNwC9X3FATh55tRskyzeHWJ9cnWId6r4viV70prXk7mwFm4UbDn1xDCrf5IxTU2nZg==
   dependencies:
     defu "^6.1.0"
     plausible-tracker "^0.3.8"
