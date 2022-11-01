@@ -15,4 +15,3 @@ export default defineHuntersofbookConfig({
     files: ['public/sw.js', 'public/swasadsd.js'],
   },
 })
-

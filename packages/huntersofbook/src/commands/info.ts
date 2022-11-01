@@ -2,9 +2,9 @@ import { resolve } from 'path'
 
 import jiti from 'jiti'
 
-import { defineNuxtCommand } from '.'
+import { defineHuntersofbookCommand } from '.'
 
-export default defineNuxtCommand({
+export default defineHuntersofbookCommand({
   meta: {
     name: 'info',
     description: 'Show information about the current project',

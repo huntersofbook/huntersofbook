@@ -4,6 +4,7 @@ export const _rDefault = (r: any) => r.default || r
 
 export const commands = {
   dev: () => import('./dev').then(_rDefault),
+  init: () => import('./init').then(_rDefault),
 }
 
 export type Command = keyof typeof commands
@@ -22,6 +23,6 @@ export interface HuntersofbookCommand {
   meta: HuntersofbookCommandMeta
 }
 
-export function defineNuxtCommand(command: HuntersofbookCommand): HuntersofbookCommand {
+export function defineHuntersofbookCommand(command: HuntersofbookCommand): HuntersofbookCommand {
   return command
 }

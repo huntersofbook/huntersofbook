@@ -17,7 +17,7 @@ import { IWatch } from '../types/watch'
 import { getJson } from '../utils/hasCheckPackage'
 import * as time from '../utils/time'
 import { resolveChokidarOptions } from '../utils/watch'
-import { defineNuxtCommand } from './index'
+import { defineHuntersofbookCommand } from './index'
 const returnFilePath = (files: any[], cwd: string) => {
   const _files: string[] = []
   files.forEach((file) => {
@@ -29,7 +29,7 @@ const returnFilePath = (files: any[], cwd: string) => {
   return _files
 }
 
-export default defineNuxtCommand({
+export default defineHuntersofbookCommand({
   meta: {
     name: 'dev',
     usage: 'huntersofbook dev',
