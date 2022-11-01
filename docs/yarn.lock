@@ -545,21 +545,21 @@
   resolved "https://registry.yarnpkg.com/@formkit/auto-animate/-/auto-animate-1.0.0-beta.3.tgz#d5eb724ccb44afba9348df32ce0b8bb10037a7ee"
   integrity sha512-glsi+ytwQpxT/Ctr9GtcIfVr4dO6mJ04mQbNU8MFSdCdqMopHtyfU5Fib0+9lNFIeR0luY4/0NW95/2R5pKsag==
 
-"@huntersofbook/core-nuxt@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/core-nuxt/-/core-nuxt-0.4.0.tgz#b8f22fda6827d5c892229084ed7b1e5e351f0554"
-  integrity sha512-G1v8WFjKi192MzWtfOKiFS4skBamCBBxg54MMXgCfT0ZKZSVilf3bNGQ7+H14UKX126D0H8nNqE9JHtEgLq5NA==
+"@huntersofbook/core-nuxt@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/core-nuxt/-/core-nuxt-0.4.1.tgz#bc756724453743e6e1307a8b57b92c31beb99ee8"
+  integrity sha512-Xb6bJIKiO1J1cC6V7E97tbzllWnrjeDc4zw2O0B0BtPXA+fD2z+jhkZNqhGM+faMjqRiClHlKOJpMKvxFVC7Vw==
   dependencies:
-    "@huntersofbook/core" "0.4.0"
+    "@huntersofbook/core" "0.4.1"
     "@nuxt/kit" "^3.0.0-rc.12"
     defu "^6.1.0"
-    huntersofbook "0.4.0"
+    huntersofbook "0.4.1"
     pathe "^0.3.9"
 
-"@huntersofbook/core@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/core/-/core-0.4.0.tgz#34d73e3f9137088b29468a1fb8eff7b747b4a155"
-  integrity sha512-msV/0RLXoyk0xWscdIX3d4QtLX9lOYSG44X+1/Sn589N3eP+WlrcV8wJCoqJ8pf5N2S/Ne8CQ+cQ7saLH/H17w==
+"@huntersofbook/core@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/core/-/core-0.4.1.tgz#f879bc1137fd8942cba2f85ab6c7f42e4ecf56ab"
+  integrity sha512-dMBAlYg2K0kk2FnZzYIoMwJCt5PyNS+riphQHtCqoBDw5qCOlxs6XzwmTwCq8yEvOZfGH2Mq+hUmwQSAHUvidA==
   dependencies:
     "@formkit/auto-animate" "^1.0.0-beta.3"
     "@types/lodash" "^4.14.186"
@@ -589,12 +589,12 @@
     defu "^6.1.0"
     plausible-tracker "^0.3.8"
 
-"@huntersofbook/ui@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@huntersofbook/ui/-/ui-0.4.0.tgz#35e552b2b3eb10517aed4179653df1634fdd9fb1"
-  integrity sha512-QO7WT+2Oty8o+PSqii1kYRovSJh8TtMXt+6AGWs+59Ep3Fy819ILs/tpeXq3ZAcW7Db3XXW2MN8WzEZMVq8IPA==
+"@huntersofbook/ui@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@huntersofbook/ui/-/ui-0.4.1.tgz#cae59628881beca41cba86f51f31b5af594c4dda"
+  integrity sha512-XOSbrYcAc9XgWWKimPloetNRFPm8xLgXtHoYQ1Wjwx+vU1LARXFRjyQX4ZYVHfCv7a6+8oGTti7seZkFCGpJbQ==
   dependencies:
-    "@huntersofbook/core" "0.4.0"
+    "@huntersofbook/core" "0.4.1"
     "@vueuse/motion" "^2.0.0-beta.24"
     "@zxcvbn-ts/core" "^2.1.0"
     date-fns "^2.29.3"
@@ -4512,13 +4512,13 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-huntersofbook@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/huntersofbook/-/huntersofbook-0.4.0.tgz#90822e32ca5891ec3c9c39ad31a13e288abd6786"
-  integrity sha512-5+zSZAKOOYQDEwZLUXCBBA71sWyVcVVU9i5ZeIMLNOFsrjHFGK+taVWcAMvZZm0PHAGNswQnW3zl13CfDbo16w==
+huntersofbook@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/huntersofbook/-/huntersofbook-0.4.1.tgz#1855cb9410ef5fed149fe4c8aea6be807639d71b"
+  integrity sha512-qFHGehyFpsoUKBh6ZXQVvcHkzrC7v06mErxLzte+FmAtkxrSjm0YVtwP1vkE8Y+UE6/Ftc4rDKpzw6Wxlb3Fww==
   dependencies:
-    "@huntersofbook/core" "0.4.0"
-    "@huntersofbook/ui" "0.4.0"
+    "@huntersofbook/core" "0.4.1"
+    "@huntersofbook/ui" "0.4.1"
 
 iconv-lite@^0.4.24:
   version "0.4.24"
