@@ -1,6 +1,6 @@
 {
   "name": "huntersofbook",
-  "version": "0.4.1",
+  "version": "0.4.2-beta.0",
   "description": "Compile TypeScript service workers files with Vite",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
