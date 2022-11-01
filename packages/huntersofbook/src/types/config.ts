@@ -3,7 +3,7 @@ import { WatchOptions } from 'fs'
 import { CompileFileConfig } from '../plugins/TStoJS.plugin'
 export interface HuntersofbookConfig {
   tsTOjs?: CompileFileConfig[]
-  blockedWatch: {
+  blockedWatch?: {
     files: string[]
     options?: WatchOptions
   }
