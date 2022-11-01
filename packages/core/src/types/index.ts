@@ -13,6 +13,7 @@ export type HuntersofbookPluginFabric<O extends any[] = []> = (
   ...args: O
 ) => HuntersofbookPlugin
 
+// eslint-disable-next-line antfu/generic-spacing
 export const defineHuntersofbookPlugin = <O extends any[]>(
   fabric: HuntersofbookPluginFabric<O>,
 ) => fabric
