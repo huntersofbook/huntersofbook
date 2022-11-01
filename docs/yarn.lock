@@ -5859,10 +5859,10 @@ mlly@^0.5.14, mlly@^0.5.16, mlly@^0.5.2, mlly@^0.5.4, mlly@^0.5.7:
     pkg-types "^0.3.5"
     ufo "^0.8.5"
 
-monaco-editor-core@^0.34.0:
-  version "0.34.0"
-  resolved "https://registry.yarnpkg.com/monaco-editor-core/-/monaco-editor-core-0.34.0.tgz#7c1727d88c3fb70f48cea0e13aac8c05c0b44700"
-  integrity sha512-vyKwADMPe0oNGg+NgxWQCj00IvweeyEGeu0ZiJ14L8HUc5hNvkPAzc8RcSf9lRSpgy4Nc/S63AeqAvARsofObg==
+monaco-editor-core@^0.34.1:
+  version "0.34.1"
+  resolved "https://registry.yarnpkg.com/monaco-editor-core/-/monaco-editor-core-0.34.1.tgz#e51563e87f3ba392a86254fb7aeaa1ba8ae129f4"
+  integrity sha512-RaYj0HGvKZjy7H3HCluhypExLi2Z7rpHVKc4KQ6iShqY3TW5cKGaETrr4wJ7aPz2UAWVtGmXNjea/BpoCAjY+w==
 
 mri@^1.1.0, mri@^1.2.0:
   version "1.2.0"
