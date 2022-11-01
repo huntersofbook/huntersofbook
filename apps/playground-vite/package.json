@@ -1,0 +1,15 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "huntersofbook dev"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^9.12.1",
+    "huntersofbook": "workspace:*",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.8.4"
+  }
+}

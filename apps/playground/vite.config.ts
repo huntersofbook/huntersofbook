@@ -9,7 +9,6 @@ import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
-
 export default defineConfig({
   resolve: {
     alias: {
@@ -71,6 +70,7 @@ export default defineConfig({
       compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),
+
   ],
   build: {
     target: 'esnext',
