@@ -21,7 +21,8 @@
     "dist",
     "bin",
     "config.*",
-    "type.d.ts"
+    "type.d.ts",
+    "tsconfig.json"
   ],
   "type": "module",
   "exports": {

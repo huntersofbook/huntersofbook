@@ -88,7 +88,8 @@ export default defineHuntersofbookCommand({
     const load = async (watch?: IWatch) => {
       const __config = await loadHuntersofbookConfig({ cwd })
       const data = debounce(async () => {
-        ignored.push(...returnFilePath(__config.blockedWatch?.files, cwd) || [])
+        if (__config.blockedWatch?.files)
+          ignored.push(...returnFilePath(__config.blockedWatch?.files, cwd) || [])
 
         for await (const [key] of Object.entries(plugins)) {
           for await (const [_key] of Object.entries(__config)) {
@@ -117,7 +118,7 @@ export default defineHuntersofbookCommand({
         }
 
         blockWatch = resolveChokidarOptions({
-          ...__config.blockedWatch.options,
+          ...__config.blockedWatch?.options,
           ignored,
         })
       })
@@ -145,17 +146,20 @@ export default defineHuntersofbookCommand({
     }
 
     await load()
-
+    console.log(rootDir)
     const watcher = chokidar.watch([rootDir], {
       ...blockWatch,
+      cwd,
+      depth: 3,
     })
 
     let modifiedTime: number
     let hexUrl: string
-
     watcher.on('all', async (event, _file) => {
-      await middleware()
+      if (blockWatch.ignored && (typeof blockWatch.ignored === 'object' && (blockWatch.ignored as string[]).length > 0))
+        watcher.unwatch(blockWatch.ignored as string[])
 
+      await middleware()
       const stats = statSync(_file)
       const file = normalize(_file)
 

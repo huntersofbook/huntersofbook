@@ -1,10 +1,11 @@
 import { existsSync, readFileSync } from 'fs'
 
 import nodeResolve from '@rollup/plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
+import { RollupTypescriptPluginOptions } from '@rollup/plugin-typescript'
 import { red } from 'colorette'
 import consola from 'consola'
 import { defu } from 'defu'
+import ora from 'ora'
 import { basename, resolve } from 'pathe'
 import type { TSConfig } from 'pkg-types'
 import type { InputOptions, OutputOptions } from 'rollup'
@@ -39,18 +40,20 @@ let serviceFiles: CompileFileConfig[]
 const writeSWFile = async () => {
   await asyncForEach(serviceFiles, async (config: CompileFileConfig) => {
     const tsSettings = defu(config.tsOptions, {
+      tsconfig: false,
       compilerOptions: {
-        lib: ['ESNext', 'WebWorker'],
         noEmit: false,
         strict: false,
-        outDir: 'public',
         target: 'ESNext',
-        isolatedModules: false,
         removeComments: true,
+        isolatedModules: false,
       },
-    } as TSConfig)
+      include: config.inputFile,
+    } as RollupTypescriptPluginOptions)
+    const typescript = (await import('@rollup/plugin-typescript')).default
+
     const inputOptions: InputOptions = {
-      plugins: [minify(), nodeResolve({}), typescript({ ...tsSettings }), cleanup({ comments: 'none', sourcemap: true })],
+      plugins: [minify(), nodeResolve(), typescript({ ...tsSettings }), cleanup({ comments: 'none', sourcemap: true })],
       input: config.inputFile,
     }
     const outputOptions: OutputOptions = {
@@ -106,7 +109,8 @@ export default definePluginCommand({
 
       await asyncForEach(data.length ? data : config.tsTOjs, async (file: CompileFileConfig) => {
         await voidTimer(async (timer) => {
-          consola.start(`${basename(file.outputFile || watch?.file || '')}`)
+          const spinner = ora(`${basename(file.outputFile || watch?.file || '')}`).start()
+
           const fileDir = resolve(file.inputFile)
           const hasFiles = existsSync(fileDir) ? readFileSync(fileDir).length > 0 : false
 
@@ -115,7 +119,7 @@ export default definePluginCommand({
 
           if ((watch && watch.file.includes(file.inputFile) && hasFiles) || (config && hasFiles)) {
             await writeSWFile().then(() => {
-              consola.success(`${basename(file.outputFile || watch?.file || '')} file updated ${finishTime(timer)}`)
+              spinner.succeed(`${basename(file.outputFile || watch?.file || '')} finish ~ ${finishTime(timer)}`)
             })
           }
         })

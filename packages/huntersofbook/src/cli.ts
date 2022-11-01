@@ -15,7 +15,7 @@ async function _main() {
   })
 
   const command = args._.shift() || 'usage'
-  consola.info('command', command)
+  consola.info('cli', command)
 
   const cmd = await commands[command as Command]() as HuntersofbookCommand
   if (args.h || args.help) {
