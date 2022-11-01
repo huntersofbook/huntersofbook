@@ -1149,10 +1149,10 @@
     lodash.template "^4.5.0"
     pathe "^0.3.5"
 
-"@nuxtjs/i18n@^8.0.0-beta.1":
-  version "8.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-8.0.0-beta.1.tgz#af0157423d4645a6fb13c60d55886afe2a7df41e"
-  integrity sha512-gpxaZharrFZDR70wm5X/MqrNn7h98wG8W7R4Np/8/mzrZ517CqUhAKi3lvsM67uSGKuEroEolrhXKD1j1WTjoA==
+"@nuxtjs/i18n@^8.0.0-beta.3":
+  version "8.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-8.0.0-beta.3.tgz#4cd9af6fd80afb60173c006e4053be7ba1e2f929"
+  integrity sha512-W109n/O9bxM/kX0PGlmVOdYnCROs8oKo+/Nuayat+FCyOBtOON8wnbBWHo3Q7B9mMrICr6LyDYxAJWRYReXVZA==
   dependencies:
     "@intlify/bundle-utils" "^3.2.1"
     "@intlify/shared" "9.3.0-beta.6"
@@ -1169,7 +1169,7 @@
     ufo "^0.8.5"
     unplugin "^0.9.6"
     vue-i18n "^9.3.0-beta.6"
-    vue-i18n-routing "^0.7.0"
+    vue-i18n-routing "^0.8.1"
 
 "@nuxtjs/tailwindcss@^5.3.3":
   version "5.3.3"
@@ -8493,10 +8493,10 @@ vue-devtools-stub@^0.1.0:
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
 
-vue-i18n-routing@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/vue-i18n-routing/-/vue-i18n-routing-0.7.0.tgz#656583233615121c4b73be9fdeb57b8e36e385d2"
-  integrity sha512-bbePATep5qxDqR2J8ghu1FB59mHHX5c0zmVmvcgjKDRLdRIEfVwskWWz5p1E3gITtl403a8jr/KtHyuyJLLAsg==
+vue-i18n-routing@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/vue-i18n-routing/-/vue-i18n-routing-0.8.1.tgz#abda04833b99ee7dfc95bdd270148183fb58987a"
+  integrity sha512-oy4oLlyzFRjcAhilmbyT+Awaj/LjRlz2LBpJOBjtrzLRjSnG4Y6ulyKSESDHQ418pQaVJ1ZqeibtuA+V6/TOug==
   dependencies:
     "@intlify/shared" next
     "@intlify/vue-i18n-bridge" "^0.7.0"
