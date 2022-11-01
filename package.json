@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
     "play": "npm -C playground run dev",
-    "release": "bumpp package.json packages/**/package.json",
+    "release": "bumpp package.json",
     "stub": "pnpm -r --filter=./packages/* --parallel run dev",
     "apps": "pnpm -r --filter=./apps/* --parallel run dev",
     "typecheck": "tsc --noEmit",
