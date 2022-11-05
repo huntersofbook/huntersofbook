@@ -38,7 +38,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm dev:prepare && pnpm nuxt-module-build",
+    "build": "pnpm build:vue && pnpm dev:prepare && pnpm nuxt-module-build",
+    "build:vue": "cd ../plausible-vue && pnpm build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
