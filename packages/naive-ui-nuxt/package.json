@@ -38,7 +38,7 @@
     "dev": "pnpm dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "release": "bumpp package.json --tag \"naive-ui-nuxt@v%s\" --commit \"naive-ui-nuxt@v%s\" --push"
+    "release": "bumpp package.json --tag \"naive-ui-nuxt@v%s\" --commit \"naive-ui-nuxt@v%s\" --no-push"
   },
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.11",
