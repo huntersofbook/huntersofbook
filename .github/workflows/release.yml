@@ -2,12 +2,15 @@ name: Release
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
       - 'huntersofbook*'
       - '**@v*'
-      - '*nuxt'
-      - '*vue'
+      - '*@v*'
+      - '*@v'
+
 
 jobs:
   release:
