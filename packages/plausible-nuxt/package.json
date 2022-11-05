@@ -4,6 +4,7 @@
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
+  "private": false,
   "funding": "https://github.com/sponsors/huntersofbook",
   "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/plausible-nuxt#readme",
   "repository": {
@@ -40,7 +41,8 @@
     "build": "pnpm dev:prepare && pnpm nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@huntersofbook/plausible-vue": "workspace:*",

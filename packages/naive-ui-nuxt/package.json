@@ -38,7 +38,8 @@
     "build": "pnpm dev:prepare && pnpm nuxt-module-build",
     "dev": "pnpm dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.11",

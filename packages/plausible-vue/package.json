@@ -41,7 +41,8 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "stub": "unbuild --stub"
+    "stub": "unbuild --stub",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "unconfig": "^0.3.7",

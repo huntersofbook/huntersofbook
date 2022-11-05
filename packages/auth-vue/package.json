@@ -33,7 +33,8 @@
     "dev": "tsup --watch",
     "lint": "eslint \"./**/*.{ts,vue}\"",
     "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "crypto-js": "^4.1.1"
