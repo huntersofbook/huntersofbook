@@ -2,13 +2,10 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
     tags:
-      - 'v*'
-      - 'huntersofbook*'
-      - '*@v*'
-
+      - "v*"
+      - "huntersofbook*"
+      - "*@v*"
 
 jobs:
   release:
@@ -21,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Setup
         run: npm i -g @antfu/ni pnpm
