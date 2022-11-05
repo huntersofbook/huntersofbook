@@ -63,8 +63,6 @@ export function getPackageInfo(pkgName: string): {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const pkg: Pkg = require(pkgPath)
   const currentVersion = pkg.version
-  pkgName = pkg.name
-  console.debug(`Package ${pkgName} version: ${currentVersion}`)
 
   if (pkg.private)
     throw new Error(`Package ${pkgName} is private`)
@@ -204,7 +202,11 @@ export async function getLatestTag(pkgName: string): Promise<string> {
 }
 
 export async function getActiveVersion(pkgName: string): Promise<string> {
-  return (await run('npm', ['info', pkgName, 'version'], { stdio: 'pipe' }))
+  const npmName
+    = pkgName === 'huntersofbook'
+      ? pkgName
+      : `@huntersofbook/${pkgName}`
+  return (await run('npm', ['info', npmName, 'version'], { stdio: 'pipe' }))
     .stdout
 }
 
@@ -216,9 +218,9 @@ export async function logRecentCommits(pkgName: string): Promise<void> {
   }).then(res => res.stdout.trim())
   console.log(
     colors.bold(
-            `\n${colors.blue('i')} Commits of ${colors.green(
-                pkgName,
-            )} since ${colors.green(tag)} ${colors.gray(`(${sha.slice(0, 5)})`)}`,
+      `\n${colors.blue('i')} Commits of ${colors.green(
+        pkgName,
+      )} since ${colors.green(tag)} ${colors.gray(`(${sha.slice(0, 5)})`)}`,
     ),
   )
   await run(
@@ -226,13 +228,12 @@ export async function logRecentCommits(pkgName: string): Promise<void> {
     [
       '--no-pager',
       'log',
-            `${sha}..HEAD`,
-            '--oneline',
-            '--',
-            `packages/${pkgName}`,
+      `${sha}..HEAD`,
+      '--oneline',
+      '--',
+      `packages/${pkgName}`,
     ],
     { stdio: 'inherit' },
   )
   console.log()
 }
-
