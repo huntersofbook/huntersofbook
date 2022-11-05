@@ -41,12 +41,12 @@
   },
   "dependencies": {
     "@huntersofbook/chatwoot-vue": "workspace:*",
-    "@nuxt/kit": "^3.0.0-rc.12",
+    "@nuxt/kit": "^3.0.0-rc.13",
     "defu": "^6.1.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.0",
-    "@nuxt/schema": "^3.0.0-rc.12",
-    "nuxt": "^3.0.0-rc.12"
+    "@nuxt/schema": "^3.0.0-rc.13",
+    "nuxt": "^3.0.0-rc.13"
   }
 }
