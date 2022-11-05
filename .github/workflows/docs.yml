@@ -1,0 +1,16 @@
+on:
+  push:
+    tags:
+      - 'docs*'
+jobs:
+  publish:
+    # prevents this action from running on forks
+    if: github.repository == 'huntersofbook/huntersofbook'
+    runs-on: ubuntu-latest
+    environment: Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy to Docs
+        run: curl -X POST -d {} ${{ secrets.DEPLOY_DOCS_URL }}
