@@ -5,6 +5,7 @@ on:
     tags:
       - 'v*'
       - 'huntersofbook*'
+      - '**@v*'
       - '*nuxt'
       - '*vue'
 
