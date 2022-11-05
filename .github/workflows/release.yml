@@ -5,6 +5,8 @@ on:
     tags:
       - 'v*'
       - 'huntersofbook*'
+      - '*nuxt'
+      - '*vue'
 
 jobs:
   release:

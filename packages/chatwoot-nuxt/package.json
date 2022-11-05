@@ -37,7 +37,8 @@
     "build": "pnpm dev:prepare && pnpm nuxt-module-build",
     "dev": "pnpm dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "release": "bumpp package.json --tag \"chatwoot-nuxt@v%s\" --commit \"chatwoot-nuxt@v%s\" --no-push"
   },
   "dependencies": {
     "@huntersofbook/chatwoot-vue": "workspace:*",
