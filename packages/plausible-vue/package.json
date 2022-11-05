@@ -42,7 +42,7 @@
   "scripts": {
     "build": "unbuild",
     "stub": "unbuild --stub",
-    "release": "bumpp package.json --tag \"plausible-vue@v%s\" --commit \"plausible-vue@v%s\" --no-push"
+    "release": "bumpp package.json --tag \"plausible-vue@v%s\" --commit \"plausible-vue@v%s\" "
   },
   "devDependencies": {
     "unconfig": "^0.3.7",

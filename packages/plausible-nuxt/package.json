@@ -41,7 +41,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "release": "bumpp package.json --tag \"plausible-nuxt@v%s\" --commit \"plausible-nuxt@v%s\" --no-push"
+    "release": "bumpp package.json --tag \"plausible-nuxt@v%s\" --commit \"plausible-nuxt@v%s\" "
   },
   "dependencies": {
     "@huntersofbook/plausible-vue": "workspace:*",
