@@ -79,6 +79,7 @@
       "public",
       ".output",
       "!.storybook",
-      "storybook-static"
+      "storybook-static",
+      ".github"
     ]
 }
