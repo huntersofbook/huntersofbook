@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-      - 'huntersofbook*'
       - '*v*'
       - '**v*'
       - '**v*'
