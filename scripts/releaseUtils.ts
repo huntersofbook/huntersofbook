@@ -62,8 +62,9 @@ export function getPackageInfo(pkgName: string): {
   const pkgPath = path.resolve(pkgDir, 'package.json')
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const pkg: Pkg = require(pkgPath)
-  console.debug(pkg)
   const currentVersion = pkg.version
+  pkgName = pkg.name
+  console.debug(`Package ${pkgName} version: ${currentVersion}`)
 
   if (pkg.private)
     throw new Error(`Package ${pkgName} is private`)
