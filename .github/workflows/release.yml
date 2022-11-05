@@ -6,6 +6,7 @@ on:
       - "v*"
       - "huntersofbook*"
       - "*@v*"
+      - "**@v*'"
 
 jobs:
   release:
