@@ -8,6 +8,9 @@ on:
       - 'v*'
       - 'huntersofbook*'
       - '**@v*'
+      - '*@v*'
+      - '*@v'
+
 
 jobs:
   release:
