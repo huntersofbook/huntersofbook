@@ -6,8 +6,6 @@ on:
       - 'v*'
       - 'huntersofbook*'
       - '*@v*'
-      - '*nuxt'
-      - '*vue'
 
 jobs:
   release:
