@@ -37,8 +37,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "stub": "unbuild --stub",
-    "release": "bumpp package.json --tag \"chatwoot-vue@v%s\" --commit \"chatwoot-vue@v%s\" "
+    "stub": "unbuild --stub"
   },
   "devDependencies": {
     "unconfig": "^0.3.7",

@@ -36,7 +36,6 @@
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.4.1",
     "@types/semver": "^7.3.13",
-    "bumpp": "^8.2.1",
     "conventional-changelog-cli": "^2.2.2",
     "eslint": "^8.26.0",
     "eslint-plugin-import": "^2.26.0",
