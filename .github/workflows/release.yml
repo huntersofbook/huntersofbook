@@ -5,8 +5,9 @@ on:
     branches:
       - main
     tags:
-      - '*v*'
+      - 'v*'
       - 'huntersofbook*'
+      - '**@v*'
 
 jobs:
   release:
