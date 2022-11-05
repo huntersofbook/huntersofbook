@@ -7,7 +7,7 @@ on:
     tags:
       - 'v*'
       - 'huntersofbook*'
-      - '@v'
+      - '**@*v**'
 
 jobs:
   release:
