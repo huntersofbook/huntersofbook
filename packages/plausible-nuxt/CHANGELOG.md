@@ -1,3 +1,7 @@
+## [0.4.3](https://github.com/huntersofbook/huntersofbook/compare/plausible-nuxt@0.4.2...plausible-nuxt@0.4.3) (2022-11-05)
+
+
+
 ## 0.4.2 (2022-11-05)
 
 
