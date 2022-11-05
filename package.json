@@ -2,7 +2,7 @@
   "name": "@huntersofbook/monorepo",
   "version": "0.4.1",
   "private": true,
-  "packageManager": "pnpm@7.14.1",
+  "packageManager": "pnpm@7.14.2",
   "scripts": {
     "build": "pnpm rimraf packages/*/dist && pnpm -r --filter=./packages/* run build",
     "doc:generate": "pnpm -r --filter=./apps/nuxt-docs run build",
@@ -19,7 +19,7 @@
     "test:update": "vitest -u"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.29.2",
+    "@antfu/eslint-config": "^0.29.3",
     "@huntersofbook/auth-vue": "workspace:*",
     "@huntersofbook/core": "workspace:*",
     "@huntersofbook/core-nuxt": "workspace:*",
@@ -30,13 +30,13 @@
     "@huntersofbook/naive-ui-nuxt": "workspace:*",
     "@huntersofbook/ui": "workspace:*",
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
-    "@types/lodash": "^4.14.187",
+    "@types/lodash": "^4.14.188",
     "bumpp": "^8.2.1",
     "eslint": "^8.26.0",
     "eslint-plugin-import": "^2.26.0",
     "huntersofbook": "workspace:*",
     "lodash": "4.17.21",
-    "pnpm": "7.14.1",
+    "pnpm": "7.14.2",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "rimraf": "^3.0.2",
     "rollup": "^3.2.5",
