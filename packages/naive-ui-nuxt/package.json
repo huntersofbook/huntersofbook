@@ -1,9 +1,10 @@
 {
   "name": "@huntersofbook/naive-ui-nuxt",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
+  "private": false,
   "funding": "https://github.com/sponsors/huntersofbook",
   "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt#readme",
   "repository": {
