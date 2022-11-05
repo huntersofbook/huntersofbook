@@ -62,6 +62,7 @@ export function getPackageInfo(pkgName: string): {
   const pkgPath = path.resolve(pkgDir, 'package.json')
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const pkg: Pkg = require(pkgPath)
+  console.debug(pkg)
   const currentVersion = pkg.version
 
   if (pkg.private)
