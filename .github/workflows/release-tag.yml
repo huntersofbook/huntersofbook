@@ -5,9 +5,8 @@ on:
     tags:
       - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
       - '*v*'
-      - '**v*'
-      - '**v*'
       - '**@v**'
+      - '**@**'
 
 
 # $GITHUB_REF_NAME - https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
