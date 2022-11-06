@@ -1,6 +1,12 @@
 ![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/plausible-nuxt.png?raw=true)
 
 # Plausible Nuxt 3 Module
+
+<br/>
+
+### @huntersofbook/plausible-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/plausible-nuxt.svg)](https://npmjs.com/package/@hunterofbook/plausible-nuxt)
+<br/>
+
 This module huntersofbook team created.
 
 > [Plausible](https://plausible.io/docs) integration for [Nuxt](https://nuxtjs.org)

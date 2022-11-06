@@ -1,5 +1,9 @@
-# @huntersofbook/core
 ![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/plausible-vue.png?raw=true)
+# Plausible Vue
+<br/>
+
+### @huntersofbook/plausible-vue [![npm](https://img.shields.io/npm/v/@huntersofbook/plausible-vue.svg)](https://npmjs.com/package/@hunterofbook/plausible-vue)
+<br/>
 
 huntersofbook offers specific tools for the vue ecosystem.
 

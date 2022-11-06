@@ -2,6 +2,11 @@
 
 
 # Chatwoot Nuxt 3 Module
+<br/>
+
+### @huntersofbook/chatwoot-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/chatwoot-nuxt.svg)](https://npmjs.com/package/@hunterofbook/chatwoot-nuxt)
+<br/>
+
 This module huntersofbook team created.
 
 > [ChatWoot](https://www.chatwoot.com/help-center) integration for [Nuxt](https://nuxtjs.org)

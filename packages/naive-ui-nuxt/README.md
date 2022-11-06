@@ -1,6 +1,11 @@
 ![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/naive-ui-nuxt.png?raw=true)
 
 # Naive UI Nuxt 3 Module
+<br/>
+
+### @huntersofbook/naive-ui-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/naive-ui-nuxt.svg)](https://npmjs.com/package/@hunterofbook/naive-ui-nuxt)
+<br/>
+
 This module huntersofbook team created.
 
 > [Naive UI](https://www.naiveui.com/en-US/light/components/button) integration for [Nuxt](https://nuxtjs.org)
