@@ -1,4 +1,4 @@
-import { createHuntersofbookEssential, loadDateFNSLocale } from 'huntersofbook'
+import { createHuntersofbookEssential, loadDateFNSLocale } from '@huntersofbook/core'
 import { createI18n } from 'vue-i18n'
 
 import type { UserModule } from '~/types'

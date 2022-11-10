@@ -7,9 +7,8 @@ import {
   HNSelect,
   HNSwitch,
 } from '@huntersofbook/form-naiveui'
-import { HPasswordMetter } from '@huntersofbook/ui'
-import type { InputSchema } from 'huntersofbook'
-import { FYup, FormSection, useFormSection } from 'huntersofbook'
+import type { InputSchema } from '@huntersofbook/core'
+import {FormSection, FYup, useFormSection, HPasswordMetter } from '@huntersofbook/ui'
 import type { InputProps } from 'naive-ui'
 interface SignInInput {
   data1: string
@@ -31,6 +30,7 @@ const schemas: InputSchema<SignInInput, 'one', ['test']> = {
     forms: [
       {
         id: 'data1',
+        hidden: true,
         name: 'data1',
         label: 'HNInput',
         component: HNInput,
