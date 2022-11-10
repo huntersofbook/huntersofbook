@@ -21,6 +21,7 @@ export interface IForm<T, K extends Array<String>> {
   name: keyof T | K[number]
   successMessage?: string
   label: string
+  hidden?: boolean
   width?: string[]
   init?: any
   attrs?: Record<string, unknown> | InputHTMLAttributes
