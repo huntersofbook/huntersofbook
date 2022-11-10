@@ -42,10 +42,10 @@
   },
   "devDependencies": {
     "unconfig": "^0.3.7",
-    "vue": "^3.2.41"
+    "vue": "^3.2.44"
   },
   "peerDependencies": {
-    "vue": "^3.2.41"
+    "vue": "^3.2.44"
   },
   "dependencies": {
     "defu": "^6.1.0"
