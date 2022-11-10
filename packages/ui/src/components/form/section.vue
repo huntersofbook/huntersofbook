@@ -36,6 +36,7 @@ const post = (e: Event) => {
       >
         <slot name="itemsHeader" v-bind="item" />
         <component
+          v-show="!item.hidden"
           :is="item.component"
           :id="item.id"
           :name="item.name"
@@ -80,7 +81,7 @@ const post = (e: Event) => {
             "
           >
             <div
-              v-for="item in attrs.forms"
+              v-for="item in props.forms"
               :key="item.name"
               :class="item.width ? item.width : 'col-span-full'"
             >
