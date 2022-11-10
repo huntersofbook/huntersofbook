@@ -36,8 +36,8 @@ const post = (e: Event) => {
       >
         <slot name="itemsHeader" v-bind="item" />
         <component
-          v-show="!item.hidden"
           :is="item.component"
+          v-show="!item.hidden"
           :id="item.id"
           :name="item.name"
           :init="item.init"

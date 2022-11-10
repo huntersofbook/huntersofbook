@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { InputSchema } from '@huntersofbook/core'
 import {
   HNButton,
   HNCheckbox,
@@ -7,8 +8,7 @@ import {
   HNSelect,
   HNSwitch,
 } from '@huntersofbook/form-naiveui'
-import type { InputSchema } from '@huntersofbook/core'
-import {FormSection, FYup, useFormSection, HPasswordMetter } from '@huntersofbook/ui'
+import { FYup, FormSection, HPasswordMetter, useFormSection } from '@huntersofbook/ui'
 import type { InputProps } from 'naive-ui'
 interface SignInInput {
   data1: string

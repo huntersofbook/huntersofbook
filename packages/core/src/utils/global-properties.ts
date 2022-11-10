@@ -20,7 +20,7 @@ declare module 'vue' {
  * ```
  * @example See `global-config` or `color-config` for example
  */
-// eslint-disable-next-line antfu/generic-spacing
+
 export const defineGlobalProperty = <
   Key extends keyof ComponentCustomProperties,
   Value extends ComponentCustomProperties[Key],
@@ -34,7 +34,7 @@ export const defineGlobalProperty = <
 }
 
 /** Type safe return vue global property */
-// eslint-disable-next-line antfu/generic-spacing
+
 export const getGlobalProperty = <Key extends keyof ComponentCustomProperties>(
   app: App | AppContext,
   key: Key,

@@ -24,7 +24,7 @@ const isPluginFabric = (
  * })
  * ```
  */
-// eslint-disable-next-line antfu/generic-spacing
+
 export const usePlugin = <O>(
   app: App,
   plugin: HuntersofbookPlugin | HuntersofbookPluginFabric<O[]>,
