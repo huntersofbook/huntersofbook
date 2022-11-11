@@ -52,10 +52,10 @@
     "yup": "^0.32.11"
   },
   "peerDependencies": {
-    "vue": "^3.2.44"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "unconfig": "^0.3.7",
-    "vue": "^3.2.44"
+    "vue": "^3.2.45"
   }
 }
