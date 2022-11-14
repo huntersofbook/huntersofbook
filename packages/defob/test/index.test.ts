@@ -196,7 +196,7 @@ test('object in array in array', () => {
       dd1: [
         {
           tt: [{
-            theme: 'bbbb',
+            theme: 'aaa',
           }],
         },
       ],
