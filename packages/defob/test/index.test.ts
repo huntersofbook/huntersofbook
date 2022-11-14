@@ -190,7 +190,7 @@ test('object in array', () => {
   )
 })
 
-test('object in array', () => {
+test('object in array in array', () => {
   const schema = {
     pages: {
       dd1: [
