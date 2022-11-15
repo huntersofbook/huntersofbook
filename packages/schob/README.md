@@ -1,3 +1,20 @@
+![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/schob.jpg?raw=true)
+
+# Schob
+<br/>
+
+### @huntersofbook/schob [![npm](https://img.shields.io/npm/v/@huntersofbook/schob.svg)](https://npmjs.com/package/@hunterofbook/schob)
+<br/>
+
+
+## Installation
+
+```bash
+pnpm add @huntersofbook/schob
+```
+
+## Usage
+
 ```ts
 import { merge } from '@huntersofbook/schob'
 
@@ -27,10 +44,19 @@ const newData = {
 
 const res = merge({ schema, newData })
 
-// Output:
-// {
-//     isPro: false,
-//     darkMode: true,
-//     pages: { home: false, settings: true },
-// }
 ```
+
+### Output
+```bash
+
+{
+    isPro: false,
+    darkMode: true,
+    pages: { home: false, settings: true },
+ }
+ ```
+
+
+ ## License
+
+MIT License © 2022-PRESENT [productdevbook](https://github.com/productdevbook)
