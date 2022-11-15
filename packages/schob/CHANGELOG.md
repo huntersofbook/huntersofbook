@@ -1,3 +1,7 @@
+# [0.1.0-alpha.2](https://github.com/huntersofbook/huntersofbook/compare/schob@0.1.0-alpha.1...schob@0.1.0-alpha.2) (2022-11-15)
+
+
+
 # 0.1.0-alpha.1 (2022-11-15)
 
 

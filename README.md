@@ -15,6 +15,15 @@ As a sponsor, you can support us and our software that we have developed on book
 </p>
 <br/>
 
+## Packages
+
+
+| Package                                           | README (click for read me)                                                                                                       |
+| ------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| [@huntersofbook/schob](packages/schob)                             | [![@huntersofbook/schob version](https://img.shields.io/npm/v/@huntersofbook/schob.svg?label=%20)](packages/schob/CHANGELOG.md)                                       |
+
+
+
 ## Packages Vue 3
 
 | Package                                           |  Version (click for changelogs)                                                                                                     |
