@@ -18,7 +18,7 @@ As a sponsor, you can support us and our software that we have developed on book
 ## Packages
 
 
-| Package                                           | README (click for read me)                                                                                                       |
+| Package                                           |  Version (click for changelogs)                                                                                                                                               |
 | ------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | [@huntersofbook/schob](packages/schob)                             | [![@huntersofbook/schob version](https://img.shields.io/npm/v/@huntersofbook/schob.svg?label=%20)](packages/schob/CHANGELOG.md)                                       |
 
