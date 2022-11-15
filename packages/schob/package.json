@@ -1,0 +1,76 @@
+{
+  "name": "@huntersofbook/schob",
+  "version": "0.1.0-alpha.0",
+  "description": "Rewrite the new object according to the schema. Delete the excess.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/huntersofbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/schob#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/schob"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "schema",
+    "object",
+    "json",
+    "json-schema",
+    "schema-object-merge",
+    "schema-object",
+    "schema-merge",
+    "schema-merge-object",
+    "schema-merge-json",
+    "schema-merge-json-schema",
+    "default object",
+    "default json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint \"./**/*.{ts,vue}\"",
+    "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "filter-anything": "^3.0.3",
+    "is-what": "^4.1.7",
+    "merge-anything": "^5.1.1",
+    "remove-anything": "^1.0.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.29.4",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "lodash": "^4.17.21",
+    "prettier": "^2.7.1",
+    "tsup": "^6.4.0",
+    "typescript": "^4.8.4",
+    "vitest": "^0.25.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
