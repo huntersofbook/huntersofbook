@@ -8,7 +8,9 @@ import { Merger } from './types'
 function concatStrings(originVal: any, newVal: any, _key: any) {
   if (isArray(originVal) && isArray(newVal)) {
     // concat & merge logic
+
     const overlappingPart = originVal.slice(0, newVal.length)
+
     const data = overlappingPart
       .map((p, i) => {
         const data = newVal[i] ? mer(p, newVal[i]) : p

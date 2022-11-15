@@ -31,6 +31,7 @@ export const packages = [
   'plausible-vue',
   'naive-ui-nuxt',
   'core',
+  'schob',
 ]
 
 export const versionIncrements: ReleaseType[] = [

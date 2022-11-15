@@ -1,19 +1,33 @@
 {
-  "name": "@huntersofbook/auth-vue",
-  "version": "0.4.1",
-  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "name": "@huntersofbook/schob",
+  "version": "0.0.0",
+  "description": "Rewrite the new object according to the schema. Delete the excess.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/huntersofbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/auth-vue#readme",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/schob#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/auth-vue"
+    "directory": "packages/schob"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
   },
+  "keywords": [
+    "schema",
+    "object",
+    "json",
+    "json-schema",
+    "schema-object-merge",
+    "schema-object",
+    "schema-merge",
+    "schema-merge-object",
+    "schema-merge-json",
+    "schema-merge-json-schema",
+    "default object",
+    "default json"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -44,12 +58,9 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.29.4",
-    "@types/crypto-js": "^4.1.1",
-    "@types/js-cookie": "^3.0.2",
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
-    "axios": "^1.1.3",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
