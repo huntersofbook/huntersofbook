@@ -16,4 +16,7 @@
     "search.exclude": {
         "**/dist": true
     },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
