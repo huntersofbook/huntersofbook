@@ -4,7 +4,7 @@
 
 <br/>
 
-### @huntersofbook/plausible-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/plausible-nuxt.svg)](https://npmjs.com/package/@hunterofbook/plausible-nuxt)
+### @huntersofbook/plausible-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/plausible-nuxt.svg)](https://npmjs.com/package/@huntersofbook/plausible-nuxt)
 <br/>
 
 This module huntersofbook team created.

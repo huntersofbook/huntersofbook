@@ -4,7 +4,7 @@
 
 <br/>
 
-### @huntersofbook/chatwoot-vue [![npm](https://img.shields.io/npm/v/@huntersofbook/chatwoot-vue.svg)](https://npmjs.com/package/@hunterofbook/chatwoot-vue)
+### @huntersofbook/chatwoot-vue [![npm](https://img.shields.io/npm/v/@huntersofbook/chatwoot-vue.svg)](https://npmjs.com/package/@huntersofbook/chatwoot-vue)
 <br/>
 
 This module huntersofbook team created.

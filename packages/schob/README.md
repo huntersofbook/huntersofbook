@@ -3,7 +3,7 @@
 # Schob
 <br/>
 
-### @huntersofbook/schob [![npm](https://img.shields.io/npm/v/@huntersofbook/schob.svg)](https://npmjs.com/package/@hunterofbook/schob)
+### @huntersofbook/schob [![npm](https://img.shields.io/npm/v/@huntersofbook/schob.svg)](https://npmjs.com/package/@huntersofbook/schob)
 <br/>
 
 

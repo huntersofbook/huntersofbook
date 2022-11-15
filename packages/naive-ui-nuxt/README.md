@@ -3,7 +3,7 @@
 # Naive UI Nuxt 3 Module
 <br/>
 
-### @huntersofbook/naive-ui-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/naive-ui-nuxt.svg)](https://npmjs.com/package/@hunterofbook/naive-ui-nuxt)
+### @huntersofbook/naive-ui-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/naive-ui-nuxt.svg)](https://npmjs.com/package/@huntersofbook/naive-ui-nuxt)
 <br/>
 
 This module huntersofbook team created.

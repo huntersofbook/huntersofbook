@@ -4,7 +4,7 @@
 # Chatwoot Nuxt 3 Module
 <br/>
 
-### @huntersofbook/chatwoot-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/chatwoot-nuxt.svg)](https://npmjs.com/package/@hunterofbook/chatwoot-nuxt)
+### @huntersofbook/chatwoot-nuxt [![npm](https://img.shields.io/npm/v/@huntersofbook/chatwoot-nuxt.svg)](https://npmjs.com/package/@huntersofbook/chatwoot-nuxt)
 <br/>
 
 This module huntersofbook team created.
