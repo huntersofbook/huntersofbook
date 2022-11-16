@@ -1,3 +1,7 @@
+## [0.4.3](https://github.com/huntersofbook/huntersofbook/compare/core@0.4.2...core@0.4.3) (2022-11-16)
+
+
+
 ## 0.4.2 (2022-11-16)
 
 
