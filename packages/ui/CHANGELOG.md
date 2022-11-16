@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.2...ui@0.4.3) (2022-11-16)
+
+
+### Bug Fixes
+
+* **ui:** dependencies version ([2d2afd0](https://github.com/huntersofbook/huntersofbook/commit/2d2afd05b346d7c2197a15c86e86ab677646135c))
+
+
+
 ## 0.4.2 (2022-11-16)
 
 
