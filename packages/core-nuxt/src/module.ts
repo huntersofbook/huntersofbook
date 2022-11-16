@@ -11,7 +11,7 @@ export default defineNuxtModule<HuntersofbookOptions>({
     version,
     configKey: 'huntersofbook',
     compatibility: {
-      nuxt: '^3.0.0-rc.11',
+      nuxt: '^3.0.0',
     },
   },
   defaults: {
