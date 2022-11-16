@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMotions } from '@vueuse/motion'
-import { PropType, Teleport, toRefs } from 'vue'
+import { PropType, Teleport, toRefs, useSlots } from 'vue'
 const props = defineProps({
   opened: { type: Boolean as PropType<boolean>, default: false },
   theme: { type: String as PropType<'default' | 'empty'>, default: 'default' },
@@ -15,6 +15,8 @@ const leaveTransition = async () => {
     windowTransition.apply('leave'),
   ])
 }
+
+const slot = useSlots()
 const close = async () => {
   await leaveTransition()
   emit('close')
@@ -69,12 +71,12 @@ const close = async () => {
           >
             <div v-if="theme === 'default'" class="text-left">
               <h3 id="modal-title" class="text-lg font-medium leading-6">
-                <slot v-if="$slots.title" name="title" />
+                <slot v-if="slot.title" name="title" />
               </h3>
               <slot />
             </div>
             <div v-if="theme === 'default'" class="mt-5 sm:mt-6">
-              <slot v-if="$slots.footer" name="footer" :close="close" />
+              <slot v-if="slot.footer" name="footer" :close="close" />
               <button
                 v-else
                 type="button"
@@ -85,7 +87,9 @@ const close = async () => {
               </button>
             </div>
 
-            <slot v-if="theme === 'empty'" />
+            <div v-if="theme === 'empty'">
+              <slot />
+            </div>
           </div>
         </div>
       </div>
