@@ -23,14 +23,13 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -50,12 +49,6 @@
     "vee-validate": "^4.7.2",
     "vue-types": "^4.2.1",
     "yup": "^0.32.11",
-    "vue": "^3.2.41"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.41"
-  },
-  "devDependencies": {
-    "unconfig": "^0.3.7"
+    "vue": "^3.2.45"
   }
 }
