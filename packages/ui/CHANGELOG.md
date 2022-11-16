@@ -1,3 +1,12 @@
+## [0.4.6-alpha.1](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.6...ui@0.4.6-alpha.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* **ui:** vue version ([8517391](https://github.com/huntersofbook/huntersofbook/commit/851739191e3938d424348d6a449b9c9c852a0793))
+
+
+
 ## [0.4.6](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.5...ui@0.4.6) (2022-11-16)
 
 
