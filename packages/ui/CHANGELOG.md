@@ -1,3 +1,12 @@
+## [0.4.6](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.5...ui@0.4.6) (2022-11-16)
+
+
+### Bug Fixes
+
+* **ui:** huntersofbook/core version ([2fe84d0](https://github.com/huntersofbook/huntersofbook/commit/2fe84d05c1dc9071ce2b13db3d3026c9bb7939fb))
+
+
+
 ## [0.4.5](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.4...ui@0.4.5) (2022-11-16)
 
 
