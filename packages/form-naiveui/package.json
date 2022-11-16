@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/form-naiveui",
-  "version": "0.4.2-alpha.1",
+  "version": "0.4.3",
   "license": "MIT",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -55,7 +55,7 @@
     "vue": "^3.2.45",
     "yup": "^0.32.11",
     "naive-ui": "^2.33.5",
-    "@huntersofbook/core": "workspace:*",
+    "@huntersofbook/core": "^0.4.5",
     "typescript": "^4.9.3",
     "vee-validate": "^4.7.3"
   },
