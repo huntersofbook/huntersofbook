@@ -870,47 +870,47 @@
     unstorage "^0.5.6"
     ws "^8.8.1"
 
-"@nuxt/content@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.2.1.tgz#8138e091a8acca05d8e8b5e195de3c2f5414c775"
-  integrity sha512-vmBiKqNBXkjY0vQm07cifmh/OFOFiMdqfkQC7firBRI5DAl0Z7aHnrv5Z/8UWXcFduYWdEK62DfgaU7eci4OBg==
+"@nuxt/content@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.2.2.tgz#ce82174c7f423935a12d80426d50e83cb8867b01"
+  integrity sha512-qHkyeD0cVRjd+KJH82+V4Twn1QTJh43m9VGMjljLUvZVdFGxU/ZAe4gq0rdTbi8CtCZNvcR9vvNApYjOP1LNYA==
   dependencies:
-    "@nuxt/kit" "^3.0.0-rc.12"
+    "@nuxt/kit" "^3.0.0-rc.13"
     consola "^2.15.3"
-    defu "^6.1.0"
-    destr "^1.2.0"
-    detab "^3.0.1"
+    defu "^6.1.1"
+    destr "^1.2.1"
+    detab "^3.0.2"
     html-tags "^3.2.0"
     json5 "^2.2.1"
-    knitwork "^0.1.2"
-    listhen "^0.3.4"
+    knitwork "^1.0.0"
+    listhen "^1.0.0"
     mdast-util-to-hast "^12.2.4"
     mdurl "^1.0.1"
-    ohash "^0.1.5"
-    pathe "^0.3.9"
+    ohash "^1.0.0"
+    pathe "^1.0.0"
     property-information "^6.1.1"
     rehype-external-links "^2.0.1"
     rehype-raw "^6.1.1"
-    rehype-slug "^5.0.1"
+    rehype-slug "^5.1.0"
     rehype-sort-attribute-values "^4.0.0"
     rehype-sort-attributes "^4.0.0"
     remark-emoji "^3.0.2"
     remark-gfm "^3.0.1"
-    remark-mdc "^1.1.0"
+    remark-mdc "^1.1.1"
     remark-parse "^10.0.1"
     remark-rehype "^10.1.0"
     remark-squeeze-paragraphs "^5.0.1"
-    scule "^0.3.2"
+    scule "^1.0.0"
     shiki-es "^0.1.2"
     slugify "^1.6.5"
     socket.io-client "^4.5.3"
-    ufo "^0.8.6"
+    ufo "^1.0.0"
     unified "^10.1.2"
     unist-builder "^3.0.0"
     unist-util-position "^4.0.3"
     unist-util-visit "^4.1.1"
-    unstorage "^0.6.0"
-    ws "^8.10.0"
+    unstorage "^1.0.0"
+    ws "^8.11.0"
 
 "@nuxt/devalue@^2.0.0":
   version "2.0.0"
@@ -3060,6 +3060,11 @@ detab@^3.0.1:
   resolved "https://registry.yarnpkg.com/detab/-/detab-3.0.1.tgz#2f1874ccee75b96858cb5efa30d41212a8657baf"
   integrity sha512-T8gDOoz58xXMsXKLJkKxkyUTRkEpwOBL9w5nFFDJsD/XiFkajkBc2Yz99a/0kW7DGIYq/B1+oqqqru+fZetSvg==
 
+detab@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/detab/-/detab-3.0.2.tgz#b9909b52881badd598f653c5e4fcc7c94b158474"
+  integrity sha512-7Bp16Bk8sk0Y6gdXiCtnpGbghn8atnTJdd/82aWvS5ESnlcNvgUc10U2NYS0PAiDSGjWiI8qs/Cv1b2uSGdQ8w==
+
 detect-libc@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.1.tgz#e1897aa88fa6ad197862937fbc0441ef352ee0cd"
@@ -4102,7 +4107,7 @@ h3@^0.7.12:
     radix3 "^0.1.2"
     ufo "^0.8.5"
 
-h3@^0.8.1, h3@^0.8.5:
+h3@^0.8.5:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
   integrity sha512-CSWNOKa3QGo67rFU2PhbFTp0uPJtilNji2Z0pMiSRQt3+OkIW0u3E1WMJqIycLqaTgb9JyFqH/S4mcTyyGtvyQ==
@@ -4513,7 +4518,7 @@ instantsearch.js@^4.47.0:
     qs "^6.5.1 < 6.10"
     search-insights "^2.1.0"
 
-ioredis@^5.2.2, ioredis@^5.2.3, ioredis@^5.2.4:
+ioredis@^5.2.2, ioredis@^5.2.4:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-5.2.4.tgz#9e262a668bc29bae98f2054c1e0d7efd86996b96"
   integrity sha512-qIpuAEt32lZJQ0XyrloCRdlEdUUNGG9i0UOk6zgzK6igyudNWqEBxfH6OlbnOOoBBvr1WB02mm8fR55CnikRng==
@@ -4915,20 +4920,6 @@ listhen@^0.2.13, listhen@^0.2.15:
     http-shutdown "^1.2.2"
     selfsigned "^2.0.1"
     ufo "^0.8.5"
-
-listhen@^0.3.4:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/listhen/-/listhen-0.3.5.tgz#04a0f6dbdab5bbac711992004a37c8306fad3e4e"
-  integrity sha512-suyt79hNmCFeBIyftcLqLPfYiXeB795gSUWOJT7nspl2IvREY0Q9xvchLhekxvQ0KiOPvWoyALnc9Mxoelm0Pw==
-  dependencies:
-    clipboardy "^3.0.0"
-    colorette "^2.0.19"
-    defu "^6.1.0"
-    get-port-please "^2.6.1"
-    http-shutdown "^1.2.2"
-    ip-regex "^5.0.0"
-    node-forge "^1.3.1"
-    ufo "^0.8.6"
 
 listhen@^1.0.0:
   version "1.0.0"
@@ -6083,7 +6074,7 @@ ohash@^1.0.0:
   resolved "https://registry.yarnpkg.com/ohash/-/ohash-1.0.0.tgz#e6ab04851ef9a479beb6e8a2457ff0d3ccf77371"
   integrity sha512-kxSyzq6tt+6EE/xCnD1XaFhCCjUNUaz3X30rJp6mnjGLXAAvuPFqohMdv0aScWzajR45C29HyBaXZ8jXBwnh9A==
 
-ohmyfetch@^0.4.18, ohmyfetch@^0.4.19, ohmyfetch@^0.4.21:
+ohmyfetch@^0.4.18, ohmyfetch@^0.4.21:
   version "0.4.21"
   resolved "https://registry.yarnpkg.com/ohmyfetch/-/ohmyfetch-0.4.21.tgz#6850db751fc7bbf08153aa8b11ff1ef45fcfd963"
   integrity sha512-VG7f/JRvqvBOYvL0tHyEIEG7XHWm7OqIfAs6/HqwWwDfjiJ1g0huIpe5sFEmyb+7hpFa1EGNH2aERWR72tlClw==
@@ -6932,7 +6923,7 @@ rehype-raw@^6.1.1:
     hast-util-raw "^7.2.0"
     unified "^10.0.0"
 
-rehype-slug@^5.0.1:
+rehype-slug@^5.0.1, rehype-slug@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/rehype-slug/-/rehype-slug-5.1.0.tgz#1f7e69be7ea1a2067bcc4cfe58e74c881d5c047e"
   integrity sha512-Gf91dJoXneiorNEnn+Phx97CO7oRMrpi+6r155tTxzGuLtm+QrI4cTwCa9e1rtePdL4i9tSO58PeSS6HWfgsiw==
@@ -6994,7 +6985,7 @@ remark-github@^11.2.4:
     unified "^10.0.0"
     unist-util-visit "^4.0.0"
 
-remark-mdc@^1.0.7, remark-mdc@^1.1.0:
+remark-mdc@^1.0.7, remark-mdc@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/remark-mdc/-/remark-mdc-1.1.1.tgz#182bf90f0ada0f94d2752155898e98aa7fb96cf0"
   integrity sha512-gqpNtzkJfe+UN6flCD2ByJYK7z5z1Hk6q61P/a5TD15kYEwrGNiXeJjs4rmhp1KhSdCh+dz2knwWQ6A0JYw8ZA==
@@ -8099,24 +8090,7 @@ unstorage@^0.5.6:
     ufo "^0.8.5"
     ws "^8.8.1"
 
-unstorage@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/unstorage/-/unstorage-0.6.0.tgz#9a70d770d08ed8dbb87f4aa5fbf7700baf4a641d"
-  integrity sha512-X05PIq28pVNA1BypX6Y00YNqAsHM25MGemvpjHeYvwJ8/wg936GoO1YD+VdWlqm3LmVX4fNJ5tlC7uhXsMPgeg==
-  dependencies:
-    anymatch "^3.1.2"
-    chokidar "^3.5.3"
-    destr "^1.1.1"
-    h3 "^0.8.1"
-    ioredis "^5.2.3"
-    listhen "^0.3.4"
-    mkdir "^0.0.2"
-    mri "^1.2.0"
-    ohmyfetch "^0.4.19"
-    ufo "^0.8.6"
-    ws "^8.9.0"
-
-unstorage@^1.0.1:
+unstorage@^1.0.0, unstorage@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/unstorage/-/unstorage-1.0.1.tgz#8cac09e435e727f68ac8ffdac10caa1a5b35883d"
   integrity sha512-J1c4b8K2KeihHrQtdgl/ybIapArUbPaPb+TyJy/nGSauDwDYqciZsEKdkee568P3c8SSH4TIgnGRHDWMPGw+Lg==
@@ -8537,7 +8511,7 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
-ws@^8.10.0, ws@^8.11.0, ws@^8.8.1, ws@^8.9.0:
+ws@^8.11.0, ws@^8.8.1:
   version "8.11.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.11.0.tgz#6a0d36b8edfd9f96d8b25683db2f8d7de6e8e143"
   integrity sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==
