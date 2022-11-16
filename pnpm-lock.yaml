@@ -340,11 +340,11 @@ importers:
       es-cookie: 1.4.0
       lodash: 4.17.21
       vee-validate: 4.7.2_vue@3.2.45
+      vue: 3.2.45
       vue-types: 4.2.1_vue@3.2.45
       yup: 0.32.11
     devDependencies:
       unconfig: 0.3.7
-      vue: 3.2.45
 
   packages/core-nuxt:
     specifiers:

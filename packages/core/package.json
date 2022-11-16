@@ -49,13 +49,13 @@
     "lodash": "^4.17.21",
     "vee-validate": "^4.7.2",
     "vue-types": "^4.2.1",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "vue": "^3.2.45"
   },
   "peerDependencies": {
     "vue": "^3.2.45"
   },
   "devDependencies": {
-    "unconfig": "^0.3.7",
-    "vue": "^3.2.45"
+    "unconfig": "^0.3.7"
   }
 }
