@@ -375,8 +375,8 @@ importers:
       rollup-plugin-postcss: ^4.0.2
       sass: ^1.56.1
       tailwindcss: ^3.2.3
-      typescript: ^4.8.4
-      vee-validate: ^4.7.2
+      typescript: ^4.9.3
+      vee-validate: ^4.7.3
       vite: ^3.2.3
       vite-plugin-dts: ^1.7.0
       vite-plugin-vue-setup-extend: ^0.4.0
@@ -389,12 +389,12 @@ importers:
     dependencies:
       '@huntersofbook/core': link:../core
       naive-ui: 2.33.5_vue@3.2.45
-      typescript: 4.8.4
-      vee-validate: 4.7.2_vue@3.2.45
+      typescript: 4.9.3
+      vee-validate: 4.7.3_vue@3.2.45
       vue: 3.2.45
       yup: 0.32.11
     devDependencies:
-      '@rollup/plugin-typescript': 9.0.2_typescript@4.8.4
+      '@rollup/plugin-typescript': 9.0.2_typescript@4.9.3
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.3+vue@3.2.45
       autoprefixer: 10.4.13_postcss@8.4.19
       postcss: 8.4.19
@@ -572,7 +572,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@huntersofbook/core': ^0.4.3
+      '@huntersofbook/core': ^0.4.4-alpha.1
       '@rollup/plugin-typescript': ^9.0.2
       '@vitejs/plugin-vue': ^3.2.0
       '@vue/compiler-sfc': ^3.2.45
@@ -2886,24 +2886,6 @@ packages:
       tslib: 2.4.1
       typescript: 4.8.4
     dev: false
-
-  /@rollup/plugin-typescript/9.0.2_typescript@4.8.4:
-    resolution: {integrity: sha512-/sS93vmHUMjzDUsl5scNQr1mUlNE1QjBBvOhmRwJCH8k2RRhDIm3c977B3wdu3t3Ap17W6dDeXP3hj1P1Un1bA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.14.0||^3.0.0
-      tslib: '*'
-      typescript: '>=3.7.0'
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-      tslib:
-        optional: true
-    dependencies:
-      '@rollup/pluginutils': 5.0.2
-      resolve: 1.22.1
-      typescript: 4.8.4
-    dev: true
 
   /@rollup/plugin-typescript/9.0.2_typescript@4.9.3:
     resolution: {integrity: sha512-/sS93vmHUMjzDUsl5scNQr1mUlNE1QjBBvOhmRwJCH8k2RRhDIm3c977B3wdu3t3Ap17W6dDeXP3hj1P1Un1bA==}
@@ -12616,7 +12598,6 @@ packages:
     resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /ufo/0.8.6:
     resolution: {integrity: sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==}
@@ -13100,6 +13081,15 @@ packages:
 
   /vee-validate/4.7.2_vue@3.2.45:
     resolution: {integrity: sha512-SbrL1HUzpu6D6Og/Q+BFx0LN6B48Z7OrkvQCXwaRyoELEeWPO6SOx1v5t1Sg3OszNtiLH7Q6BgKj/7pzTK1wIw==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@vue/devtools-api': 6.4.5
+      vue: 3.2.45
+    dev: false
+
+  /vee-validate/4.7.3_vue@3.2.45:
+    resolution: {integrity: sha512-1MwHLOzCrabSeChySZVVMamWStcucM1hHxapoebY9mJ7KWOvncMG19a7AlPl38zpE9pcD+G3CHKLvviGmTl5BQ==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:

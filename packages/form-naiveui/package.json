@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/form-naiveui",
-  "version": "0.4.1",
+  "version": "0.4.2-alpha.1",
   "license": "MIT",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -56,8 +56,8 @@
     "yup": "^0.32.11",
     "naive-ui": "^2.33.5",
     "@huntersofbook/core": "workspace:*",
-    "typescript": "^4.8.4",
-    "vee-validate": "^4.7.2"
+    "typescript": "^4.9.3",
+    "vee-validate": "^4.7.3"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^9.0.2",
@@ -76,7 +76,7 @@
     "vite-ssg-sitemap": "^0.4.3"
   },
   "peerDependencies": {
-    "typescript": "^4.8.4",
+    "typescript": "^4.9.3",
     "naive-ui": "^2.33.5",
     "vee-validate": "^4.7.2"
   }

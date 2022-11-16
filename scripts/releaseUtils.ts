@@ -32,6 +32,7 @@ export const packages = [
   'naive-ui-nuxt',
   'core',
   'schob',
+  'form-naiveui',
 ]
 
 export const versionIncrements: ReleaseType[] = [
