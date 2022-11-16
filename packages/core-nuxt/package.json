@@ -45,7 +45,7 @@
     "@nuxt/kit": "^3.0.0",
     "defu": "^6.1.1",
     "huntersofbook": "workspace:*",
-    "pathe": "^0.3.9"
+    "pathe": "^1.0.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",
