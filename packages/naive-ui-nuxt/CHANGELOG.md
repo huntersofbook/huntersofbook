@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/huntersofbook/huntersofbook/compare/naive-ui-nuxt@0.4.5...naive-ui-nuxt@0.5.0) (2022-11-16)
+
+
+### Features
+
+* nuxt 3 stable ([34251cd](https://github.com/huntersofbook/huntersofbook/commit/34251cd7f78e7d40ae338401938e69e0511212ff))
+
+
+
 ## [0.4.5](https://github.com/huntersofbook/huntersofbook/compare/naive-ui-nuxt@0.4.4...naive-ui-nuxt@0.4.5) (2022-11-05)
 
 
