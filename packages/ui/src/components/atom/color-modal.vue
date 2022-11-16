@@ -16,7 +16,7 @@ const leaveTransition = async () => {
   ])
 }
 
-const slot = useSlots()
+const slots = useSlots()
 const close = async () => {
   await leaveTransition()
   emit('close')
@@ -71,25 +71,28 @@ const close = async () => {
           >
             <div v-if="theme === 'default'" class="text-left">
               <h3 id="modal-title" class="text-lg font-medium leading-6">
-                <slot v-if="slot.title" name="title" />
+                <slot v-if="slots.title" name="title" />
               </h3>
               <slot />
             </div>
             <div v-if="theme === 'default'" class="mt-5 sm:mt-6">
-              <slot v-if="slot.footer" name="footer" :close="close" />
-              <button
-                v-else
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:text-sm"
-                @click="close"
-              >
-                Go back to
-              </button>
+              <template v-if="slots.footer">
+                <slot name="footer" :close="close" />
+              </template>
+              <template v-else>
+                <button
+                  type="button"
+                  class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:text-sm"
+                  @click="close"
+                >
+                  Go back to
+                </button>
+              </template>
             </div>
 
-            <div v-if="theme === 'empty'">
+            <template v-if="theme === 'empty'">
               <slot />
-            </div>
+            </template>
           </div>
         </div>
       </div>
