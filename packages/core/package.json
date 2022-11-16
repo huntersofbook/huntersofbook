@@ -50,10 +50,10 @@
     "vee-validate": "^4.7.2",
     "vue-types": "^4.2.1",
     "yup": "^0.32.11",
-    "vue": "^3.2.45"
+    "vue": "^3.2.41"
   },
   "peerDependencies": {
-    "vue": "^3.2.45"
+    "vue": "^3.2.41"
   },
   "devDependencies": {
     "unconfig": "^0.3.7"
