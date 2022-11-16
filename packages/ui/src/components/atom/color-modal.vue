@@ -3,6 +3,7 @@ import { useMotions } from '@vueuse/motion'
 import { PropType, Teleport, toRefs } from 'vue'
 const props = defineProps({
   opened: { type: Boolean as PropType<boolean>, default: false },
+  theme: { type: String as PropType<'default' | 'empty'>, default: 'default' },
 })
 const emit = defineEmits(['update:opened', 'close'])
 const { opened } = toRefs(props)
@@ -66,16 +67,16 @@ const close = async () => {
             :delay="100"
             class="relative w-full transform overflow-hidden rounded-lg bg-white dark:bg-dark-400 px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6"
           >
-            <div>
-              <div class="text-left">
-                <h3 id="modal-title" class="text-lg font-medium leading-6">
-                  Change Color Site
-                </h3>
-                <slot />
-              </div>
+            <div v-if="theme === 'default'" class="text-left">
+              <h3 id="modal-title" class="text-lg font-medium leading-6">
+                <slot v-if="$slots.title" name="title" />
+              </h3>
+              <slot />
             </div>
-            <div class="mt-5 sm:mt-6">
+            <div v-if="theme === 'default'" class="mt-5 sm:mt-6">
+              <slot v-if="$slots.footer" name="footer" :close="close" />
               <button
+                v-else
                 type="button"
                 class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:text-sm"
                 @click="close"
@@ -83,6 +84,8 @@ const close = async () => {
                 Go back to
               </button>
             </div>
+
+            <slot v-if="theme === 'empty'" />
           </div>
         </div>
       </div>
