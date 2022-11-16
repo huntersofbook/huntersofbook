@@ -328,7 +328,7 @@ importers:
       lodash: ^4.17.21
       unconfig: ^0.3.7
       vee-validate: ^4.7.2
-      vue: ^3.2.45
+      vue: ^3.2.41
       vue-types: ^4.2.1
       yup: ^0.32.11
     dependencies:
@@ -575,7 +575,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@huntersofbook/core': ^0.4.1
+      '@huntersofbook/core': ^0.4.2
       '@rollup/plugin-typescript': ^9.0.2
       '@vitejs/plugin-vue': ^3.2.0
       '@vue/compiler-sfc': ^3.2.45
