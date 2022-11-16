@@ -1,3 +1,7 @@
+## [0.4.6-alpha.2](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.6-alpha.1...ui@0.4.6-alpha.2) (2022-11-16)
+
+
+
 ## [0.4.6-alpha.1](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.6...ui@0.4.6-alpha.1) (2022-11-16)
 
 
