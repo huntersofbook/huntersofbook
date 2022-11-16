@@ -575,7 +575,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@huntersofbook/core': workspace:*
+      '@huntersofbook/core': ^0.4.1
       '@rollup/plugin-typescript': ^9.0.2
       '@vitejs/plugin-vue': ^3.2.0
       '@vue/compiler-sfc': ^3.2.45

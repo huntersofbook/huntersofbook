@@ -49,7 +49,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@huntersofbook/core": "workspace:*",
+    "@huntersofbook/core": "^0.4.1",
     "@vueuse/motion": "^2.0.0-beta.24",
     "@zxcvbn-ts/core": "^2.1.0",
     "date-fns": "^2.29.3",
