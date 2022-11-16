@@ -1,3 +1,12 @@
+## [0.4.6-alpha.3](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.6-alpha.2...ui@0.4.6-alpha.3) (2022-11-16)
+
+
+### Bug Fixes
+
+* **ui:** slots ([3cc22d0](https://github.com/huntersofbook/huntersofbook/commit/3cc22d005e14f3917a0108bed2421f416cbddd3c))
+
+
+
 ## [0.4.6-alpha.2](https://github.com/huntersofbook/huntersofbook/compare/ui@0.4.6-alpha.1...ui@0.4.6-alpha.2) (2022-11-16)
 
 
