@@ -387,7 +387,7 @@ importers:
       vue-eslint-parser: ^9.1.0
       yup: ^0.32.11
     dependencies:
-      '@huntersofbook/core': link:../core
+      '@huntersofbook/core': 0.4.5
       naive-ui: 2.33.5_vue@3.2.45
       typescript: 4.9.3
       vee-validate: 4.7.3_vue@3.2.45
@@ -507,7 +507,7 @@ importers:
 
   packages/plausible-nuxt:
     specifiers:
-      '@huntersofbook/plausible-vue': workspace:*
+      '@huntersofbook/plausible-vue': ^0.4.3
       '@nuxt/kit': ^3.0.0
       '@nuxt/module-builder': ^0.2.1
       '@nuxt/schema': ^3.0.0
@@ -600,7 +600,7 @@ importers:
       vue-eslint-parser: ^9.1.0
       vue-tsc: 1.0.9
     dependencies:
-      '@huntersofbook/core': link:../core
+      '@huntersofbook/core': 0.4.5
       '@vueuse/motion': 2.0.0-beta.24_vue@3.2.45
       '@zxcvbn-ts/core': 2.1.0
       naive-ui: 2.33.5_vue@3.2.45
@@ -1673,6 +1673,22 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@huntersofbook/core/0.4.5:
+    resolution: {integrity: sha512-m5M0Gy9OuZkL5EEytueEFNAuopMvuiUeWMkdRCylEXDAjoS5CsvN9OKSA9vmwZ8v4f+yYnCzE4YU7GR4dkf5cw==}
+    dependencies:
+      '@formkit/auto-animate': 1.0.0-beta.5
+      '@types/lodash': 4.14.189
+      date-fns: 2.29.3
+      date-fns-tz: 1.3.7_date-fns@2.29.3
+      defu: 6.1.1
+      es-cookie: 1.4.0
+      lodash: 4.17.21
+      vee-validate: 4.7.3_vue@3.2.45
+      vue: 3.2.45
+      vue-types: 4.2.1_vue@3.2.45
+      yup: 0.32.11
+    dev: false
 
   /@huntersofbook/schob/0.1.0-alpha.1:
     resolution: {integrity: sha512-GvsbosX2WmEbt1bwW7zmI8WoG3ZsZ5cCTgG0zyqCw6g3QgD8tHa2it7p/pFAvv33pa+RcpjspRo2FAYG5XDlhA==}
