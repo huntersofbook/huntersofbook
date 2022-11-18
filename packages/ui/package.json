@@ -50,7 +50,7 @@
     "build:core": "cd ../core && pnpm build"
   },
   "dependencies": {
-    "@huntersofbook/core": "^0.4.5",
+    "@huntersofbook/core": "^0.4.6",
     "@vueuse/motion": "^2.0.0-beta.24",
     "@zxcvbn-ts/core": "^2.1.0",
     "naive-ui": "^2.33.5",

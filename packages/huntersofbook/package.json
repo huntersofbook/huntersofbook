@@ -51,7 +51,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@antfu/ni": "^0.18.6",
+    "@antfu/ni": "^0.18.8",
     "@huntersofbook/schob": "0.1.0-alpha.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^9.0.2",
