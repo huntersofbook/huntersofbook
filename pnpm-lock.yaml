@@ -291,7 +291,7 @@ importers:
 
   packages/chatwoot-nuxt:
     specifiers:
-      '@huntersofbook/chatwoot-vue': workspace:*
+      '@huntersofbook/chatwoot-vue': ^0.4.2
       '@nuxt/kit': ^3.0.0
       '@nuxt/module-builder': ^0.2.1
       '@nuxt/schema': ^3.0.0
