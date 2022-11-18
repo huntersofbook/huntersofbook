@@ -412,6 +412,7 @@ importers:
   packages/huntersofbook:
     specifiers:
       '@antfu/ni': ^0.18.6
+      '@huntersofbook/schob': 0.1.0-alpha.1
       '@rollup/plugin-node-resolve': ^15.0.1
       '@rollup/plugin-typescript': ^9.0.2
       '@types/clear': ^0.1.2
@@ -448,6 +449,7 @@ importers:
       untyped: ^1.0.0
     dependencies:
       '@antfu/ni': 0.18.6
+      '@huntersofbook/schob': 0.1.0-alpha.1
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.3.0
       '@rollup/plugin-typescript': 9.0.2_anaopcb6zpom6gf4l2cmpvnrfm
       '@types/clear': 0.1.2
@@ -1671,6 +1673,15 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@huntersofbook/schob/0.1.0-alpha.1:
+    resolution: {integrity: sha512-GvsbosX2WmEbt1bwW7zmI8WoG3ZsZ5cCTgG0zyqCw6g3QgD8tHa2it7p/pFAvv33pa+RcpjspRo2FAYG5XDlhA==}
+    dependencies:
+      filter-anything: 3.0.3
+      is-what: 4.1.7
+      merge-anything: 5.1.3
+      remove-anything: 1.0.3
+    dev: false
 
   /@hutson/parse-repository-url/3.0.2:
     resolution: {integrity: sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==}

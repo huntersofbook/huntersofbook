@@ -7,6 +7,7 @@ export const _rDefault = (r: any) => r.default || r
 
 export const plugins = {
   tsTOjs: () => import('./TStoJS.plugin').then(_rDefault),
+  jsonCopy: () => import('./JsonCopy.plugin').then(_rDefault),
 }
 
 export type PluginCommand = keyof typeof plugins

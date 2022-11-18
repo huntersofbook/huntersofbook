@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@antfu/ni": "^0.18.6",
+    "@huntersofbook/schob": "0.1.0-alpha.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^9.0.2",
     "@types/clear": "^0.1.2",

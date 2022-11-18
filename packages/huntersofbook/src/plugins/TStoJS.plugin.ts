@@ -96,6 +96,7 @@ export default definePluginCommand({
     const status: PluginInvokeResult['status'] = 'wait'
     // const rootDir = resolve(args._[0] || '.')
     const cwd = resolve(args.cwd || '.')
+
     if (config.tsTOjs && config.tsTOjs.length !== 0) {
       serviceFiles = config.tsTOjs
 
@@ -108,6 +109,9 @@ export default definePluginCommand({
       })
 
       await asyncForEach(data.length ? data : config.tsTOjs, async (file: CompileFileConfig) => {
+        if (watch?.file !== file.inputFile)
+          return
+
         await voidTimer(async (timer) => {
           const spinner = ora(`${basename(file.outputFile || watch?.file || '')}`).start()
 

@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: 'test-27a9c',
   storageBucket: 'test-27a9c.appspot.com',
   messagingSenderId: '28472926471',
-  appId: '1:28472926471:web:0507bf7e66657e80a725a2',
+  appId: '1:28472926471:web:0507bf7e66657e80a725a2aa',
 }
 declare const self: ServiceWorkerGlobalScope
 

@@ -184,7 +184,6 @@ export default defineHuntersofbookCommand({
 
       if ((blockWatch.ignored as []).length > 0) {
         if ((blockWatch.ignored as []).find(item => item === file))
-
           return
       }
 
