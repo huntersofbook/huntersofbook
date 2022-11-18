@@ -1,3 +1,12 @@
+## [0.4.6-alpha.2](https://github.com/huntersofbook/huntersofbook/compare/core@0.4.6-alpha.1...core@0.4.6-alpha.2) (2022-11-18)
+
+
+### Bug Fixes
+
+* core dependencies ([d84525a](https://github.com/huntersofbook/huntersofbook/commit/d84525a5f8764b94a4bdbddcbe832a2c8aecf42b))
+
+
+
 ## [0.4.6-alpha.1](https://github.com/huntersofbook/huntersofbook/compare/core@0.4.5...core@0.4.6-alpha.1) (2022-11-18)
 
 
