@@ -13,8 +13,8 @@ export default defineHuntersofbookConfig({
   ],
   jsonCopy: {
     schema: 'language/en-US.json',
-    outputPath: 'public',
-    outputNames: ['en-US', 'tr-TR'],
+    outputPath: 'language',
+    outputNames: ['tr-TR'],
   },
   blockedWatch: {
     files: ['public/sw.js', 'public/swasadsd.js'],

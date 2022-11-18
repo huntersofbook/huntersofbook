@@ -3,6 +3,7 @@ import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'fs'
 import { merge } from '@huntersofbook/schob'
 import { red } from 'colorette'
 import consola from 'consola'
+import { isArray } from 'lodash'
 import { basename, resolve } from 'pathe'
 
 import { asyncForEach } from '../utils/asyncForEach'
@@ -12,21 +13,21 @@ export interface JSONCopyConfig {
   /**
  * @param {string} inputFile
  * The input file to compile
- * @example 'src/language/en.json'
+ * @example 'language/en.json'
 */
   schema: string
 
   /**
    * @param {string} inputFile
    * The input file to compile
-   * @example ['en', 'tr']
+   * @example ['tr', 'fr']
   */
   outputNames: string[]
 
   /**
    * @param {string} outputFile
    * The output file to compile
-   * @example 'public/sw.js'
+   * @example 'language'
   */
   outputPath: string
 
@@ -35,10 +36,11 @@ export interface JSONCopyConfig {
 let serviceFiles: JSONCopyConfig
 
 const writeFiles = async () => {
-  const schemaPath = resolve(`${serviceFiles.schema}.json`)
+  const schemaPath = resolve(serviceFiles.schema)
   const schema = JSON.parse(readFileSync(serviceFiles.schema, 'utf8'))
   await asyncForEach(serviceFiles.outputNames, async (config: JSONCopyConfig['outputNames']) => {
     const writePath = resolve(serviceFiles.outputPath, `${config}.json`)
+
     if (schemaPath === writePath)
       return
 
@@ -46,7 +48,44 @@ const writeFiles = async () => {
       const obj = JSON.parse(readFileSync(writePath, 'utf8'))
       const _merge = merge({ schema, newData: obj })
       try {
-        writeFileSync(writePath, JSON.stringify(_merge, null, 2))
+        /**
+         * It sorts the keys of an object, and if the value of a key is an object, it recursively sorts
+         * that object's keys as well
+         * thank you https://stackoverflow.com/a/72998623/17764989
+         */
+        const sortObject = (obj: any) => {
+          const sorted = Object.keys(obj)
+            .sort()
+            .reduce((accumulator: any, key: any) => {
+              if (typeof obj[key] === 'object') {
+                // recurse nested properties that are also objects
+                if (obj[key] == null) {
+                  accumulator[key] = null
+                }
+                else if (isArray(obj[key])) {
+                  accumulator[key] = obj[key].map((item: any) => {
+                    if (typeof item === 'object')
+                      return sortObject(item)
+
+                    else
+                      return item
+                  })
+                }
+                else {
+                  accumulator[key] = sortObject(obj[key])
+                }
+              }
+              else {
+                accumulator[key] = obj[key]
+              }
+              return accumulator
+            }, {})
+          return sorted
+        }
+
+        const sortedObject = sortObject(_merge)
+        writeFileSync(writePath, JSON.stringify(sortedObject, null, 2))
+
         consola.success(`JSON file ${basename(writePath)} is updated`)
       }
       catch (error) {
