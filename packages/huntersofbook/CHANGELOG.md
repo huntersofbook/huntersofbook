@@ -1,3 +1,12 @@
+## [0.4.2-beta.6](https://github.com/huntersofbook/huntersofbook/compare/v0.4.2-beta.5...v0.4.2-beta.6) (2022-11-18)
+
+
+### Features
+
+* **huntersofbook:** JSONCopy order ([eaa0a09](https://github.com/huntersofbook/huntersofbook/commit/eaa0a093017366a02f6cd1c238ef863450f8f6e8))
+
+
+
 ## [0.4.2-beta.5](https://github.com/huntersofbook/huntersofbook/compare/v0.4.2-beta.4...v0.4.2-beta.5) (2022-11-18)
 
 
