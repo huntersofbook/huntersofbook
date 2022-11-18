@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/huntersofbook/huntersofbook/compare/plausible-nuxt@0.5.0...plausible-nuxt@0.5.1) (2022-11-18)
+
+
+### Bug Fixes
+
+* vue version ([#130](https://github.com/huntersofbook/huntersofbook/issues/130)) ([57ea634](https://github.com/huntersofbook/huntersofbook/commit/57ea634258a10260e9b3e6694abdba17a0578c5c))
+
+
+
 # [0.5.0](https://github.com/huntersofbook/huntersofbook/compare/plausible-nuxt@0.4.8...plausible-nuxt@0.5.0) (2022-11-16)
 
 
