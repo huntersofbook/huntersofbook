@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/huntersofbook/huntersofbook/compare/chatwoot-nuxt@0.5.0...chatwoot-nuxt@0.5.1) (2022-11-18)
+
+
+### Bug Fixes
+
+* chatwoot-nuxt package version ([cb3d9fb](https://github.com/huntersofbook/huntersofbook/commit/cb3d9fb7c08206060c318aac630711c032df9e8c))
+
+
+
 # [0.5.0](https://github.com/huntersofbook/huntersofbook/compare/chatwoot-nuxt@0.4.2...chatwoot-nuxt@0.5.0) (2022-11-16)
 
 
