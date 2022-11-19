@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/core",
-  "version": "0.4.7",
+  "version": "0.4.13",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
@@ -45,7 +45,7 @@
     "es-cookie": "^1.4.0",
     "lodash": "^4.17.21",
     "vee-validate": "^4.7.3",
-    "yup": "^0.32.11",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "yup": "^0.32.11"
   }
 }

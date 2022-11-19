@@ -10,76 +10,118 @@ export const DEFAULT_LOCALE: HLanguage = 'en-US'
 
 export interface TranslatedStr {
   messages?: { default: { [id: string]: string } }
-  fnDate: Promise<any>
+  fnDate: any
 }
 
 interface LocaleDict {
   display: string
   dir: 'ltr' | 'rtl'
-  getStrings: () => TranslatedStr
+  getStrings: () => Promise<TranslatedStr | null>
 }
 
 const locales: Record<HLanguage, LocaleDict> = {
   'en-US': {
     display: 'English (US)',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/en-US/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/en-US/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
   'tr-TR': {
     display: 'Türkçe (TR)',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/tr/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/tr/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
   'en-GB': {
     display: 'English (UK)',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/en-GB/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/en-GB/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
   'fr-FR': {
     display: 'Français',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/fr/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/fr/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
   'zh-CN': {
     display: '中文（简体）',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/zh-CN/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/zh-CN/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
   'zh-TW': {
     display: '中文（繁體）',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/zh-TW/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/zh-TW/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
   'ja-JP': {
     display: '日本語',
     dir: 'ltr',
-    getStrings() {
-      return {
-        fnDate: import('date-fns/esm/locale/ja/index.js'),
+    async getStrings() {
+      const lang = await import('date-fns/esm/locale/ja/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },

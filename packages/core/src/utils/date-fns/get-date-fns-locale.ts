@@ -45,18 +45,14 @@ export async function loadDateFNSLocale(lang: DateFNSLocale): Promise<Locale> {
   }
 }
 
-async function setDateLocale(locale: HLanguage) {
-  const data = LocaleData[locale]
+async function setDateLocale(locale: HLanguage): Promise<Locale | null> {
+  const data = LocaleData[locale].getStrings()
   if (data) {
-    const getd = data.getStrings()
-    const mod = await getd.fnDate
-    if (mod) {
-      const dateLocale = mod.default
-      return dateLocale
-    }
-    else {
+    const lang = await data
+    if (lang)
+      return lang as Locale
+    else
       return enUS
-    }
   }
   else {
     return enUS
