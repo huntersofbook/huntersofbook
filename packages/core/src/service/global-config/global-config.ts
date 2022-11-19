@@ -1,6 +1,6 @@
-import enUS from 'date-fns/locale/en-US/index.js'
-import cloneDeep from 'lodash/cloneDeep.js'
-import merge from 'lodash/merge.js'
+import enUS from 'date-fns/esm/locale/en-US/index.js'
+import cloneDeep from 'lodash-es/cloneDeep'
+import merge from 'lodash-es/merge'
 import { Ref, getCurrentInstance, inject, ref } from 'vue'
 
 import { getGlobalProperty } from '../../utils/global-properties'

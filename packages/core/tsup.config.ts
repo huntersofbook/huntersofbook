@@ -12,6 +12,5 @@ export default <Options>{
   dts: true,
   target: 'node16', // needed for working ESM
   format: ['esm', 'cjs'],
-  minify: true,
   external,
 }
