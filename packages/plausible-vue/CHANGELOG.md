@@ -1,3 +1,7 @@
+## [0.4.4](https://github.com/huntersofbook/huntersofbook/compare/plausible-vue@0.4.3...plausible-vue@0.4.4) (2022-11-20)
+
+
+
 ## [0.4.3](https://github.com/huntersofbook/huntersofbook/compare/plausible-vue@0.4.2...plausible-vue@0.4.3) (2022-11-05)
 
 
