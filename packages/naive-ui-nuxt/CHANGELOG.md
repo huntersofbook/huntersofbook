@@ -1,3 +1,7 @@
+## [0.5.1](https://github.com/huntersofbook/huntersofbook/compare/naive-ui-nuxt@0.5.0...naive-ui-nuxt@0.5.1) (2022-11-20)
+
+
+
 # [0.5.0](https://github.com/huntersofbook/huntersofbook/compare/naive-ui-nuxt@0.4.5...naive-ui-nuxt@0.5.0) (2022-11-16)
 
 
