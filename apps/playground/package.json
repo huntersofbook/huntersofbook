@@ -46,7 +46,7 @@
     "@vue/test-utils": "^2.2.3",
     "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.3",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "https-localhost": "^4.7.1",
     "pnpm": "^7.16.1",
     "postcss": "^8.4.19",

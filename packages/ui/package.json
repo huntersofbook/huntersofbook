@@ -50,7 +50,7 @@
     "build:core": "cd ../core && pnpm build"
   },
   "dependencies": {
-    "@huntersofbook/core": "^0.4.6",
+    "@huntersofbook/core": "^0.4.14",
     "@vueuse/motion": "^2.0.0-beta.24",
     "@zxcvbn-ts/core": "^2.1.0",
     "naive-ui": "^2.33.5",
@@ -62,7 +62,7 @@
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/compiler-sfc": "^3.2.45",
     "autoprefixer": "^10.4.13",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "postcss": "^8.4.19",
