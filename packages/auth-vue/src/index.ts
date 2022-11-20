@@ -3,8 +3,8 @@ import { merge } from 'lodash'
 import { AuthFunc } from './auth'
 import { defaultOptions } from './options'
 import { CookieStorage, LocalStorage, SecureLocalStorage } from './storage'
-import { AppContext, AuthOptions, AuthStorageAsync } from './types'
-export type { AppContext, AuthOptions, AuthStorageAsync }
+import { AppContext, AuthOptions, AuthStorage, AuthStorageAsync } from './types'
+export type { AppContext, AuthOptions, AuthStorageAsync, AuthStorage }
 
 export { defaultOptions, CookieStorage, LocalStorage, SecureLocalStorage }
 

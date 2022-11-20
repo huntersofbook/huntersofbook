@@ -1,15 +1,22 @@
-export type HLanguage = 'en-US' | 'en-GB' | 'fr-FR' | 'zh-CN' | 'zh-TW' | 'ja-JP' | 'tr-TR'
+export type HLanguage =
+  | 'en-US'
+  | 'en-GB'
+  | 'fr-FR'
+  | 'zh-CN'
+  | 'zh-TW'
+  | 'ja-JP'
+  | 'tr-TR'
 export const DEFAULT_LOCALE: HLanguage = 'en-US'
 
 export interface TranslatedStr {
   messages?: { default: { [id: string]: string } }
-  fnDate: { default: object }
+  fnDate: any
 }
 
 interface LocaleDict {
   display: string
   dir: 'ltr' | 'rtl'
-  getStrings: () => Promise<TranslatedStr>
+  getStrings: () => Promise<TranslatedStr | null>
 }
 
 const locales: Record<HLanguage, LocaleDict> = {
@@ -17,8 +24,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: 'English (US)',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/en-US/index.js'),
+      const lang = await import('date-fns/esm/locale/en-US/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
@@ -26,8 +39,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: 'Türkçe (TR)',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/tr/index.js'),
+      const lang = await import('date-fns/esm/locale/tr/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
@@ -35,8 +54,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: 'English (UK)',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/en-GB/index.js'),
+      const lang = await import('date-fns/esm/locale/en-GB/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
@@ -44,8 +69,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: 'Français',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/fr/index.js'),
+      const lang = await import('date-fns/esm/locale/fr/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
@@ -53,8 +84,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: '中文（简体）',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/zh-CN'),
+      const lang = await import('date-fns/esm/locale/zh-CN/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
@@ -62,8 +99,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: '中文（繁體）',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/zh-TW'),
+      const lang = await import('date-fns/esm/locale/zh-TW/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },
@@ -71,8 +114,14 @@ const locales: Record<HLanguage, LocaleDict> = {
     display: '日本語',
     dir: 'ltr',
     async getStrings() {
-      return {
-        fnDate: await import('date-fns/locale/ja'),
+      const lang = await import('date-fns/esm/locale/ja/index.js')
+      if (lang) {
+        return {
+          fnDate: lang,
+        }
+      }
+      else {
+        return { fnDate: null }
       }
     },
   },

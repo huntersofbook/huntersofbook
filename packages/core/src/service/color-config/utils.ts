@@ -1,5 +1,5 @@
-import camelCase from 'lodash/camelCase.js'
-import kebabCase from 'lodash/kebabCase.js'
+import camelCase from 'lodash-es/camelCase'
+import kebabCase from 'lodash-es/kebabCase'
 
 export const cssVariableName = (colorName: string) =>
   `--hob-${kebabCase(colorName)}`

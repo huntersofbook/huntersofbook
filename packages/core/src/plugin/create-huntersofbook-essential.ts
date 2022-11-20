@@ -1,4 +1,5 @@
 import { ColorConfigPlugin } from '../service/color-config/plugin'
+import { setCurrentApp } from '../service/current-app'
 import { GlobalConfigPlugin } from '../service/global-config/plugin'
 import { GlobalConfig } from '../service/global-config/types'
 import {
@@ -34,6 +35,7 @@ export const createHuntersofbookEssential = defineHuntersofbookPlugin(
   ) => ({
     install(app) {
       const { config, plugins } = options
+      setCurrentApp(app)
 
       /** Register essential plugins before any other */
       usePlugin(app, plugins?.GlobalConfigPlugin || GlobalConfigPlugin, config)
@@ -53,6 +55,8 @@ export const createHuntersofbookEssential = defineHuntersofbookPlugin(
       //       app.component(name, component)
       //     })
       //   }
+
+      setCurrentApp(null)
     },
   }),
 )
