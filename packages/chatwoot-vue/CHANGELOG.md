@@ -1,3 +1,7 @@
+## [0.4.3](https://github.com/huntersofbook/huntersofbook/compare/chatwoot-vue@0.4.2...chatwoot-vue@0.4.3) (2022-11-20)
+
+
+
 ## 0.4.2 (2022-11-05)
 
 
