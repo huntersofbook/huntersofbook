@@ -503,7 +503,7 @@ importers:
 
   packages/plausible-nuxt:
     specifiers:
-      '@huntersofbook/plausible-vue': ^0.4.3
+      '@huntersofbook/plausible-vue': ^0.4.4
       '@nuxt/kit': ^3.0.0
       '@nuxt/module-builder': ^0.2.1
       '@nuxt/schema': ^3.0.0

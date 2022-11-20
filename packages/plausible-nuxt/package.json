@@ -46,7 +46,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@huntersofbook/plausible-vue": "^0.4.3",
+    "@huntersofbook/plausible-vue": "^0.4.4",
     "@nuxt/kit": "^3.0.0",
     "defu": "^6.1.1"
   },
