@@ -42,7 +42,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@huntersofbook/chatwoot-vue": "^0.4.2",
+    "@huntersofbook/chatwoot-vue": "^0.4.3",
     "@nuxt/kit": "^3.0.0",
     "defu": "^6.1.1"
   },
