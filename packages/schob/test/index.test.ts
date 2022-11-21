@@ -427,6 +427,10 @@ test('object in array in array', () => {
             {
               theme: 'aaa',
             },
+          ],
+        },
+        {
+          tt: [
             {
               theme: 'bbbb',
               xxx: 'xxx',
