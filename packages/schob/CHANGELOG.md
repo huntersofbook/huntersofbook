@@ -1,3 +1,12 @@
+# [0.1.0](https://github.com/huntersofbook/huntersofbook/compare/schob@0.1.0-alpha.2...schob@0.1.0) (2022-11-21)
+
+
+### Bug Fixes
+
+* **deps:** update global ([#133](https://github.com/huntersofbook/huntersofbook/issues/133)) ([5f368ab](https://github.com/huntersofbook/huntersofbook/commit/5f368abb941138e092742f2129ef81fca9f0326d))
+
+
+
 # [0.1.0-alpha.2](https://github.com/huntersofbook/huntersofbook/compare/schob@0.1.0-alpha.1...schob@0.1.0-alpha.2) (2022-11-15)
 
 
