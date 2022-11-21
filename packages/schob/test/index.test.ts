@@ -391,114 +391,50 @@ test('object in array', () => {
   )
 })
 
-// test('object in array', () => {
-//   const schema = {
-//     pages: {
-//       dd1: [
-//         {
-//           dd: 'TESt Hee 11',
-//           cc: false,
-//           tt: {
-//             dd: 'TESt Hee 11',
-//           },
-//         },
-//         {
-//           dd: '999',
-//           tt: [{
-//             theme: 'xxx',
-//           }],
-//         },
-//       ],
-//     },
-//   }
+test('object in array in array', () => {
+  const schema = {
+    pages: {
+      dd1: [
+        {
+          tt: [
+            {
+              theme: 'aaa',
+            },
+          ],
+        },
+      ],
+    },
+  }
 
-//   const newData = {
-//     pages: {
-//       dd1: [
-//         {
-//           dd: 'TESt Hee 11',
-//           vv: 'TESt Hee 11',
-//           cc: true,
-//           tt: {
-//             dd: 'bbb',
-//           },
-//         },
-//         {
-//           dd: '1999',
-//           tt: [{
-//             theme: 'bbbb',
-//           }],
-//         },
-//       ],
-//     },
-//   }
-//   const res = merge({ schema, newData })
-//   expect(res).toEqual({
-//     pages: {
-//       dd1: [
-//         {
-//           dd: 'TESt Hee 11',
-//           cc: true,
-//           tt: {
-//             dd: 'bbb',
-//           },
-//         },
-//         {
-//           dd: '1999',
-//           tt: [
-//             {
-//               theme: 'bbbb',
-//             },
-//             {
-//               theme: 'xxx',
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   },
-//   )
-// })
-
-// test('object in array in array', () => {
-//   const schema = {
-//     pages: {
-//       dd1: [
-//         {
-//           tt: [{
-//             theme: 'aaa',
-//           }],
-//         },
-//       ],
-//     },
-//   }
-
-//   const newData = {
-//     pages: {
-//       dd1: [
-//         {
-//           tt: [{
-//             theme: 'bbbb',
-//             xxx: 'xxx',
-//           }],
-//         },
-//       ],
-//     },
-//   }
-//   const res = merge({ schema, newData })
-//   expect(res).toEqual({
-//     pages: {
-//       dd1: [
-//         {
-//           tt: [{
-//             theme: 'aaa',
-//           }, {
-//             theme: 'bbbb',
-//             xxx: 'xxx',
-//           }],
-//         },
-//       ],
-//     },
-//   },
-//   )
-// })
+  const newData = {
+    pages: {
+      dd1: [
+        {
+          tt: [{
+            theme: 'bbbb',
+            xxx: 'xxx',
+          }],
+        },
+      ],
+    },
+  }
+  const res = merge({ schema, newData })
+  expect(res).toEqual({
+    pages: {
+      dd1: [
+        {
+          tt: [
+            {
+              theme: 'aaa',
+            },
+            {
+              theme: 'bbbb',
+              xxx: 'xxx',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  )
+})
