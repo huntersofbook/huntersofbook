@@ -2,7 +2,7 @@
   "name": "@huntersofbook/monorepo",
   "version": "0.4.1",
   "private": true,
-  "packageManager": "pnpm@7.16.1",
+  "packageManager": "pnpm@7.17.0",
   "engines": {
     "node": ">=16.0.0"
   },
@@ -23,7 +23,7 @@
     "ci-publish": "tsx scripts/publishCI.ts"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.30.1",
+    "@antfu/eslint-config": "^0.31.0",
     "@huntersofbook/auth-vue": "workspace:*",
     "@huntersofbook/chatwoot-vue": "workspace:*",
     "@huntersofbook/core": "workspace:*",
@@ -41,7 +41,7 @@
     "@types/prompts": "^2.4.1",
     "@types/semver": "^7.3.13",
     "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-plugin-import": "^2.26.0",
     "execa": "^6.1.0",
     "fs-extra": "^10.1.0",
@@ -49,11 +49,11 @@
     "lodash": "4.17.21",
     "minimist": "^1.2.7",
     "picocolors": "^1.0.0",
-    "pnpm": "7.16.1",
+    "pnpm": "7.17.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "prompts": "^2.4.2",
     "rimraf": "^3.0.2",
-    "rollup": "^3.3.0",
+    "rollup": "^3.4.0",
     "semver": "^7.3.8",
     "simple-git-hooks": "^2.8.1",
     "tsx": "^3.12.1",
