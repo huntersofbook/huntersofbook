@@ -78,6 +78,14 @@ importers:
       typescript: 4.9.3
       unbuild: 1.0.1
 
+  apps/general:
+    specifiers:
+      '@huntersofbook/revenuecat-ts': workspace:^0.4.1
+      dotenv: ^16.0.3
+    dependencies:
+      '@huntersofbook/revenuecat-ts': link:../../packages/revenuecat-ts
+      dotenv: 16.0.3
+
   apps/nuxt-playground:
     specifiers:
       '@antfu/eslint-config': 0.31.0
@@ -530,6 +538,35 @@ importers:
     devDependencies:
       unconfig: 0.3.7
       vue: 3.2.45
+
+  packages/revenuecat-ts:
+    specifiers:
+      '@antfu/eslint-config': ^0.31.0
+      '@types/node': ^18.11.9
+      '@typescript-eslint/eslint-plugin': ^5.43.0
+      '@typescript-eslint/parser': ^5.43.0
+      axios: ^1.1.3
+      eslint: ^8.28.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.2.1
+      lodash: ^4.17.21
+      prettier: ^2.7.1
+      tsup: ^6.5.0
+      typescript: ^4.9.3
+    dependencies:
+      axios: 1.1.3
+    devDependencies:
+      '@antfu/eslint-config': 0.31.0_hsf322ms6xhhd4b5ne6lb74y4a
+      '@types/node': 18.11.9
+      '@typescript-eslint/eslint-plugin': 5.43.0_nqj4bdx4ekws7aecttskpih4py
+      '@typescript-eslint/parser': 5.43.0_hsf322ms6xhhd4b5ne6lb74y4a
+      eslint: 8.28.0
+      eslint-config-prettier: 8.5.0_eslint@8.28.0
+      eslint-plugin-prettier: 4.2.1_pgxuib4rd7wiymfktharf5ydt4
+      lodash: 4.17.21
+      prettier: 2.7.1
+      tsup: 6.5.0_typescript@4.9.3
+      typescript: 4.9.3
 
   packages/schob:
     specifiers:
@@ -1826,8 +1863,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.7
-      '@intlify/shared': 9.3.0-beta.7
+      '@intlify/message-compiler': 9.3.0-beta.10
+      '@intlify/shared': 9.3.0-beta.10
       jsonc-eslint-parser: 1.4.1
       source-map: 0.6.1
       vue-i18n: 9.3.0-beta.7
@@ -1845,8 +1882,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.7
-      '@intlify/shared': 9.3.0-beta.7
+      '@intlify/message-compiler': 9.3.0-beta.10
+      '@intlify/shared': 9.3.0-beta.10
       jsonc-eslint-parser: 1.4.1
       source-map: 0.6.1
       vue-i18n: 9.3.0-beta.7
@@ -1868,12 +1905,23 @@ packages:
     dependencies:
       '@intlify/shared': 9.3.0-beta.7
 
+  /@intlify/message-compiler/9.3.0-beta.10:
+    resolution: {integrity: sha512-RoOC6yceOykLRhN0NlbkNOBUx1el6iphx3W8NfOx3jHVNtfT1FYokx14/5sU3F1F0uxeG4sp6q+ppKvaF8o+ww==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/shared': 9.3.0-beta.10
+      source-map: 0.6.1
+
   /@intlify/message-compiler/9.3.0-beta.7:
     resolution: {integrity: sha512-70r2UNp6DyKtIM4FgYCwdSuBK7xqCx2rVSXLMFiDRQi8pwooBklmOuzA0j7Q8ffbwKlFUJEEr2xPHZz2TJ6NAw==}
     engines: {node: '>= 14'}
     dependencies:
       '@intlify/shared': 9.3.0-beta.7
       source-map: 0.6.1
+
+  /@intlify/shared/9.3.0-beta.10:
+    resolution: {integrity: sha512-h93uAanbAt/XgjDHclrVB7xix6r7Uz11wx0iGNOCdHP7aA2LCJjUT3uNbekJjjbo+Fl5jzTSJZdm2SexzoqhRA==}
+    engines: {node: '>= 14'}
 
   /@intlify/shared/9.3.0-beta.6:
     resolution: {integrity: sha512-ITA1R4tvJYwZXT5x6QCSwxcwQ4dU52zrzVm/EUbgsp8oWzYS1xexBrxyNM80PSQudYvL2rvcZJKQ7yBh7b0LkQ==}
@@ -1900,7 +1948,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.4.0_vue-i18n@9.3.0-beta.7
-      '@intlify/shared': 9.3.0-beta.7
+      '@intlify/shared': 9.3.0-beta.10
       '@rollup/pluginutils': 4.2.1
       '@vue/compiler-sfc': 3.2.45
       debug: 4.3.4
@@ -1936,7 +1984,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.2.1_vue-i18n@9.3.0-beta.7
-      '@intlify/shared': 9.3.0-beta.7
+      '@intlify/shared': 9.3.0-beta.10
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
       fast-glob: 3.2.12
@@ -4412,7 +4460,6 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
-    dev: true
 
   /at-least-node/1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
@@ -4464,7 +4511,6 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
-    dev: true
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -4926,7 +4972,6 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
-    dev: true
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -5638,7 +5683,6 @@ packages:
   /delayed-stream/1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
-    dev: true
 
   /delegates/1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
@@ -7273,7 +7317,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dev: true
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -7288,7 +7331,6 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
-    dev: true
 
   /formdata-polyfill/4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
@@ -9002,14 +9044,12 @@ packages:
   /mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
-    dev: true
 
   /mime-types/2.1.35:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
-    dev: true
 
   /mime/1.6.0:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
@@ -10811,7 +10851,6 @@ packages:
 
   /proxy-from-env/1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
-    dev: true
 
   /prr/1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
@@ -12305,6 +12344,7 @@ packages:
     resolution: {integrity: sha512-uVbFqx9vvLhQg0iBaau9Z75AxWJ8tqM9AV890dIZCLApF4rTcyHwmAvLeEdYRs+BzYWu8Iw81F79ah0EfTXbaw==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+    requiresBuild: true
     dev: true
 
   /ultrahtml/1.0.0:
@@ -13338,7 +13378,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@intlify/shared': 9.3.0-beta.7
+      '@intlify/shared': 9.3.0-beta.10
       '@intlify/vue-i18n-bridge': 0.8.0_vue-i18n@9.3.0-beta.7
       '@intlify/vue-router-bridge': 0.8.0
       ufo: 0.8.6
