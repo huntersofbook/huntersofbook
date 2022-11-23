@@ -1,0 +1,13 @@
+{
+  "name": "chatwoot-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "build": "pnpm -rf packages/*/dist && pnpm --parallel run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
