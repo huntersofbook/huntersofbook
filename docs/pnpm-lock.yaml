@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.31.0
   '@huntersofbook/core-nuxt': 0.4.1
-  '@huntersofbook/plausible-nuxt': ^0.5.0
+  '@huntersofbook/plausible-nuxt': ^0.5.2
   '@nuxt-themes/docus': ^0.3.2
   '@nuxt/content': ^2.2.2
   '@nuxtjs/i18n': ^8.0.0-beta.4
@@ -14,7 +14,6 @@ specifiers:
   date-fns: ^2.29.3
   emmet-monaco-es: ^5.1.2
   eslint: ^8.28.0
-  install: ^0.13.0
   monaco-editor-core: ^0.34.1
   nuxt: ^3.0.0
   nuxt-icon: ^0.1.7
@@ -29,7 +28,6 @@ dependencies:
   '@vueuse/motion': 2.0.0-beta.25
   date-fns: 2.29.3
   emmet-monaco-es: 5.1.2
-  install: 0.13.0
   xterm: 5.0.0
 
 devDependencies:
@@ -1107,8 +1105,8 @@ packages:
       - vue-server-renderer
     dev: true
 
-  /@nuxt-themes/tokens/1.1.5:
-    resolution: {integrity: sha512-YTVhFFMiSxhRQe37+Le5kAnQzD+vy/TPLkt61a3tXXv1guy1jBfwU5vEKOgL/CY/o1PjYU2hrdR4E33mcYRScQ==}
+  /@nuxt-themes/tokens/1.1.12:
+    resolution: {integrity: sha512-NxhOhzazzp+Qm4MrXlgvwa+UIej4G/H32axNzYlIsaadPkfGpw0EwkqqTppQvITWoTL1SVIZopEWCLy1ujsYUQ==}
     dependencies:
       '@nuxtjs/color-mode': 3.1.8
       '@vueuse/core': 9.6.0
@@ -1126,7 +1124,7 @@ packages:
   /@nuxt-themes/typography/0.0.17:
     resolution: {integrity: sha512-kX3MBc0YqYd9Lg+5Q0iXoqAlQ1APAXj3jJtGcwKcsa+DluQjPawO6l3tODVJNFVEIx5RnY4YA/Xn9zKYr2OPxQ==}
     dependencies:
-      '@nuxt-themes/tokens': 1.1.5
+      '@nuxt-themes/tokens': 1.1.12
       '@nuxtjs/color-mode': 3.1.8
       nuxt-icon: 0.1.7
       pinceau: 0.6.26
@@ -5208,11 +5206,6 @@ packages:
       through: 2.3.8
       wrap-ansi: 8.0.1
     dev: true
-
-  /install/0.13.0:
-    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
-    engines: {node: '>= 0.10'}
-    dev: false
 
   /instantsearch.css/7.4.5:
     resolution: {integrity: sha512-iIGBYjCokU93DDB8kbeztKtlu4qVEyTg1xvS6iSO1YvqRwkIZgf0tmsl/GytsLdZhuw8j4wEaeYsCzNbeJ/zEQ==}

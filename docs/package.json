@@ -10,18 +10,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
-    "@huntersofbook/plausible-nuxt": "^0.5.0",
-    "@nuxt-themes/docus": "^0.3.2",
-    "@nuxt/content": "^2.2.2",
-    "@nuxtlabs/github-module": "^1.5.3",
-    "eslint": "^8.28.0",
-    "monaco-editor-core": "^0.34.1",
-    "nuxt": "^3.0.0",
-    "nuxt-icon": "^0.1.7",
-    "tsx": "^3.12.1"
-  },
   "dependencies": {
     "@huntersofbook/core-nuxt": "0.4.1",
     "@nuxtjs/i18n": "^8.0.0-beta.4",
@@ -30,7 +18,18 @@
     "@vueuse/motion": "^2.0.0-beta.24",
     "date-fns": "^2.29.3",
     "emmet-monaco-es": "^5.1.2",
-    "install": "^0.13.0",
     "xterm": "^5.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "@huntersofbook/plausible-nuxt": "^0.5.2",
+    "@nuxt-themes/docus": "^0.3.2",
+    "@nuxt/content": "^2.2.2",
+    "@nuxtlabs/github-module": "^1.5.3",
+    "eslint": "^8.28.0",
+    "monaco-editor-core": "^0.34.1",
+    "nuxt": "^3.0.0",
+    "nuxt-icon": "^0.1.7",
+    "tsx": "^3.12.1"
   }
 }
