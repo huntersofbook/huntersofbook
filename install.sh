@@ -7,9 +7,9 @@ then
     echo "install"
 elif [ $1 == 'lint' ]
 then
-    pnpm tsx lint.ts
+    pnpm tsx lint.ts lint
     echo "lint"
-elif [ $1 == 'lint:fix' ]
+elif [ $1 == 'lint-fix' ]
 then
     pnpm tsx lint.ts lint:fix
     echo "lint"

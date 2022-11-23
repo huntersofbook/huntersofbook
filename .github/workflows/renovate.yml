@@ -45,9 +45,9 @@ jobs:
 
 
       - name: Install Dependencies
-        run: ./install.sh
+        run: ./install.sh 
         shell: bash
 
       - name: Lint
-        run: ./install.sh
+        run: ./install.sh lint
         shell: bash
