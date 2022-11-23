@@ -22,7 +22,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: pnpm/action-setup@v2.2.4
         name: Install pnpm
@@ -43,14 +43,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: 📦 Install dependencies
-        run: pnpm install --frozen-lockfile
 
-      - name: 🛠 Build
-        run: pnpm build
+      - name: Install Dependencies
+        run: ./install.sh
+        shell: bash
 
-      - name: 💪 Lint
-        run: pnpm lint
-
-      - name: 💪 Test
-        run: pnpm test
+      - name: Lint
+        run: ./install.sh
+        shell: bash

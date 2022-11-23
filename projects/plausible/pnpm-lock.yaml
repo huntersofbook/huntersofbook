@@ -5,7 +5,7 @@ importers:
   .:
     specifiers: {}
 
-  packages/plausible-nuxt:
+  packages/nuxt:
     specifiers:
       '@antfu/eslint-config': ^0.31.0
       '@huntersofbook/plausible-vue': ^0.4.4
@@ -17,7 +17,7 @@ importers:
       nuxt: ^3.0.0
       tsx: ^3.12.1
     dependencies:
-      '@huntersofbook/plausible-vue': link:../plausible-vue
+      '@huntersofbook/plausible-vue': link:../vue
       '@nuxt/kit': 3.0.0
       defu: 6.1.1
     devDependencies:
@@ -28,10 +28,10 @@ importers:
       nuxt: 3.0.0_eslint@8.28.0
       tsx: 3.12.1
 
-  packages/plausible-nuxt/playground:
+  packages/nuxt/playground:
     specifiers: {}
 
-  packages/plausible-vue:
+  packages/vue:
     specifiers:
       '@antfu/eslint-config': ^0.31.0
       defu: ^6.1.1
