@@ -1,7 +1,7 @@
-import { AxiosRequestConfig } from 'axios'
-import { CookieAttributes } from 'js-cookie'
+import type { AxiosRequestConfig } from 'axios'
+import type { CookieAttributes } from 'js-cookie'
 
-import { AuthStorage, AuthStorageAsync } from './storage'
+import type { AuthStorage, AuthStorageAsync } from './storage'
 
 export interface AuthOptions {
   apiType: 'rest' | 'graphql'

@@ -1,5 +1,5 @@
 import { CookieStorage } from './storage'
-import { AuthOptions } from './types'
+import type { AuthOptions } from './types'
 
 export const defaultOptions: AuthOptions = {
   apiType: 'graphql',

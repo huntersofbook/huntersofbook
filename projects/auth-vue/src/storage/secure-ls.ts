@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js'
 
-import { AuthOptions, AuthStorage } from '../types/index'
+import type { AuthOptions, AuthStorage } from '../types/index'
 
 export class SecureLocalStorage implements AuthStorage {
   set(key: string, value: string) {

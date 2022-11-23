@@ -1,4 +1,4 @@
-import { AuthStorage } from '../types/index'
+import type { AuthStorage } from '../types/index'
 
 export class LocalStorage implements AuthStorage {
   set(key: string, value: any) {

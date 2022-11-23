@@ -31,7 +31,7 @@
     "test": "jest",
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint \"./**/*.{ts,vue}\"",
+    "lint": "eslint .",
     "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "prepublishOnly": "npm run build"

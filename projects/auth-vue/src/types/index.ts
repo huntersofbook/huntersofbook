@@ -1,6 +1,6 @@
-import { AxiosInstance } from 'axios'
+import type { AxiosInstance } from 'axios'
 
-import { AuthOptions } from './options'
+import type { AuthOptions } from './options'
 
 export type { AuthOptions } from './options'
 export type { AuthStorage, AuthStorageAsync } from './storage'

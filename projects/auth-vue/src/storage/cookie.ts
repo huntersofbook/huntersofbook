@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-import { AuthOptions, AuthStorage } from '../types/index'
+import type { AuthOptions, AuthStorage } from '../types/index'
 
 export class CookieStorage implements AuthStorage {
   set(key: string, value: any, options?: AuthOptions) {

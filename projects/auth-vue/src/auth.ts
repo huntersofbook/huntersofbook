@@ -1,11 +1,11 @@
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { decodeJwt } from 'jose'
 import get from 'lodash/get'
 import merge from 'lodash/merge'
 
 import { isTokenExpired } from './lib'
 import { useStorage } from './storage'
-import { AuthOptions, AuthStorage, AuthStorageAsync, AuthUser } from './types'
+import type { AuthOptions, AuthStorage, AuthStorageAsync, AuthUser } from './types'
 
 export interface ICallBack {
   onSuccess?: (response: any) => void
@@ -23,7 +23,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
 
   async function authInit() {
     const token = await getFreshToken()
-    if (token) await getUser()
+    if (token)
+      await getUser()
   }
 
   function setTokenExpiration(tokenData: string) {
@@ -123,7 +124,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
     }
     else {
       const data = await forceLogout()
-      if (data) callback?.onSuccess?.(data)
+      if (data)
+        callback?.onSuccess?.(data)
       callback?.onLoading?.(false)
       return data
     }
@@ -325,7 +327,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
   function getLocalUser(callback?: ICallBack) {
     const user = storage.get(options.user.storageName)
     callback?.onLoading?.(true)
-    if (user) callback?.onSuccess?.(user)
+    if (user)
+      callback?.onSuccess?.(user)
     callback?.onLoading?.(false)
     return user
   }
@@ -471,7 +474,8 @@ export function AuthFunc(options: AuthOptions, axios: AxiosInstance) {
   }
 
   function handleRefreshTokenFailed(e?: any, callback?: ICallBack) {
-    if (options.refreshToken.autoLogout) forceLogout()
+    if (options.refreshToken.autoLogout)
+      forceLogout()
     callback?.onError?.(e?.message || 'Refresh token failed')
     callback?.onSuccess?.(options.redirect.home)
     return e
