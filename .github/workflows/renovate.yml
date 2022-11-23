@@ -8,7 +8,7 @@ on:
 jobs:
   cache-and-install:
     if: contains(github.event.pull_request.labels.*.name, 'renovate')
-    name: 📦 Install node modules
+    name: 📦 All Projects Check
     runs-on: ${{ matrix.os }}
 
     strategy:
