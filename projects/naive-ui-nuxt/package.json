@@ -1,0 +1,62 @@
+{
+  "name": "@huntersofbook/naive-ui-nuxt",
+  "version": "0.5.1",
+  "description": "Nuxt 3 Naive UI library",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "private": false,
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/naive-ui-nuxt"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "nuxt 3",
+    "naive",
+    "naive ui",
+    "nuxt 3 module",
+    "plugin"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm dev:prepare && pnpm nuxt-module-build",
+    "dev": "pnpm dev:prepare && nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+
+  },
+  "dependencies": {
+    "@css-render/vue3-ssr": "^0.15.11",
+    "@nuxt/kit": "^3.0.0",
+    "defu": "^6.1.1",
+    "install": "^0.13.0",
+    "naive-ui": "^2.33.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.0.0",
+    "eslint": "^8.28.0",
+    "nuxt": "^3.0.0",
+    "tsx": "^3.12.1"
+  }
+}

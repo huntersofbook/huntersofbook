@@ -1,0 +1,57 @@
+{
+  "name": "@huntersofbook/chatwoot-vue",
+  "type": "module",
+  "version": "0.4.3",
+  "description": "chatwoot vue library.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/chatwoot-vue#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/chatwoot-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "vue 3",
+    "chatwoot",
+    "vue",
+    "plugin"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
+  },
+  "dependencies": {
+    "defu": "^6.1.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "eslint": "^8.28.0",
+    "tsx": "^3.12.1",
+    "unbuild": "^1.0.1",
+    "unconfig": "^0.3.7",
+    "vue": "^3.2.45"
+  }
+}
