@@ -8,26 +8,16 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPaths": ["examples/**"],
-      "matchPackagePatterns": ["*"],
+      "matchPaths": ["docs/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "examples dependencies (major)"
+      "groupName": "projects"
     },
     {
-      "matchPaths": ["packages/**", "apps/**"],
-      "ignorePaths": ["examples/**"],
-      "matchPackagePatterns": ["*"],
+      "matchPaths": ["projects/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "global"
-    },
-    {
-      "groupName": "local",
-      "ignorePaths": ["apps/**", "packages/**"],
-      "matchFiles": ["package.json"],
-      "matchUpdateTypes": ["patch", "minor", "major"],
-      "matchDatasources": ["npm"]
+      "groupName": "docs"
     }
   ]
 }
