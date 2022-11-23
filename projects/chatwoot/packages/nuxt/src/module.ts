@@ -1,4 +1,4 @@
-import { OptionPlugin } from '@huntersofbook/chatwoot-vue'
+import type { OptionPlugin } from '@huntersofbook/chatwoot-vue'
 import {
   addImportsSources,
   addPlugin,

@@ -1,5 +1,6 @@
 import defu from 'defu'
-import { App, onBeforeUnmount, onMounted, ref } from 'vue'
+import type { App } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 declare global {
   interface Window {

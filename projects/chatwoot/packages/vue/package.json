@@ -1,5 +1,6 @@
 {
   "name": "@huntersofbook/chatwoot-vue",
+  "type": "module",
   "version": "0.4.3",
   "description": "chatwoot vue library.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -20,7 +21,6 @@
     "vue",
     "plugin"
   ],
-  "type": "module",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -40,6 +40,12 @@
     "stub": "unbuild --stub",
     "prepublishOnly": "npm run build"
   },
+  "peerDependencies": {
+    "vue": "^3.2.45"
+  },
+  "dependencies": {
+    "defu": "^6.1.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.31.0",
     "eslint": "^8.28.0",
@@ -47,11 +53,5 @@
     "unbuild": "^1.0.1",
     "unconfig": "^0.3.7",
     "vue": "^3.2.45"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.45"
-  },
-  "dependencies": {
-    "defu": "^6.1.1"
   }
 }

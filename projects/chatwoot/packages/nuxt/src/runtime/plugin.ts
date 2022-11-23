@@ -1,4 +1,5 @@
-import { Chatwoot, createChatWoot } from '@huntersofbook/chatwoot-vue'
+import type { Chatwoot } from '@huntersofbook/chatwoot-vue'
+import { createChatWoot } from '@huntersofbook/chatwoot-vue'
 
 import { defineNuxtPlugin, useRuntimeConfig } from '#app'
 

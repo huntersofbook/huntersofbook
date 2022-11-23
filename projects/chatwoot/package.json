@@ -2,14 +2,14 @@
   "name": "chatwoot-vue",
   "version": "1.0.0",
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --parallel run dev",
     "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

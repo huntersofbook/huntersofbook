@@ -1,5 +1,6 @@
 {
   "name": "@huntersofbook/chatwoot-nuxt",
+  "type": "module",
   "version": "0.5.2",
   "description": "chatwoot nuxt module",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -21,11 +22,10 @@
     "nuxt 3 module",
     "plugin"
   ],
-  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
     }
   },
   "main": "./dist/module.cjs",

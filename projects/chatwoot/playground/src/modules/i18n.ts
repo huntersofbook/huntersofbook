@@ -1,8 +1,7 @@
 import { createI18n } from 'vue-i18n'
 
-import type { UserModule } from '~/types'
-
 import messages from '@intlify/vite-plugin-vue-i18n/messages'
+import type { UserModule } from '~/types'
 
 // setup i18n instance with global
 export const install: UserModule = ({ app }) => {
@@ -14,5 +13,4 @@ export const install: UserModule = ({ app }) => {
     sync: true,
   })
   app.use(i18n)
-
 }
