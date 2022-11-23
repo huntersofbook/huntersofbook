@@ -1,13 +1,13 @@
 name: CI
 
 on:
-  pull_request_target:
-    branches:
-      - main
-
+  pull_request:
+    types:
+      - labeled
+      
 jobs:
   cache-and-install:
-    if: github.event.label.name == 'renovate'
+    if: contains(github.event.pull_request.labels.*.name, 'renovate')
     name: 📦 Install node modules
     runs-on: ${{ matrix.os }}
 
