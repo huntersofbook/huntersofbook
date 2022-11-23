@@ -7,7 +7,8 @@ import { isArray } from 'lodash'
 import { basename, resolve } from 'pathe'
 
 import { asyncForEach } from '../utils/asyncForEach'
-import { PluginInvokeResult, definePluginCommand } from './index'
+import type { PluginInvokeResult } from './index'
+import { definePluginCommand } from './index'
 
 export interface JSONCopyConfig {
   /**

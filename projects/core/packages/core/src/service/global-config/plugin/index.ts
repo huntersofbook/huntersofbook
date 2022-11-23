@@ -1,4 +1,4 @@
-import { App } from 'vue'
+import type { App } from 'vue'
 
 import { defineHuntersofbookPlugin } from '../../../types'
 import { defineGlobalProperty } from '../../../utils/global-properties'
@@ -6,7 +6,7 @@ import {
   HUNTERSOFBOOK_GLOBAL_CONFIG,
   createGlobalConfig,
 } from '../global-config'
-import { GlobalConfig } from '../types'
+import type { GlobalConfig } from '../types'
 
 export const GlobalConfigPlugin = defineHuntersofbookPlugin(
   (config: GlobalConfig | undefined) => ({

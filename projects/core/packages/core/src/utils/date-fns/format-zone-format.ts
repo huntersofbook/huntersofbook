@@ -1,4 +1,4 @@
-import { OptionsWithTZ } from 'date-fns-tz'
+import type { OptionsWithTZ } from 'date-fns-tz'
 import formatInTimeZone from 'date-fns-tz/esm/formatInTimeZone'
 
 export function localizedFormatInTimeZone(

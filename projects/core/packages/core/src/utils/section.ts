@@ -1,5 +1,6 @@
 import { useForm } from 'vee-validate'
-import { Ref, isRef, unref } from 'vue'
+import type { Ref } from 'vue'
+import { isRef, unref } from 'vue'
 import type { SchemaOf } from 'yup'
 
 // Raw value or a ref

@@ -1,11 +1,12 @@
 import enUS from 'date-fns/esm/locale/en-US/index.js'
 import cloneDeep from 'lodash-es/cloneDeep'
 import merge from 'lodash-es/merge'
-import { Ref, getCurrentInstance, inject, ref } from 'vue'
+import type { Ref } from 'vue'
+import { getCurrentInstance, inject, ref } from 'vue'
 
 import { getGlobalProperty } from '../../utils/global-properties'
 import { colorsPresets } from '../color-config/color-theme-presets'
-import { GlobalConfig, GlobalConfigUpdater } from './types'
+import type { GlobalConfig, GlobalConfigUpdater } from './types'
 
 export interface ProvidedGlobalConfig {
   globalConfig: Ref<GlobalConfig>

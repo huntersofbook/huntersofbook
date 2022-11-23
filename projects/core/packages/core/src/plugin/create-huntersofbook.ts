@@ -1,6 +1,6 @@
 import { ColorConfigPlugin } from '../service/color-config/plugin'
 import { GlobalConfigPlugin } from '../service/global-config/plugin'
-import { GlobalConfig } from '../service/global-config/types'
+import type { GlobalConfig } from '../service/global-config/types'
 import { defineHuntersofbookPlugin } from '../types'
 import { usePlugin } from '../utils/use-plugin'
 

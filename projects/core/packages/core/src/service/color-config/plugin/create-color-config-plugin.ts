@@ -1,8 +1,9 @@
-import { App, watch } from 'vue'
+import type { App } from 'vue'
+import { watch } from 'vue'
 
 import { getGlobalProperty } from '../../../utils/global-properties'
 import { isServer } from '../../../utils/ssr-utils'
-import { GlobalConfig } from '../../global-config/global-config'
+import type { GlobalConfig } from '../../global-config/global-config'
 import { cssVariableName } from '../utils'
 
 export const setCSSVariable = (

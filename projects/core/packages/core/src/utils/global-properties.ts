@@ -1,4 +1,4 @@
-import { App, AppContext, ComponentCustomProperties, InjectionKey } from 'vue'
+import type { App, AppContext, ComponentCustomProperties, InjectionKey } from 'vue'
 
 export const HUNTERSOFBOOK_CONFIG = Symbol(
   'HUNTERSOFBOOK_CONFIG',

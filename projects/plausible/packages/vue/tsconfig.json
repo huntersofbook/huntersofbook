@@ -1,19 +1,18 @@
-
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Default",
-    "compilerOptions": {
-      "module": "ESNext",
-      "target": "ESNext",
-      "composite": false,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "jsx": "preserve",
-      "moduleResolution": "node",
-      "preserveWatchOutput": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "resolveJsonModule": true
-    },
-    "exclude": ["node_modules", "dist"]
-  }
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "composite": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules", "dist"]
+}

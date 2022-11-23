@@ -1,7 +1,7 @@
 ```ts
 import { Preferences } from '@capacitor/preferences'
 
-import { AuthOptions, AuthStorageAsync } from '../types/index'
+import type { AuthOptions, AuthStorageAsync } from '../types/index'
 export class CapacitorStorage implements AuthStorageAsync {
   async set(key: string, value: any) {
     await Preferences.set({ key, value: JSON.stringify(value) })

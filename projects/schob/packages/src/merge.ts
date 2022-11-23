@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { mergeAndCompare } from 'merge-anything'
 import { removeProp } from 'remove-anything'
 
-import { Merger } from './types'
+import type { Merger } from './types'
 
 /**
  * compare values

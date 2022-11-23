@@ -1,15 +1,16 @@
 <script lang="ts">
+import type { timeZone } from '@huntersofbook/core'
 import {
   localizedFormat,
   localizedFormatDistance,
   localizedFormatDistanceStrict,
   localizedFormatInTimeZone,
-  timeZone,
   useGlobalConfigSafe,
 } from '@huntersofbook/core'
 import { fromUnixTime } from 'date-fns'
 import enUS from 'date-fns/locale/en-US/index.js'
-import { PropType, computed, defineComponent, onMounted, ref, watch } from 'vue'
+import type { PropType } from 'vue'
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 
 export default defineComponent({
   props: {
@@ -80,7 +81,8 @@ export default defineComponent({
     const mergedTo = computed(() => {
       const { to } = props
       if (props.unix) {
-        if (to === undefined) return now
+        if (to === undefined)
+          return now
         return fromUnixTime(typeof to === 'number' ? to : to.valueOf())
       }
       return to ?? now
@@ -89,7 +91,8 @@ export default defineComponent({
     const mergedTime = computed(() => {
       const { time } = props
       if (props.unix) {
-        if (time === undefined) return now
+        if (time === undefined)
+          return now
         return fromUnixTime(typeof time === 'number' ? time : time.valueOf())
       }
       return time ?? now

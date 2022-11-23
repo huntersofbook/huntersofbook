@@ -1,6 +1,6 @@
-import { Component, VNodeChild } from 'vue'
+import type { Component, VNodeChild } from 'vue'
 
-import { DeepPartial } from './misc'
+import type { DeepPartial } from './misc'
 
 export type Width = 'half' | 'half-left' | 'half-right' | 'full' | 'fill'
 

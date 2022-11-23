@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ZxcvbnResult, zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
+import type { ZxcvbnResult } from '@zxcvbn-ts/core'
+import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
 import { computed, unref } from 'vue'
 
 const props = defineProps({

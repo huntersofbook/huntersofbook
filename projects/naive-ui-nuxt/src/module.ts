@@ -7,7 +7,7 @@ import {
   defineNuxtModule,
 } from '@nuxt/kit'
 import defu from 'defu'
-import { GlobalThemeOverrides } from 'naive-ui'
+import type { GlobalThemeOverrides } from 'naive-ui'
 
 import { name, version } from '../package.json'
 

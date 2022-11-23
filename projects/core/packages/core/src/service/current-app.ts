@@ -6,6 +6,7 @@ import { inject as vueInject } from 'vue'
  */
 let app: App | null
 
+// eslint-disable-next-line max-statements-per-line
 export const setCurrentApp = (instance: App | null) => { app = instance }
 export const getCurrentApp = () => app
 

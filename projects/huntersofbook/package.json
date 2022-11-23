@@ -1,5 +1,6 @@
 {
   "name": "huntersofbook",
+  "type": "module",
   "version": "0.4.2-beta.6",
   "description": "Compile TypeScript service workers files with Vite",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -14,27 +15,6 @@
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
   },
-  "bin": "./bin/huntersofbook.mjs",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "bin",
-    "config.*",
-    "type.d.ts",
-    "tsconfig.json"
-  ],
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./cli": "./bin/huntersofbook.mjs",
-    "./config": {
-      "import": "./config.js",
-      "require": "./config.cjs",
-      "types": "./config.d.ts"
-    },
-    "./package.json": "./package.json"
-  },
   "keywords": [
     "compile",
     "plugin",
@@ -43,6 +23,26 @@
     "vite",
     "worker",
     "service worker"
+  ],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./cli": "./bin/huntersofbook.mjs",
+    "./config": {
+      "types": "./config.d.ts",
+      "require": "./config.cjs",
+      "import": "./config.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": "./bin/huntersofbook.mjs",
+  "files": [
+    "dist",
+    "bin",
+    "config.*",
+    "type.d.ts",
+    "tsconfig.json"
   ],
   "scripts": {
     "prepack": "tsup --dts",

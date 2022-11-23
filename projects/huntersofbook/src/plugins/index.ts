@@ -1,7 +1,7 @@
 import type { Argv } from 'mri'
 
-import { HuntersofbookConfig, IWatch } from '../types'
-import { QuestionPlugin } from '../utils/questions'
+import type { HuntersofbookConfig, IWatch } from '../types'
+import type { QuestionPlugin } from '../utils/questions'
 
 export const _rDefault = (r: any) => r.default || r
 

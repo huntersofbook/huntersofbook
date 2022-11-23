@@ -1,19 +1,19 @@
 {
   "name": "@huntersofbook/form-naiveui",
   "version": "0.4.3",
-  "license": "MIT",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
     "directory": "packages/form-naiveui"
   },
-  "funding": "https://github.com/sponsors/productdevbook",
   "sponsor": {
     "url": "https://github.com/sponsors/productdevbook"
   },
-  "homepage": "https://github.com/huntersofbook/huntersofbook#readme",
   "publishConfig": {
     "access": "public"
   },
@@ -22,18 +22,11 @@
     "vue 3 naive ui form generator",
     "vue 3 naive ui"
   ],
-  "files": [
-    "dist",
-    "src",
-    "volar.d.ts"
-  ],
-  "main": "./dist/form-naiveui.js",
-  "module": "./dist/form-naiveui.mjs",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "require": "./dist/form-naiveui.js",
-      "import": "./dist/form-naiveui.mjs",
-      "types": "./dist/types/index.d.ts"
+      "import": "./dist/form-naiveui.mjs"
     },
     "./style": {
       "import": "./dist/style.css"
@@ -42,7 +35,14 @@
       "import": "./dist/src/index.ts"
     }
   },
+  "main": "./dist/form-naiveui.js",
+  "module": "./dist/form-naiveui.mjs",
   "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "volar.d.ts"
+  ],
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
@@ -50,6 +50,11 @@
     "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "naive-ui": "^2.33.5",
+    "typescript": "^4.9.3",
+    "vee-validate": "^4.7.3"
   },
   "dependencies": {
     "@huntersofbook/core": "^0.4.14",
@@ -78,10 +83,5 @@
     "vite-ssg-sitemap": "^0.4.3",
     "vite-svg-loader": "^3.6.0",
     "vue-eslint-parser": "^9.1.0"
-  },
-  "peerDependencies": {
-    "naive-ui": "^2.33.5",
-    "typescript": "^4.9.3",
-    "vee-validate": "^4.7.3"
   }
 }

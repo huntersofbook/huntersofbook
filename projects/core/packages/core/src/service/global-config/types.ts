@@ -1,6 +1,6 @@
 import type { Locale } from 'date-fns'
 
-import { ColorConfig } from '../color-config'
+import type { ColorConfig } from '../color-config'
 
 export interface GlobalConfig {
   colors?: ColorConfig

@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'fs'
 
 import nodeResolve from '@rollup/plugin-node-resolve'
-import { RollupTypescriptPluginOptions } from '@rollup/plugin-typescript'
+import type { RollupTypescriptPluginOptions } from '@rollup/plugin-typescript'
 import { red } from 'colorette'
 import consola from 'consola'
 import { defu } from 'defu'
@@ -15,7 +15,8 @@ import { minify } from 'rollup-plugin-esbuild'
 
 import { asyncForEach } from '../utils/asyncForEach'
 import { finishTime, voidTimer } from '../utils/time'
-import { PluginInvokeResult, definePluginCommand } from './index'
+import type { PluginInvokeResult } from './index'
+import { definePluginCommand } from './index'
 export interface CompileFileConfig {
   /**
    * @param {string} inputFile

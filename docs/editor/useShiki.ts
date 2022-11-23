@@ -1,8 +1,10 @@
+import type {
+  Lang,
+  Theme,
+} from 'shiki-es'
 import {
   BUNDLED_LANGUAGES,
   BUNDLED_THEMES,
-  Lang,
-  Theme,
   getHighlighter,
 } from 'shiki-es'
 import { visit } from 'unist-util-visit'

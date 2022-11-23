@@ -22,6 +22,7 @@ export function requireModule(id: string, paths?: string | string[]) {
 }
 
 export function tryRequireModule(id: string, paths?: string | string[]) {
+  // eslint-disable-next-line max-statements-per-line
   try { return requireModule(id, paths) }
   catch { return null }
 }

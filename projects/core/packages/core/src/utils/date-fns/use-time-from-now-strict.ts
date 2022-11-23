@@ -1,5 +1,6 @@
 import type { formatDistanceStrict } from 'date-fns'
-import { Ref, onMounted, onUnmounted, ref } from 'vue'
+import type { Ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import { useGlobalConfigSafe } from '../../service/global-config/global-config'
 import { isServer } from '../ssr-utils'
@@ -60,7 +61,8 @@ export function useTimeFromNowStrict(
     })
 
     onUnmounted(() => {
-      if (autoUpdate !== 0) clearInterval(interval.value)
+      if (autoUpdate !== 0)
+        clearInterval(interval.value)
     })
   }
   return formattedDate

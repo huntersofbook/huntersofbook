@@ -1,5 +1,5 @@
 import { zxcvbnOptions } from '@zxcvbn-ts/core'
-import {
+import type {
   Match,
   MatchEstimated,
   MatchExtended,

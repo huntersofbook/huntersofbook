@@ -1,8 +1,9 @@
-import { LoadConfigOptions, loadConfig } from 'c12'
+import type { LoadConfigOptions } from 'c12'
+import { loadConfig } from 'c12'
 import { resolve } from 'pathe'
 import { applyDefaults } from 'untyped'
 
-import { HuntersofbookConfig } from '../types'
+import type { HuntersofbookConfig } from '../types'
 
 export interface LoadHuntersofbookConfigOptions extends LoadConfigOptions<HuntersofbookConfig> { }
 

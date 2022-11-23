@@ -1,6 +1,7 @@
 import mri from 'mri'
 
-import { Command, HuntersofbookCommand, commands } from './commands'
+import type { Command, HuntersofbookCommand } from './commands'
+import { commands } from './commands'
 
 export async function runCommand(command: string, argv = process.argv.slice(2)) {
   console.log('runCommand', command, argv)

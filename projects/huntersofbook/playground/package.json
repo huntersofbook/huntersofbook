@@ -2,10 +2,10 @@
   "name": "playground",
   "version": "1.0.0",
   "description": "",
+  "license": "ISC",
   "scripts": {
     "dev": "huntersofbook dev"
   },
-  "license": "ISC",
   "dependencies": {
     "firebase": "^9.14.0",
     "huntersofbook": "workspace:*",

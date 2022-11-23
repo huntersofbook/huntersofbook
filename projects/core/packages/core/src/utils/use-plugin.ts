@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 
-import { HuntersofbookPlugin, HuntersofbookPluginFabric } from '../types'
+import type { HuntersofbookPlugin, HuntersofbookPluginFabric } from '../types'
 
 const isPluginFabric = (
   plugin: HuntersofbookPlugin | HuntersofbookPluginFabric,

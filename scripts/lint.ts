@@ -55,7 +55,7 @@ const installPackage = async (isDev: false, packagesName: string) => {
   }
   if (projects.length > 0) {
     projects.forEach((project: string) => {
-      const data = execaCommandSync(`pnpm lint`, { cwd: project }).stdout.toString()
+      const data = execaCommandSync(`pnpm ${packages}`, { cwd: project }).stdout.toString()
       consola.info(project, data)
     })
   }

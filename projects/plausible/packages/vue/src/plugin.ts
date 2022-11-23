@@ -1,7 +1,8 @@
 import defu from 'defu'
 import Plausible from 'plausible-tracker'
 import type { PlausibleOptions } from 'plausible-tracker'
-import { App, inject } from 'vue'
+import type { App } from 'vue'
+import { inject } from 'vue'
 
 interface ScriptLoaderOption extends Partial<HTMLScriptElement> {
   'data-domain': string

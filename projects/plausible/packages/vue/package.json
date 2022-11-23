@@ -1,5 +1,6 @@
 {
   "name": "@huntersofbook/plausible-vue",
+  "type": "module",
   "version": "0.4.4",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -24,7 +25,6 @@
     "vue",
     "plugin"
   ],
-  "type": "module",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -44,11 +44,7 @@
     "stub": "unbuild --stub",
     "prepublishOnly": "npm run build"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
-    "eslint": "^8.28.0",
-    "tsx": "^3.12.1",
-    "unconfig": "^0.3.7",
+  "peerDependencies": {
     "vue": "^3.2.45"
   },
   "dependencies": {
@@ -56,7 +52,11 @@
     "install": "^0.13.0",
     "plausible-tracker": "^0.3.8"
   },
-  "peerDependencies": {
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "eslint": "^8.28.0",
+    "tsx": "^3.12.1",
+    "unconfig": "^0.3.7",
     "vue": "^3.2.45"
   }
 }

@@ -1,6 +1,7 @@
-import { Plugin as VuePlugin, computed } from 'vue'
+import type { Plugin as VuePlugin } from 'vue'
+import { computed } from 'vue'
 
-import { ModuleOptions } from '../module'
+import type { ModuleOptions } from '../module'
 
 import { defineNuxtPlugin, useRuntimeConfig } from '#app'
 

@@ -1,6 +1,7 @@
 import { createSingletonPromise } from '@vueuse/core'
 import type { editor as Editor } from 'monaco-editor-core'
-import { Ref, ref, unref, watch } from 'vue'
+import type { Ref } from 'vue'
+import { ref, unref, watch } from 'vue'
 
 import { language as mdcLanguage } from './mdc.tmLanguage'
 

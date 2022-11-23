@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { PropType, useAttrs } from 'vue'
+import type { PropType } from 'vue'
+import { useAttrs } from 'vue'
 
 import AtomSectionTitle from '../atom/section-title.vue'
 

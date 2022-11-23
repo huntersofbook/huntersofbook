@@ -1,6 +1,6 @@
 import { cyan, magenta } from 'colorette'
 
-import { HuntersofbookCommandMeta } from '../commands'
+import type { HuntersofbookCommandMeta } from '../commands'
 
 export function showHelp(meta?: Partial<HuntersofbookCommandMeta>) {
   const sections: string[] = []

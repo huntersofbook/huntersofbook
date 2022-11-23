@@ -1,5 +1,6 @@
 import type { formatDistance } from 'date-fns'
-import { Ref, onMounted, onUnmounted, ref } from 'vue'
+import type { Ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import { useGlobalConfigSafe } from '../../service/global-config/global-config'
 import { localizedFormatDistance } from './localized-format-distance'
@@ -44,7 +45,8 @@ export function useTimeFromNow(
     })
 
     onUnmounted(() => {
-      if (autoUpdate !== 0) clearInterval(interval.value)
+      if (autoUpdate !== 0)
+        clearInterval(interval.value)
     })
   }
 

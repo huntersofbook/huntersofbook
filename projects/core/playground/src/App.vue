@@ -9,7 +9,8 @@ function changeDark() {
 }
 onMounted(() => {
   const isDark = localStorage.getItem('isDark')
-  if (isDark) dark.value = JSON.parse(isDark)
+  if (isDark)
+    dark.value = JSON.parse(isDark)
 })
 provide('isDark', {
   changeDark,

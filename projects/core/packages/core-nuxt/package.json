@@ -1,5 +1,6 @@
 {
   "name": "@huntersofbook/core-nuxt",
+  "type": "module",
   "version": "0.4.1",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
@@ -21,11 +22,10 @@
     "nuxt",
     "plugin"
   ],
-  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
     }
   },
   "main": "./dist/module.cjs",
@@ -39,6 +39,9 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@nuxtjs/i18n": "^8.0.0-beta.4"
   },
   "dependencies": {
     "@huntersofbook/core": "^0.4.14",
@@ -58,8 +61,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "peerDependencies": {
-    "@nuxtjs/i18n": "^8.0.0-beta.4"
   }
 }

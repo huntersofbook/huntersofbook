@@ -5,7 +5,8 @@ import { version } from '../../package.json'
 import { tryRequireModule } from './cjs'
 
 export function showBanner(_clear?: boolean) {
-  if (_clear) clear()
+  if (_clear)
+    clear()
   console.log(gray(`${(green('huntersofbook'))} ${(bold(version))}`))
 }
 

@@ -1,4 +1,4 @@
-import { WatchOptions } from 'chokidar'
+import type { WatchOptions } from 'chokidar'
 import { union } from 'lodash'
 export function resolveChokidarOptions(
   options: WatchOptions | undefined,

@@ -1,4 +1,4 @@
-import {
+import type {
   Component,
   ComponentOptions,
   HTMLAttributes,
@@ -6,8 +6,8 @@ import {
   VNodeChild,
 } from 'vue'
 
-import { Field } from './fields'
-import { DeepPartial } from './misc'
+import type { Field } from './fields'
+import type { DeepPartial } from './misc'
 
 export type VueNode = VNodeChild | JSX.Element
 

@@ -1,10 +1,12 @@
 import { ColorConfigPlugin } from '../service/color-config/plugin'
 import { setCurrentApp } from '../service/current-app'
 import { GlobalConfigPlugin } from '../service/global-config/plugin'
-import { GlobalConfig } from '../service/global-config/types'
-import {
+import type { GlobalConfig } from '../service/global-config/types'
+import type {
   HuntersofbookPlugin,
   HuntersofbookPluginFabric,
+} from '../types'
+import {
   defineHuntersofbookPlugin,
 } from '../types'
 import { usePlugin } from '../utils/use-plugin'

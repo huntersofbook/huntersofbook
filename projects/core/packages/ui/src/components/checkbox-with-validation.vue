@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
-import { InputHTMLAttributes, useAttrs } from 'vue'
+import type { InputHTMLAttributes } from 'vue'
+import { useAttrs } from 'vue'
 
 const props = defineProps({
   value: {
@@ -47,7 +48,7 @@ export default {
         ]"
         class="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
         :aria-invalid="errorMessage ? true : false"
-      />
+      >
       <label
         v-if="label"
         :for="$attrs.id as string"

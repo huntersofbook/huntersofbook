@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useMotions } from '@vueuse/motion'
-import { PropType, toRefs } from 'vue'
+import type { PropType } from 'vue'
+import { toRefs } from 'vue'
 const props = defineProps({
   opened: { type: Boolean as PropType<boolean>, default: false },
   themeStatus: { type: String as PropType<'design' | 'empty'>, default: 'design' },

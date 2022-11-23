@@ -3,7 +3,8 @@ import enUS from 'date-fns/locale/en-US/index.js'
 import { defu } from 'defu'
 import { get as getCookie, set as setCookie } from 'es-cookie'
 
-import LocaleData, { HLanguage } from '../locales'
+import type { HLanguage } from '../locales'
+import LocaleData from '../locales'
 import { isServer } from '../ssr-utils'
 
 interface DateFNSLocale {
@@ -25,7 +26,8 @@ export async function loadDateFNSLocale(lang: DateFNSLocale): Promise<Locale> {
     nuxt: false,
   } as DateFNSLocale)
 
-  if (isServer() && !options.nuxt) return enUS
+  if (isServer() && !options.nuxt)
+    return enUS
 
   if (options.storageKey && !options.nuxt) {
     const cookie = getCookie(options.storageKey)

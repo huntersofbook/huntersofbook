@@ -1,7 +1,8 @@
 import consola from 'consola'
 import mri from 'mri'
 
-import { Command, HuntersofbookCommand, commands } from './commands'
+import type { Command, HuntersofbookCommand } from './commands'
+import { commands } from './commands'
 import { showBanner } from './utils/banner'
 import { showHelp } from './utils/help'
 
