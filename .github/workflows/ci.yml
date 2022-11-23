@@ -1,15 +1,13 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  pull_request_target:
     branches:
       - main
 
 jobs:
   cache-and-install:
+    if: github.event.label.name == 'tsup'
     name: 📦 Install node modules
     runs-on: ${{ matrix.os }}
 
@@ -48,8 +46,11 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: 🛠 Vue Build
+      - name: 🛠 Build
         run: pnpm build
 
       - name: 💪 Lint
         run: pnpm lint
+
+      - name: 💪 Test
+        run: pnpm test
