@@ -48,7 +48,9 @@
     "prepack": "tsup --dts",
     "build": "tsup --dts",
     "dev": "tsup --dts --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@antfu/ni": "^0.18.8",

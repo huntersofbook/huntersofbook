@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --parallel run dev",
-    "build": "pnpm -rf packages/*/dist && pnpm  --filter=./packages/*  --parallel run build"
+    "build": "pnpm -rf packages/*/dist && pnpm  --filter=./packages/*  --parallel run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
