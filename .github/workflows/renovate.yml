@@ -50,6 +50,6 @@ jobs:
         run: ./install.sh lint
         shell: bash
 
-      - name: Lint
+      - name: Build
         run: ./install.sh build
         shell: bash
