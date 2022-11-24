@@ -1,15 +1,15 @@
 {
-  "name": "@huntersofbook/revenuecat-ts",
+  "name": "@huntersofbook/revenuecat",
   "version": "0.0.1",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/revenuecat-ts#readme",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/revenuecat#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/revenuecat-ts"
+    "directory": "packages/revenuecat"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
@@ -45,13 +45,12 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.31.0",
     "@types/node": "^18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "lodash": "^4.17.21",
-    "prettier": "^2.7.1",
     "tsup": "^6.5.0",
     "typescript": "^4.9.3"
   },

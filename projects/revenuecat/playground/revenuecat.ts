@@ -1,4 +1,4 @@
-import { Revenuecat } from '@huntersofbook/revenuecat-ts'
+import { Revenuecat } from '@huntersofbook/revenuecat'
 import * as dotenv from 'dotenv'
 dotenv.config({
   path: '.env',

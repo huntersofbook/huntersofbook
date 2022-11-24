@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@huntersofbook/revenuecat-ts": "workspace:^0.4.1",
+    "@huntersofbook/revenuecat": "workspace:^0.0.1",
     "dotenv": "^16.0.3"
   }
 }
