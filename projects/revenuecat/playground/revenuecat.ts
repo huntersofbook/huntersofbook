@@ -16,18 +16,18 @@ await revenuecat
   .getSubscriptions({ userId })
   .then(res => console.log(res.subscriber, 'getSubscriptions'))
 
-// await revenuecat
-//   .getOfferings({ userId, platform: 'ios' })
-//   .then(res => console.log(res.offerings, 'getOfferings'))
+await revenuecat
+  .getOfferings({ userId, platform: 'ios' })
+  .then(res => console.log(res.offerings, 'getOfferings'))
 
-// await revenuecat
-//   .postSubscriptionsAttributes({
-//     userId,
-//     data: {
-//       attributes: {
-//         $email: {
-//           value: 'asdasd',
-//         },
-//       },
-//     },
-//   }).then(res => console.log(res, 'postSubscriptionsAttributes'))
+await revenuecat
+  .postSubscriptionsAttributes({
+    userId,
+    data: {
+      attributes: {
+        $email: {
+          value: 'asdasd',
+        },
+      },
+    },
+  }).then(res => console.log(res, 'postSubscriptionsAttributes'))

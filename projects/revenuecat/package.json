@@ -1,7 +1,7 @@
 {
   "name": "@huntersofbook/revenuecat",
-  "version": "0.0.1",
-  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "version": "0.1.0",
+  "description": "Revenuecat Rest API for Node.js and TypeScript (Unofficial)",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
@@ -14,6 +14,11 @@
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
   },
+  "keywords": [
+    "revenuecat",
+    "revenuecat typescript",
+    "typescript"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -28,7 +33,6 @@
     "dist/**"
   ],
   "scripts": {
-    "test": "jest",
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint \"./**/*.{ts,vue}\"",
