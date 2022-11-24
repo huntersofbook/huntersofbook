@@ -50,15 +50,15 @@
     "build:core": "cd ../core && pnpm build"
   },
   "peerDependencies": {
-    "@vueuse/motion": "^2.0.0-beta.24",
-    "naive-ui": "^2.33.5",
+    "@vueuse/motion": "^2.0.0-beta.25",
+    "naive-ui": "^2.34.2",
     "typescript": "^4.9.3"
   },
   "dependencies": {
     "@huntersofbook/core": "^0.4.14",
-    "@vueuse/motion": "^2.0.0-beta.24",
+    "@vueuse/motion": "^2.0.0-beta.25",
     "@zxcvbn-ts/core": "^2.1.0",
-    "naive-ui": "^2.33.5",
+    "naive-ui": "^2.34.2",
     "sass": "^1.56.1",
     "vue": "^3.2.45"
   },
@@ -72,7 +72,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "postcss": "^8.4.19",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "rollup-plugin-postcss": "^4.0.2",
     "tailwindcss": "^3.2.4",

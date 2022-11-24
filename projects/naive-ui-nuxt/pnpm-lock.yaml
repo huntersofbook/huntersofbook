@@ -8,7 +8,7 @@ specifiers:
   '@nuxt/schema': ^3.0.0
   defu: ^6.1.1
   eslint: ^8.28.0
-  naive-ui: ^2.33.5
+  naive-ui: ^2.34.2
   nuxt: ^3.0.0
   tsx: ^3.12.1
 

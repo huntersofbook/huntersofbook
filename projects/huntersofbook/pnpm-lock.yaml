@@ -9,7 +9,7 @@ importers:
     specifiers:
       '@antfu/eslint-config': ^0.31.0
       '@antfu/ni': ^0.18.8
-      '@huntersofbook/schob': 0.1.0-alpha.1
+      '@huntersofbook/schob': 0.1.0
       '@rollup/plugin-node-resolve': ^15.0.1
       '@rollup/plugin-typescript': ^9.0.2
       '@types/clear': ^0.1.2
@@ -25,7 +25,7 @@ importers:
       consola: ^2.15.3
       defu: ^6.1.1
       delay: ^5.0.0
-      esbuild: ^0.15.14
+      esbuild: ^0.15.15
       eslint: ^8.28.0
       execa: ^6.1.0
       jiti: ^1.16.0
@@ -36,7 +36,7 @@ importers:
       perfect-debounce: ^0.1.3
       pkg-types: ^1.0.1
       prompts: ^2.4.2
-      rollup: ^3.3.0
+      rollup: ^3.4.0
       rollup-plugin-cleanup: ^3.2.1
       rollup-plugin-esbuild: ^5.0.0
       rollup-plugin-swc3: ^0.7.0
@@ -49,7 +49,7 @@ importers:
       untyped: ^1.0.0
     dependencies:
       '@antfu/ni': 0.18.8
-      '@huntersofbook/schob': 0.1.0-alpha.1
+      '@huntersofbook/schob': 0.1.0
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.4.0
       '@rollup/plugin-typescript': 9.0.2_vmrh7niimjcuan47h4hgsgyxjy
       '@types/clear': 0.1.2
@@ -982,8 +982,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@huntersofbook/schob/0.1.0-alpha.1:
-    resolution: {integrity: sha512-GvsbosX2WmEbt1bwW7zmI8WoG3ZsZ5cCTgG0zyqCw6g3QgD8tHa2it7p/pFAvv33pa+RcpjspRo2FAYG5XDlhA==}
+  /@huntersofbook/schob/0.1.0:
+    resolution: {integrity: sha512-Fz+ImNTjML5m5L+xv7OGgRtklTk43qUxtbP3FKqz1k7YJ9bp3AB6hbmBhAprLqhJj3oTRthZ1C/rZmME4tFeTg==}
     dependencies:
       filter-anything: 3.0.3
       is-what: 4.1.7
