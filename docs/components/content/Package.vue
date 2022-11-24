@@ -14,16 +14,18 @@ defineProps({
       class="relative z-[1] flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-gray-800/5 ring-1 ring-gray-900/5 dark:border dark:border-gray-700/50 dark:bg-gray-800 dark:ring-0"
     >
       <img
+        v-if="logo"
         :alt="title"
         :src="`/logo/${logo}`"
         width="32"
         height="32"
         decoding="async"
         data-nimg="future"
-        class="h-8 w-8"
+        class="h-8 w-8 object-contain"
         loading="lazy"
         style="color: transparent"
       >
+      <span v-else class="font-bold">{{ title?.slice(0, 2) }}</span>
     </div>
     <h2 class="mt-6 text-base font-semibold text-gray-800 dark:text-gray-100">
       <div

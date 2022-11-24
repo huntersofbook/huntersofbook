@@ -3,7 +3,7 @@ export default defineAppConfig({
     title: 'huntersofbook',
     description:
       'It is a community established specifically to improve the vue ecosystem. Our own team will always give this contribution back to the world.',
-    layout: 'docs',
+    layout: 'default',
     image: 'https://opensource.huntersofbook.com/preview.png',
     url: 'https://opensource.huntersofbook.com',
     debug: false,
@@ -19,6 +19,10 @@ export default defineAppConfig({
     cover: {
       src: '/cover.jpg',
       alt: 'huntersofbook open source project was created for developers',
+    },
+    aside: {
+      level: 0,
+      exclude: [],
     },
     header: {
       title: false,
