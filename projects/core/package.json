@@ -1,0 +1,27 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "build": "pnpm build:core && pnpm build:core-nuxt && pnpm build:ui && pnpm build:form-naiveui",
+    "build:core": "cd packages/core && rm -rf dist && pnpm run build",
+    "build:core-nuxt": "cd packages/core-nuxt && rm -rf dist && pnpm run build",
+    "build:ui": "cd packages/ui && rm -rf dist && pnpm run build",
+    "build:form-naiveui": "cd packages/form-naiveui && rm -rf dist && pnpm run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "tsup": "^6.5.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "eslint": "^8.28.0"
+  }
+}

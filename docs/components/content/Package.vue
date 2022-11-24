@@ -23,7 +23,7 @@ defineProps({
         class="h-8 w-8"
         loading="lazy"
         style="color: transparent"
-      />
+      >
     </div>
     <h2 class="mt-6 text-base font-semibold text-gray-800 dark:text-gray-100">
       <div

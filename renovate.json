@@ -1,33 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "labels": ["dependencies"],
+  "labels": ["dependencies", "renovate"],
   "rebaseWhen": "conflicted",
   "schedule": ["before 6am on the first day of the month"],
   "baseBranches": ["main"],
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPaths": ["examples/**"],
-      "matchPackagePatterns": ["*"],
+      "matchPaths": ["docs/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "examples dependencies (major)"
+      "groupName": "docs"
     },
     {
-      "matchPaths": ["packages/**", "apps/**"],
-      "ignorePaths": ["examples/**"],
-      "matchPackagePatterns": ["*"],
+      "matchPaths": ["projects/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "global"
+      "groupName": "projects"
     },
     {
-      "groupName": "local",
-      "ignorePaths": ["apps/**", "packages/**"],
-      "matchFiles": ["package.json"],
+      "matchPaths": ["scripts/**"],
+      "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "matchDatasources": ["npm"]
+      "groupName": "scripts"
     }
   ]
 }

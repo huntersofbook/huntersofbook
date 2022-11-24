@@ -1,6 +1,6 @@
-import { defineTokens } from '@nuxtjs/design-tokens'
+import { defineTheme } from 'pinceau'
 
-export default defineTokens({
+export default defineTheme({
   colors: {
     primary: {
       50: { value: '#ecfdf5' },
@@ -13,6 +13,32 @@ export default defineTokens({
       700: { value: '#047857' },
       800: { value: '#065f46' },
       900: { value: '#064e3b' },
+    },
+  },
+  fonts: {
+    primary: {
+      value: 'Inter, sans-serif',
+    },
+    code: {
+      value: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
+    },
+  },
+  page: {
+    height: {
+      value: 'calc(100vh - calc(calc({header.height} + {footer.height})))',
+    },
+    maxWidth: {
+      value: '90rem',
+    },
+  },
+  header: {
+    height: {
+      value: '4rem',
+    },
+  },
+  footer: {
+    height: {
+      value: '4rem',
     },
   },
 })
