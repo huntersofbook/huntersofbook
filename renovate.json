@@ -18,6 +18,12 @@
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "projects"
+    },
+    {
+      "matchPaths": ["scripts/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "scripts"
     }
   ]
 }
