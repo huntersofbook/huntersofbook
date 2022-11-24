@@ -1,22 +1,26 @@
 #!/bin/bash
 cd ./scripts
-ls
-echo "pnpm tsx $1 $2"
+COD1=$1
+COD2=$2
 pnpm install
-if [[ "$1" -eq "install" ]]
+echo "Installing dependencies... ${COD1}"
+
+if [[ $COD1 == "install" ]]
 then
-    pnpm tsx install.ts
     echo "install"
-elif [[ "$1" -eq "lint" ]]
+    pnpm tsx ./src/install.ts
+elif [[ $COD1 == "lint" ]]
 then
-    pnpm tsx lint.ts lint
-    echo "lint"
-elif [[ "$1" -eq "lint-fix" ]]
+    pnpm tsx ./src/lint.ts lint
+elif [[ $COD1 == "build" ]]
 then
-    pnpm tsx lint.ts lint:fix
-    echo "lint"
+    echo "build"
+    pnpm tsx ./src/build.ts build
+elif [[ $COD1 == "lint-fix" ]]
+then
+    pnpm tsx ./src/lint.ts lint:fix
 else
-    pnpm tsx install.ts $1 $2
-    echo "else"
+     echo "son"
+    pnpm tsx ./src/install.ts $1 $2
 fi
 

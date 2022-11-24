@@ -43,7 +43,6 @@
     "date-fns-tz": "^1.3.7",
     "defu": "^6.1.1",
     "es-cookie": "^1.4.0",
-    "install": "^0.13.0",
     "lodash": "^4.17.21",
     "vee-validate": "^4.7.3",
     "vue": "^3.2.45",

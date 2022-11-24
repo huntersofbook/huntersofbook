@@ -49,13 +49,13 @@
   },
   "dependencies": {
     "defu": "^6.1.1",
-    "install": "^0.13.0",
     "plausible-tracker": "^0.3.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.31.0",
     "eslint": "^8.28.0",
     "tsx": "^3.12.1",
+    "unbuild": "^1.0.1",
     "unconfig": "^0.3.7",
     "vue": "^3.2.45"
   }

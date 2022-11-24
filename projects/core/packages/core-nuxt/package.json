@@ -48,7 +48,6 @@
     "@nuxt/kit": "^3.0.0",
     "defu": "^6.1.1",
     "huntersofbook": "^0.4.2-beta.3",
-    "install": "^0.13.0",
     "pathe": "^1.0.0"
   },
   "devDependencies": {

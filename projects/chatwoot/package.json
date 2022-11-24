@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --parallel run dev",
-    "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
+    "build": "pnpm build:vue && pnpm build:nuxt",
+    "build:vue": "cd packages/vue && rm -rf dist && pnpm run build",
+    "build:nuxt": "cd packages/nuxt && rm -rf dist && pnpm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   }

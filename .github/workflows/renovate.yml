@@ -51,3 +51,7 @@ jobs:
       - name: Lint
         run: ./install.sh lint
         shell: bash
+
+      - name: Lint
+        run: ./install.sh build
+        shell: bash

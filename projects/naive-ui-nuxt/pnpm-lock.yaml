@@ -8,7 +8,6 @@ specifiers:
   '@nuxt/schema': ^3.0.0
   defu: ^6.1.1
   eslint: ^8.28.0
-  install: ^0.13.0
   naive-ui: ^2.33.5
   nuxt: ^3.0.0
   tsx: ^3.12.1
@@ -17,7 +16,6 @@ dependencies:
   '@css-render/vue3-ssr': 0.15.11
   '@nuxt/kit': 3.0.0
   defu: 6.1.1
-  install: 0.13.0
   naive-ui: 2.34.2
 
 devDependencies:
@@ -3543,11 +3541,6 @@ packages:
       through: 2.3.8
       wrap-ansi: 8.0.1
     dev: true
-
-  /install/0.13.0:
-    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
-    engines: {node: '>= 0.10'}
-    dev: false
 
   /internal-slot/1.0.3:
     resolution: {integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==}

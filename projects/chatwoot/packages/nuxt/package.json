@@ -34,8 +34,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm build:vue && pnpm dev:prepare && pnpm nuxt-module-build",
-    "build:vue": "cd ../chatwoot-vue && pnpm build",
+    "build": "pnpm dev:prepare && pnpm nuxt-module-build",
     "dev": "pnpm dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
