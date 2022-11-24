@@ -6,6 +6,7 @@
   "license": "ISC",
   "keywords": [],
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "pnpm --parallel run dev",
     "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
