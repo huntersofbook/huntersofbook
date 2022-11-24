@@ -4,7 +4,7 @@ specifiers:
   '@antfu/eslint-config': ^0.31.0
   '@huntersofbook/core-nuxt': 0.4.1
   '@huntersofbook/plausible-nuxt': ^0.5.2
-  '@nuxt-themes/docus': ^0.5.0
+  '@nuxt-themes/docus': ^1.0.0
   '@nuxt/content': ^2.2.2
   '@nuxtjs/i18n': ^8.0.0-beta.4
   '@nuxtjs/tailwindcss': ^6.1.3
@@ -33,7 +33,7 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': 0.31.0_eslint@8.28.0
   '@huntersofbook/plausible-nuxt': 0.5.2
-  '@nuxt-themes/docus': 0.5.0_nuxt@3.0.0
+  '@nuxt-themes/docus': 1.0.0_nuxt@3.0.0
   '@nuxt/content': 2.2.2
   '@nuxtlabs/github-module': 1.5.3
   eslint: 8.28.0
@@ -1071,8 +1071,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
-  /@nuxt-themes/docus/0.5.0_nuxt@3.0.0:
-    resolution: {integrity: sha512-I8z4lWc7T4S3q4cq9hiHd7QzlEGyXYa2sDBwZzAuAaAmHni5lOaTSMGWMW1G4GJeRAfnMw2i0yIq1DM//vHNTw==}
+  /@nuxt-themes/docus/1.0.0_nuxt@3.0.0:
+    resolution: {integrity: sha512-zSYRHILwgAzVyaeXa/mhla6ffnygEJx1awNQHSK7HbtajYXVCaYkJ3S4aHJR+p0aMhVUBhLpHJJ1tXXkzJzbSw==}
     dependencies:
       '@docsearch/css': 3.3.0
       '@docsearch/js': 3.3.0
