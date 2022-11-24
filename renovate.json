@@ -11,13 +11,13 @@
       "matchPaths": ["docs/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "projects"
+      "groupName": "docs"
     },
     {
       "matchPaths": ["projects/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "docs"
+      "groupName": "projects"
     }
   ]
 }
