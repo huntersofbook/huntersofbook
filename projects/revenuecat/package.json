@@ -1,15 +1,15 @@
 {
   "name": "@huntersofbook/revenuecat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Revenuecat Rest API for Node.js and TypeScript (Unofficial)",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/revenuecat#readme",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/projects/revenuecat#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/revenuecat"
+    "directory": "projects/revenuecat"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
