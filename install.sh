@@ -1,5 +1,6 @@
 #!/bin/bash
-cd scripts
+cd ./scripts
+ls
 echo "pnpm tsx $1 $2"
 if [ $1 == "install" ]
 then
