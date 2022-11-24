@@ -2,9 +2,7 @@ name: CI
 
 on:
   pull_request:
-    types:
-      - labeled
-      
+
 jobs:
   cache-and-install:
     if: contains(github.event.pull_request.labels.*.name, 'renovate')
@@ -45,13 +43,13 @@ jobs:
 
 
       - name: Install Dependencies
-        run: ./install.sh 
+        run: ./install.sh install 
         shell: bash
 
       - name: Lint
         run: ./install.sh lint
         shell: bash
 
-      - name: Lint
+      - name: Build
         run: ./install.sh build
         shell: bash

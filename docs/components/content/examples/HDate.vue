@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useTimeFromNow, useTimeFromNowStrict } from '@huntersofbook/core'
 import { HDateTime } from '@huntersofbook/ui'
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   type: {
