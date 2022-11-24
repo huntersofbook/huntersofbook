@@ -2,12 +2,7 @@ name: CI
 
 on:
   pull_request:
-    types:
-      - labeled
-  pull_request_review:
-    types:
-      - edited
-      
+  
 jobs:
   cache-and-install:
     if: contains(github.event.pull_request.labels.*.name, 'renovate')
