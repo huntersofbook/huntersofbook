@@ -2,6 +2,7 @@
 cd ./scripts
 ls
 echo "pnpm tsx $1 $2"
+pnpm install
 if [[ "$1" -eq "install" ]]
 then
     pnpm tsx install.ts
