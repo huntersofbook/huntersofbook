@@ -55,7 +55,7 @@ const installPackage = async (isDev: false, packagesName: string) => {
   }
   if (projects.length > 0) {
     projects.forEach((project: string) => {
-      const data = execaCommandSync(`pnpm i ${isDev ? '-D' : ''} ${packagesName}`, { cwd: project }).stdout.toString()
+      const data = execaCommandSync(`pnpm add ${isDev ? '-D' : ''} -w ${packagesName}`, { cwd: project }).stdout.toString()
       consola.info(project, data)
     })
   }

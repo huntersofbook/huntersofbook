@@ -18,5 +18,9 @@
   },
   "dependencies": {
     "tsup": "^6.5.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "eslint": "^8.28.0"
   }
 }

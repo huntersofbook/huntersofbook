@@ -3,7 +3,12 @@ lockfileVersion: 5.4
 importers:
 
   .:
-    specifiers: {}
+    specifiers:
+      '@antfu/eslint-config': ^0.31.0
+      eslint: ^8.28.0
+    devDependencies:
+      '@antfu/eslint-config': 0.31.0_eslint@8.28.0
+      eslint: 8.28.0
 
   packages/nuxt:
     specifiers:

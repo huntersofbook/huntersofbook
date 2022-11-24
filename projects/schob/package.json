@@ -11,5 +11,9 @@
     "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "eslint": "^8.28.0"
   }
 }
