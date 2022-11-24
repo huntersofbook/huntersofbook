@@ -31,6 +31,7 @@ const packages = args._.join(' ')
 const isDev = args.D || false
 const isRoot = args.w || false
 
+
 const installPackage = async (isDev: false, packagesName: string) => {
   const projects: string[] = []
   const allProjects = file.forEach((f) => {
@@ -57,7 +58,8 @@ const installPackage = async (isDev: false, packagesName: string) => {
   }
   if (projects.length > 0) {
     projects.forEach((project: string) => {
-      const data = execaCommandSync(`pnpm i ${isDev ? '-D' : ''} ${isRoot ? '-w' : '' } ${packagesName}`, { cwd: project }).stdout.toString()
+      consola.log(`pnpm ${isRoot ? 'add' : 'install'} ${isDev ? '-D' : ''} ${isRoot ? '-w' : ''} ${packagesName}`)
+      const data = execaCommandSync(`pnpm ${isRoot ? 'add' : 'install' } ${isDev ? '-D' : ''} ${isRoot ? '-w' : '' } ${packagesName}`, { cwd: project }).stdout.toString()
       consola.info(project, data)
     })
   }
