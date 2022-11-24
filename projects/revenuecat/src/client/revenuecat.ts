@@ -1,6 +1,7 @@
-import axios, { AxiosInstance } from 'axios'
+import type { AxiosInstance } from 'axios'
+import axios from 'axios'
 
-import { Attribute, Offerings, Subscribers, XPlatform } from '../types'
+import type { Attribute, Offerings, Subscribers, XPlatform } from '../types'
 export default class Revenuecat {
   private readonly secretKey: string
   private readonly iosKey: string
