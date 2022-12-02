@@ -55,6 +55,7 @@ then
     cd ./projects/schob
     pnpm install
     pnpm lint
+    pnpm test
     pnpm build
 elif [[ $COD1 == "scripts" ]]
 then

@@ -10,7 +10,7 @@ on:
 
 jobs:
   cache-and-install:
-    name: 📦 All Projects Check
+    name: 📦 Package Build and Test
     runs-on: ${{ matrix.os }}
 
     strategy:
