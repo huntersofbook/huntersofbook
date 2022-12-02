@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "labels": ["dependencies", "renovate"],
+  "labels": ["dependencies"],
   "rebaseWhen": "conflicted",
   "schedule": ["before 6am on the first day of the month"],
   "baseBranches": ["main"],
@@ -11,61 +11,71 @@
       "matchPaths": ["docs/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "docs"
+      "groupName": "docs",
+      "appendLabels": ["docs"]
     },
     {
       "matchPaths": ["projects/auth-vue/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "auth-vue"
+      "groupName": "auth-vue",
+      "appendLabels": ["auth-vue"]
     },
     {
       "matchPaths": ["projects/chatwoot/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "chatwoot"
+      "groupName": "chatwoot",
+      "appendLabels": ["chatwoot"]
     },
     {
       "matchPaths": ["projects/core/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "core"
+      "groupName": "core",
+      "appendLabels": ["core"]
     },
     {
       "matchPaths": ["projects/huntersofbook/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "huntersofbook"
+      "groupName": "huntersofbook",
+      "appendLabels": ["huntersofbook"]
     },
     {
       "matchPaths": ["projects/naive-ui-nuxt/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "naive-ui-nuxt"
+      "groupName": "naive-ui-nuxt",
+      "appendLabels": ["naive-ui-nuxt"]
     },
     {
       "matchPaths": ["projects/plausible/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "plausible"
+      "groupName": "plausible",
+      "appendLabels": ["plausible"]
     },
     {
       "matchPaths": ["projects/revenuecat/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "revenuecat"
+      "groupName": "revenuecat",
+      "appendLabels": ["revenuecat"]
     },
     {
       "matchPaths": ["projects/schob/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "schob"
+      "groupName": "schob",
+      "appendLabels": ["schob"]
     },
     {
       "matchPaths": ["scripts/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "scripts"
+      "groupName": "scripts",
+      "appendLabels": ["scripts"]
     }
   ]
 }
