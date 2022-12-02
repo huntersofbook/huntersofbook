@@ -46,53 +46,51 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Docs install Dependencies
-        if: github.event.label.name == "docs"
-        run: ./install-action.sh docs 
+        if: github.event.label.name == 'docs'
+        run: ./install-action.sh docs
         shell: bash
 
       - name: auth-vue install Dependencies
-        if: github.event.label.name == "auth-vue"
-        run: ./install-action.sh auth-vue 
+        if: github.event.label.name == 'auth-vue'
+        run: ./install-action.sh auth-vue
         shell: bash
 
       - name: chatwoot install Dependencies
-        if: github.event.label.name == "chatwoot"
-        run: ./install-action.sh chatwoot 
+        if: github.event.label.name == 'chatwoot'
+        run: ./install-action.sh chatwoot
         shell: bash
-      
+
       - name: core install Dependencies
-        if: github.event.label.name == "core"
-        run: ./install-action.sh core 
+        if: github.event.label.name == 'core'
+        run: ./install-action.sh core
         shell: bash
 
       - name: huntersofbook install Dependencies
-        if: github.event.label.name == "huntersofbook"
-        run: ./install-action.sh huntersofbook 
+        if: github.event.label.name == 'huntersofbook'
+        run: ./install-action.sh huntersofbook
         shell: bash
 
       - name: naive-ui-nuxt install Dependencies
-        if: github.event.label.name == "naive-ui-nuxt"
-        run: ./install-action.sh naive-ui-nuxt 
+        if: github.event.label.name == 'naive-ui-nuxt'
+        run: ./install-action.sh naive-ui-nuxt
         shell: bash
-    
+
       - name: plausible install Dependencies
-        if: github.event.label.name == "plausible"
-        run: ./install-action.sh plausible 
+        if: github.event.label.name == 'plausible'
+        run: ./install-action.sh plausible
         shell: bash
 
       - name: revenuecat install Dependencies
-        if: github.event.label.name == "revenuecat"
-        run: ./install-action.sh revenuecat 
+        if: github.event.label.name == 'revenuecat'
+        run: ./install-action.sh revenuecat
         shell: bash
 
       - name: schob install Dependencies
-        if: github.event.label.name == "schob"
-        run: ./install-action.sh schob 
+        if: github.event.label.name == 'schob'
+        run: ./install-action.sh schob
         shell: bash
 
-      - name: scripts install Dependencies 
-        if: github.event.label.name == "scripts"
-        run: ./install-action.sh scripts 
+      - name: scripts install Dependencies
+        if: github.event.label.name == 'scripts'
+        run: ./install-action.sh scripts
         shell: bash
-      
-
