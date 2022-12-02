@@ -45,52 +45,52 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Docs install Dependencies
+      - name: docs check install, build and lint
         if: github.event.label.name == 'docs'
         run: ./install-action.sh docs
         shell: bash
 
-      - name: auth-vue install Dependencies
+      - name: auth-vue check install, build and lint
         if: github.event.label.name == 'auth-vue'
         run: ./install-action.sh auth-vue
         shell: bash
 
-      - name: chatwoot install Dependencies
+      - name: chatwoot check install, build and lint
         if: github.event.label.name == 'chatwoot'
         run: ./install-action.sh chatwoot
         shell: bash
 
-      - name: core install Dependencies
+      - name: core check install, build and lint
         if: github.event.label.name == 'core'
         run: ./install-action.sh core
         shell: bash
 
-      - name: huntersofbook install Dependencies
+      - name: huntersofbook check install, build and lint
         if: github.event.label.name == 'huntersofbook'
         run: ./install-action.sh huntersofbook
         shell: bash
 
-      - name: naive-ui-nuxt install Dependencies
+      - name: naive-ui-nuxt check install, build and lint
         if: github.event.label.name == 'naive-ui-nuxt'
         run: ./install-action.sh naive-ui-nuxt
         shell: bash
 
-      - name: plausible install Dependencies
+      - name: plausible check install, build and lint
         if: github.event.label.name == 'plausible'
         run: ./install-action.sh plausible
         shell: bash
 
-      - name: revenuecat install Dependencies
+      - name: revenuecat check install, build and lint
         if: github.event.label.name == 'revenuecat'
         run: ./install-action.sh revenuecat
         shell: bash
 
-      - name: schob install Dependencies
+      - name: schob check install, build and lint
         if: github.event.label.name == 'schob'
         run: ./install-action.sh schob
         shell: bash
 
-      - name: scripts install Dependencies
+      - name: scripts check install, build and lint
         if: github.event.label.name == 'scripts'
         run: ./install-action.sh scripts
         shell: bash
