@@ -14,10 +14,52 @@
       "groupName": "docs"
     },
     {
-      "matchPaths": ["projects/**"],
+      "matchPaths": ["projects/auth-vue/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "projects"
+      "groupName": "auth-vue"
+    },
+    {
+      "matchPaths": ["projects/chatwoot/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "chatwoot"
+    },
+    {
+      "matchPaths": ["projects/core/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "core"
+    },
+    {
+      "matchPaths": ["projects/huntersofbook/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "huntersofbook"
+    },
+    {
+      "matchPaths": ["projects/naive-ui-nuxt/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "naive-ui-nuxt"
+    },
+    {
+      "matchPaths": ["projects/plausible/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "plausible"
+    },
+    {
+      "matchPaths": ["projects/revenuecat/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "revenuecat"
+    },
+    {
+      "matchPaths": ["projects/schob/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "schob"
     },
     {
       "matchPaths": ["scripts/**"],
