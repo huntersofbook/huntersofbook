@@ -50,7 +50,7 @@
     "defu": "^6.1.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
+    "@antfu/eslint-config": "^0.33.1",
     "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.0.0",
     "eslint": "^8.28.0",

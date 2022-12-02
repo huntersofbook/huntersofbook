@@ -40,19 +40,19 @@
     "crypto-js": "^4.1.1"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.190",
+    "@types/lodash": "^4.14.191",
     "crypto-js": "^4.1.1",
     "jose": "^4.11.1",
     "js-cookie": "^3.0.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
+    "@antfu/eslint-config": "^0.33.1",
     "@capacitor/preferences": "^4.0.2",
     "@types/crypto-js": "^4.1.1",
     "@types/js-cookie": "^3.0.2",
-    "@types/node": "^18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0",
+    "@types/node": "^18.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
     "axios": "^1.2.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
