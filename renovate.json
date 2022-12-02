@@ -12,70 +12,80 @@
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "docs",
-      "labels": ["docs"]
+      "labels": ["docs"],
+      "addLabels": ["docs"]
     },
     {
       "matchPaths": ["projects/auth-vue/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "auth-vue",
-      "labels": ["auth-vue"]
+      "labels": ["auth-vue"],
+      "addLabels": ["auth-vue"]
     },
     {
       "matchPaths": ["projects/chatwoot/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "chatwoot",
-      "labels": ["chatwoot"]
+      "labels": ["chatwoot"],
+      "addLabels": ["chatwoot"]
     },
     {
       "matchPaths": ["projects/core/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "core",
-      "labels": ["core"]
+      "labels": ["core"],
+      "addLabels": ["core"]
     },
     {
       "matchPaths": ["projects/huntersofbook/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "huntersofbook",
-      "labels": ["huntersofbook"]
+      "labels": ["huntersofbook"],
+      "addLabels": ["huntersofbook"]
     },
     {
       "matchPaths": ["projects/naive-ui-nuxt/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "naive-ui-nuxt",
-      "labels": ["naive-ui-nuxt"]
+      "labels": ["naive-ui-nuxt"],
+      "addLabels": ["naive-ui-nuxt"]
     },
     {
       "matchPaths": ["projects/plausible/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "plausible",
-      "labels": ["plausible"]
+      "labels": ["plausible"],
+      "addLabels": ["plausible"]
     },
     {
       "matchPaths": ["projects/revenuecat/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "revenuecat",
-      "labels": ["revenuecat"]
+      "labels": ["revenuecat"],
+      "addLabels": ["revenuecat"]
     },
     {
       "matchPaths": ["projects/schob/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "schob",
-      "labels": ["schob"]
+      "labels": ["schob"],
+      "addLabels": ["schob"]
     },
     {
       "matchPaths": ["scripts/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "scripts",
-      "labels": ["scripts"]
+      "labels": ["scripts"],
+      "addLabels": ["scripts"]
     }
   ]
 }
