@@ -1,4 +1,4 @@
-name: CI
+name: Project
 
 on:
   pull_request:
@@ -10,7 +10,6 @@ on:
 
 jobs:
   cache-and-install:
-    if: contains(github.event.pull_request.labels.*.name, 'renovate')
     name: 📦 All Projects Check
     runs-on: ${{ matrix.os }}
 
