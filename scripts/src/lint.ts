@@ -29,9 +29,9 @@ const packages = args._.join(' ')
 const isDev = args.D || false
 console.log(packages, 'command', isDev, 'isDev')
 
-const installPackage = async (isDev: false, packagesName: string) => {
+const installPackage = async () => {
   const projects: string[] = []
-  const allProjects = file.forEach((f) => {
+  file.forEach((f) => {
     const dir = resolve(f.path)
 
     if (f.dir) {
@@ -47,12 +47,6 @@ const installPackage = async (isDev: false, packagesName: string) => {
     }
   })
 
-  const openFile = (file: string) => {
-    fs.open(file, 'r', (err, fd) => {
-      if (err) throw err
-      console.log(fd)
-    })
-  }
   if (projects.length > 0) {
     projects.forEach((project: string) => {
       const data = execaCommandSync(`pnpm ${packages}`, { cwd: project }).stdout.toString()
@@ -61,4 +55,4 @@ const installPackage = async (isDev: false, packagesName: string) => {
   }
 }
 
-installPackage(isDev, packages)
+installPackage()

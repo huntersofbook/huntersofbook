@@ -215,7 +215,8 @@ export async function getActiveVersion(pkgName: string): Promise<string> {
 
 export async function logRecentCommits(pkgName: string): Promise<void> {
   const tag = await getLatestTag(pkgName)
-  if (!tag) return
+  if (!tag)
+    return
   const sha = await run('git', ['rev-list', '-n', '1', tag], {
     stdio: 'pipe',
   }).then(res => res.stdout.trim())

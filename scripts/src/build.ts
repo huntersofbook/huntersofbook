@@ -9,7 +9,7 @@ const file = [
   {
     path: '../projects',
     dir: true,
-  }
+  },
 ]
 
 const _argv = process.argv.slice(2)
@@ -20,10 +20,10 @@ const isDev = args.D || false
 
 console.log(code, 'command', isDev, 'isDev')
 
-const installPackage = async (isDev: false, packagesName: string) => {
+const installPackage = async () => {
   const projects: string[] = []
-  
-  const allProjects = file.forEach((f) => {
+
+  file.forEach((f) => {
     const dir = resolve(f.path)
 
     if (f.dir) {
@@ -47,4 +47,4 @@ const installPackage = async (isDev: false, packagesName: string) => {
   }
 }
 
-installPackage(isDev, code)
+installPackage()

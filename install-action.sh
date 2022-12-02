@@ -58,7 +58,7 @@ then
     pnpm build
 elif [[ $COD1 == "scripts" ]]
 then
-    cd ./projects/scripts
+    cd ./scripts
     pnpm install
     pnpm lint
     pnpm build

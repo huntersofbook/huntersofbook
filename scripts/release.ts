@@ -25,7 +25,8 @@ async function main(): Promise<void> {
     choices: packages.map(i => ({ value: i, title: i })),
   })
 
-  if (!pkg) return
+  if (!pkg)
+    return
 
   await logRecentCommits(pkg)
 
@@ -88,7 +89,8 @@ async function main(): Promise<void> {
     '--commit-path',
     '.',
   ]
-  if (pkgName !== 'huntersofbook') changelogArgs.push('--lerna-package', pkgName)
+  if (pkgName !== 'huntersofbook')
+    changelogArgs.push('--lerna-package', pkgName)
   await run('npx', changelogArgs, { cwd: pkgDir })
 
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })

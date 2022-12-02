@@ -17,10 +17,12 @@ async function main() {
   let pkgName = 'huntersofbook'
   let version
 
-  if (tag.includes('@')) [pkgName, version] = tag.split('@')
+  if (tag.includes('@'))
+    [pkgName, version] = tag.split('@')
   else version = tag
 
-  if (version.startsWith('v')) version = version.slice(1)
+  if (version.startsWith('v'))
+    version = version.slice(1)
 
   const { currentVersion, pkgDir } = getPackageInfo(pkgName)
   if (currentVersion !== version) {
