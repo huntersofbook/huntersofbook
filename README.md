@@ -47,6 +47,22 @@ As a sponsor, you can support us and our software that we have developed on book
     </p>
   </td>
 </tr>
+<tr>
+  <td width="80" align="center" valign="top">
+    <br>
+  </td>
+  <td valign="top">
+    <h3>Graphql Relay Cursor Paging</h3>
+    <p>
+      <a href="https://www.npmjs.com/package/@huntersofbook/relay-cursor-paging"><img src="https://img.shields.io/npm/v/@huntersofbook/relay-cursor-paging.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
+      <a href="https://www.npmjs.com/package/@huntersofbook/relay-cursor-paging"><img src="https://img.shields.io/npm/dm/@huntersofbook/relay-cursor-paging.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
+      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
+    </p>
+    <p>
+      Graphql Relay Cursor Paging is a library that helps you to create a cursor-based pagination. <a href="https://opensource.huntersofbook.com">The documentation</a>
+    </p>
+  </td>
+</tr>
 </tbody>
 </table>
 
