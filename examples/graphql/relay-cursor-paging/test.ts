@@ -1,67 +1,3 @@
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/relay-cursor-paging.jpg?raw=true)
-
-# Relay Cursor Paging
-<br/>
-
-### @huntersofbook/relay-cursor-paging [![npm](https://img.shields.io/npm/v/@huntersofbook/relay-cursor-paging.svg)](https://npmjs.com/package/@huntersofbook/relay-cursor-paging)
-<br/>
-
-## Description
-Simple relay cursor paging for graphql
-
-## Installation
-
-```bash
-pnpm add @huntersofbook/relay-cursor-paging
-```
-
-
-## Demo 
-
-Open graphql playground in your browser port 4000/graphql
-
-[![Edit @huntersofbook/relay-cursor-paging](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/huntersofbook/huntersofbook/tree/main/examples/graphql/relay-cursor-paging)
-
-### Docs
-```ts
-import { offsetForArgs } from '@huntersofbook/relay-cursor-paging'
-import { connectionFromArraySlice } from 'graphql-relay'
-const
-  {
-    limit, offset, expectedSize,
-    hasNextPage, hasPreviousPage
-  } = offsetForArgs({
-    args: {
-      first: _args.first,
-      last: _args.last,
-      after: _args.after,
-      before: _args.before,
-    },
-    defaultSize: 10,
-    maxSize: 100,
-  })
-
-// ... connection logic db or orm used ...
-
-const page = connectionFromArraySlice(data, _args, {
-  arrayLength: data.length,
-  sliceStart: offset,
-})
-
-return {
-  edges: page.edges,
-  pageInfo: {
-    ...page.pageInfo,
-    totalPageCount: expectedSize,
-  },
-}
-```
-
-## Usage
-
-<details><summary>Graphql Yoga 3</summary>
-
-```ts
 import { createServer } from 'node:http'
 import { offsetForArgs } from '@huntersofbook/relay-cursor-paging'
 import { connectionFromArraySlice } from 'graphql-relay'
@@ -126,7 +62,7 @@ export const schema = createSchema({
   resolvers: {
     Query: {
       libraries: async (_parent, _args, context, _info) => {
-        const { limit, offset, expectedSize } = offsetForArgs({
+        const { limit, offset, expectedSize, hasNextPage,hasPreviousPage } = offsetForArgs({
           args: {
             first: _args.first,
             last: _args.last,
@@ -134,6 +70,7 @@ export const schema = createSchema({
             before: _args.before,
           },
         })
+        console.log(hasNextPage(data.length))
 
         if (!data)
           throw new GraphQLError('No libraries found')
@@ -164,13 +101,3 @@ const server = createServer(yoga)
 server.listen(4000, () => {
   console.info('Server is running on http://localhost:4000/graphql')
 })
-```
-</details>
-</br>
-
-## Inspiration
-Codes in this build are inspired by [pothos](https://github.com/hayes/pothos) and from there the codes were copied. Thanks you for your great work.
-
- ## License
-
-MIT License © 2022-PRESENT [productdevbook](https://github.com/productdevbook)
