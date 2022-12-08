@@ -1,0 +1,21 @@
+{
+  "name": "schob",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "cd packages && pnpm run test"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.33.1",
+    "eslint": "^8.29.0"
+  }
+}
