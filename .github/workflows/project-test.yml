@@ -90,7 +90,7 @@ jobs:
         run: ./install-action.sh schob
         shell: bash
 
-      - name: schob check install, build and lint
+      - name: relay-cursor-paging check install, build and lint
         if: github.event.label.name == 'relay-cursor-paging'
         run: ./install-action.sh relay-cursor-paging
         shell: bash
