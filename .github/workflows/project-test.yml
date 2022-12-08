@@ -90,6 +90,11 @@ jobs:
         run: ./install-action.sh schob
         shell: bash
 
+      - name: schob check install, build and lint
+        if: github.event.label.name == 'graphql'
+        run: ./install-action.sh graphql
+        shell: bash
+
       - name: scripts check install, build and lint
         if: github.event.label.name == 'scripts'
         run: ./install-action.sh scripts
