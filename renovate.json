@@ -79,6 +79,14 @@
       "addLabels": ["schob"]
     },
     {
+      "matchPaths": ["projects/graphql/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "graphql",
+      "labels": ["graphql"],
+      "addLabels": ["graphql"]
+    },
+    {
       "matchPaths": ["scripts/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
