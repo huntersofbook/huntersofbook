@@ -46,56 +46,56 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: docs check install, build and lint
-        if: github.event.label.name == 'docs'
+        if: github.event.label.name == 'docs' || contains(github.event.pull_request.labels.*.name, 'docs')
         run: ./install-action.sh docs
         shell: bash
 
       - name: auth-vue check install, build and lint
-        if: github.event.label.name == 'auth-vue'
+        if: github.event.label.name == 'auth-vue' || contains(github.event.pull_request.labels.*.name, 'auth-vue')
         run: ./install-action.sh auth-vue
         shell: bash
 
       - name: chatwoot check install, build and lint
-        if: github.event.label.name == 'chatwoot'
+        if: github.event.label.name == 'chatwoot' || contains(github.event.pull_request.labels.*.name, 'chatwoot') 
         run: ./install-action.sh chatwoot
         shell: bash
 
       - name: core check install, build and lint
-        if: github.event.label.name == 'core'
+        if: github.event.label.name == 'core' || contains(github.event.pull_request.labels.*.name, 'core')
         run: ./install-action.sh core
         shell: bash
 
       - name: huntersofbook check install, build and lint
-        if: github.event.label.name == 'huntersofbook'
+        if: github.event.label.name == 'huntersofbook' || contains(github.event.pull_request.labels.*.name, 'huntersofbook')
         run: ./install-action.sh huntersofbook
         shell: bash
 
       - name: naive-ui-nuxt check install, build and lint
-        if: github.event.label.name == 'naive-ui-nuxt'
+        if: github.event.label.name == 'naive-ui-nuxt' || contains(github.event.pull_request.labels.*.name, 'naive-ui-nuxt')
         run: ./install-action.sh naive-ui-nuxt
         shell: bash
 
       - name: plausible check install, build and lint
-        if: github.event.label.name == 'plausible'
+        if: github.event.label.name == 'plausible' || contains(github.event.pull_request.labels.*.name, 'plausible')
         run: ./install-action.sh plausible
         shell: bash
 
       - name: revenuecat check install, build and lint
-        if: github.event.label.name == 'revenuecat'
+        if: github.event.label.name == 'revenuecat' || contains(github.event.pull_request.labels.*.name, 'revenuecat')
         run: ./install-action.sh revenuecat
         shell: bash
 
       - name: schob check install, build and lint
-        if: github.event.label.name == 'schob'
+        if: github.event.label.name == 'schob' || contains(github.event.pull_request.labels.*.name, 'schob')
         run: ./install-action.sh schob
         shell: bash
 
       - name: relay-cursor-paging check install, build and lint
-        if: github.event.label.name == 'relay-cursor-paging'
+        if: github.event.label.name == 'relay-cursor-paging' || contains(github.event.pull_request.labels.*.name, 'relay-cursor-paging')
         run: ./install-action.sh relay-cursor-paging
         shell: bash
 
       - name: scripts check install, build and lint
-        if: github.event.label.name == 'scripts'
+        if: github.event.label.name == 'scripts' || contains(github.event.pull_request.labels.*.name, 'scripts')
         run: ./install-action.sh scripts
         shell: bash
