@@ -91,8 +91,8 @@ jobs:
         shell: bash
 
       - name: schob check install, build and lint
-        if: github.event.label.name == 'graphql'
-        run: ./install-action.sh graphql
+        if: github.event.label.name == 'relay-cursor-paging'
+        run: ./install-action.sh relay-cursor-paging
         shell: bash
 
       - name: scripts check install, build and lint

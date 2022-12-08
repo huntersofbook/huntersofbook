@@ -62,9 +62,9 @@ then
     cd ./scripts
     pnpm install
     pnpm lint
-elif [[ $COD1 == "graphql" ]]
+elif [[ $COD1 == "relay-cursor-paging" ]]
 then
-    cd ./projects/graphql
+    cd ./projects/graphql/relay-cursor-paging
     pnpm install
     pnpm build
 else
