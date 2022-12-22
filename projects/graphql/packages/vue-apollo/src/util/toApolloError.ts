@@ -1,5 +1,5 @@
-import { ApolloError, isApolloError } from '@apollo/client/core'
-import type { GraphQLErrors } from '@apollo/client/errors'
+import { ApolloError, isApolloError } from '@apollo/client/core/index.js'
+import type { GraphQLErrors } from '@apollo/client/errors/index.js'
 
 export function toApolloError(error: unknown): ApolloError {
   if (!(error instanceof Error)) {

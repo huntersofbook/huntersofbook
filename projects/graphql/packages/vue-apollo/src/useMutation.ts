@@ -1,5 +1,5 @@
 import type { DocumentNode } from 'graphql'
-import type { ApolloError, FetchResult, MutationOptions, OperationVariables, TypedDocumentNode } from '@apollo/client/core'
+import type { ApolloError, FetchResult, MutationOptions, OperationVariables, TypedDocumentNode } from '@apollo/client/core/index.js'
 import type { Ref } from 'vue'
 import { getCurrentInstance, isRef, onBeforeUnmount, ref } from 'vue'
 import { useApolloClient } from './useApolloClient'

@@ -21,7 +21,7 @@ import type {
   SubscribeToMoreOptions,
   TypedDocumentNode,
   WatchQueryOptions,
-} from '@apollo/client/core'
+} from '@apollo/client/core/index.js'
 import { debounce, throttle } from 'throttle-debounce'
 import { useApolloClient } from './useApolloClient'
 import type { ReactiveFunction } from './util/ReactiveFunction'

@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/vue-apollo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Apollo GraphQL for Vue Composition API",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",

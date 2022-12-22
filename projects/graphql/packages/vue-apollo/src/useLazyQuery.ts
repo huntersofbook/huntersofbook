@@ -1,4 +1,4 @@
-import type { OperationVariables } from '@apollo/client'
+import type { OperationVariables } from '@apollo/client/core/index.js'
 import type { DocumentNode } from 'graphql'
 import { isRef } from 'vue'
 import type { DocumentParameter, OptionsParameter, UseQueryOptions, VariablesParameter } from './useQuery'

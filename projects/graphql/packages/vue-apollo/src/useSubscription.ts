@@ -17,7 +17,7 @@ import type {
   OperationVariables,
   SubscriptionOptions,
   TypedDocumentNode,
-} from '@apollo/client/core'
+} from '@apollo/client/core/index.js'
 import { debounce, throttle } from 'throttle-debounce'
 import type { ReactiveFunction } from './util/ReactiveFunction'
 import { paramToRef } from './util/paramToRef'
