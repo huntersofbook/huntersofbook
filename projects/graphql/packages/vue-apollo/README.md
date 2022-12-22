@@ -1,11 +1,11 @@
-# Vue 3 Apollo Composable
+# Vue 3 Apollo
 <br/>
 
 ### @huntersofbook/vue-apollo [![npm](https://img.shields.io/npm/v/@huntersofbook/vue-apollo.svg)](https://npmjs.com/package/@huntersofbook/vue-apollo)
 <br/>
 
 ## Description
-Graphql Vue 3 Apollo Composable
+Graphql Vue 3 Apollo
 - Vue 3 Support
 - Only ESM Support
 - Apollo Client 3 Support
