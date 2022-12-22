@@ -1,0 +1,64 @@
+{
+  "name": "@huntersofbook/vue-apollo",
+  "version": "0.1.0",
+  "description": "Apollo GraphQL for Vue Composition API",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/projects/graphql/packages/vue-apollo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "projects/graphql/packages/vue-apollo"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "keywords": [
+    "vue-apollo",
+    "vue",
+    "apollo",
+    "graphql"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint \"./**/*.{ts,vue}\"",
+    "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "throttle-debounce": "^5.0.0",
+    "ts-essentials": "^9.3.0"
+  },
+  "peerDependencies": {
+    "@apollo/client": "^3.7.3",
+    "graphql": "^16.6.0",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.7.3",
+    "@types/throttle-debounce": "^5.0.0",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "typescript": "^4.9.4",
+    "vue": "^3.2.45"
+  }
+}

@@ -1,0 +1,6 @@
+# Write your query or mutation here
+query countries {
+  countries {
+    name
+  }
+}
