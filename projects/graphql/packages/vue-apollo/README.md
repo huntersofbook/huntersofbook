@@ -116,6 +116,7 @@ pnpm graphql-codegen-esm --config codegen.yml
 ## Inspiration
 Codes in this build are inspired by [Vue](https://github.com/vuejs/apollo) and from there the codes were copied. Thanks you for your great work.
 Thank you [Akryum](https://github.com/Akryum)
+Thank you SSR code [fabis94](https://github.com/fabis94) and [PR](https://github.com/vuejs/apollo/pull/1436)
 
  ## License
 
