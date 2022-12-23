@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/revenuecat",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Revenuecat Rest API for Node.js and TypeScript (Unofficial)",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
