@@ -21,12 +21,15 @@ export default defineAppConfig({
       alt: 'huntersofbook open source project was created for developers',
     },
     aside: {
-      level: 0,
-      exclude: [],
+      "level": 0,
+      "collapsed": false,
+      "exclude": []
     },
     header: {
-      title: false,
+      title: 'huntersofbook',
       logo: false,
+      "showLinkIcon": true,
+      "exclude": []
     },
     footer: {
       credits: {

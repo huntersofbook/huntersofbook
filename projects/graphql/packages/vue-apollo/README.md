@@ -2,10 +2,13 @@
 
 
 # Vue 3 Apollo
-<br/>
 
-### @huntersofbook/vue-apollo [![npm](https://img.shields.io/npm/v/@huntersofbook/vue-apollo.svg)](https://npmjs.com/package/@huntersofbook/vue-apollo)
-<br/>
+<p>
+      <a href="https://www.npmjs.com/package/@huntersofbook/vue-apollo"><img src="https://img.shields.io/npm/v/@huntersofbook/vue-apollo.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
+      <a href="https://www.npmjs.com/package/@huntersofbook/vue-apollo"><img src="https://img.shields.io/npm/dm/@huntersofbook/vue-apollo.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
+      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
+</p>
+
 
 ## Description
 Graphql Vue 3 Apollo
@@ -33,7 +36,8 @@ Code for the demo is in [playground](../../playground) folder.
 
 Code for the demo is in [playground-nuxt](../../playground-nuxt) folder.
 
-### Docs
+## Usage
+
 ```ts
 import { DefaultApolloClient } from '@huntersofbook/vue-apollo'
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core'
@@ -93,6 +97,20 @@ generates:
       vueCompositionApiImportFrom: vue
 ```
 
+```bash
+pnpm graphql-codegen-esm --config codegen.yml
+```
+
+
+
+## 💻 Development
+
+- Clone this repository
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable` (use `npm i -g corepack` for Node.js < 16.10)
+- Install dependencies using `pnpm install`
+- Stub module with `pnpm dev:prepare`
+- Run `pnpm dev` to start [playground](./playground) in development mode
+
 
 
 ## Inspiration
@@ -102,3 +120,4 @@ Thank you [Akryum](https://github.com/Akryum)
  ## License
 
 MIT License © 2023-PRESENT [productdevbook](https://github.com/productdevbook)
+

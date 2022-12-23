@@ -9,6 +9,7 @@ const { trackEvent } = usePlausible()
       :fluid="page.fluid"
       :constrained-class="page.constrainedClass"
       :padded="page.padded"
+      class="max-w-7xl mx-auto flex-grow"
     >
       <slot />
       <a
