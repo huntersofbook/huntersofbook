@@ -22,6 +22,9 @@ import type {
   TypedDocumentNode,
   WatchQueryOptions,
 } from '@apollo/client/core/index.js'
+import {
+  NetworkStatus,
+} from '@apollo/client/core/index.js'
 import { debounce, throttle } from 'throttle-debounce'
 import { useApolloClient } from './useApolloClient'
 import type { ReactiveFunction } from './util/ReactiveFunction'
@@ -236,11 +239,26 @@ export function useQueryImpl<
     }
   }
 
+  const isFirstRun = false
+
   function startQuerySubscription() {
     if (observer && !observer.closed)
       return
     if (!query.value)
       return
+
+    // If hydrating already finished queries, just handle result immediately @fabis94 thank you pr(https://github.com/vuejs/apollo/pull/1436)
+
+    if (!isServer && isFirstRun) {
+      const currentResult = query.value.getCurrentResult()
+      if (currentResult) {
+        if (currentResult.networkStatus === NetworkStatus.ready)
+          onNextResult(currentResult)
+
+        else if (currentResult.networkStatus === NetworkStatus.error && currentResult.error)
+          onError(currentResult.error)
+      }
+    }
 
     // Create subscription
     observer = query.value.subscribe({
