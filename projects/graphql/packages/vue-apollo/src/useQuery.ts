@@ -19,14 +19,12 @@ import type {
   ObservableSubscription,
   OperationVariables,
   SubscribeToMoreOptions,
-  TypedDocumentNode,
   WatchQueryOptions,
 } from '@apollo/client/core/index.js'
 import {
   NetworkStatus,
 } from '@apollo/client/core/index.js'
 import { debounce, throttle } from 'throttle-debounce'
-import { useApolloClient } from './useApolloClient'
 import type { ReactiveFunction } from './util/ReactiveFunction'
 import { paramToRef } from './util/paramToRef'
 import { paramToReactive } from './util/paramToReactive'
@@ -36,53 +34,9 @@ import { resultErrorsToApolloError, toApolloError } from './util/toApolloError'
 import { isServer } from './util/env'
 
 import type { CurrentInstance } from './util/types'
-
-export interface UseQueryOptions<
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TResult = any,
-  TVariables = OperationVariables,
-> extends Omit<WatchQueryOptions<TVariables>, 'query' | 'variables'> {
-  clientId?: string
-  enabled?: boolean
-  throttle?: number
-  debounce?: number
-  prefetch?: boolean
-}
-
-interface SubscribeToMoreItem {
-  options: any
-  unsubscribeFns: (() => void)[]
-}
-
-// Parameters
-export type DocumentParameter<TResult, TVariables = undefined> = DocumentNode | Ref<DocumentNode> | ReactiveFunction<DocumentNode> | TypedDocumentNode<TResult, TVariables> | Ref<TypedDocumentNode<TResult, TVariables>> | ReactiveFunction<TypedDocumentNode<TResult, TVariables>>
-export type VariablesParameter<TVariables> = TVariables | Ref<TVariables> | ReactiveFunction<TVariables>
-export type OptionsParameter<TResult, TVariables> = UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>> | ReactiveFunction<UseQueryOptions<TResult, TVariables>>
-
-// Return
-export interface UseQueryReturn<TResult, TVariables> {
-  result: Ref<TResult | undefined>
-  loading: Ref<boolean>
-  networkStatus: Ref<number | undefined>
-  error: Ref<ApolloError | null>
-  start: () => void
-  stop: () => void
-  restart: () => void
-  forceDisabled: Ref<boolean>
-  document: Ref<DocumentNode>
-  variables: Ref<TVariables | undefined>
-  options: UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>>
-  query: Ref<ObservableQuery<TResult, TVariables> | null | undefined>
-  refetch: (variables?: TVariables) => Promise<ApolloQueryResult<TResult>> | undefined
-  fetchMore: (options: FetchMoreQueryOptions<TVariables, TResult> & FetchMoreOptions<TResult, TVariables>) => Promise<ApolloQueryResult<TResult>> | undefined
-  subscribeToMore: <TSubscriptionVariables = OperationVariables, TSubscriptionData = TResult>(options: SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData> | Ref<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>> | ReactiveFunction<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>>) => void
-  onResult: (fn: (param: ApolloQueryResult<TResult>) => void) => {
-    off: () => void
-  }
-  onError: (fn: (param: ApolloError) => void) => {
-    off: () => void
-  }
-}
+import { useApolloClient } from './composable/useApolloClient'
+import { DocumentType, verifyDocumentType } from './parser'
+import type { DocumentParameter, OptionsParameter, SubscribeToMoreItem, UseQueryOptions, UseQueryReturn, VariablesParameter } from './types/types'
 
 /**
  * Use a query that does not require variables or options.
@@ -404,6 +358,7 @@ export function useQueryImpl<
   // Applying document
   let currentDocument: DocumentNode
   watch(documentRef, (value) => {
+    verifyDocumentType(documentRef.value, DocumentType.Query)
     currentDocument = value
     restart()
   }, {

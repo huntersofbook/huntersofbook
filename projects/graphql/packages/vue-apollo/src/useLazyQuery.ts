@@ -1,7 +1,7 @@
 import type { OperationVariables } from '@apollo/client/core/index.js'
 import type { DocumentNode } from 'graphql'
 import { isRef } from 'vue'
-import type { DocumentParameter, OptionsParameter, UseQueryOptions, VariablesParameter } from './useQuery'
+import type { DocumentParameter, OptionsParameter, UseQueryOptions, VariablesParameter } from './types/types'
 import { useQueryImpl } from './useQuery'
 
 export function useLazyQuery<
