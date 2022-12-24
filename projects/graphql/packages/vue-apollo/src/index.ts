@@ -54,8 +54,8 @@ export {
   useApolloClient,
   provideApolloClient,
   provideApolloClients,
-} from './useApolloClient'
+} from './composable/useApolloClient'
 
 export type {
   UseApolloClientReturn,
-} from './useApolloClient'
+} from './composable/useApolloClient'

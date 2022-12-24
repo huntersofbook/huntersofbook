@@ -19,14 +19,12 @@ import type {
   ObservableSubscription,
   OperationVariables,
   SubscribeToMoreOptions,
-  TypedDocumentNode,
   WatchQueryOptions,
 } from '@apollo/client/core/index.js'
 import {
   NetworkStatus,
 } from '@apollo/client/core/index.js'
 import { debounce, throttle } from 'throttle-debounce'
-import { useApolloClient } from './useApolloClient'
 import type { ReactiveFunction } from './util/ReactiveFunction'
 import { paramToRef } from './util/paramToRef'
 import { paramToReactive } from './util/paramToReactive'
@@ -36,6 +34,9 @@ import { resultErrorsToApolloError, toApolloError } from './util/toApolloError'
 import { isServer } from './util/env'
 
 import type { CurrentInstance } from './util/types'
+import { useApolloClient } from './composable/useApolloClient'
+import { DocumentType, verifyDocumentType } from './parser'
+import type { DocumentParameter, OptionsParameter, VariablesParameter } from './types/types'
 
 export interface UseQueryOptions<
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -53,11 +54,6 @@ interface SubscribeToMoreItem {
   options: any
   unsubscribeFns: (() => void)[]
 }
-
-// Parameters
-export type DocumentParameter<TResult, TVariables = undefined> = DocumentNode | Ref<DocumentNode> | ReactiveFunction<DocumentNode> | TypedDocumentNode<TResult, TVariables> | Ref<TypedDocumentNode<TResult, TVariables>> | ReactiveFunction<TypedDocumentNode<TResult, TVariables>>
-export type VariablesParameter<TVariables> = TVariables | Ref<TVariables> | ReactiveFunction<TVariables>
-export type OptionsParameter<TResult, TVariables> = UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>> | ReactiveFunction<UseQueryOptions<TResult, TVariables>>
 
 // Return
 export interface UseQueryReturn<TResult, TVariables> {
@@ -404,6 +400,7 @@ export function useQueryImpl<
   // Applying document
   let currentDocument: DocumentNode
   watch(documentRef, (value) => {
+    verifyDocumentType(documentRef.value, DocumentType.Query)
     currentDocument = value
     restart()
   }, {
