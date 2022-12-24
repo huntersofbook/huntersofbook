@@ -1,4 +1,4 @@
-import type { ApolloError, ApolloQueryResult, BaseQueryOptions, FetchMoreOptions, FetchMoreQueryOptions, OperationVariables, SubscribeToMoreOptions, TypedDocumentNode, WatchQueryOptions } from '@apollo/client'
+import type { ApolloError, ApolloQueryResult, BaseQueryOptions, FetchMoreOptions, FetchMoreQueryOptions, ObservableQuery, OperationVariables, SubscribeToMoreOptions, TypedDocumentNode, WatchQueryOptions } from '@apollo/client'
 import type { DocumentNode } from 'graphql'
 import type { Ref, VNode } from 'vue'
 import type { ReactiveFunction } from '../util/ReactiveFunction'
@@ -25,9 +25,9 @@ export interface QueryFunctionOptions<
 }
 
 export interface UseQueryOptions<
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    TData = any,
-    TVariables = OperationVariables,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  TResult = any,
+  TVariables = OperationVariables,
 > extends Omit<WatchQueryOptions<TVariables>, 'query' | 'variables'> {
   clientId?: string
   enabled?: boolean
@@ -36,29 +36,34 @@ export interface UseQueryOptions<
   prefetch?: boolean
 }
 
+export interface SubscribeToMoreItem {
+  options: any
+  unsubscribeFns: (() => void)[]
+}
+
 // Return
-export interface QueryResult<TData = any, TVariables = OperationVariables> {
-  result: Ref<TData | undefined>
+export interface UseQueryReturn<TResult, TVariables> {
+  result: Ref<TResult | undefined>
+  loading: Ref<boolean>
+  networkStatus: Ref<number | undefined>
+  error: Ref<ApolloError | null>
   start: () => void
   stop: () => void
   restart: () => void
   forceDisabled: Ref<boolean>
   document: Ref<DocumentNode>
   variables: Ref<TVariables | undefined>
-  options: UseQueryOptions<TData, TVariables> | Ref<UseQueryOptions<TData, TVariables>>
-  data: Ref<TData | undefined>
-  refetch: (variables?: TVariables) => Promise<ApolloQueryResult<TData>> | undefined
-  fetchMore: (options: FetchMoreQueryOptions<TVariables, TData> & FetchMoreOptions<TData, TVariables>) => Promise<ApolloQueryResult<TData>> | undefined
-  subscribeToMore: <TSubscriptionVariables = OperationVariables, TSubscriptionData = TData>(options: SubscribeToMoreOptions<TData, TSubscriptionVariables, TSubscriptionData> | Ref<SubscribeToMoreOptions<TData, TSubscriptionVariables, TSubscriptionData>> | ReactiveFunction<SubscribeToMoreOptions<TData, TSubscriptionVariables, TSubscriptionData>>) => void
-  onResult: (fn: (param: ApolloQueryResult<TData>) => void) => {
+  options: UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>>
+  query: Ref<ObservableQuery<TResult, TVariables> | null | undefined>
+  refetch: (variables?: TVariables) => Promise<ApolloQueryResult<TResult>> | undefined
+  fetchMore: (options: FetchMoreQueryOptions<TVariables, TResult> & FetchMoreOptions<TResult, TVariables>) => Promise<ApolloQueryResult<TResult>> | undefined
+  subscribeToMore: <TSubscriptionVariables = OperationVariables, TSubscriptionData = TResult>(options: SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData> | Ref<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>> | ReactiveFunction<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>>) => void
+  onResult: (fn: (param: ApolloQueryResult<TResult>) => void) => {
     off: () => void
   }
   onError: (fn: (param: ApolloError) => void) => {
     off: () => void
   }
-  error: Ref<ApolloError | null>
-  loading: Ref<boolean>
-  networkStatus: Ref<number | undefined>
   // TODO: called
   //   startPolling: (pollInterval: number)
   //  stopPolling: ()
@@ -68,15 +73,4 @@ export interface QueryResult<TData = any, TVariables = OperationVariables> {
   // data: Ref<TData | undefined>
   // observable: Ref<ObservableQuery<TData, TVariables>
   //   client: Ref<ApolloClient<any>>
-}
-
-export interface QueryDataOptions<TData = any, TVariables = OperationVariables>
-  extends QueryFunctionOptions<TData, TVariables> {
-  children?: (result: QueryResult<TData, TVariables>) => VNode
-  query: DocumentNode | TypedDocumentNode<TData, TVariables>
-}
-
-export interface QueryHookOptions<TData = any, TVariables = OperationVariables>
-  extends QueryFunctionOptions<TData, TVariables> {
-  query?: DocumentNode | TypedDocumentNode<TData, TVariables>
 }

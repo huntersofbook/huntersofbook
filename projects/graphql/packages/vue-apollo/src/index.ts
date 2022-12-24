@@ -5,7 +5,7 @@ export {
 export type {
   UseQueryOptions,
   UseQueryReturn,
-} from './useQuery'
+} from './types/types'
 
 export {
   useLazyQuery,

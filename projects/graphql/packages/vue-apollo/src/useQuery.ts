@@ -36,49 +36,7 @@ import { isServer } from './util/env'
 import type { CurrentInstance } from './util/types'
 import { useApolloClient } from './composable/useApolloClient'
 import { DocumentType, verifyDocumentType } from './parser'
-import type { DocumentParameter, OptionsParameter, VariablesParameter } from './types/types'
-
-export interface UseQueryOptions<
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TResult = any,
-  TVariables = OperationVariables,
-> extends Omit<WatchQueryOptions<TVariables>, 'query' | 'variables'> {
-  clientId?: string
-  enabled?: boolean
-  throttle?: number
-  debounce?: number
-  prefetch?: boolean
-}
-
-interface SubscribeToMoreItem {
-  options: any
-  unsubscribeFns: (() => void)[]
-}
-
-// Return
-export interface UseQueryReturn<TResult, TVariables> {
-  result: Ref<TResult | undefined>
-  loading: Ref<boolean>
-  networkStatus: Ref<number | undefined>
-  error: Ref<ApolloError | null>
-  start: () => void
-  stop: () => void
-  restart: () => void
-  forceDisabled: Ref<boolean>
-  document: Ref<DocumentNode>
-  variables: Ref<TVariables | undefined>
-  options: UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>>
-  query: Ref<ObservableQuery<TResult, TVariables> | null | undefined>
-  refetch: (variables?: TVariables) => Promise<ApolloQueryResult<TResult>> | undefined
-  fetchMore: (options: FetchMoreQueryOptions<TVariables, TResult> & FetchMoreOptions<TResult, TVariables>) => Promise<ApolloQueryResult<TResult>> | undefined
-  subscribeToMore: <TSubscriptionVariables = OperationVariables, TSubscriptionData = TResult>(options: SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData> | Ref<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>> | ReactiveFunction<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>>) => void
-  onResult: (fn: (param: ApolloQueryResult<TResult>) => void) => {
-    off: () => void
-  }
-  onError: (fn: (param: ApolloError) => void) => {
-    off: () => void
-  }
-}
+import type { DocumentParameter, OptionsParameter, SubscribeToMoreItem, UseQueryOptions, UseQueryReturn, VariablesParameter } from './types/types'
 
 /**
  * Use a query that does not require variables or options.
