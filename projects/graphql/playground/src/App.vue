@@ -1,11 +1,17 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useCountriesQuery } from './graphql/types'
 
-const { result } = useCountriesQuery()
+const { result, loading } = useCountriesQuery({ ssr: true })
 </script>
 
 <template>
   <div>
+    {{ loading }}
+    <!-- {{ result }} -->
+    <button @click="refetch">
+      refecth
+    </button>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo">
     </a>
@@ -13,7 +19,6 @@ const { result } = useCountriesQuery()
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
   </div>
-  {{ result }}
 </template>
 
 <style scoped>

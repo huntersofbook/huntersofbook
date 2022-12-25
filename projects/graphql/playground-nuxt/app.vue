@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { useCountriesQuery } from './graphql/types'
 
-const { result } = useCountriesQuery()
+const { result } = useCountriesQuery({ ssr: true })
 </script>
 
 <template>
   <div>
-    <div>
-      {{ result }}
-    </div>
     <NuxtWelcome />
+
+    {{ result }}
   </div>
 </template>

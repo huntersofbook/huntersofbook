@@ -1,8 +1,11 @@
+import type { App } from 'vue'
 import { getCurrentInstance, inject } from 'vue'
 import type { ApolloClient } from '@apollo/client/core/index.js'
+import { RenderPromises } from '../ssr'
+import { isServer } from '../util/env'
 
-export const DefaultApolloClient = Symbol('default-apollo-client')
-export const ApolloClients = Symbol('apollo-clients')
+export const DefaultApolloClient = Symbol('__APOLLO_CONTEXT__')
+export const ApolloClients = Symbol('__APOLLO_CONTEXTS__')
 
 type ClientId = string
 type ClientDict<T> = Record<ClientId, ApolloClient<T>>
@@ -103,4 +106,24 @@ export function provideApolloClients<TCacheShape = any>(clients: ClientDict<TCac
     currentApolloClients = {}
     return result
   }
+}
+
+interface PluginOptions {
+  client?: ApolloClient<any>
+  clients?: {
+    default: ApolloClient<any>
+    [key: string]: ApolloClient<any>
+  }
+}
+
+export const createApollo = (options: PluginOptions) => {
+  const Apollo = {
+    install(app: App): void {
+      if (options.client)
+        app.provide(DefaultApolloClient, options.client)
+      if (options.clients)
+        app.provide(ApolloClients, options.clients)
+    },
+  }
+  return Apollo
 }

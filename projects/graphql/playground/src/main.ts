@@ -1,6 +1,6 @@
 import { createApp, h, provide } from 'vue'
 import './style.css'
-import { DefaultApolloClient } from '@huntersofbook/vue-apollo'
+import { createApollo } from '@huntersofbook/vue-apollo'
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core'
 import App from './App.vue'
 
@@ -19,12 +19,12 @@ const apolloClient = new ApolloClient({
   cache,
 })
 
-const app = createApp({
-  setup() {
-    provide(DefaultApolloClient, apolloClient)
-  },
+const app = createApp(App)
 
-  render: () => h(App),
+const apollo = createApollo({
+  client: apolloClient,
 })
+
+app.use(apollo)
 
 app.mount('#app')
