@@ -153,8 +153,15 @@ export function useQueryImpl<TResult, TVariables>(
     UseQueryReturn<TResult, TVariables>
   >()
 
+  let started = false
+
   function start(options: UseQueryOptions<TResult, TVariables>) {
+    if (started)
+      return
+    started = true
+    error.value = null
     loading.value = true
+
     _useOptions(options)
     useObservableQuery()
     resultFn()
@@ -164,11 +171,6 @@ export function useQueryImpl<TResult, TVariables>(
     function onNextResult(_queryResult: ApolloQueryResult<TResult>) {
       const previousResult = result
 
-      // if (!result.value) {
-      //   handleErrorOrCompleted(
-      //     result.value = obsQuery.value!.getCurrentResult(),
-      //   )
-      // }
       const _result = obsQuery.value!.getCurrentResult()
 
       if (previousResult.value
@@ -176,10 +178,10 @@ export function useQueryImpl<TResult, TVariables>(
         && previousResult.value.networkStatus === _result.networkStatus
         && equal(previousResult.value.data, _result.data))
         return
-      loading.value = _result.loading
-      networkStatus.value = _result.networkStatus
       setResult(_result)
       resultEvent.trigger(_result)
+      loading.value = _result.loading
+      networkStatus.value = _result.networkStatus
     }
 
     const onError = (error: Error) => {
@@ -217,18 +219,8 @@ export function useQueryImpl<TResult, TVariables>(
     }
   }
 
-  // These members (except for renderPromises) are all populated by the
-  // useOptions method, which is called unconditionally at the beginning of the
-  // useQuery method, so we can safely use these members in other/later methods
-  // without worrying they might be uninitialized.
-  function forceUpdate() {
-    // Replaced (in useInternalState) with a method that triggers an update.
-    invariant.warn('Calling default no-op implementation of InternalState#forceUpdate')
-  }
-
   function asyncUpdate() {
     return new Promise<UseQueryReturn<TResult, TVariables>>((_resolve) => {
-      forceUpdate()
     })
   }
 

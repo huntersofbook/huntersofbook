@@ -2,12 +2,13 @@
 import { onMounted } from 'vue'
 import { useCountriesQuery } from './graphql/types'
 
-const { result, loading } = useCountriesQuery({ ssr: true })
+const { result, loading, startPolling } = useCountriesQuery()
 </script>
 
 <template>
   <div>
     {{ loading }}
+    {{ result }}
     <!-- {{ result }} -->
     <button @click="refetch">
       refecth
