@@ -1,4 +1,4 @@
-import type { ApolloClient, ApolloError, ApolloQueryResult, DefaultContext, FetchMoreOptions, FetchMoreQueryOptions, ObservableQuery, OperationVariables, SubscribeToMoreOptions, TypedDocumentNode, WatchQueryOptions } from '@apollo/client/index.js'
+import type { ApolloClient, ApolloError, ApolloQueryResult, DefaultContext, ObservableQuery, OperationVariables, TypedDocumentNode, WatchQueryOptions } from '@apollo/client/index.js'
 import type { DocumentNode } from 'graphql'
 import type { Ref, VNode } from 'vue'
 import type { ReactiveFunction } from '../util/ReactiveFunction'
@@ -65,30 +65,25 @@ export interface UseQueryReturn<TResult, TVariables> extends ObservableQueryFiel
   networkStatus: Ref<number | undefined>
   error: Ref<ApolloError | null>
   client: ApolloClient<any>
-  start?: () => void
-  stop?: () => void
+  start: () => void
+  stop: () => void
   restart?: () => void
-  forceDisabled?: Ref<boolean>
+  forceDisabled: Ref<boolean>
   document: Ref<DocumentNode>
   variables: Ref<TVariables | undefined>
   options: UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>>
   observable: Ref<ObservableQuery<TResult, TVariables> | null | undefined>
-  onResult?: (fn: (param: ApolloQueryResult<TResult>) => void) => {
+  onResult: (fn: (param: ApolloQueryResult<TResult>) => void) => {
     off: () => void
   }
-  onError?: (fn: (param: ApolloError) => void) => {
+  onError: (fn: (param: ApolloError) => void) => {
     off: () => void
   }
-  forceUpdate?: () => void
   previousResult: Ref<TResult | undefined>
   // TODO: called
-  //   startPolling: (pollInterval: number)
-  //  stopPolling: ()
   // updateQuery
   //   called: Ref<boolean>
   // data: Ref<TData | undefined>
-  // observable: Ref<ObservableQuery<TData, TVariables>
-  //   client: Ref<ApolloClient<any>>
 }
 
 export interface QueryHookOptions<TData = any, TVariables = OperationVariables>

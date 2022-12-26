@@ -2,15 +2,25 @@
 import { onMounted } from 'vue'
 import { useCountriesQuery } from './graphql/types'
 
-const { result, loading, startPolling } = useCountriesQuery()
+const { result, loading, error, refetch, load } = useCountriesQuery({ fetchPolicy: 'network-only', skip: true })
 </script>
 
 <template>
   <div>
-    {{ loading }}
-    {{ result }}
-    <!-- {{ result }} -->
-    <button @click="refetch">
+    <button @click="load()">
+      load
+    </button>
+    <div v-if="loading ">
+      {{ loading }}
+    </div>
+    <div v-else-if="error">
+      {{ error }}
+    </div>
+    <div v-else>
+      {{ result?.data.countries }}
+    </div>
+
+    <button @click="refetch()">
       refecth
     </button>
     <a href="https://vitejs.dev" target="_blank">

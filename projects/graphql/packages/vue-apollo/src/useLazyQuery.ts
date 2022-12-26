@@ -28,8 +28,7 @@ export function useLazyQuery<
     if (options)
       Object.assign(isRef(query.options) ? query.options.value : query.options, options)
 
-    // TODO: forceEnabled
-    // query.forceDisabled.value = false
+    query.forceDisabled.value = false
   }
 
   return {
