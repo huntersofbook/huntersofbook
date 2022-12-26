@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useCountriesQuery } from './graphql/types'
 
-const { result, loading, error, refetch, load } = useCountriesQuery({ fetchPolicy: 'network-only', skip: true })
+const { result, loading, error, refetch } = useCountriesQuery({ fetchPolicy: 'network-only', skip: true })
 </script>
 
 <template>
   <div>
-    <button @click="load()">
-      load
-    </button>
     <div v-if="loading ">
       {{ loading }}
     </div>
