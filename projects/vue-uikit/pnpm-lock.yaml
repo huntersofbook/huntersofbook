@@ -48,6 +48,7 @@ importers:
       defu: ^6.1.1
       eslint: ^8.28.0
       filter-anything: ^3.0.5
+      tailwindcss: ^3.2.4
       typescript: ^4.9.4
       unconfig: ^0.3.7
       unplugin-auto-import: ^0.12.1
@@ -66,6 +67,7 @@ importers:
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.3+vue@3.2.45
       '@vueuse/core': 9.9.0_vue@3.2.45
       eslint: 8.28.0
+      tailwindcss: 3.2.4
       typescript: 4.9.4
       unconfig: 0.3.7
       unplugin-auto-import: 0.12.1_@vueuse+core@9.9.0

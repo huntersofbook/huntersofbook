@@ -33,10 +33,8 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: [resolve(__dirname, 'src/index.ts'), './tailwindcss.ts'],
       formats: ['es'],
-      name: 'huntersofbook-uikit',
-      fileName: _format => 'huntersofbook-uikit.js',
     },
     minify: true,
     rollupOptions: {

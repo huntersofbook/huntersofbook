@@ -1,5 +1,5 @@
 import { componentNames } from '@huntersofbook/vue-uikit'
-
+import TailwindCSSKIT from '@huntersofbook/vue-uikit/tailwindcss'
 import {
   addComponent,
   createResolver,
@@ -29,7 +29,14 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    componentNames.forEach((name) => {
+    // @nuxtjs/tailwindcss support
+    // @ts-expect-error - Module might not exist
+    nuxt.hook('tailwindcss:config', (tailwindConfig) => {
+      tailwindConfig.content = tailwindConfig.content ?? []
+      tailwindConfig.plugins.push(TailwindCSSKIT)
+    })
+
+    componentNames.forEach((name: any) => {
       addComponent({
         name,
         export: name,
