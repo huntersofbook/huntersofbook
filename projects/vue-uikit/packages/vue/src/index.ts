@@ -1,4 +1,5 @@
-export { default as HInfiniteLoading } from './component/InfiniteLoading.vue'
+import * as components from './component'
 
-export { componentNames } from './components'
 export * from './types'
+
+export * from './component'

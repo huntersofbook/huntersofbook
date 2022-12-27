@@ -19,12 +19,16 @@
     "outDir": "dist/types",
     "baseUrl": "./",
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
       "@huntersofbook/vue-uikit": [
         "./src"
       ]
     },
     "types": [
-      "unplugin-vue-define-options/macros-global"
+      "unplugin-vue-define-options/macros-global",
+      "@types/node"
     ]
   },
   "include": [

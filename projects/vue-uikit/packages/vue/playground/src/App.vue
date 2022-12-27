@@ -1,29 +1,22 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { HInfiniteLoading } from '@huntersofbook/vue-uikit'
+import { ref } from 'vue'
+const data = ref([1, 2, 3, 4, 5, 6])
+
+function onLoadMore() {
+  const length = data.value.length + 1
+  data.value.push(...Array.from({ length: 5 }, (_, i) => length + i))
+}
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    asd
+    <HInfiniteLoading :distance="20" @infinite="onLoadMore">
+      <div v-for="item in data" :key="item" class="h-30 bg-gray-500/5 rounded p-3">
+        {{ item }}
+      </div>
+    </HInfiniteLoading>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>

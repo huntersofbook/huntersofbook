@@ -1,0 +1,9 @@
+.title {
+  @apply mx-1;
+  @apply text-red-600;
+
+  &--big {
+    @apply text-lg;
+    @apply font-bold;
+  }
+}
