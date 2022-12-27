@@ -39,6 +39,12 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
+    // @nuxtjs/tailwindcss support
+    nuxt.hook('tailwindcss:config', (tailwindConfig) => {
+      tailwindConfig.plugins = tailwindConfig.plugins ?? []
+      tailwindConfig.plugins.push(TailwindCSSKIT)
+    })
+
     componentNames.forEach((name: any) => {
       addComponent({
         name,
@@ -62,13 +68,6 @@ export default defineNuxtModule<ModuleOptions>({
       logger.log(chalk.dim('  └─ 💖  Like this package? Consider sponsoring me on GitHub: https://github.com/sponsors/productdevbook'))
       logger.log('')
     }
-
-    // @nuxtjs/tailwindcss support
-    nuxt.hook('tailwindcss:config', (tailwindConfig) => {
-      // tailwindConfig.plugins.push(TailwindCSSKIT)
-      logger.log(TailwindCSSKIT)
-      logger.log('tailwindcss:config', tailwindConfig)
-    })
   },
 })
 

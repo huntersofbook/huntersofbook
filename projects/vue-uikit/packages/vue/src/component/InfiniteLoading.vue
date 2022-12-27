@@ -44,7 +44,7 @@ const attrsWithoutSrc = computed(() => {
 </script>
 
 <template>
-  <div ref="el" v-bind="attrsWithoutSrc">
+  <div ref="el" v-bind="attrsWithoutSrc" class="flex flex-col gap-2 p-4 w-[300px] h-[300px] m-auto overflow-y-scroll bg-gray-500/5 rounded">
     <slot />
   </div>
 </template>

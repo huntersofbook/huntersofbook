@@ -15,7 +15,7 @@ const state = ref<InfiniteScrollStateType>()
     huntersofbook UI Kit
     <HInfiniteLoading
       :distance="20"
-      class="flex flex-col gap-2 p-4 w-[300px] h-[300px] m-auto overflow-y-scroll bg-gray-500/5 rounded"
+
       @infinite="onLoadMore"
     >
       <div v-for="item in data" :key="item" class="h-30 bg-gray-500/5 rounded p-3">
