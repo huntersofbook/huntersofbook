@@ -23,15 +23,20 @@
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/index.js",
-      "tailwindcss": "./dist/tailwindcss.js"
+      "import": "./dist/index.js"
+    },
+    "./tailwindPlugin": {
+      "types": "./tailwindPlugin.d.ts",
+      "import": "./tailwindPlugin.js"
     }
   },
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
-    "volar.d.ts"
+    "volar.d.ts",
+    "tailwind.d.ts",
+    "tailwind.js"
   ],
   "scripts": {
     "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",

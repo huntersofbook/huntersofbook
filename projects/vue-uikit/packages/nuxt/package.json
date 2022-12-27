@@ -52,7 +52,9 @@
     "@nuxt/schema": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.2.0",
     "eslint": "^8.28.0",
+    "nitropack": "^1.0.0",
     "nuxt": "^3.0.0",
-    "tsx": "^3.12.1"
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4"
   }
 }

@@ -33,7 +33,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: [resolve(__dirname, 'src/index.ts'), './tailwindcss.ts'],
+      entry: [resolve(__dirname, 'src/index.ts'), './tailwindPlugin.js'],
       formats: ['es'],
     },
     minify: true,
