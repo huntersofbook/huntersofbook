@@ -1,10 +1,11 @@
 import path, { resolve } from 'path'
 
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import dtsPlugin from 'vite-plugin-dts'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
-
+import DefineOptions from 'unplugin-vue-define-options/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import * as pkg from './package.json'
 
 const externals = [
@@ -13,12 +14,16 @@ const externals = [
 ]
 export default defineConfig({
   plugins: [
-    vue(),
+    AutoImport({
+      imports: ['vue', '@vueuse/core'],
+    }),
+    Vue(),
     vueSetupExtend(),
     dtsPlugin({
       outputDir: 'dist/types',
       include: 'src',
     }),
+    DefineOptions(),
   ],
   resolve: {
     alias: {
@@ -32,6 +37,7 @@ export default defineConfig({
       name: 'huntersofbook-uikit',
       fileName: _format => 'huntersofbook-uikit.js',
     },
+    minify: true,
     rollupOptions: {
       external: externals,
       output: {

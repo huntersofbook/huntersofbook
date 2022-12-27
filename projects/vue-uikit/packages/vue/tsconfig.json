@@ -6,6 +6,10 @@
     "target": "ESNext",
     "composite": false,
     "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -22,15 +26,25 @@
       "@huntersofbook/vue-uikit": [
         "./src"
       ]
-    }
+    },
+    "types": [
+      "unplugin-vue-define-options/macros-global"
+    ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
-    "volar.d.ts"
+    "volar.d.ts",
+    "vite.config.ts",
+    "auto-imports.d.ts"
   ],
   "exclude": [
     "node_modules",
     "dist"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }
