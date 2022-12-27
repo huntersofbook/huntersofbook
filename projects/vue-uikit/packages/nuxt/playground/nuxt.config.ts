@@ -7,4 +7,8 @@ export default defineNuxtConfig({
     huntersofbookUIKIT,
     '@nuxtjs/tailwindcss',
   ],
+  tailwindcss: {
+    configPath: './tailwind.config.cjs',
+    viewer: false,
+  },
 })

@@ -14,7 +14,7 @@ const props = defineProps<{
 
 type InfiniteScrollStateType = 'LOADING' | 'LOADED' | 'COMPLETED' | 'ERROR'
 
-const el = ref<HTMLElement>(null)
+const el = ref<HTMLElement>()
 
 function executeInfiniteScroll() {
   if (typeof props.onInfinite === 'function')

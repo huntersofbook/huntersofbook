@@ -35,10 +35,11 @@
   ],
   "scripts": {
     "build": "pnpm dev:prepare && pnpm nuxt-module-build",
-    "dev": "nuxi dev playground",
+    "dev": "pnpm dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@huntersofbook/vue-uikit": "workspace:^0.1.0",

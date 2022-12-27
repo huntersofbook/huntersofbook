@@ -2,7 +2,6 @@ import { componentNames } from '@huntersofbook/vue-uikit'
 
 import {
   addComponent,
-  addPlugin,
   createResolver,
   defineNuxtModule,
 } from '@nuxt/kit'

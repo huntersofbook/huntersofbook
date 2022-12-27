@@ -24,3 +24,9 @@ const state = ref<InfiniteScrollStateType>()
     </HInfiniteLoading>
   </div>
 </template>
+
+<style lang="postcss">
+.html {
+  @apply bg-gray-900;
+}
+</style>
