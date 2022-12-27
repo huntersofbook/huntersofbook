@@ -23,7 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
 
     nuxt.hook('prepare:types', ({ tsConfig, references }) => {
-      tsConfig.compilerOptions!.types.push('huntersofbook-uikit/volar')
+      tsConfig.compilerOptions!.types.push('@huntersofbook/vue-uikit/volar')
       references.push({
         path: resolve(nuxt.options.buildDir, 'types/huntersofbook-uikit.d.ts'),
       })

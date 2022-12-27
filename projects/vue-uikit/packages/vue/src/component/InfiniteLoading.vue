@@ -39,13 +39,12 @@ useInfiniteScroll(
 )
 const attrs = useAttrs()
 const attrsWithoutSrc = computed(() => {
-  console.log(attrs)
-  return pick(attrs, ['clasas'])
+  return pick(attrs, ['class'])
 })
 </script>
 
 <template>
-  <div ref="el">
+  <div ref="el" v-bind="attrsWithoutSrc">
     <slot />
   </div>
 </template>

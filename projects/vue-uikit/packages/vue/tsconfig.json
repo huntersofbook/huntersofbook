@@ -4,20 +4,16 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "ESNext",
-    "composite": false,
     "esModuleInterop": true,
     "lib": [
       "ESNext",
       "DOM"
     ],
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
     "moduleResolution": "node",
-    "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
     "resolveJsonModule": true,
-    "useDefineForClassFields": true,
     "sourceMap": true,
     "isolatedModules": true,
     "outDir": "dist/types",
@@ -41,10 +37,5 @@
   "exclude": [
     "node_modules",
     "dist"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
   ]
 }

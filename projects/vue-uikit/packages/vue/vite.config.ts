@@ -1,4 +1,4 @@
-import path, { resolve } from 'path'
+import { resolve } from 'path'
 
 import Vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
@@ -6,6 +6,7 @@ import dtsPlugin from 'vite-plugin-dts'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+
 import * as pkg from './package.json'
 
 const externals = [
@@ -32,7 +33,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
       formats: ['es'],
       name: 'huntersofbook-uikit',
       fileName: _format => 'huntersofbook-uikit.js',
