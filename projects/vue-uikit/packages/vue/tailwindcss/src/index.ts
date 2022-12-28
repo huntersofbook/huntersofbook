@@ -9,10 +9,7 @@ const huntersofbook = plugin.withOptions((options) => {
     addComponents(
       {
         '.btn': {
-          padding: '.5rem 1rem',
-          borderRadius: '.25rem',
-          fontWeight: '600',
-          backgroundColor: '#2315',
+          '@apply p-5 bg-red-500 text-white': true
         },
       },
     )
