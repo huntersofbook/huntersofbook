@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const huntersofbookPlugin = require('@huntersofbook/vue-uikit/tailwindPlugin')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const huntersofbookPlugin = require('@huntersofbook/vue-uikit/tailwindcss')
 module.exports = {
   content: [
     './index.html',

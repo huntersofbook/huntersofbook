@@ -25,9 +25,10 @@
       "types": "./dist/lib/types/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./tailwindPlugin": {
-      "types": "./dist/tailwindPlugin.d.ts",
-      "default": "./dist/tailwindPlugin.js"
+    "./tailwindcss": {
+      "import": "./dist/tailwindcss/index.mjs",
+      "require": "./dist/tailwindcss/index.cjs",
+      "types": "./dist/tailwindcss/index.d.ts"
     },
     "./plugin": {
       "types": "./dist/plugin/index.d.ts",
@@ -47,7 +48,8 @@
     "tailwind.js"
   ],
   "scripts": {
-    "build": "vite build && pnpm plugin:build && esno ./scripts/copy.ts",
+    "build": "vite build && pnpm plugin:build && pnpm build:tailwindcss",
+    "build:tailwindcss": "pnpm tsup --config ./tailwindcss/tsup.config.ts",
     "dev": "vite build --watch",
     "plugin:build": "pnpm tsup",
     "dev:plugin": "pnpm tsup --watch",
