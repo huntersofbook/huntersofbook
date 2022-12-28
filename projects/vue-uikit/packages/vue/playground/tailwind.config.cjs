@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 const huntersofbookPlugin = require('@huntersofbook/vue-uikit/tailwindPlugin')
-
 module.exports = {
   content: [
     './index.html',

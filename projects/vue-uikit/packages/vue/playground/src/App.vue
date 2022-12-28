@@ -11,7 +11,7 @@ function onLoadMore() {
 
 <template>
   <div>
-    asd
+    asdaaa
     <HInfiniteLoading :distance="20" @infinite="onLoadMore">
       <div v-for="item in data" :key="item" class="h-30 bg-gray-500/5 rounded p-3">
         {{ item }}

@@ -16,7 +16,6 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "isolatedModules": true,
-    "outDir": "dist/types",
     "baseUrl": "./",
     "paths": {
       "@/*": [

@@ -1,7 +1,7 @@
 import { componentNames } from '@huntersofbook/vue-uikit'
 import TailwindCSSKIT from '@huntersofbook/vue-uikit/tailwindPlugin'
 import chalk from 'chalk'
-
+import { $fetch } from 'ofetch'
 import {
   addComponent,
   createResolver,
@@ -57,6 +57,7 @@ export default defineNuxtModule<ModuleOptions>({
       let latestTag = `v${version}`
       try {
         latestTag = (await $fetch<any>('https://registry.npmjs.org/@huntersofbook/schob'))
+        logger.log(latestTag)
       }
       catch (e) {
       }
