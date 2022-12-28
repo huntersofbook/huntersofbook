@@ -4,10 +4,19 @@ import plugin from 'tailwindcss/plugin.js'
  * The FormKit plugin for Tailwind
  * @public
  */
-const FormKitVariants = plugin.withOptions((options) => {
+const huntersofbook = plugin.withOptions((options) => {
   return function ({ addComponents }) {
-    addComponents([])
+    addComponents(
+      {
+        '.btn': {
+          padding: '.5rem 1rem',
+          borderRadius: '.25rem',
+          fontWeight: '600',
+          backgroundColor: '#2315',
+        },
+      },
+    )
   }
 })
 
-export default FormKitVariants
+export default huntersofbook
