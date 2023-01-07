@@ -4,7 +4,7 @@ import { defu } from 'defu'
 import { get as getCookie, set as setCookie } from 'es-cookie'
 
 import type { HLanguage } from '../locales'
-import LocaleData from '../locales'
+import LocaleData, { findLocale } from '../locales'
 import { isServer } from '../ssr-utils'
 
 interface DateFNSLocale {
@@ -48,7 +48,9 @@ export async function loadDateFNSLocale(lang: DateFNSLocale): Promise<Locale> {
 }
 
 async function setDateLocale(locale: HLanguage): Promise<Locale | null> {
-  const data = LocaleData[locale].getStrings()
+  const changeLocale = findLocale(locale)
+
+  const data = LocaleData[changeLocale].getStrings()
   if (data) {
     const lang = await data
     if (lang)

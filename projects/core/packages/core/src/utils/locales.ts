@@ -6,6 +6,9 @@ export type HLanguage =
   | 'zh-TW'
   | 'ja-JP'
   | 'tr-TR'
+
+const SUPPORT_LOCALES = ['en-US', 'en-GB', 'fr-FR', 'zh-CN', 'zh-TW', 'ja-JP', 'tr-TR']
+
 export const DEFAULT_LOCALE: HLanguage = 'en-US'
 
 export interface TranslatedStr {
@@ -125,6 +128,36 @@ const locales: Record<HLanguage, LocaleDict> = {
       }
     },
   },
+}
+
+export const findLocale = (locale = 'en', defaultLanguage: HLanguage = 'en-US'): HLanguage => {
+  let language: HLanguage = 'en-US'
+
+  const searchArray = SUPPORT_LOCALES.find(l => l === locale)
+  if (searchArray)
+    language = searchArray as HLanguage
+
+  if (!language) {
+    const seachArray = SUPPORT_LOCALES.find(l => l.split('-')[0] === locale)
+    if (seachArray)
+      language = seachArray as HLanguage
+  }
+
+  if (!language) {
+    const searchArray = SUPPORT_LOCALES.find(
+      l => l.split('-')[0] === locale.split('-')[0],
+    )
+    if (searchArray)
+      language = searchArray as HLanguage
+  }
+
+  if (language) {
+    const check = SUPPORT_LOCALES.find(l => l === language)
+    if (!check)
+      language = defaultLanguage
+  }
+
+  return language || defaultLanguage
 }
 
 export default locales
