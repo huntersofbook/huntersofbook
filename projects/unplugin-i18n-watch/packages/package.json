@@ -1,0 +1,96 @@
+{
+  "name": "@huntersofbook/unplugin-i18n-watch",
+  "version": "1.0.0",
+  "description": "Rewrite the new object according to the schema. Delete the excess.",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/projects/unplugin-i18n-watch/packages/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "packages/unplugin-i18n-watch"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "unplugin",
+    "i18n"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": "./*",
+    "./types": {
+      "require": "./dist/types.js",
+      "import": "./dist/types.mjs"
+    },
+    "./vite": {
+      "require": "./dist/vite.js",
+      "import": "./dist/vite.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "schemaEN.json"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint \"./**/*.{ts,vue}\"",
+    "lint:fix": "eslint --fix \"./**/*.{ts,vue}\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.2",
+    "@huntersofbook/schob": "^1.0.0",
+    "chokidar": "^3.5.3",
+    "consola": "^2.15.3",
+    "debug": "^4.3.4",
+    "filter-anything": "^3.0.5",
+    "globby": "^13.1.3",
+    "is-what": "^4.1.8",
+    "local-pkg": "^0.4.2",
+    "merge-anything": "^5.1.4",
+    "minimatch": "^5.1.2",
+    "pathe": "^1.0.0",
+    "remove-anything": "^1.0.3",
+    "unplugin": "^1.0.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.34.0",
+    "@types/debug": "^4.1.7",
+    "@types/lodash": "^4.14.191",
+    "@types/minimatch": "^5.1.2",
+    "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "lodash": "^4.17.21",
+    "prettier": "^2.8.1",
+    "tsup": "^6.5.0",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4",
+    "vitest": "^0.26.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
