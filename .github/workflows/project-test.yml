@@ -95,6 +95,11 @@ jobs:
         run: ./install-action.sh relay-cursor-paging
         shell: bash
 
+      - name: i18n check install, build and lint
+        if: github.event.label.name == 'i18n' || contains(github.event.pull_request.labels.*.name, 'i18n')
+        run: ./install-action.sh i18n
+        shell: bash
+
       - name: scripts check install, build and lint
         if: github.event.label.name == 'scripts' || contains(github.event.pull_request.labels.*.name, 'scripts')
         run: ./install-action.sh scripts
