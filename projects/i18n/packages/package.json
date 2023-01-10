@@ -1,7 +1,7 @@
 {
   "name": "@huntersofbook/i18n",
-  "version": "1.0.0",
-  "description": "Rewrite the new object according to the schema. Delete the excess.",
+  "version": "0.1.0",
+  "description": "i18n Template for auto generated i18n files for unplugin.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "unplugin",
-    "i18n"
+    "i18n",
+    "vite i18n"
   ],
   "exports": {
     ".": {

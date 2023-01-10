@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env DEBUG=unplugin-i18n-watch:* vite",
-    "build": "cross-env DEBUG=unplugin-i18n-watch:* vue-tsc && vite build",
+    "build": "cross-env DEBUG=unplugin-i18n-watch:* && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
