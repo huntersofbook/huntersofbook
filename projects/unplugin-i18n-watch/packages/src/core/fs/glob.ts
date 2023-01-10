@@ -65,7 +65,7 @@ export function searchI18nFiles(ctx: Context) {
 // }
 // `
 //     writeFileSync(`${schema}`, addHeader)
-//     const languages = ctx.options.outputNames
+//     const languages = ctx.options.languages
 //     languages.forEach((file) => {
 //       console.log(file)
 //       const writePath = `${cwdDir}/${file}.json`

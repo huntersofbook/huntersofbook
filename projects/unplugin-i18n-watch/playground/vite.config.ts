@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     vue(),
     unpluginI18n({
-      outputNames: ['en', 'tr', 'fr'],
+      languages: ['en', 'tr', 'fr'],
     }),
   ],
 })

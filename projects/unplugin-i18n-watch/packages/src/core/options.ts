@@ -7,7 +7,7 @@ export const defaultOptions: Omit<Required<Options>, 'version' | 'globs'> = {
   export: 'language',
   deep: true,
   extensions: ['json'],
-  outputNames: ['en', 'tr'],
+  languages: ['en', 'tr'],
   schema: 'schemaEn.json',
 }
 

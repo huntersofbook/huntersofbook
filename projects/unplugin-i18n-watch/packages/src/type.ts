@@ -57,7 +57,7 @@ export interface Options {
    * The input file to compile
    * @example ['tr', 'fr']
   */
-  outputNames?: string[]
+  languages?: string[]
 
 }
 

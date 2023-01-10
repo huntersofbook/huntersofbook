@@ -93,7 +93,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
   const dirName = dirname(dir)
   debug('dirName', dirName)
 
-  const languages = ctx.options.outputNames
+  const languages = ctx.options.languages
   debug('languages', languages)
 
   // check is directory
@@ -133,7 +133,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
             Object.assign(obj, data)
           })
 
-          ctx.options.outputNames.forEach((lang) => {
+          ctx.options.languages.forEach((lang) => {
             // isExist directory
             if (!existsSync(resolve(ctx.root, ctx.options.export, lang)))
               mkdirSync(resolve(ctx.root, ctx.options.export, lang), { recursive: true })
@@ -175,7 +175,7 @@ const autoClean = (ctx: Context, existDirectory: Boolean) => {
     })
 
     const selectFiles: string[] = []
-    ctx.options.outputNames.forEach((lang) => {
+    ctx.options.languages.forEach((lang) => {
       templateFiles.forEach((file) => {
         selectFiles.push(`${ctx.options.export}/${lang}${file}`)
       })
@@ -187,7 +187,7 @@ const autoClean = (ctx: Context, existDirectory: Boolean) => {
       return !matchGlobs(x, selectFiles)
     })
 
-    ctx.options.outputNames.forEach((lang) => {
+    ctx.options.languages.forEach((lang) => {
       diff.forEach((_file) => {
         try {
           const data = lstatSync(_file).isDirectory()
