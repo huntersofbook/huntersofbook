@@ -19,6 +19,24 @@ As a sponsor, you can support us and our software that we have developed on book
     <br>
   </td>
   <td valign="top">
+    <h3>i18n</h3>
+    <p>
+      <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
+      <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/dm/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
+      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
+    </p>
+    <p>
+      i18n Template for auto generated i18n files for unplugin.<p>
+    <a href="https://github.com/huntersofbook/huntersofbook/tree/main/projects/i18n/packages">The documentation</a> 
+    </p>
+    </p>
+  </td>
+</tr>
+<tr>
+  <td width="80" align="center" valign="top">
+    <br>
+  </td>
+  <td valign="top">
     <h3>Schob</h3>
     <p>
       <a href="https://www.npmjs.com/package/@huntersofbook/schob"><img src="https://img.shields.io/npm/v/@huntersofbook/schob.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
