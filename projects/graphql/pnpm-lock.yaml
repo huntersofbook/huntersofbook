@@ -64,7 +64,7 @@ importers:
       '@graphql-codegen/typescript-operations': ^2.5.10
       '@graphql-codegen/typescript-vue-apollo': ^3.3.6
       '@huntersofbook/relay-cursor-paging': ^0.1.3
-      '@huntersofbook/vue-apollo': ^1.0.0
+      '@huntersofbook/vue-apollo': workspace:^2.0.0-alpha.3
       '@vitejs/plugin-vue': ^4.0.0
       graphql: ^16.6.0
       graphql-yoga: ^3.1.2
@@ -102,7 +102,7 @@ importers:
       '@graphql-codegen/typescript-apollo-client-helpers': ^2.2.6
       '@graphql-codegen/typescript-operations': ^2.5.10
       '@graphql-codegen/typescript-vue-apollo': ^3.3.6
-      '@huntersofbook/vue-apollo': ^1.0.0
+      '@huntersofbook/vue-apollo': workspace:^2.0.0-alpha.3
       nuxt: 3.0.0
     dependencies:
       '@huntersofbook/vue-apollo': link:../packages/vue-apollo

@@ -1,6 +1,7 @@
 # Write your query or mutation here
-query countries {
-  countries {
+query countries($filter: CountryFilterInput) {
+  countries(filter: $filter) {
     name
+    code
   }
 }

@@ -1,4 +1,4 @@
-import type { ApolloError, ApolloQueryResult, BaseQueryOptions, FetchMoreOptions, FetchMoreQueryOptions, ObservableQuery, OperationVariables, SubscribeToMoreOptions, TypedDocumentNode, WatchQueryOptions } from '@apollo/client'
+import type { ApolloClient, ApolloError, ApolloQueryResult, DefaultContext, ObservableQuery, OperationVariables, TypedDocumentNode, WatchQueryOptions } from '@apollo/client/index.js'
 import type { DocumentNode } from 'graphql'
 import type { Ref, VNode } from 'vue'
 import type { ReactiveFunction } from '../util/ReactiveFunction'
@@ -8,13 +8,26 @@ export type DocumentParameter<TResult, TVariables = undefined> = DocumentNode | 
 export type VariablesParameter<TVariables> = TVariables | Ref<TVariables> | ReactiveFunction<TVariables>
 export type OptionsParameter<TResult, TVariables> = UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>> | ReactiveFunction<UseQueryOptions<TResult, TVariables>>
 
+export interface BaseQueryOptions<TVariables = OperationVariables>
+  extends Omit<WatchQueryOptions<TVariables>, 'query'> {
+  ssr?: boolean
+  client?: ApolloClient<any>
+  context?: DefaultContext
+}
+
 export interface QueryFunctionOptions<
-    TData = any,
-    TVariables = OperationVariables,
+  TData = any,
+  TVariables = OperationVariables,
 > extends BaseQueryOptions<TVariables> {
   skip?: boolean
   onCompleted?: (data: TData) => void
   onError?: (error: ApolloError) => void
+
+  clientId?: string
+  enabled?: boolean
+  throttle?: number
+  debounce?: number
+  prefetch?: boolean
 
   // Default WatchQueryOptions for this useQuery, providing initial values for
   // unspecified options, superseding client.defaultOptions.watchQuery (option
@@ -24,16 +37,9 @@ export interface QueryFunctionOptions<
   defaultOptions?: Partial<WatchQueryOptions<TVariables, TData>>
 }
 
-export interface UseQueryOptions<
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TResult = any,
-  TVariables = OperationVariables,
-> extends Omit<WatchQueryOptions<TVariables>, 'query' | 'variables'> {
-  clientId?: string
-  enabled?: boolean
-  throttle?: number
-  debounce?: number
-  prefetch?: boolean
+export interface UseQueryOptions<TData = any, TVariables = OperationVariables>
+  extends QueryFunctionOptions<TData, TVariables> {
+  query?: DocumentNode | TypedDocumentNode<TData, TVariables>
 }
 
 export interface SubscribeToMoreItem {
@@ -41,36 +47,52 @@ export interface SubscribeToMoreItem {
   unsubscribeFns: (() => void)[]
 }
 
+export type ObservableQueryFields<TData, TVariables> = Pick<
+  ObservableQuery<TData, TVariables>,
+  | 'startPolling'
+  | 'stopPolling'
+  | 'subscribeToMore'
+  | 'updateQuery'
+  | 'refetch'
+  | 'reobserve'
+  | 'fetchMore'
+>
+
 // Return
-export interface UseQueryReturn<TResult, TVariables> {
-  result: Ref<TResult | undefined>
+export interface UseQueryReturn<TResult, TVariables> extends ObservableQueryFields<TResult, TVariables> {
+  result: Ref<ApolloQueryResult<TResult> | undefined>
   loading: Ref<boolean>
   networkStatus: Ref<number | undefined>
   error: Ref<ApolloError | null>
+  client: ApolloClient<any>
   start: () => void
   stop: () => void
-  restart: () => void
+  restart?: () => void
   forceDisabled: Ref<boolean>
   document: Ref<DocumentNode>
   variables: Ref<TVariables | undefined>
   options: UseQueryOptions<TResult, TVariables> | Ref<UseQueryOptions<TResult, TVariables>>
-  query: Ref<ObservableQuery<TResult, TVariables> | null | undefined>
-  refetch: (variables?: TVariables) => Promise<ApolloQueryResult<TResult>> | undefined
-  fetchMore: (options: FetchMoreQueryOptions<TVariables, TResult> & FetchMoreOptions<TResult, TVariables>) => Promise<ApolloQueryResult<TResult>> | undefined
-  subscribeToMore: <TSubscriptionVariables = OperationVariables, TSubscriptionData = TResult>(options: SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData> | Ref<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>> | ReactiveFunction<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>>) => void
+  observable: Ref<ObservableQuery<TResult, TVariables> | null | undefined>
   onResult: (fn: (param: ApolloQueryResult<TResult>) => void) => {
     off: () => void
   }
   onError: (fn: (param: ApolloError) => void) => {
     off: () => void
   }
+  previousResult: Ref<TResult | undefined>
   // TODO: called
-  //   startPolling: (pollInterval: number)
-  //  stopPolling: ()
   // updateQuery
   //   called: Ref<boolean>
-  // previousData: Ref<TData | undefined>
   // data: Ref<TData | undefined>
-  // observable: Ref<ObservableQuery<TData, TVariables>
-  //   client: Ref<ApolloClient<any>>
+}
+
+export interface QueryHookOptions<TData = any, TVariables = OperationVariables>
+  extends QueryFunctionOptions<TData, TVariables> {
+  query?: DocumentNode | TypedDocumentNode<TData, TVariables>
+}
+
+export interface QueryDataOptions<TData = any, TVariables = OperationVariables>
+  extends QueryFunctionOptions<TData, TVariables> {
+  children?: (result: UseQueryReturn<TData, TVariables>) => VNode
+  query: DocumentNode | TypedDocumentNode<TData, TVariables>
 }

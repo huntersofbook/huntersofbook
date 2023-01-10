@@ -19,6 +19,6 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "@huntersofbook/vue-apollo": "^1.0.0"
+    "@huntersofbook/vue-apollo": "workspace:^2.0.0-alpha.3"
   }
 }

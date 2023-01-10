@@ -1,11 +1,24 @@
 <script setup lang="ts">
 import { useCountriesQuery } from './graphql/types'
 
-const { result } = useCountriesQuery()
+const { result, loading, error, refetch } = useCountriesQuery({ fetchPolicy: 'network-only', skip: true })
 </script>
 
 <template>
   <div>
+    <div v-if="loading ">
+      {{ loading }}
+    </div>
+    <div v-else-if="error">
+      {{ error }}
+    </div>
+    <div v-else>
+      {{ result?.data.countries }}
+    </div>
+
+    <button @click="refetch()">
+      refecth
+    </button>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo">
     </a>
@@ -13,7 +26,6 @@ const { result } = useCountriesQuery()
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
   </div>
-  {{ result }}
 </template>
 
 <style scoped>

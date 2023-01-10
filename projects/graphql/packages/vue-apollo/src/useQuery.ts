@@ -1,42 +1,38 @@
-import type { Ref } from 'vue'
 import {
-  computed,
+  ComputedRef, Ref, computed,
   getCurrentInstance,
-  nextTick,
   onBeforeUnmount,
-  onServerPrefetch,
   ref,
   unref,
   watch,
 } from 'vue'
 import type { DocumentNode } from 'graphql'
-import type {
-  ApolloError,
-  ApolloQueryResult,
-  FetchMoreOptions,
-  FetchMoreQueryOptions,
-  ObservableQuery,
-  ObservableSubscription,
-  OperationVariables,
-  SubscribeToMoreOptions,
-  WatchQueryOptions,
-} from '@apollo/client/core/index.js'
 import {
   NetworkStatus,
 } from '@apollo/client/core/index.js'
-import { debounce, throttle } from 'throttle-debounce'
-import type { ReactiveFunction } from './util/ReactiveFunction'
+import type {
+  ApolloError,
+  ApolloQueryResult,
+  ObservableQuery,
+  ObservableSubscription,
+  OperationVariables,
+  WatchQueryFetchPolicy,
+  WatchQueryOptions,
+} from '@apollo/client/core/index.js'
+import { invariant } from '@apollo/client/utilities/globals/index.js'
+import { canUseWeakSet, compact, maybeDeepFreeze, mergeOptions } from '@apollo/client/utilities/index.js'
+import { equal } from '@wry/equality'
+import type { ObservableQueryFields } from '@apollo/client/index.js'
 import { paramToRef } from './util/paramToRef'
 import { paramToReactive } from './util/paramToReactive'
 import { useEventHook } from './util/useEventHook'
-import { trackQuery } from './util/loadingTracking'
-import { resultErrorsToApolloError, toApolloError } from './util/toApolloError'
-import { isServer } from './util/env'
 
 import type { CurrentInstance } from './util/types'
 import { useApolloClient } from './composable/useApolloClient'
 import { DocumentType, verifyDocumentType } from './parser'
-import type { DocumentParameter, OptionsParameter, SubscribeToMoreItem, UseQueryOptions, UseQueryReturn, VariablesParameter } from './types/types'
+import type { DocumentParameter, OptionsParameter, QueryHookOptions, UseQueryOptions, UseQueryReturn, VariablesParameter } from './types/types'
+import { RenderPromises } from './ssr'
+import { trackQuery } from './util/loadingTracking'
 
 /**
  * Use a query that does not require variables or options.
@@ -79,8 +75,8 @@ export function useQuery<TResult = any, TVariables extends OperationVariables = 
 ): UseQueryReturn<TResult, TVariables>
 
 export function useQuery<
-  TResult = any,
-  TVariables = OperationVariables,
+  TResult,
+  TVariables extends OperationVariables,
 >(
   document: DocumentParameter<TResult, TVariables>,
   variables?: VariablesParameter<TVariables>,
@@ -89,217 +85,468 @@ export function useQuery<
   return useQueryImpl<TResult, TVariables>(document, variables, options)
 }
 
-export function useQueryImpl<
-  TResult = any,
-  TVariables = OperationVariables,
->(
+const {
+  prototype: {
+    hasOwnProperty,
+  },
+} = Object
+
+export function useQueryImpl<TResult, TVariables>(
   document: DocumentParameter<TResult, TVariables>,
   variables?: VariablesParameter<TVariables>,
   options: OptionsParameter<TResult, TVariables> = {},
   lazy = false,
 ): UseQueryReturn<TResult, TVariables> {
+  const documentRef = paramToRef(document)
+  verifyDocumentType(documentRef.value, DocumentType.Query)
+
+  const variablesRef = paramToRef(variables)
+  const optionsRef = paramToReactive(options)
   // Is on server?
   const vm = getCurrentInstance() as CurrentInstance | null
 
-  const currentOptions = ref<UseQueryOptions<TResult, TVariables>>()
+  const queryOptions = ref<UseQueryOptions<TResult, TVariables>>()
+  const watchQueryOptions = ref<WatchQueryOptions<TVariables, TResult>>()
 
-  const documentRef = paramToRef(document)
-  const variablesRef = paramToRef(variables)
-  const optionsRef = paramToReactive(options)
+  const obsQuery = ref<ObservableQuery<TResult, TVariables>>()
 
-  // Result
-  /**
-   * Result from the query
-   */
-  const result = ref<TResult | undefined>()
+  let observer: ObservableSubscription | undefined
+
+  const obsQueryFields = ref<Omit<
+    ObservableQueryFields<TResult, TVariables>,
+    'variables'
+  >>()
+
+  let currentDocument: DocumentNode
+  let currentVariables: TVariables | undefined
+  let currentVariablesSerialized: string
+
+  const result = ref<ApolloQueryResult<TResult>>()
+  const previousResult = ref<TResult | undefined>()
   const resultEvent = useEventHook<ApolloQueryResult<TResult>>()
+
   const error = ref<ApolloError | null>(null)
   const errorEvent = useEventHook<ApolloError>()
 
-  // Loading
-
-  /**
-   * Indicates if a network request is pending
-   */
   const loading = ref(false)
   vm && trackQuery(loading)
+
   const networkStatus = ref<number>()
-
-  // SSR
-  let firstResolve: (() => void) | undefined
-  let firstReject: ((apolloError: ApolloError) => void) | undefined
-  vm && onServerPrefetch?.(() => {
-    if (!isEnabled.value || (isServer && currentOptions.value?.prefetch === false))
-      return
-
-    return new Promise<void>((resolve, reject) => {
-      firstResolve = () => {
-        resolve()
-        firstResolve = undefined
-        firstReject = undefined
-      }
-      firstReject = (apolloError: ApolloError) => {
-        reject(apolloError)
-        firstResolve = undefined
-        firstReject = undefined
-      }
-    }).then(stop).catch(stop)
-  })
 
   // Apollo Client
   const { resolveClient } = useApolloClient()
 
-  // Query
+  const client = resolveClient(queryOptions.value?.clientId)
+  const renderPromises = ref<RenderPromises>()
 
-  const query: Ref<ObservableQuery<TResult, TVariables> | null | undefined> = ref()
-  let observer: ObservableSubscription | undefined
+  if (client)
+    renderPromises.value = new RenderPromises()
+
+  // Enabled state
+
+  const forceDisabled = ref(lazy)
+  const enabledOption = computed(() => !queryOptions.value || queryOptions.value.enabled == null || queryOptions.value.enabled)
+  const isEnabled = computed(() => enabledOption.value && !forceDisabled.value)
+
   let started = false
 
-  /**
-   * Starts watching the query
-   */
-  function start() {
-    if (
-      started || !isEnabled.value
-      || (isServer && currentOptions.value?.prefetch === false)
-    ) {
-      if (firstResolve)
-        firstResolve()
-      return
+  function isUnRefCheck() {
+    if (!queryOptions.value)
+      queryOptions.value = unref(optionsRef)
+    if (!currentDocument)
+      currentDocument = unref(documentRef)
+    if (!currentVariables) {
+      currentVariables = unref(variablesRef)
+      currentVariablesSerialized = JSON.stringify(currentVariables)
     }
+  }
 
+  function start() {
+    if (started || !isEnabled.value)
+      return
     started = true
     error.value = null
     loading.value = true
 
-    const client = resolveClient(currentOptions.value?.clientId)
+    isUnRefCheck()
 
-    query.value = client.watchQuery<TResult, TVariables>({
-      query: currentDocument,
-      variables: currentVariables,
-      ...currentOptions.value,
-      ...(isServer && currentOptions.value?.fetchPolicy !== 'no-cache')
-        ? {
-            fetchPolicy: 'network-only',
-          }
-        : {},
-    })
-
-    startQuerySubscription()
-
-    if (!isServer) {
-      for (const item of subscribeToMoreItems)
-        addSubscribeToMore(item)
-    }
+    _useOptions(queryOptions.value!)
+    useObservableQuery()
+    resultFn()
   }
 
-  const isFirstRun = false
+  function resultFn() {
+    function onNextResult(_queryResult: ApolloQueryResult<TResult>) {
+      const previousResult = result
 
-  function startQuerySubscription() {
-    if (observer && !observer.closed)
-      return
-    if (!query.value)
-      return
+      const _result = obsQuery.value!.getCurrentResult()
 
-    // If hydrating already finished queries, just handle result immediately @fabis94 thank you pr(https://github.com/vuejs/apollo/pull/1436)
+      if (previousResult.value
+        && previousResult.value.loading === _result.loading
+        && previousResult.value.networkStatus === _result.networkStatus
+        && equal(previousResult.value.data, _result.data))
+        return
+      setResult(_result)
+      resultEvent.trigger(_result)
+      loading.value = _result.loading
+      networkStatus.value = _result.networkStatus
+    }
 
-    if (!isServer && isFirstRun) {
-      const currentResult = query.value.getCurrentResult()
-      if (currentResult) {
-        if (currentResult.networkStatus === NetworkStatus.ready)
-          onNextResult(currentResult)
+    const onError = (error: Error) => {
+      const last = ((obsQuery.value) as any).last
+      observer?.unsubscribe()
 
-        else if (currentResult.networkStatus === NetworkStatus.error && currentResult.error)
-          onError(currentResult.error)
+      // Unfortunately, if `lastError` is set in the current
+      // `observableQuery` when the subscription is re-created,
+      // the subscription will immediately receive the error, which will
+      // cause it to terminate again. To avoid this, we first clear
+      // the last error/result from the `observableQuery` before re-starting
+      // the subscription, and restore it afterwards (so the subscription
+      // has a chance to stay open).
+      try {
+        obsQuery.value?.resetLastResults()
+        observer = obsQuery.value?.subscribe(onNextResult, onError)
+      }
+      finally {
+        ((obsQuery.value) as any).last = last
+      }
+
+      if (!hasOwnProperty.call(error, 'graphQLErrors')) {
+        // The error is not a GraphQL error
+        throw error
+      }
+
+      const previousResult = result.value
+      if (
+        !previousResult
+        || (previousResult && previousResult.loading)
+        || !equal(error, previousResult.error)
+      ) {
+        setResult({
+          data: (previousResult && previousResult.data) as TResult,
+          error: error as ApolloError,
+          loading: false,
+          networkStatus: NetworkStatus.error,
+        })
       }
     }
 
-    // Create subscription
-    observer = query.value.subscribe({
+    observer = obsQuery.value?.subscribe({
       next: onNextResult,
       error: onError,
     })
+
+    return () => observer?.unsubscribe()
   }
 
-  function onNextResult(queryResult: ApolloQueryResult<TResult>) {
-    // Remove any previous error that may still be present from the last fetch (so result handlers
-    // don't receive old errors that may not even be applicable anymore).
-    error.value = null
+  function setResult(nextResult: ApolloQueryResult<TResult>) {
+    const _previousResult = result.value
+    if (_previousResult && _previousResult.data)
+      previousResult.value = _previousResult.data
 
-    processNextResult(queryResult)
+    result.value = nextResult
+    handleErrorOrCompleted(nextResult)
+  }
 
-    // When `errorPolicy` is `all`, `onError` will not get called and
-    // ApolloQueryResult.errors may be set at the same time as we get a result
-    if (!queryResult.error && queryResult.errors?.length)
-      processError(resultErrorsToApolloError(queryResult.errors))
-
-    if (firstResolve) {
-      firstResolve()
-      stop()
+  function handleErrorOrCompleted(result: ApolloQueryResult<TResult>) {
+    if (!result.loading) {
+      // wait a tick in case we are in the middle of rendering a component
+      Promise.resolve().then(() => {
+        if (result.error)
+          onError(result.error)
+        else if (result.data)
+          onCompleted(result.data)
+      }).catch((error) => {
+        invariant.warn(error)
+      })
     }
   }
 
-  function processNextResult(queryResult: ApolloQueryResult<TResult>) {
-    result.value = queryResult.data && Object.keys(queryResult.data).length === 0 ? undefined : queryResult.data
-    loading.value = queryResult.loading
-    networkStatus.value = queryResult.networkStatus
-    resultEvent.trigger(queryResult)
+  function getDefaultFetchPolicy(): WatchQueryFetchPolicy {
+    return (
+      queryOptions.value?.defaultOptions?.fetchPolicy
+      || client.defaultOptions.watchQuery?.fetchPolicy
+      || 'cache-first'
+    )
   }
 
-  function onError(queryError: unknown) {
-    // any error should already be an ApolloError, but we make sure
-    const apolloError = toApolloError(queryError)
-    const client = resolveClient(currentOptions.value?.clientId)
-    const errorPolicy = currentOptions.value?.errorPolicy || client.defaultOptions?.watchQuery?.errorPolicy
+  // Defining these methods as no-ops on the prototype allows us to call
+  // state.onCompleted and/or state.onError without worrying about whether a
+  // callback was provided.
+  function onCompleted(_data: TResult) { }
+  function onError(_error: ApolloError) { }
 
-    if (errorPolicy && errorPolicy !== 'none')
-      processNextResult((query.value as ObservableQuery<TResult, TVariables>).getCurrentResult())
+  function getObsQueryOptions(): WatchQueryOptions<TVariables, TResult> {
+    const toMerge: Array<
+      Partial<WatchQueryOptions<TVariables, TResult>>
+    > = []
 
-    processError(apolloError)
-    if (firstReject) {
-      firstReject(apolloError)
-      stop()
+    const globalDefaults = client.defaultOptions.watchQuery
+    if (globalDefaults)
+      toMerge.push(globalDefaults)
+
+    if (queryOptions.value?.defaultOptions)
+      toMerge.push(queryOptions.value.defaultOptions)
+
+    toMerge.push({
+      query: currentDocument,
+      variables: currentVariables,
+      ...queryOptions.value,
+    })
+
+    // We use compact rather than mergeOptions for this part of the merge,
+    // because we want watchQueryOptions.variables (if defined) to replace
+    // this.observable.options.variables whole. This replacement allows
+    // removing variables by removing them from the variables input to
+    // useQuery. If the variables were always merged together (rather than
+    // replaced), there would be no way to remove existing variables.
+    // However, the variables from options.defaultOptions and globalDefaults
+    // (if provided) should be merged, to ensure individual defaulted
+    // variables always have values, if not otherwise defined in
+    // observable.options or watchQueryOptions.
+    toMerge.push(compact(
+      obsQuery.value && obsQuery.value.options,
+      queryOptions.value ? queryOptions.value : {},
+    ))
+
+    return toMerge.reduce(
+      mergeOptions,
+    ) as WatchQueryOptions<TVariables, TResult>
+  }
+
+  watch(obsQuery, (newVal, oldVal) => {
+    if (newVal) {
+      obsQueryFields.value = {
+        refetch: newVal.refetch.bind(newVal),
+        reobserve: newVal.reobserve.bind(newVal),
+        fetchMore: newVal.fetchMore.bind(newVal),
+        updateQuery: newVal.updateQuery.bind(newVal),
+        startPolling: newVal.startPolling.bind(newVal),
+        stopPolling: newVal.stopPolling.bind(newVal),
+        subscribeToMore: newVal.subscribeToMore.bind(newVal),
+      }
     }
-    // The observable closes the sub if an error occurs
-    resubscribeToQuery()
+  })
+
+  function useObservableQuery() {
+    // See if there is an existing observable that was used to fetch the same
+    // data and if so, use it instead since it will contain the proper queryId
+    // to fetch the result set. This is used during SSR.
+    if (renderPromises.value && watchQueryOptions.value) {
+      const SSRObservable = renderPromises.value.getSSRObservable(watchQueryOptions.value)
+      if (SSRObservable)
+        obsQuery.value = SSRObservable
+
+      else if (obsQuery.value)
+        // eslint-disable-next-line no-self-assign
+        obsQuery.value = obsQuery.value
+      else
+        obsQuery.value = client.watchQuery(getObsQueryOptions())
+    }
+
+    if (obsQuery.value) {
+      obsQueryFields.value = {
+        refetch: obsQuery.value.refetch.bind(obsQuery.value),
+        reobserve: obsQuery.value.reobserve.bind(obsQuery.value),
+        fetchMore: obsQuery.value.fetchMore.bind(obsQuery.value),
+        updateQuery: obsQuery.value.updateQuery.bind(obsQuery.value),
+        startPolling: obsQuery.value.startPolling.bind(obsQuery.value),
+        stopPolling: obsQuery.value.stopPolling.bind(obsQuery.value),
+        subscribeToMore: obsQuery.value.subscribeToMore.bind(obsQuery.value),
+      }
+    }
+
+    const ssrAllowed = !(
+      queryOptions.value?.ssr === false
+      || queryOptions.value?.skip
+    )
+    if (renderPromises.value && ssrAllowed && obsQuery.value) {
+      renderPromises.value.registerSSRObservable(obsQuery.value)
+      if (obsQuery.value.getCurrentResult().loading) {
+        // TODO: This is a legacy API which could probably be cleaned up
+        renderPromises.value.addObservableQueryPromise(obsQuery.value)
+      }
+    }
+
+    return obsQuery.value
   }
 
-  function processError(apolloError: ApolloError) {
-    error.value = apolloError
-    loading.value = false
-    networkStatus.value = 8
-    errorEvent.trigger(apolloError)
+  const ssrDisabledResult = maybeDeepFreeze({
+    loading: true,
+    data: undefined as unknown as TResult,
+    error: undefined,
+    networkStatus: NetworkStatus.loading,
+  })
+
+  const skipStandbyResult = maybeDeepFreeze({
+    loading: false,
+    data: undefined as unknown as TResult,
+    error: undefined,
+    networkStatus: NetworkStatus.ready,
+  })
+
+  function _createWatchQueryOptions({
+    skip,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ssr,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onCompleted,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onError,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    defaultOptions,
+    // The above options are useQuery-specific, so this ...otherOptions spread
+    // makes otherOptions almost a WatchQueryOptions object, except for the
+    // query property that we add below.
+    ...otherOptions
+  }: QueryHookOptions<TResult, TVariables> = {}): WatchQueryOptions<TVariables, TResult> {
+    // This Object.assign is safe because otherOptions is a fresh ...rest object
+    // that did not exist until just now, so modifications are still allowed.
+    const watchQueryOptions: WatchQueryOptions<TVariables, TResult>
+      = Object.assign(otherOptions, { query: currentDocument })
+
+    if (
+      renderPromises.value
+      && (
+        watchQueryOptions.fetchPolicy === 'network-only'
+        || watchQueryOptions.fetchPolicy === 'cache-and-network'
+      )
+    ) {
+      // this behavior was added to react-apollo without explanation in this PR
+      // https://github.com/apollographql/react-apollo/pull/1579
+      watchQueryOptions.fetchPolicy = 'cache-first'
+    }
+
+    if (!watchQueryOptions.variables)
+      watchQueryOptions.variables = {} as TVariables
+
+    if (skip) {
+      const {
+        fetchPolicy = getDefaultFetchPolicy(),
+        initialFetchPolicy = fetchPolicy,
+      } = watchQueryOptions
+
+      // When skipping, we set watchQueryOptions.fetchPolicy initially to
+      // "standby", but we also need/want to preserve the initial non-standby
+      // fetchPolicy that would have been used if not skipping.
+      Object.assign(watchQueryOptions, {
+        initialFetchPolicy,
+        fetchPolicy: 'standby',
+      } as WatchQueryOptions<TVariables, TResult>)
+    }
+    else if (!watchQueryOptions.fetchPolicy) {
+      watchQueryOptions.fetchPolicy
+        = obsQuery.value?.options.initialFetchPolicy
+        || getDefaultFetchPolicy()
+    }
+
+    return watchQueryOptions
   }
 
-  function resubscribeToQuery() {
-    if (!query.value)
-      return
-    const lastError = query.value.getLastError()
-    const lastResult = query.value.getLastResult()
-    query.value.resetLastResults()
-    startQuerySubscription()
-    Object.assign(query.value, { lastError, lastResult })
+  const _optionsToIgnoreOnce = new (canUseWeakSet ? WeakSet : Set)<
+    WatchQueryOptions<TVariables, TResult>
+  >()
+
+  function _useOptions(options: UseQueryOptions<TResult, TVariables>) {
+    const _watchQueryOptions = _createWatchQueryOptions(
+      queryOptions.value = options,
+    )
+
+    // Update this.watchQueryOptions, but only when they have changed, which
+    // allows us to depend on the referential stability of
+    // this.watchQueryOptions elsewhere.
+    const currentWatchQueryOptions = _watchQueryOptions
+
+    // To force this equality test to "fail," thereby reliably triggering
+    // observable.reobserve, add any current WatchQueryOptions object(s) you
+    // want to be ignored to this.optionsToIgnoreOnce. A similar effect could be
+    // achieved by nullifying this.watchQueryOptions so the equality test
+    // immediately fails because currentWatchQueryOptions is null, but this way
+    // we can promise a truthy this.watchQueryOptions at all times.
+    if (
+      _optionsToIgnoreOnce.has(currentWatchQueryOptions)
+      || !equal(watchQueryOptions, currentWatchQueryOptions)
+    ) {
+      watchQueryOptions.value = _watchQueryOptions
+      if (currentWatchQueryOptions && obsQuery.value) {
+        // As advertised in the -Once of this.optionsToIgnoreOnce, this trick is
+        // only good for one forced execution of observable.reobserve per
+        // ignored WatchQueryOptions object, though it is unlikely we will ever
+        // see this exact currentWatchQueryOptions object again here, since we
+        // just replaced this.watchQueryOptions with watchQueryOptions.
+        _optionsToIgnoreOnce.delete(currentWatchQueryOptions)
+
+        // Though it might be tempting to postpone this reobserve call to the
+        // useEffect block, we need getCurrentResult to return an appropriate
+        // loading:true result synchronously (later within the same call to
+        // useQuery). Since we already have this.observable here (not true for
+        // the very first call to useQuery), we are not initiating any new
+        // subscriptions, though it does feel less than ideal that reobserve
+        // (potentially) kicks off a network request (for example, when the
+        // variables have changed), which is technically a side-effect.
+        obsQuery.value.reobserve(getObsQueryOptions())
+        previousResult.value = result.value?.data || previousResult.value
+        result.value = undefined
+      }
+    }
+
+    // Make sure state.onCompleted and state.onError always reflect the latest
+    // options.onCompleted and options.onError callbacks provided to useQuery,
+    // since those functions are often recreated every time useQuery is called.
+    // Like the forceUpdate method, the versions of these methods inherited from
+    // InternalState.prototype are empty no-ops, but we can override them on the
+    // base state object (without modifying the prototype).
+    // onCompleted = options.onCompleted || onCompleted
+    // onError = options.onError || onError
+
+    if (
+      (renderPromises.value || client.disableNetworkFetches)
+      && queryOptions.value.ssr === false
+      && !queryOptions.value.skip
+    ) {
+      // If SSR has been explicitly disabled, and this function has been called
+      // on the server side, return the default loading state.
+      result.value = ssrDisabledResult
+    }
+    else if (
+      queryOptions.value.skip
+      || queryOptions.value.fetchPolicy === 'standby'
+    ) {
+      // When skipping a query (ie. we're not querying for data but still want to
+      // render children), make sure the `data` is cleared out and `loading` is
+      // set to `false` (since we aren't loading anything).
+      //
+      // NOTE: We no longer think this is the correct behavior. Skipping should
+      // not automatically set `data` to `undefined`, but instead leave the
+      // previous data in place. In other words, skipping should not mandate that
+      // previously received data is all of a sudden removed. Unfortunately,
+      // changing this is breaking, so we'll have to wait until Apollo Client 4.0
+      // to address this.
+      result.value = skipStandbyResult
+    }
+    else if (
+      result.value === ssrDisabledResult
+      || result.value === skipStandbyResult
+    ) {
+      result.value = undefined
+    }
   }
 
   let onStopHandlers: Array<() => void> = []
 
   /**
-   * Stop watching the query
-   */
+ * Stop watching the query
+ */
   function stop() {
-    if (firstResolve)
-      firstResolve()
-    if (!started)
-      return
     started = false
     loading.value = false
 
     onStopHandlers.forEach(handler => handler())
     onStopHandlers = []
 
-    if (query.value) {
-      query.value.stopPolling()
-      query.value = null
+    if (obsQuery.value) {
+      obsQuery.value.stopPolling()
+      obsQuery.value = undefined
     }
 
     if (observer) {
@@ -308,72 +555,28 @@ export function useQueryImpl<
     }
   }
 
-  // Restart
-  let restarting = false
-  /**
-   * Queue a restart of the query (on next tick) if it is already active
-   */
-  function baseRestart() {
-    if (!started || restarting)
-      return
-    restarting = true
-
-    nextTick(() => {
-      if (started) {
-        stop()
-        start()
-      }
-      restarting = false
-    })
-  }
-
-  let debouncedRestart: typeof baseRestart
-  let isRestartDebounceSetup = false
-  function updateRestartFn() {
-    // On server, will be called before currentOptions is initialized
-    // @TODO investigate
-    if (!currentOptions.value) {
-      debouncedRestart = baseRestart
-    }
-    else {
-      if (currentOptions.value?.throttle)
-        debouncedRestart = throttle(currentOptions.value.throttle, baseRestart)
-
-      else if (currentOptions.value?.debounce)
-        debouncedRestart = debounce(currentOptions.value.debounce, baseRestart)
-
-      else
-        debouncedRestart = baseRestart
-
-      isRestartDebounceSetup = true
-    }
-  }
-
-  function restart() {
-    if (!isRestartDebounceSetup)
-      updateRestartFn()
-    debouncedRestart()
-  }
-
   // Applying document
-  let currentDocument: DocumentNode
-  watch(documentRef, (value) => {
-    verifyDocumentType(documentRef.value, DocumentType.Query)
-    currentDocument = value
-    restart()
+  watch([documentRef, isEnabled, variablesRef, obsQuery], (value) => {
+    const _previousResult = result.value && result.value.data
+    const previousData = _previousResult && _previousResult
+    if (previousData)
+      previousResult.value = previousData
+
+    currentDocument = value[0]
+    if (value[1])
+      start()
+    else
+      stop()
   }, {
     immediate: true,
   })
 
   // Applying variables
-  let currentVariables: TVariables | undefined
-  let currentVariablesSerialized: string
-  watch(variablesRef, (value, oldValue) => {
+  watch(variablesRef, (value, _oldValue) => {
     const serialized = JSON.stringify(value)
-    if (serialized !== currentVariablesSerialized) {
+    if (serialized !== currentVariablesSerialized)
       currentVariables = value
-      restart()
-    }
+    start()
     currentVariablesSerialized = serialized
   }, {
     deep: true,
@@ -382,139 +585,32 @@ export function useQueryImpl<
 
   // Applying options
   watch(() => unref(optionsRef), (value) => {
-    if (currentOptions.value && (
-      currentOptions.value.throttle !== value.throttle
-      || currentOptions.value.debounce !== value.debounce
-    ))
-      updateRestartFn()
-
-    currentOptions.value = value
-    restart()
+    queryOptions.value = value
+    start()
   }, {
     deep: true,
     immediate: true,
   })
 
-  // Refetch
-
-  function refetch(variables: TVariables | undefined = undefined) {
-    if (query.value) {
-      if (variables)
-        currentVariables = variables
-
-      error.value = null
-      loading.value = true
-      return query.value.refetch(variables)
-        .then((refetchResult) => {
-          const currentResult = query.value?.getCurrentResult()
-          currentResult && processNextResult(currentResult)
-          return refetchResult
-        })
-    }
-  }
-
-  // Fetch more
-
-  function fetchMore(options: FetchMoreQueryOptions<TVariables, TResult> & FetchMoreOptions<TResult, TVariables>) {
-    if (query.value) {
-      error.value = null
-      loading.value = true
-      return query.value.fetchMore(options)
-        .then((fetchMoreResult) => {
-          const currentResult = query.value?.getCurrentResult()
-          currentResult && processNextResult(currentResult)
-          return fetchMoreResult
-        })
-    }
-  }
-
-  // Subscribe to more
-
-  const subscribeToMoreItems: SubscribeToMoreItem[] = []
-
-  function subscribeToMore<
-    TSubscriptionVariables = OperationVariables,
-    TSubscriptionData = TResult,
-  >(
-    options: SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData> |
-    Ref<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>> |
-    ReactiveFunction<SubscribeToMoreOptions<TResult, TSubscriptionVariables, TSubscriptionData>>,
-  ) {
-    if (isServer)
-      return
-    const optionsRef = paramToRef(options)
-    watch(optionsRef, (value, oldValue, onCleanup) => {
-      const index = subscribeToMoreItems.findIndex(item => item.options === oldValue)
-      if (index !== -1)
-        subscribeToMoreItems.splice(index, 1)
-
-      const item: SubscribeToMoreItem = {
-        options: value,
-        unsubscribeFns: [],
-      }
-      subscribeToMoreItems.push(item)
-
-      addSubscribeToMore(item)
-
-      onCleanup(() => {
-        item.unsubscribeFns.forEach(fn => fn())
-        item.unsubscribeFns = []
-      })
-    }, {
-      immediate: true,
-    })
-  }
-
-  function addSubscribeToMore(item: SubscribeToMoreItem) {
-    if (!started)
-      return
-    if (!query.value)
-      throw new Error('Query is not defined')
-
-    const unsubscribe = query.value.subscribeToMore(item.options)
-    onStopHandlers.push(unsubscribe)
-    item.unsubscribeFns.push(unsubscribe)
-  }
-
-  // Enabled state
-
-  const forceDisabled = ref(lazy)
-  const enabledOption = computed(() => !currentOptions.value || currentOptions.value.enabled == null || currentOptions.value.enabled)
-  const isEnabled = computed(() => enabledOption.value && !forceDisabled.value)
-
-  // Auto start & stop
-  watch(isEnabled, (value) => {
-    if (value)
-      start()
-
-    else
-      stop()
-  }, {
-    immediate: true,
-  })
-
-  // Teardown
   vm && onBeforeUnmount(() => {
     stop()
-    subscribeToMoreItems.length = 0
   })
 
   return {
     result,
-    loading,
-    networkStatus,
-    error,
-    start,
-    stop,
-    restart,
-    forceDisabled,
+    ...obsQueryFields.value!,
+    client,
+    observable: obsQuery,
     document: documentRef,
     variables: variablesRef,
     options: optionsRef,
-    query,
-    refetch,
-    fetchMore,
-    subscribeToMore,
+    loading,
+    networkStatus,
+    error,
+    previousResult,
+    forceDisabled,
+    start,
+    stop,
     onResult: resultEvent.on,
     onError: errorEvent.on,
   }

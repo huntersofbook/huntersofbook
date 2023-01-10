@@ -137,10 +137,12 @@ export type _Service = {
   sdl?: Maybe<Scalars['String']>;
 };
 
-export type CountriesQueryVariables = Exact<{ [key: string]: never; }>;
+export type CountriesQueryVariables = Exact<{
+  filter?: InputMaybe<CountryFilterInput>;
+}>;
 
 
-export type CountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', name: string }> };
+export type CountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', name: string, code: string }> };
 
 export type ContinentKeySpecifier = ('code' | 'countries' | 'name' | ContinentKeySpecifier)[];
 export type ContinentFieldPolicy = {
@@ -219,9 +221,10 @@ export type StrictTypedTypePolicies = {
 export type TypedTypePolicies = StrictTypedTypePolicies & TypePolicies;
 
 export const CountriesDocument = gql`
-    query countries {
-  countries {
+    query countries($filter: CountryFilterInput) {
+  countries(filter: $filter) {
     name
+    code
   }
 }
     `;
@@ -233,16 +236,19 @@ export const CountriesDocument = gql`
  * When your component renders, `useCountriesQuery` returns an object from Apollo Client that contains result, loading and error properties
  * you can use to render your UI.
  *
+ * @param variables that will be passed into the query
  * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
  *
  * @example
- * const { result, loading, error } = useCountriesQuery();
+ * const { result, loading, error } = useCountriesQuery({
+ *   filter: // value for 'filter'
+ * });
  */
-export function useCountriesQuery(options: VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> = {}) {
-  return VueApolloComposable.useQuery<CountriesQuery, CountriesQueryVariables>(CountriesDocument, {}, options);
+export function useCountriesQuery(variables: CountriesQueryVariables | VueCompositionApi.Ref<CountriesQueryVariables> | ReactiveFunction<CountriesQueryVariables> = {}, options: VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<CountriesQuery, CountriesQueryVariables>(CountriesDocument, variables, options);
 }
-export function useCountriesLazyQuery(options: VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> = {}) {
-  return VueApolloComposable.useLazyQuery<CountriesQuery, CountriesQueryVariables>(CountriesDocument, {}, options);
+export function useCountriesLazyQuery(variables: CountriesQueryVariables | VueCompositionApi.Ref<CountriesQueryVariables> | ReactiveFunction<CountriesQueryVariables> = {}, options: VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<CountriesQuery, CountriesQueryVariables>> = {}) {
+  return VueApolloComposable.useLazyQuery<CountriesQuery, CountriesQueryVariables>(CountriesDocument, variables, options);
 }
 export type CountriesQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<CountriesQuery, CountriesQueryVariables>;
 export const namedOperations = {
