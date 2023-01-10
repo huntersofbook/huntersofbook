@@ -1,15 +1,15 @@
 {
-  "name": "@huntersofbook/unplugin-i18n-watch",
+  "name": "@huntersofbook/i18n",
   "version": "1.0.0",
   "description": "Rewrite the new object according to the schema. Delete the excess.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/projects/unplugin-i18n-watch/packages/#readme",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/projects/i18n/packages/#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/unplugin-i18n-watch"
+    "directory": "packages/i18n"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
