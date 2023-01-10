@@ -22,6 +22,12 @@ then
     pnpm build
 elif [[ $COD1 == "core" ]]
 then
+    cd ./projects/chatwoot
+    pnpm install
+    pnpm lint
+    pnpm build
+elif [[ $COD1 == "i18n" ]]
+then
     cd ./projects/core
     pnpm install
     pnpm lint
