@@ -5,6 +5,8 @@ import unpluginI18n from '@huntersofbook/unplugin-i18n-watch/vite'
 export default defineConfig({
   plugins: [
     vue(),
-    unpluginI18n(),
+    unpluginI18n({
+      outputNames: ['en', 'tr', 'fr'],
+    }),
   ],
 })

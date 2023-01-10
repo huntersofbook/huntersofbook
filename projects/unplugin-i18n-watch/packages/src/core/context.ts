@@ -7,7 +7,7 @@ import Debug from 'debug'
 import { slash, throttle, toArray } from '@antfu/utils'
 import type { FileInfo, Options, ResolvedOptions } from '../type'
 import { matchGlobs } from './utils'
-import { writeStyleCSSFile } from './write'
+import { writeI18nLanguageFile } from './write'
 import { resolveOptions } from './options'
 import { searchI18nFiles } from './fs/glob'
 
@@ -77,7 +77,7 @@ export class Context {
   onUpdate(path: string) {
     debug.hmr('update', path)
 
-    writeStyleCSSFile(this, path)
+    writeI18nLanguageFile(this, path)
 
     if (!this._server)
       return
