@@ -5,13 +5,13 @@ const { trackEvent } = usePlausible()
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <AppContainer
-      :fluid="page.fluid"
-      :constrained-class="page.constrainedClass"
-      :padded="page.padded"
+    <Container
+      :fluid="page.fluid" :constrained-class="page.constrainedClass" :padded="page.padded"
       class="max-w-7xl mx-auto flex-grow"
     >
-      <slot />
+      <article>
+        <slot />
+      </article>
       <a
         href="https://github.com/sponsors/productdevbook"
         target="_blank"
@@ -21,6 +21,6 @@ const { trackEvent } = usePlausible()
         <Icon name="uil:github" size="24" class="mr-2" />
         <p>sponsor us</p>
       </a>
-    </AppContainer>
+    </Container>
   </div>
 </template>
