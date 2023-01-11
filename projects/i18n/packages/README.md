@@ -36,13 +36,13 @@ export default defineConfig({
 
 ### Nuxt 3
 ```ts
-import i18n from '@huntersofbook/i18n/nuxt'
 export default defineNuxtConfig({
-  buildModules: [
-    i18n({
-      languages: ['tr', 'en', 'cn'],
-    }),
+  modules: [
+    '@huntersofbook/i18n/nuxt',
   ],
+  huntersofbookI18n: {
+    languages: ['tr', 'en', 'cn'],
+  },
 })
 ```
 
