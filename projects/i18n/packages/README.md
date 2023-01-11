@@ -6,8 +6,8 @@ Create i18n templates and automatically export them to your desired languages. U
 
 
 <p>
-      <a href="https://www.npmjs.com/package/@huntersofbook/vue-i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/vue-i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
-      <a href="https://www.npmjs.com/package/@huntersofbook/vue-i18n"><img src="https://img.shields.io/npm/dm/@huntersofbook/vue-i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
+      <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
+      <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/dm/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
 </p>
 
@@ -17,6 +17,11 @@ Create i18n templates and automatically export them to your desired languages. U
 pnpm add @huntersofbook/i18n
 ```
 It will be the `.i18n` folder. Save there by adding `en.json`, `tr.json`. It will automatically create a `language` folder for you and import your data there.
+
+## Youtube Setup Video
+
+[![Youtube](./../../../.github/youtube/i18n.png)](https://www.youtube.com/watch?v=b33Zk0LfKkM)
+
 
 ## Usage
 
