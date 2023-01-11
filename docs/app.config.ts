@@ -3,13 +3,17 @@ export default defineAppConfig({
     title: 'huntersofbook',
     description:
       'It is a community established specifically to improve the vue ecosystem. Our own team will always give this contribution back to the world.',
-    layout: 'default',
     image: 'https://opensource.huntersofbook.com/preview.png',
     url: 'https://opensource.huntersofbook.com',
     debug: false,
     socials: {
       twitter: '@huntersofbook',
       github: 'huntersofbook/huntersofbook',
+      discord: 'https://discord.gg/xAj9uqMrjC',
+    },
+    aside: {
+      level: 1,
+      exclude: ['/changelog'],
     },
     github: {
       root: 'docs/content',
@@ -20,16 +24,9 @@ export default defineAppConfig({
       src: '/cover.jpg',
       alt: 'huntersofbook open source project was created for developers',
     },
-    aside: {
-      "level": 0,
-      "collapsed": false,
-      "exclude": []
-    },
     header: {
       title: 'huntersofbook',
       logo: false,
-      "showLinkIcon": true,
-      "exclude": []
     },
     footer: {
       credits: {
@@ -37,16 +34,16 @@ export default defineAppConfig({
         text: 'Powered by Docus',
         href: 'https://docus.com',
       },
-      icons: [
+      iconLinks: [
         {
           label: 'NuxtJS',
           href: 'https://nuxtjs.org',
-          component: 'IconNuxt',
+          icon: 'IconNuxt',
         },
         {
           label: 'VueJS',
           href: 'https://vuejs.org',
-          component: 'uim:vuejs',
+          icon: 'uim:vuejs',
         },
       ],
     },

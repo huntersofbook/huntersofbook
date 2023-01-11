@@ -1,12 +1,5 @@
-const alias = {}
-
 export default defineNuxtConfig({
-  alias,
-  nitro: {
-    prerender: {
-      routes: ['/', '/blog/announcing-v2'],
-    },
-  },
+  extends: '@nuxt-themes/docus',
   modules: [
     '@nuxtlabs/github-module',
     '@huntersofbook/plausible-nuxt',
@@ -16,7 +9,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/motion/nuxt',
   ],
-  extends: process.env.DOCUS_THEME_PATH || '@nuxt-themes/docus',
   github: {
     owner: 'huntersofbook',
     repo: 'huntersofbook',

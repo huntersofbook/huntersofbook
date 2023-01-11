@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <h2 class="text-2xl font-bold">
+    <h2 class="!text-3xl font-bold">
       <slot name="title" />
     </h2>
     <div class="mt-16 sm:mt-20 sm:mb-40">

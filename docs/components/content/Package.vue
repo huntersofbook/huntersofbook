@@ -29,7 +29,7 @@ defineProps({
     </div>
     <h2 class="mt-6 text-base font-semibold text-gray-800 dark:text-gray-100">
       <div
-        class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-gray-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800/50 sm:-inset-x-6 sm:rounded-2xl"
+        class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-gray-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800/50 sm:-inset-x-6 sm:rounded-2xl"
       />
       <NuxtLink :to="href">
         <span
