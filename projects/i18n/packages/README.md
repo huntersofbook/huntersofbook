@@ -9,6 +9,9 @@ Create i18n templates and automatically export them to your desired languages. U
       <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
       <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/dm/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
+      <a href="https://github.com/huntersofbook/huntersofbook">
+      <img src="https://img.shields.io/github/stars/huntersofbook/huntersofbook.svg?style=social&label=Star&maxAge=2592000" alt="Github Stars"> </a>
+      <a href="https://chat.huntersofbook.com"> <img src="https://img.shields.io/discord/1008640116564181023?color=7289da&label=Discord&logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
 ## Installation
@@ -20,7 +23,7 @@ It will be the `.i18n` folder. Save there by adding `en.json`, `tr.json`. It wil
 
 ## Youtube Setup Video
 
-[![Youtube](./../../../.github/youtube/i18n.png)](https://www.youtube.com/watch?v=b33Zk0LfKkM)
+[![Youtube](https://raw.githubusercontent.com/huntersofbook/huntersofbook/main/docs/public/images/youtube/i18n.png)](https://www.youtube.com/watch?v=b33Zk0LfKkM)
 
 
 ## Usage
@@ -51,14 +54,11 @@ export default defineNuxtConfig({
 })
 ```
 
-## Options
 ## Support
 
 Join our [Discord channel](https://discord.gg/xAj9uqMrjC) or [open an issue](https://github.com/huntersofbook/huntersofbook/issues).
 
 ## Configuration
-
-### Basic props
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
