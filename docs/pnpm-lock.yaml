@@ -4,12 +4,11 @@ specifiers:
   '@antfu/eslint-config': ^0.34.1
   '@huntersofbook/core-nuxt': 0.4.1
   '@huntersofbook/plausible-nuxt': ^0.5.2
-  '@nuxt-themes/docus': ^1.4.4
+  '@nuxt-themes/docus': 1.4.4
   '@nuxt/content': ^2.3.0
   '@nuxtjs/i18n': ^8.0.0-beta.7
   '@nuxtjs/tailwindcss': ^6.2.0
   '@nuxtlabs/github-module': ^1.6.0
-  '@typescript/ata': ^0.9.3
   '@vueuse/motion': ^2.0.0-beta.26
   date-fns: ^2.29.3
   emmet-monaco-es: ^5.1.2
@@ -24,7 +23,6 @@ dependencies:
   '@huntersofbook/core-nuxt': 0.4.1_mjsa77ihv3wj6dhi5hvx7s7uxe
   '@nuxtjs/i18n': 8.0.0-beta.7
   '@nuxtjs/tailwindcss': 6.2.0
-  '@typescript/ata': 0.9.3
   '@vueuse/motion': 2.0.0-beta.26
   date-fns: 2.29.3
   emmet-monaco-es: 5.1.2
@@ -1878,12 +1876,6 @@ packages:
       '@typescript-eslint/types': 5.48.1
       eslint-visitor-keys: 3.3.0
     dev: true
-
-  /@typescript/ata/0.9.3:
-    resolution: {integrity: sha512-/mETZakA5iOT8j8N8/ZUPLEsvSgMJz+cWt9Le1Q9dEwRXwDzekKXw3tpgrq77gaSxgE/Mn/nvtx8uzS41CmZKQ==}
-    peerDependencies:
-      typescript: ^4.4.4
-    dev: false
 
   /@unhead/dom/1.0.4:
     resolution: {integrity: sha512-Mzkevk50k5xQo6mIcNcKGKJ4R7tYyCg8ZN5NfmiUXIfvjaM4zWEZK8DhZNbQ8/548oO6Eq2Y73+53W8rLsSaoQ==}

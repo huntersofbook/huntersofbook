@@ -14,7 +14,6 @@
     "@huntersofbook/core-nuxt": "0.4.1",
     "@nuxtjs/i18n": "^8.0.0-beta.7",
     "@nuxtjs/tailwindcss": "^6.2.0",
-    "@typescript/ata": "^0.9.3",
     "@vueuse/motion": "^2.0.0-beta.26",
     "date-fns": "^2.29.3",
     "emmet-monaco-es": "^5.1.2",
@@ -23,7 +22,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.1",
     "@huntersofbook/plausible-nuxt": "^0.5.2",
-    "@nuxt-themes/docus": "^1.4.4",
+    "@nuxt-themes/docus": "1.4.4",
     "@nuxt/content": "^2.3.0",
     "@nuxtlabs/github-module": "^1.6.0",
     "eslint": "^8.31.0",
