@@ -12,7 +12,7 @@
     "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@huntersofbook/i18n": "workspace:^1.0.0",
+    "@huntersofbook/i18n": "workspace:*",
     "@vitejs/plugin-vue": "^4.0.0",
     "cross-env": "^7.0.3",
     "typescript": "^4.9.3",
