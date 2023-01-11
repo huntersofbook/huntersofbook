@@ -41,9 +41,9 @@ Join our [Discord channel](https://discord.gg/xAj9uqMrjC) or [open an issue](htt
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| **languages** | `string[]` | `['tr', 'en', 'ch']` | Schema export language files. |
-| **templateDir** | `string` | `'.i18n'` | Schema export language files. |
-| **exportDir** | `string` | `'language'` | Schema export language files. |
+| **languages** | `string[]` | `['tr', 'en', 'ch']` | Languages extensions to export |
+| **templateDir** | `string` | `'.i18n'` | Template folder |
+| **exportDir** | `string` | `'language'` | Template export folder |
 ... soon more detail
 
 
