@@ -4,6 +4,7 @@
 
 Create i18n templates and automatically export them to your desired languages. Unplugin support.
 
+It's basically a tool that takes a template with translation keys and syncs them to the given language. You can directly connect the outputs to the i18n libraries you use.
 
 <p>
       <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>

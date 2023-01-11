@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/i18n",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Create i18n templates and automatically export them to your desired languages. Unplugin support.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
