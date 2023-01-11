@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@huntersofbook/schob": "workspace:^0.1.0",
-    "tsx": "^3.12.1"
+    "tsx": "^3.12.2"
   }
 }
