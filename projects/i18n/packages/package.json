@@ -1,7 +1,7 @@
 {
   "name": "@huntersofbook/i18n",
-  "version": "0.1.3",
-  "description": "i18n Template for auto generated i18n files for unplugin.",
+  "version": "0.2.0",
+  "description": "Create i18n templates and automatically export them to your desired languages. Unplugin support.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
@@ -17,7 +17,8 @@
   "keywords": [
     "unplugin",
     "i18n",
-    "vite i18n"
+    "vite i18n",
+    "nuxt i18n"
   ],
   "exports": {
     ".": {
@@ -25,6 +26,10 @@
       "import": "./dist/index.mjs"
     },
     "./*": "./*",
+    "./nuxt": {
+      "require": "./dist/nuxt.js",
+      "import": "./dist/nuxt.mjs"
+    },
     "./types": {
       "require": "./dist/types.js",
       "import": "./dist/types.mjs"
@@ -60,6 +65,7 @@
   "dependencies": {
     "@antfu/utils": "^0.7.2",
     "@huntersofbook/schob": "^1.0.0",
+    "@nuxt/kit": "^3.0.0",
     "chokidar": "^3.5.3",
     "consola": "^2.15.3",
     "debug": "^4.3.4",
@@ -75,6 +81,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",
+    "@nuxt/schema": "^3.0.0",
     "@types/debug": "^4.1.7",
     "@types/lodash": "^4.14.191",
     "@types/minimatch": "^5.1.2",

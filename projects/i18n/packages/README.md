@@ -1,11 +1,15 @@
 ![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/i18n.png?raw=true)
 
 # i18n
-<br/>
 
-### @huntersofbook/i18n [![npm](https://img.shields.io/npm/v/@huntersofbook/i18n.svg)](https://npmjs.com/package/@huntersofbook/i18n)
-<br/>
+Create i18n templates and automatically export them to your desired languages. Unplugin support.
 
+
+<p>
+      <a href="https://www.npmjs.com/package/@huntersofbook/vue-i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/vue-i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
+      <a href="https://www.npmjs.com/package/@huntersofbook/vue-i18n"><img src="https://img.shields.io/npm/dm/@huntersofbook/vue-i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
+      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
+</p>
 
 ## Installation
 
@@ -30,6 +34,18 @@ export default defineConfig({
 })
 ```
 
+### Nuxt 3
+```ts
+import i18n from '@huntersofbook/i18n/nuxt'
+export default defineNuxtConfig({
+  buildModules: [
+    i18n({
+      languages: ['tr', 'en', 'cn'],
+    }),
+  ],
+})
+```
+
 ## Options
 ## Support
 
@@ -41,7 +57,7 @@ Join our [Discord channel](https://discord.gg/xAj9uqMrjC) or [open an issue](htt
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| **languages** | `string[]` | `['tr', 'en', 'ch']` | Languages extensions to export |
+| **languages** | `string[]` | `['tr', 'en', 'cn']` | Languages extensions to export |
 | **templateDir** | `string` | `'.i18n'` | Template folder |
 | **exportDir** | `string` | `'language'` | Template export folder |
 ... soon more detail
