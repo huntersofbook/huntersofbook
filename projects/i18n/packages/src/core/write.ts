@@ -12,18 +12,23 @@ import { matchGlobs } from './utils'
 
 const debug = Debug('unplugin-i18n-watch:write')
 
-const objectUpdate = (templateFile: string, exportFile: any) => {
+const objectUpdate = (exportFile: any, templateFile?: string | undefined, templateString?: string) => {
+  let template: any = {}
+  if (templateFile)
+    template = JSON.parse(readFileSync(templateFile, 'utf8'))
+  else if (templateString)
+    template = JSON.parse(templateString)
+
   try {
-    const template = JSON.parse(readFileSync(templateFile, 'utf8'))
-
-    const writePath = resolve(exportFile)
-    consola.info('writeFile', writePath)
-    if (template === writePath)
+    const _exportFile = resolve(exportFile)
+    if (template === _exportFile)
       return
+    const obj = readFileSync(_exportFile, 'utf8')
 
-    if (existsSync(writePath)) {
-      const obj = JSON.parse(readFileSync(writePath, 'utf8'))
-      const _merge = merge({ schema: template, newData: obj })
+    if (existsSync(_exportFile) && obj.length > 10) {
+      const newData = JSON.parse(obj)
+      const _merge = merge({ schema: template, newData })
+
       try {
         /**
          * It sorts the keys of an object, and if the value of a key is an object, it recursively sorts
@@ -61,9 +66,7 @@ const objectUpdate = (templateFile: string, exportFile: any) => {
         }
 
         const sortedObject = sortObject(_merge)
-        writeFileSync(writePath, JSON.stringify(sortedObject, null, 2))
-
-        consola.success(`JSON file ${basename(writePath)} is updated`)
+        writeFileSync(_exportFile, JSON.stringify(sortedObject, null, 2))
       }
       catch (error) {
         consola.error(error)
@@ -73,8 +76,16 @@ const objectUpdate = (templateFile: string, exportFile: any) => {
       if (!existsSync(dirname(exportFile)))
         mkdirSync(resolve(dirname(exportFile)), { recursive: true })
 
-      writeFileSync(exportFile, readFileSync(templateFile))
-      consola.success(`JSON file ${basename(writePath)} is created`)
+      if (templateString) {
+        const obj = JSON.parse(templateString)
+        const _merge = merge({ schema: template, newData: obj })
+        writeFileSync(exportFile, JSON.stringify(_merge, null, 2))
+        consola.success(`JSON file ${basename(_exportFile)} is created`)
+      }
+      else {
+        writeFileSync(exportFile, template)
+        consola.success(`JSON file ${basename(_exportFile)} is created`)
+      }
     }
   }
   catch (error) {
@@ -146,6 +157,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
 
   // check is directory
   const directory = globbySync(`${ctx.options.templateDir}/**/*`, { onlyDirectories: true })
+
   const existDirectory = directory.length > 0
 
   if (existDirectory && dirName.length < 2) {
@@ -166,10 +178,10 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
         if (!existsSync(dirname(exportFile)))
           mkdirSync(resolve(dirname(exportFile)), { recursive: true })
 
-        objectUpdate(templateFile, exportFile)
+        objectUpdate(exportFile, templateFile)
 
-        const filePattern = `${exportFile.split('/').slice(0, -1).join('/')}/*.json`
-        const files = globbySync(filePattern)
+        const filePattern = '/**/*.json'
+        const files = globbySync(`${ctx.options.templateDir}${filePattern}`, { onlyFiles: true })
 
         /*
         * Merge all files in a directory
@@ -188,11 +200,12 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
 
             const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
             debug('exportFile', exportFile)
-            writeFileSync(exportFile, JSON.stringify(obj, null, 2))
+            objectUpdate(exportFile, undefined, JSON.stringify(obj, null, 2))
           })
+          consola.success(`${`${`${basename(ctx.options.exportDir)}/${lang}`}.json`} updated`)
         }
         catch (error) {
-          consola.error('JSON file is not valid please your schema', templateFile)
+          consola.error('JSON file is not valid please your schema dir', templateFile)
         }
       })
     }
@@ -208,7 +221,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
       languages.forEach((lang) => {
         const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
         debug('exportFile', exportFile)
-        objectUpdate(templateFile, exportFile)
+        objectUpdate(exportFile, templateFile)
       })
     }
   }

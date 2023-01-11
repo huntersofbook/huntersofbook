@@ -4,7 +4,7 @@ const { trackEvent } = usePlausible()
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen relative">
     <Container
       :fluid="page.fluid" :constrained-class="page.constrainedClass" :padded="page.padded"
       class="max-w-7xl mx-auto flex-grow"
