@@ -27,7 +27,7 @@ As a sponsor, you can support us and our software that we have developed on book
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
     </p>
     <p>
-      i18n Template for auto generated i18n files for unplugin.<p>
+      It's basically a tool that takes a template with translation keys and syncs them to the given language. You can directly connect the outputs to the i18n libraries you use.<p>
      <a href="https://opensource.huntersofbook.com">The documentation</a>
     </p>
     </p>
