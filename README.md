@@ -17,6 +17,7 @@ As a sponsor, you can support us and our software that we have developed on book
 <tr>
   <td width="80" align="center" valign="top">
     <br>
+    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/i18n.png"></a>
   </td>
   <td valign="top">
     <h3>i18n</h3>
@@ -27,7 +28,7 @@ As a sponsor, you can support us and our software that we have developed on book
     </p>
     <p>
       i18n Template for auto generated i18n files for unplugin.<p>
-    <a href="https://github.com/huntersofbook/huntersofbook/tree/main/projects/i18n/packages">The documentation</a> 
+     <a href="https://opensource.huntersofbook.com">The documentation</a>
     </p>
     </p>
   </td>
@@ -44,7 +45,8 @@ As a sponsor, you can support us and our software that we have developed on book
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
     </p>
     <p>
-      Rewrite the new object according to the schema. Delete the excess. <a href="https://opensource.huntersofbook.com">The documentation</a> 
+      Rewrite the new object according to the schema. Delete the excess. <a href="https://opensource.huntersofbook.com">The documentation</a>
+    </p>
     </p>
   </td>
 </tr>
