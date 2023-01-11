@@ -19,14 +19,13 @@ export default defineNuxtConfig({
   },
   plausible: {
     init: {
-      apiHost: process.env.PLAUSIBLE,
+      apiHost: 'https://rapor.vucod.com',
       domain: 'opensource.huntersofbook.com',
     },
   },
   huntersofbook: {
     storageKey: 'locale',
   },
-
   // localization - i18n config
   i18n: {
     locales: [
