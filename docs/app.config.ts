@@ -1,15 +1,23 @@
 export default defineAppConfig({
+  github: {
+    owner: 'nuxt',
+    repo: 'content',
+    branch: 'main',
+  },
   docus: {
     title: 'huntersofbook',
     description:
-      'It is a community established specifically to improve the vue ecosystem. Our own team will always give this contribution back to the world.',
+    'It is a community established specifically to improve the vue ecosystem. Our own team will always give this contribution back to the world.',
     image: 'https://opensource.huntersofbook.com/preview.png',
     url: 'https://opensource.huntersofbook.com',
-    debug: false,
     socials: {
       twitter: '@huntersofbook',
       github: 'huntersofbook/huntersofbook',
       discord: 'https://discord.gg/xAj9uqMrjC',
+    },
+    showLinkIcon: true,
+    layout: {
+      fluid: true,
     },
     aside: {
       level: 1,

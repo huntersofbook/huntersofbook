@@ -14,7 +14,7 @@ Create i18n templates and automatically export them to your desired languages. U
 ## Installation
 
 ```bash
-pnpm add @huntersofbook/i18n
+pnpm add -D @huntersofbook/i18n
 ```
 It will be the `.i18n` folder. Save there by adding `en.json`, `tr.json`. It will automatically create a `language` folder for you and import your data there.
 
