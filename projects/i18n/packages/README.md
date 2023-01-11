@@ -18,14 +18,13 @@ It will be the `.i18n` folder. Save there by adding `en.json`, `tr.json`. It wil
 
 ### Vite
 
-
 ```ts
 import i18n from '@huntersofbook/i18n/vite'
 
 export default defineConfig({
   plugins: [
     i18n({
-      languages: ['tr', 'en', 'ch'],
+      languages: ['tr', 'en', 'cn'],
     }),
   ],
 })
@@ -43,6 +42,8 @@ Join our [Discord channel](https://discord.gg/xAj9uqMrjC) or [open an issue](htt
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | **languages** | `string[]` | `['tr', 'en', 'ch']` | Schema export language files. |
+| **templateDir** | `string` | `'.i18n'` | Schema export language files. |
+| **exportDir** | `string` | `'language'` | Schema export language files. |
 ... soon more detail
 
 
@@ -56,6 +57,7 @@ Pnpm version >= 7
 - Install dependencies using `pnpm install`
 - Go to `i18n/packages` pnpm dev or pnpm build
 - Go to `i18n/playground` pnpm dev
+- or `packages/i18n` in `dev:package` | `dev:playground-vite` used.
 
 
 

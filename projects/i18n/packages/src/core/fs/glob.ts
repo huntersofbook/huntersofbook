@@ -1,4 +1,4 @@
-import { mkdir, mkdirSync, writeFile, writeFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync } from 'node:fs'
 import { globbySync } from 'globby'
 import Debug from 'debug'
 import type { Context } from '../context'
@@ -19,14 +19,14 @@ export function searchI18nFiles(ctx: Context) {
   if (!files.length) {
     // create dic
     // create file
-    mkdirSync(`${root}/${ctx.options.dir}`, { recursive: true })
+    mkdirSync(`${root}/${ctx.options.templateDir}`, { recursive: true })
     const template = `{
   "huntersofbook": "read a book",
   "hello": "hello"
 }
 `
     writeFileSync(`${root}/${
-      ctx.options.dir
+      ctx.options.templateDir
     }/template.json`, template)
   }
 

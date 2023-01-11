@@ -1,6 +1,5 @@
 import minimatch from 'minimatch'
 import { slash } from '@antfu/utils'
-import type { ImportInfo } from '../type'
 import { DISABLE_COMMENT } from './constants'
 
 export function matchGlobs(filepath: string, globs: string[]) {

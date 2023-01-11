@@ -14,7 +14,7 @@ export default createUnplugin<Options>((options = {}) => {
       configResolved(config: ResolvedConfig) {
         ctx.setRoot(config.root)
         // ctx.sourcemap = true
-        if (ctx.options.dir)
+        if (ctx.options.templateDir)
           ctx.searchGlob()
 
         if (config.build.watch && config.command === 'build')

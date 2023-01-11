@@ -1,14 +1,10 @@
 {
-  "name": "schob",
-  "version": "1.0.0",
+  "name": "i18n",
   "private": true,
-  "description": "",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --parallel run dev",
+    "dev:package": "pnpm --filter @huntersofbook/i18n dev",
+    "dev:playground-vite": "pnpm --filter playground-vite dev",
     "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

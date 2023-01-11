@@ -84,18 +84,18 @@ const objectUpdate = (templateFile: string, exportFile: any) => {
 
 const autoClean = (ctx: Context, existDirectory: Boolean) => {
   if (existDirectory) {
-    const templateFiles = globbySync(`${ctx.options.dir}/**/*`, { cwd: ctx.root }).map((file) => {
-      return resolve(ctx.root, file).split(ctx.options.dir)[1]
+    const templateFiles = globbySync(`${ctx.options.templateDir}/**/*`, { cwd: ctx.root }).map((file) => {
+      return resolve(ctx.root, file).split(ctx.options.templateDir)[1]
     })
 
     const selectFiles: string[] = []
     ctx.options.languages.forEach((lang) => {
       templateFiles.forEach((file) => {
-        selectFiles.push(`${ctx.options.export}/${lang}${file}`)
+        selectFiles.push(`${ctx.options.exportDir}/${lang}${file}`)
       })
     })
 
-    const exportFiles = globbySync(`${ctx.options.export}/**/*`, { cwd: ctx.root })
+    const exportFiles = globbySync(`${ctx.options.exportDir}/**/*`, { cwd: ctx.root })
 
     const diff = exportFiles.filter((x) => {
       return !matchGlobs(x, selectFiles)
@@ -111,13 +111,13 @@ const autoClean = (ctx: Context, existDirectory: Boolean) => {
         catch (error) {
 
         }
-        const file = _file.split(ctx.options.export)[1]
+        const file = _file.split(ctx.options.exportDir)[1]
         if (file.split('/')[1] === lang)
           rmSync(_file)
       })
     })
 
-    const emtyDirs = globbySync(`${ctx.options.export}/**/*`, { onlyDirectories: true, cwd: ctx.root })
+    const emtyDirs = globbySync(`${ctx.options.exportDir}/**/*`, { onlyDirectories: true, cwd: ctx.root })
 
     function emptyDir(dirPath: string) {
       const dirContents = readdirSync(dirPath) // List dir content
@@ -135,7 +135,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
   const base = basename(filepath)
   debug('base', base)
 
-  const dir = filepath.split(ctx.options.dir)[1]
+  const dir = filepath.split(ctx.options.templateDir)[1]
   debug('dir', dir)
 
   const dirName = dirname(dir)
@@ -145,7 +145,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
   debug('languages', languages)
 
   // check is directory
-  const directory = globbySync(`${ctx.options.dir}/**/*`, { onlyDirectories: true })
+  const directory = globbySync(`${ctx.options.templateDir}/**/*`, { onlyDirectories: true })
   const existDirectory = directory.length > 0
 
   if (existDirectory && dirName.length < 2) {
@@ -160,7 +160,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
       languages.forEach((lang) => {
         const templateFile = resolve(filepath)
 
-        const exportFile = resolve(ctx.root, ctx.options.export, `${lang}/${dirName}/${base}`)
+        const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}/${dirName}/${base}`)
         debug('Dir ExportFile', exportFile)
         // isExist directory
         if (!existsSync(dirname(exportFile)))
@@ -183,10 +183,10 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
 
           ctx.options.languages.forEach((lang) => {
             // isExist directory
-            if (!existsSync(resolve(ctx.root, ctx.options.export, lang)))
-              mkdirSync(resolve(ctx.root, ctx.options.export, lang), { recursive: true })
+            if (!existsSync(resolve(ctx.root, ctx.options.exportDir, lang)))
+              mkdirSync(resolve(ctx.root, ctx.options.exportDir, lang), { recursive: true })
 
-            const exportFile = resolve(ctx.root, ctx.options.export, `${lang}.json`)
+            const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
             debug('exportFile', exportFile)
             writeFileSync(exportFile, JSON.stringify(obj, null, 2))
           })
@@ -197,7 +197,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
       })
     }
     else {
-      const directoryExport = globbySync(`${ctx.options.export}/**/*`, { onlyDirectories: true })
+      const directoryExport = globbySync(`${ctx.options.exportDir}/**/*`, { onlyDirectories: true })
       if (directoryExport.length > 0) {
         // remove directory
         directoryExport.forEach((dir) => {
@@ -206,7 +206,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
       }
       const templateFile = resolve(filepath)
       languages.forEach((lang) => {
-        const exportFile = resolve(ctx.root, ctx.options.export, `${lang}.json`)
+        const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
         debug('exportFile', exportFile)
         objectUpdate(templateFile, exportFile)
       })

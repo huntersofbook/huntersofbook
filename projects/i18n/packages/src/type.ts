@@ -18,7 +18,7 @@ export interface Options {
   * Export files
   * @default language
   */
-  export?: string
+  exportDir?: string
 
   /**
    * Search for subdirectories
@@ -30,7 +30,7 @@ export interface Options {
      * Relative paths to the directory to search for components.
      * @default '.i18n'
    */
-  dir?: string
+  templateDir?: string
 
   /**
     * Valid file extensions for components.
@@ -76,9 +76,9 @@ export interface FileInfo extends ImportInfo {
 
 export type ResolvedOptions = Omit<
     Required<Options>,
-   | 'dir' | 'extensions'
+  | 'templateDir' | 'extensions'
 > & {
-  dir: string
+  templateDir: string
   root: string
   resolvedDir: string
   extensions: string[]

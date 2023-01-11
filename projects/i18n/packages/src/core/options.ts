@@ -3,8 +3,8 @@ import { slash, toArray } from '@antfu/utils'
 import type { Options, ResolvedOptions } from '../type'
 
 export const defaultOptions: Omit<Required<Options>, 'version' | 'globs'> = {
-  dir: '.i18n',
-  export: 'language',
+  templateDir: '.i18n',
+  exportDir: 'language',
   deep: true,
   extensions: ['json'],
   languages: ['en', 'tr'],
@@ -23,7 +23,7 @@ export function resolveOptions(options: Options, root: string): ResolvedOptions 
       ? resolved.extensions
       : `{${resolved.extensions.join(',')}}`
 
-    resolved.resolvedDir = slash(resolve(root, resolved.dir))
+    resolved.resolvedDir = slash(resolve(root, resolved.templateDir))
     console.log('resolved.resolvedDir', resolved.resolvedDir)
     resolved.globs = toArray(resolved.resolvedDir).map(i => resolved.deep
       ? slash(join(i, `**/*.${extsGlob}`))
@@ -33,10 +33,10 @@ export function resolveOptions(options: Options, root: string): ResolvedOptions 
     if (!resolved.extensions.length)
       throw new Error('[unplugin-vue-components] `extensions` option is required to search for components')
 
-    resolved.export = resolve(
+    resolved.exportDir = resolve(
       root,
-      typeof resolved.export === 'string'
-        ? resolved.export
+      typeof resolved.exportDir === 'string'
+        ? resolved.exportDir
         : 'language',
     )
 

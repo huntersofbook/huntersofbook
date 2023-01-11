@@ -4,7 +4,7 @@ import type { UpdatePayload, ViteDevServer } from 'vite'
 
 import { basename } from 'pathe'
 import Debug from 'debug'
-import { slash, throttle, toArray } from '@antfu/utils'
+import { slash, toArray } from '@antfu/utils'
 import type { FileInfo, Options, ResolvedOptions } from '../type'
 import { matchGlobs } from './utils'
 import { writeI18nLanguageFile } from './write'
