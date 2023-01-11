@@ -1,4 +1,4 @@
-import { existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, rmSync, rmdirSync, writeFileSync } from 'node:fs'
+import { copyFileSync, existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, rmSync, rmdirSync, writeFileSync } from 'node:fs'
 
 import { basename, dirname, resolve } from 'pathe'
 import consola from 'consola'
@@ -143,42 +143,112 @@ const autoClean = (ctx: Context, existDirectory: Boolean) => {
 }
 
 export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
-  const base = basename(filepath)
-  debug('base', base)
-
-  const dir = filepath.split(ctx.options.templateDir)[1]
-  debug('dir', dir)
-
-  const dirName = dirname(dir)
-  debug('dirName', dirName)
-
   const languages = ctx.options.languages
   debug('languages', languages)
 
   // check is directory
-  const directory = globbySync(`${ctx.options.templateDir}/**/*`, { onlyDirectories: true })
+  let tempDirectories: string[] | undefined
 
-  const existDirectory = directory.length > 0
+  try {
+    tempDirectories = globbySync(`${ctx.options.templateDir}/**/*`, { onlyDirectories: true, cwd: ctx.root })
+  }
+  catch (error) {
 
-  if (existDirectory && dirName.length < 2) {
-    consola.error('both file and language file cannot be used at the same time. Please use only one of them "en/test.json" or "en.json"')
+  }
+
+  let checkFile: string[] | undefined
+
+  try {
+    checkFile = globbySync(`${ctx.options.templateDir}/*`, { onlyFiles: true, cwd: ctx.root, deep: 0 })
+  }
+  catch (error) {
+
+  }
+
+  const existDirectory = tempDirectories?.length && tempDirectories.length > 0
+  const onlyFile = checkFile?.length && checkFile.length > 0
+
+  if (existDirectory && onlyFile) {
+    consola.error('both file and language file cannot be used at the same time. Please use only one of them ["xxx/xx.json", "yyy/vvv.json"] or "xxx.json"')
   }
   else {
+    // Check export file and director names
+    const directoryNames = globbySync(`${ctx.options.exportDir}/*`, { onlyDirectories: true, cwd: ctx.root, deep: 0 })
+    const fileNames = globbySync(`${ctx.options.exportDir}/*`, { onlyFiles: true, cwd: ctx.root, deep: 0 })
+
+    languages.forEach((lang) => {
+      if (existDirectory) {
+        if (!directoryNames.includes(`${ctx.options.exportDir}/${lang}`))
+          mkdirSync(`${ctx.options.exportDir}/${lang}`, { recursive: true })
+      }
+      if (!fileNames.includes(`${ctx.options.exportDir}/${lang}.json`))
+        writeFileSync(`${ctx.options.exportDir}/${lang}.json`, '{}')
+    })
+
+    if (existDirectory) {
+      directoryNames.forEach((res) => {
+        if (!languages.includes(basename(res)))
+          rmdirSync(res)
+      })
+    }
     /*
     * If the file is in a directory
     */
-    if (dirName.length > 1) {
+    if (existDirectory) {
       debug('directory')
+      const tempFiles = globbySync(`${ctx.options.templateDir}/**/*`, { onlyFiles: true, cwd: ctx.root })
+
+      const tempDirs = globbySync(`${ctx.options.templateDir}/**/*`, { onlyDirectories: true, cwd: ctx.root })
+
+      // en
+      languages.forEach((lang) => {
+        const _exportDirectories = globbySync(`${ctx.options.exportDir}/${lang}/**/*`, { onlyDirectories: true, cwd: ctx.root })
+
+        tempDirs.forEach((res) => {
+          const base = res.split(ctx.options.templateDir)[1]
+          const changeExportBase = `${ctx.options.exportDir}/${lang}${base}`
+
+          // create templates directories mkdir
+          if (!_exportDirectories.includes(changeExportBase))
+            mkdirSync(changeExportBase, { recursive: true })
+        })
+
+        // en files
+        const fileNames = globbySync(`${ctx.options.exportDir}/${lang}/**/*`, { onlyFiles: true, cwd: ctx.root, ignore: languages.map(res => `**/*/${res}.json`) })
+
+        //
+        tempFiles.forEach((tt) => {
+          const n = tt.split(ctx.options.templateDir)[1]
+          const newa = `${ctx.options.exportDir}/${lang}${n}`
+          consola.log(newa)
+          if (!fileNames.includes(newa))
+            writeFileSync(newa, readFileSync(tt, { encoding: 'utf-8' }))
+          else
+            objectUpdate(newa, tt)
+        })
+      })
+
+      return
+
       languages.forEach((lang) => {
         const templateFile = resolve(filepath)
-
-        const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}/${dirName}/${base}`)
+        // en/dirname/filename.json
+        const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}${templateFile.split(ctx.options.templateDir)[1]}`)
         debug('Dir ExportFile', exportFile)
         // isExist directory
         if (!existsSync(dirname(exportFile)))
           mkdirSync(resolve(dirname(exportFile)), { recursive: true })
 
-        objectUpdate(exportFile, templateFile)
+        const checkLanguges = globbySync(`${ctx.options.exportDir}/*`, { cwd: ctx.root })
+
+        if (checkLanguges.length > 0) {
+          objectUpdate(exportFile, templateFile)
+        }
+        else {
+          languages.forEach((lang) => {
+            copyFileSync(templateFile, resolve(ctx.root, ctx.options.exportDir, `${lang}.json`))
+          })
+        }
 
         const filePattern = '/**/*.json'
         const files = globbySync(`${ctx.options.templateDir}${filePattern}`, { onlyFiles: true })
@@ -210,6 +280,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
       })
     }
     else {
+      // Check old files and remove
       const directoryExport = globbySync(`${ctx.options.exportDir}/**/*`, { onlyDirectories: true })
       if (directoryExport.length > 0) {
         // remove directory
@@ -217,14 +288,25 @@ export async function writeI18nLanguageFile(ctx: Context, filepath: string) {
           rmdirSync(dir, { recursive: true })
         })
       }
+
       const templateFile = resolve(filepath)
-      languages.forEach((lang) => {
-        const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
-        debug('exportFile', exportFile)
-        objectUpdate(exportFile, templateFile)
-      })
+
+      const checkLanguges = globbySync(`${ctx.options.exportDir}/*`, { onlyFiles: true })
+
+      if (checkLanguges.length > 0) {
+        languages.forEach((lang) => {
+          const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
+          debug('exportFile', exportFile)
+          objectUpdate(exportFile, templateFile)
+        })
+      }
+      else {
+        languages.forEach((lang) => {
+          copyFileSync(templateFile, resolve(ctx.root, ctx.options.exportDir, `${lang}.json`))
+        })
+      }
     }
   }
 
-  autoClean(ctx, existDirectory)
+  // autoClean(ctx, existDirectory)
 }
