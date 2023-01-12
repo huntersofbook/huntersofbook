@@ -58,6 +58,7 @@ export default defineNuxtConfig({
 # [Documentation](https://opensource.huntersofbook.com/global/i18n)
 Documentation of the project is available at [https://opensource.huntersofbook.com/global/i18n](https://opensource.huntersofbook.com/global/i18n).
 
+![alt text](https://raw.githubusercontent.com/huntersofbook/huntersofbook/main/docs/public/images/i18n/i18n_works.png)
 
 ## Support
 
