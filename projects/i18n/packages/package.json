@@ -1,7 +1,7 @@
 {
   "name": "@huntersofbook/i18n",
-  "version": "0.2.2",
-  "description": "Create i18n templates and automatically export them to your desired languages. Unplugin support.",
+  "version": "0.3.0",
+  "description": "It's basically a tool that takes a template with translation keys and syncs them to the given language. You can directly connect the outputs to the i18n libraries you use.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
@@ -50,8 +50,7 @@
     }
   },
   "files": [
-    "dist",
-    "schemaEN.json"
+    "dist"
   ],
   "scripts": {
     "test": "vitest run",
