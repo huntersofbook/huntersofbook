@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, lstatSync, mkdir, mkdirSync, readFile, readFileSync, readdirSync, rmSync, rmdirSync, writeFileSync } from 'node:fs'
+import { copyFileSync, existsSync, lstatSync, mkdir, mkdirSync, readFileSync, readdirSync, rmSync, rmdirSync, writeFileSync } from 'node:fs'
 
 import { basename, dirname, resolve } from 'pathe'
 import consola from 'consola'
@@ -252,32 +252,46 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
     */
     if (existDirectory) {
       debug('directory')
+      /**
+       * templateFiles example export
+       * @example [ '.i18n/xx/xxx.json', '.i18n/xx/yyy.json', '.i18n/xx/zzz.json' ]
+       */
       const templateFiles = globbySync(`${ctx.options.templateDir}/**/*`, { onlyFiles: true, cwd: ctx.root })
 
+      /**
+     * templateFiles example export
+     * @example [ '.i18n/xx', '.i18n/yy', '.i18n/zz' ]
+     */
       const templateDirs = globbySync(`${ctx.options.templateDir}/**/*`, { onlyDirectories: true, cwd: ctx.root })
 
+      consola.info('templateDirs', templateDirs)
+
+      // template folder in files and directories in export folder check and remove
       function clean() {
         // Check export file and director names
         const _exportDirectoryNames = globbySync(`${ctx.options.exportDir}/**/*`, { onlyDirectories: true, cwd: ctx.root, ignore: languages.map(res => `**/*/${res}`) })
         const _exportFileNames = globbySync(`${ctx.options.exportDir}/**/*.json`, { onlyFiles: true, cwd: ctx.root, ignore: languages.map(res => `**/*/${res}.json`) })
 
-        _exportDirectoryNames.forEach((res) => {
-          const base = res.split(ctx.options.exportDir)[1]
-          const changeExportBase = `${ctx.options.templateDir}${base}`
+        languages.forEach((lang) => {
+          _exportFileNames.forEach((res) => {
+            const base = res.split(`${ctx.options.exportDir}/${lang}`)[1]
+            if (base) {
+              const changeExportBase = `${ctx.options.templateDir}${base}`
+              if (!templateFiles.includes(changeExportBase))
+                rmSync(res)
+            }
+          })
 
-          if (!templateDirs.includes(changeExportBase))
-            rmdirSync(res)
-        })
-
-        _exportFileNames.forEach((res) => {
-          const base = res.split(ctx.options.exportDir)[1]
-          const changeExportBase = `${ctx.options.templateDir}${base}`
-
-          if (!templateFiles.includes(changeExportBase))
-            rmSync(res)
+          _exportDirectoryNames.forEach((res) => {
+            const base = res.split(`${ctx.options.exportDir}/${lang}`)[1]
+            if (base) {
+              const changeExportBase = `${ctx.options.templateDir}${base}`
+              if (!templateDirs.includes(changeExportBase))
+                rmdirSync(res)
+            }
+          })
         })
       }
-
       clean()
 
       // etc: en, tr, de
@@ -338,7 +352,13 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
         }
       })
     }
+    /*
+    * If the only schema.json file in the template directory
+    */
     else {
+      /*
+      * One file `schema.json` in template directory
+      */
       // Check old files and remove
       const directoryExport = globbySync(`${ctx.options.exportDir}/**/*`, { onlyDirectories: true })
       if (directoryExport.length > 0) {
@@ -350,6 +370,11 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
 
       if (filepath) {
         const templateFile = resolve(filepath)
+
+        if (!templateFile.includes('schema.json')) {
+          consola.error('schema.json file not found')
+          return
+        }
 
         const checkLanguges = globbySync(`${ctx.options.exportDir}/*.json`, { onlyFiles: true })
 
@@ -364,6 +389,29 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
           languages.forEach((lang) => {
             copyFileSync(templateFile, resolve(ctx.root, ctx.options.exportDir, `${lang}.json`))
           })
+        }
+      }
+      else {
+        const files = globbySync(`${ctx.options.templateDir}/*.json`, { onlyFiles: true, cwd: ctx.root, deep: 0 })
+
+        if (files.length > 0) {
+          let find: string | undefined
+
+          files.forEach((file) => {
+            const isSchema = file.includes('schema.json')
+            if (isSchema)
+              find = file
+            else
+              consola.error('schema.json file not found')
+          })
+
+          if (find) {
+            languages.forEach((lang) => {
+              const exportFile = resolve(ctx.root, ctx.options.exportDir, `${lang}.json`)
+              debug('exportFile', exportFile)
+              objectUpdate(exportFile, find)
+            })
+          }
         }
       }
     }

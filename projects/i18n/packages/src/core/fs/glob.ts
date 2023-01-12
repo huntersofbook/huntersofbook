@@ -1,5 +1,4 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
-import { globbySync } from 'globby'
 import Debug from 'debug'
 import type { Context } from '../context'
 
@@ -9,38 +8,28 @@ export function searchI18nFiles(ctx: Context) {
   debug(`started with: [${ctx.options.globs.join(', ')}]`)
   const root = ctx.root
 
-  // check is directory
-  if (!existsSync(ctx.options.templateDir))
-    mkdirSync(ctx.options.templateDir)
-
-  if (!existsSync(ctx.options.exportDir))
-    mkdirSync(ctx.options.exportDir)
-
-  const files = globbySync(ctx.options.globs, {
-    ignore: ['node_modules'],
-    onlyFiles: true,
-    cwd: root,
-    absolute: true,
-  })
-
-  if (!files.length) {
-    // create dic
-    // create file
-    mkdirSync(`${root}/${ctx.options.templateDir}`, { recursive: true })
-    const template = `{
+  const template = `{
   "huntersofbook": "read a book",
-  "hello": "hello"
+  "hello": "hello",
+  "githubStar": "https://github.com/huntersofbook/huntersofbook",
+  "sponsor": "https://github.com/sponsors/productdevbook"
 }
 `
-    writeFileSync(`${root}/${
-      ctx.options.templateDir
-    }/template.json`, template)
+
+  // check is directory
+  if (!existsSync(ctx.options.templateDir)) {
+    mkdirSync(ctx.options.templateDir)
+
+    writeFileSync(`${root}/${ctx.options.templateDir
+      }/schema.json`, template)
   }
 
-  if (!files.length)
-    console.warn('[unplugin-i18n-watc] no components found')
-
-  debug(`${files.length} components found.`)
+  if (!existsSync(ctx.options.exportDir)) {
+    mkdirSync(ctx.options.exportDir)
+    ctx.options.languages.forEach((lang) => {
+      writeFileSync(`${ctx.options.exportDir}/${lang}.json`, template)
+    })
+  }
 
   ctx.onFirstUpdate()
 }
