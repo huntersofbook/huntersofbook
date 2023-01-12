@@ -1,4 +1,4 @@
-![alt text](https://github.com/huntersofbook/huntersofbook/blob/main/docs/public/images/i18n.png?raw=true)
+![alt text](https://raw.githubusercontent.com/huntersofbook/huntersofbook/main/docs/public/images/i18n.png)
 
 # i18n
 
