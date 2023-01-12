@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { globbySync } from 'globby'
 import Debug from 'debug'
 import type { Context } from '../context'
@@ -8,6 +8,13 @@ const debug = Debug('unplugin-i18n-watch:glob')
 export function searchI18nFiles(ctx: Context) {
   debug(`started with: [${ctx.options.globs.join(', ')}]`)
   const root = ctx.root
+
+  // check is directory
+  if (!existsSync(ctx.options.templateDir))
+    mkdirSync(ctx.options.templateDir)
+
+  if (!existsSync(ctx.options.exportDir))
+    mkdirSync(ctx.options.exportDir)
 
   const files = globbySync(ctx.options.globs, {
     ignore: ['node_modules'],
@@ -35,5 +42,5 @@ export function searchI18nFiles(ctx: Context) {
 
   debug(`${files.length} components found.`)
 
-  ctx.addFiles(files)
+  ctx.onFirstUpdate()
 }

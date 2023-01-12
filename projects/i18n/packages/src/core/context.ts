@@ -92,6 +92,10 @@ export class Context {
       this._server.ws.send(payload)
   }
 
+  onFirstUpdate() {
+    writeI18nLanguageFile(this)
+  }
+
   removeFiles(paths: string | string[]) {
     debug.files('remove', paths)
 
