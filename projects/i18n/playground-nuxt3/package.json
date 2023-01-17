@@ -8,7 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@huntersofbook/i18n": "workspace:^0.2.0",
+    "@huntersofbook/i18n": "workspace:*",
     "nuxt": "3.0.0"
   }
 }

@@ -9,4 +9,12 @@ export default defineConfig({
       languages: ['tr', 'en', 'cn'],
     }),
   ],
+  server: {
+    watch: {
+      ignored: ['!**/node_modules/@huntersofbook/i18n/**'],
+    },
+  },
+  optimizeDeps: {
+    exclude: ['@huntersofbook/i18n'],
+  },
 })

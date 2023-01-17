@@ -23,6 +23,7 @@ const objectUpdate = async (exportFile: any, templateFile?: string | undefined, 
     }
     catch (error) {
       consola.error('this file is not valid please your schema', templateFile)
+      return
     }
   }
 
