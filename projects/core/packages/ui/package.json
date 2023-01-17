@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/ui",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "description": "huntersofbook offers specific tools for the vue ecosystem.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
@@ -55,7 +55,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@huntersofbook/core": "^0.4.14",
+    "@huntersofbook/core": "^0.5.0",
     "@vueuse/motion": "^2.0.0-beta.25",
     "@zxcvbn-ts/core": "^2.1.0",
     "naive-ui": "^2.34.2",

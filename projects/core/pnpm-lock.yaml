@@ -56,7 +56,7 @@ importers:
       pathe: ^1.0.0
       tsx: ^3.12.1
     dependencies:
-      '@huntersofbook/core': link:../core
+      '@huntersofbook/core': 0.4.14
       '@nuxt/kit': 3.0.0
       defu: 6.1.1
       huntersofbook: 0.4.2-beta.3
@@ -75,7 +75,7 @@ importers:
   packages/form-naiveui:
     specifiers:
       '@antfu/eslint-config': ^0.31.0
-      '@huntersofbook/core': ^0.4.14
+      '@huntersofbook/core': ^0.5.0
       '@rollup/plugin-typescript': ^9.0.2
       '@vitejs/plugin-vue': ^3.2.0
       autoprefixer: ^10.4.13
@@ -126,7 +126,7 @@ importers:
   packages/ui:
     specifiers:
       '@antfu/eslint-config': ^0.31.0
-      '@huntersofbook/core': ^0.4.14
+      '@huntersofbook/core': ^0.5.0
       '@rollup/plugin-typescript': ^9.0.2
       '@vitejs/plugin-vue': ^3.2.0
       '@vue/compiler-sfc': ^3.2.45
@@ -187,7 +187,7 @@ importers:
       '@antfu/eslint-config': ^0.31.0
       '@huntersofbook/core': workspace:*
       '@huntersofbook/form-naiveui': workspace:*
-      '@huntersofbook/ui': workspace:^0.4.7
+      '@huntersofbook/ui': workspace:*
       '@iconify-json/carbon': ^1.1.11
       '@intlify/vite-plugin-vue-i18n': ^7.0.0-beta.4
       '@types/nprogress': ^0.2.0
@@ -1356,6 +1356,20 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@huntersofbook/core/0.4.14:
+    resolution: {integrity: sha512-i06adYwWMlF2cVbGUZQrVdgwMmz+NRgdIh/DTSGEkR6TRfjzX4qoIWQ6nAn7FzweZhLRCxQKl/igJ1/sBHpmqQ==}
+    dependencies:
+      '@types/lodash': 4.14.190
+      date-fns: 2.29.3
+      date-fns-tz: 1.3.7_date-fns@2.29.3
+      defu: 6.1.1
+      es-cookie: 1.4.0
+      lodash: 4.17.21
+      vee-validate: 4.7.3_vue@3.2.45
+      vue: 3.2.45
+      yup: 0.32.11
+    dev: false
+
   /@iconify-json/carbon/1.1.11:
     resolution: {integrity: sha512-IHkHSNmTM6q6b8DuKSzd+AEMYPZywSxcb+37kZU7ywtcwsGen3aVEvWFykopIWjjwj3xdZ/5UdwJRqhZDQMlNg==}
     dependencies:
@@ -1391,8 +1405,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.10
-      '@intlify/shared': 9.3.0-beta.10
+      '@intlify/message-compiler': 9.3.0-beta.16
+      '@intlify/shared': 9.3.0-beta.16
       jsonc-eslint-parser: 1.4.1
       source-map: 0.6.1
       vue-i18n: 9.3.0-beta.10_vue@3.2.45
@@ -1421,9 +1435,22 @@ packages:
       '@intlify/shared': 9.3.0-beta.10
       source-map: 0.6.1
 
+  /@intlify/message-compiler/9.3.0-beta.16:
+    resolution: {integrity: sha512-CGQI3xRcs1ET75eDQ0DUy3MRYOqTauRIIgaMoISKiF83gqRWg93FqN8lGMKcpBqaF4tI0JhsfosCaGiBL9+dnw==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/shared': 9.3.0-beta.16
+      source-map: 0.6.1
+    dev: true
+
   /@intlify/shared/9.3.0-beta.10:
     resolution: {integrity: sha512-h93uAanbAt/XgjDHclrVB7xix6r7Uz11wx0iGNOCdHP7aA2LCJjUT3uNbekJjjbo+Fl5jzTSJZdm2SexzoqhRA==}
     engines: {node: '>= 14'}
+
+  /@intlify/shared/9.3.0-beta.16:
+    resolution: {integrity: sha512-kXbm4svALe3lX+EjdJxfnabOphqS4yQ1Ge/iIlR8tvUiYRCoNz3hig1M4336iY++Dfx5ytEQJPNjIcknNIuvig==}
+    engines: {node: '>= 14'}
+    dev: true
 
   /@intlify/vite-plugin-vue-i18n/7.0.0-beta.4_blfamxa47grux4vpxk534dnhtm:
     resolution: {integrity: sha512-7vAw0xpYzWaDKom52tIl1vS8acXX810UN92dTIjErWlfiA3umWamYvo3mdk93qatTjLIgwaS6u+tmfuk+6RkAQ==}
@@ -1441,7 +1468,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.4.0_vue-i18n@9.3.0-beta.10
-      '@intlify/shared': 9.3.0-beta.10
+      '@intlify/shared': 9.3.0-beta.16
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
       fast-glob: 3.2.12

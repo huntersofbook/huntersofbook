@@ -13,7 +13,7 @@
   "dependencies": {
     "@huntersofbook/core": "workspace:*",
     "@huntersofbook/form-naiveui": "workspace:*",
-    "@huntersofbook/ui": "workspace:^0.4.7",
+    "@huntersofbook/ui": "workspace:*",
     "@vueuse/core": "^9.6.0",
     "@vueuse/head": "^1.0.18",
     "@vueuse/motion": "^2.0.0-beta.25",
