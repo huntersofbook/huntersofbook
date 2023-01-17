@@ -1,7 +1,7 @@
 {
   "name": "@huntersofbook/chatwoot-nuxt",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "chatwoot nuxt module",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
@@ -41,7 +41,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@huntersofbook/chatwoot-vue": "^0.4.3",
+    "@huntersofbook/chatwoot-vue": "^1.0.0",
     "@nuxt/kit": "^3.0.0",
     "defu": "^6.1.1"
   },
