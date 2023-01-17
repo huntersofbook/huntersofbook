@@ -10,7 +10,7 @@
     "preview-https": "serve dist"
   },
   "dependencies": {
-    "@huntersofbook/chatwoot-vue": "workspace:^0.4.3",
+    "@huntersofbook/chatwoot-vue": "workspace:*",
     "@vueuse/core": "^9.10.0",
     "@vueuse/head": "^1.0.22",
     "nprogress": "^0.2.0",

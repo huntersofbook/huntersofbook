@@ -22,7 +22,7 @@ importers:
       nuxt: ^3.0.0
       tsx: ^3.12.2
     dependencies:
-      '@huntersofbook/chatwoot-vue': link:../vue
+      '@huntersofbook/chatwoot-vue': 0.4.3
       '@nuxt/kit': 3.0.0
       defu: 6.1.1
     devDependencies:
@@ -58,7 +58,7 @@ importers:
   playground:
     specifiers:
       '@antfu/eslint-config': ^0.34.1
-      '@huntersofbook/chatwoot-vue': workspace:^0.4.3
+      '@huntersofbook/chatwoot-vue': workspace:*
       '@iconify-json/carbon': ^1.1.13
       '@intlify/vite-plugin-vue-i18n': ^7.0.0-beta.4
       '@types/nprogress': ^0.2.0
@@ -910,6 +910,14 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@huntersofbook/chatwoot-vue/0.4.3:
+    resolution: {integrity: sha512-++WqE6tMsYY0wyaKs3ELQVdjCFOJ1mpGtHnPLLhDj7P+Kf+75naB7fi6R35QsPtieVdya04jCUxWNrU2KjOvLQ==}
+    peerDependencies:
+      vue: ^3.2.45
+    dependencies:
+      defu: 6.1.1
+    dev: false
 
   /@iconify-json/carbon/1.1.13:
     resolution: {integrity: sha512-qPR7n3JkCqIrvjxnyUPIejhn0wrZJsLmija59U/zwFm5SMOITCfLx+Jp6VecnL0Sm76zRE5Kv54VzolQljB97A==}

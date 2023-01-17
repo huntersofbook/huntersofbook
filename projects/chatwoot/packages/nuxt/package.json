@@ -1,16 +1,16 @@
 {
   "name": "@huntersofbook/chatwoot-nuxt",
   "type": "module",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "description": "chatwoot nuxt module",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/chatwoot-nuxt#readme",
+  "homepage": "https://opensource.huntersofbook.com/projects",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/chatwoot-nuxt"
+    "directory": "projects/chatwoot/packages/nuxt"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
