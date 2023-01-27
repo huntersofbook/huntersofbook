@@ -49,12 +49,12 @@
     "ts-essentials": "^9.3.0"
   },
   "peerDependencies": {
-    "@apollo/client": "^3.7.3",
+    "@apollo/client": "^3.7.5",
     "graphql": "^16.6.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@apollo/client": "^3.7.3",
+    "@apollo/client": "^3.7.5",
     "@types/throttle-debounce": "^5.0.0",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
