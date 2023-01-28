@@ -5,9 +5,11 @@ importers:
   .:
     specifiers:
       '@antfu/eslint-config': ^0.34.1
+      '@types/node': ^18.11.18
       eslint: ^8.32.0
     devDependencies:
       '@antfu/eslint-config': 0.34.1_eslint@8.32.0
+      '@types/node': 18.11.18
       eslint: 8.32.0
 
   packages/nuxt:
@@ -1444,6 +1446,10 @@ packages:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
     dependencies:
       '@types/unist': 2.0.6
+    dev: true
+
+  /@types/node/18.11.18:
+    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
