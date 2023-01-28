@@ -1,17 +1,17 @@
 {
   "name": "@huntersofbook/naive-ui-nuxt",
   "type": "module",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": false,
   "description": "Nuxt 3 Naive UI library",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt#readme",
+  "homepage": "https://opensource.huntersofbook.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/naive-ui-nuxt"
+    "directory": "projects/naive-ui-nuxt"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
@@ -42,7 +42,6 @@
     "prepublishOnly": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-
   },
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.12",
