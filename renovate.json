@@ -15,6 +15,14 @@
       "addLabels": ["docs"]
     },
     {
+      "matchPaths": ["examples/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "examples",
+      "labels": ["examples"],
+      "addLabels": ["examples"]
+    },
+    {
       "matchPaths": ["projects/auth-vue/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
