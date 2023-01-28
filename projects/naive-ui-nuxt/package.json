@@ -45,17 +45,17 @@
 
   },
   "dependencies": {
-    "@css-render/vue3-ssr": "^0.15.11",
-    "@nuxt/kit": "^3.0.0",
-    "defu": "^6.1.1",
-    "naive-ui": "^2.34.2"
+    "@css-render/vue3-ssr": "^0.15.12",
+    "@nuxt/kit": "^3.1.1",
+    "defu": "^6.1.2",
+    "naive-ui": "^2.34.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
+    "@antfu/eslint-config": "^0.34.1",
     "@nuxt/module-builder": "^0.2.1",
-    "@nuxt/schema": "^3.0.0",
-    "eslint": "^8.28.0",
-    "nuxt": "^3.0.0",
-    "tsx": "^3.12.1"
+    "@nuxt/schema": "^3.1.1",
+    "eslint": "^8.32.0",
+    "nuxt": "^3.1.1",
+    "tsx": "^3.12.2"
   }
 }
