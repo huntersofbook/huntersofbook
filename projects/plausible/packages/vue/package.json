@@ -1,16 +1,16 @@
 {
   "name": "@huntersofbook/plausible-vue",
   "type": "module",
-  "version": "0.4.4",
-  "description": "huntersofbook offers specific tools for the vue ecosystem.",
+  "version": "1.0.0",
+  "description": "Plausible Analytics plugin for Vue 3",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/productdevbook",
-  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/packages/plausible-vue#readme",
+  "homepage": "https://github.com/huntersofbook/huntersofbook/tree/main/projects/plausible/packages/vue#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huntersofbook/huntersofbook.git",
-    "directory": "packages/plausible-vue"
+    "directory": "projects/plausible/packages/vue"
   },
   "bugs": {
     "url": "https://github.com/huntersofbook/huntersofbook/issues"
