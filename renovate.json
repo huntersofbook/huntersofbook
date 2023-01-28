@@ -87,6 +87,14 @@
       "addLabels": ["graphql"]
     },
     {
+      "matchPaths": ["projects/i18n/**"],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "i18n",
+      "labels": ["i18n"],
+      "addLabels": ["i18n"]
+    },
+    {
       "matchPaths": ["scripts/**"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch", "minor", "major"],
