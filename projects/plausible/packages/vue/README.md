@@ -26,7 +26,6 @@ const plausible = createPlausible({
 })
 
 app.use(plausible)
-
 ```
 
 ## Thanks
