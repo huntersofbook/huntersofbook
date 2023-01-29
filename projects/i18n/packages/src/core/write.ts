@@ -101,13 +101,8 @@ const directoriesMergeSave = async (ctx: {
       }, null, 2)
 
       try {
-        if (ctx.directoryAsNamespace) {
-          const mergeObjectandComment = Object.assign({}, sortedObject, JSON.parse(jsonComment))
-          writeFileSync(ctx.exportFile, JSON.stringify(mergeObjectandComment, null, 2))
-        }
-        else {
-          writeFileSync(ctx.exportFile, JSON.stringify(sortedObject, null, 2))
-        }
+        const mergeObjectandComment = Object.assign({}, sortedObject, JSON.parse(jsonComment))
+        writeFileSync(ctx.exportFile, JSON.stringify(mergeObjectandComment, null, 2))
       }
       catch (error) {
         consola.error(error)
@@ -196,7 +191,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
   const onlyFile = checkFile?.length && checkFile.length > 0
 
   const directoryAsNamespace = !!((ctx.options.directoryAsNamespace && existDirectory))
-  consola.log(directoryAsNamespace, 'directoryAsNamespace')
+
   if (existDirectory && onlyFile) {
     consola.error('both file and language file cannot be used at the same time. Please use only one of them ["xxx/xx.json", "yyy/vvv.json"] or "schema.json"')
   }
@@ -344,7 +339,6 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
           const obj = {}
           files.forEach((file) => {
             const data = JSON.parse(readFileSync(file, 'utf8'))
-
             /**
             *  If the file is in a directory, the directory name is used as a namespace
            */
@@ -359,23 +353,19 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
             }
           })
 
-          consola.log(obj)
-
-          languages.forEach((lang) => {
           // isExist directory
 
-            if (!existsSync(join(exportDir, lang)))
-              mkdirSync(join(exportDir, lang), { recursive: true })
+          if (!existsSync(join(exportDir, lang)))
+            mkdirSync(join(exportDir, lang), { recursive: true })
 
-            const exportFile = join(exportDir, `${lang}.json`)
-            debug('Merge file language', exportFile)
+          const exportFile = join(exportDir, `${lang}.json`)
+          debug('Merge file language', exportFile)
 
-            directoriesMergeSave({
-              exportFile,
-              directoriesJSONString: JSON.stringify(obj, null, 2),
-              directoryTemplate: JSON.stringify(templateMergeOjb, null, 2),
-              directoryAsNamespace,
-            })
+          directoriesMergeSave({
+            exportFile,
+            directoriesJSONString: JSON.stringify(obj, null, 2),
+            directoryTemplate: JSON.stringify(templateMergeOjb, null, 2),
+            directoryAsNamespace,
           })
 
           consola.success(`${`${`${basename(ctx.options.exportDir)}/${lang}`}.json`} updated`)
