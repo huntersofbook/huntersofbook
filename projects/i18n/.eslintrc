@@ -4,5 +4,8 @@
     "no-console": "off",
     "@ts-expect-error": "off",
     "@typescript-eslint/ban-ts-comment": "off"
-  }
+  },
+  "ignorePatterns": [
+    "**/*.json"
+  ]
 }

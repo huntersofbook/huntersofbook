@@ -6,5 +6,5 @@ export default <Options>{
   dts: true,
   splitting: true,
   clean: true,
-  shims: false,
+  minify: true,
 }

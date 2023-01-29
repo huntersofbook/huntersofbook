@@ -86,7 +86,7 @@ export class Context {
       type: 'update',
       updates: [],
     }
-    const timestamp = +new Date()
+    // const timestamp = +new Date()
 
     if (payload.updates.length)
       this._server.ws.send(payload)

@@ -5,7 +5,7 @@
   "scripts": {
     "dev:package": "pnpm --filter @huntersofbook/i18n dev",
     "dev:playground-vite": "pnpm --filter playground-vite dev",
-    "build": "pnpm -rf packages/*/dist && pnpm --parallel run build",
+    "build": "pnpm --filter '@huntersofbook/i18n' build && pnpm --filter './playground' build && pnpm --filter './playground-nuxt3' build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "cd packages && pnpm run test"
