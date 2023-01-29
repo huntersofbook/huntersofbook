@@ -202,13 +202,25 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
     }
 
     // Check export file and director names
-    const exportDirectoryNames = globbySync(join(exportDir, '/*'), { onlyDirectories: true, cwd: ctx.root, deep: 0 })
+    const exportLanguageDirectories = globbySync(join(exportDir, '/*'), { onlyDirectories: true, cwd: ctx.root, deep: 0 })
+    const schemaDirectoryNames = globbySync(join(templateDir, '/**/*'), { onlyDirectories: true, cwd: ctx.root, deep: 1 })
     const exportFileNames = globbySync(join(exportDir, '/*.json'), { onlyFiles: true, cwd: ctx.root, deep: 0 })
 
     // ['tr', 'en', 'de']
     languages.forEach((lang) => {
+      function cleanOldFiles() {
+        const exportLanguageInDirectories = globbySync(join(exportDir, lang, '/**/*'), { onlyDirectories: true, cwd: ctx.root, deep: 2 })
+
+        exportLanguageInDirectories && exportLanguageInDirectories.forEach((res) => {
+          if (!schemaDirectoryNames.includes(basename(res)))
+            rmdirSync(res, { recursive: true })
+        })
+      }
+
+      cleanOldFiles()
+
       if (existDirectory) {
-        if (!exportDirectoryNames.includes(join(exportDir, `/${lang}`)))
+        if (!exportLanguageDirectories.includes(join(exportDir, `/${lang}`)))
           mkdirSync(join(exportDir, `/${lang}`), { recursive: true })
       }
 
@@ -217,8 +229,8 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
     })
 
     const clean = () => {
-      if (exportDirectoryNames.length > 0) {
-        exportDirectoryNames.forEach((res) => {
+      if (exportLanguageDirectories.length > 0) {
+        exportLanguageDirectories.forEach((res) => {
           if (!languages.includes(basename(res)))
             rmdirSync(res, { recursive: true })
         })
@@ -226,7 +238,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
 
       exportFileNames.forEach((res) => {
         if (!languages.includes(basename(res, '.json')))
-          rmSync(res)
+          rmSync(res, { force: true })
       })
     }
     clean()
@@ -252,7 +264,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
       // template folder in files and directories in export folder check and remove
       function clean() {
         // Check export file and director names
-        const _exportDirectoryNames = globbySync(join(exportDir, '/**/*'), { onlyDirectories: true, cwd: ctx.root, ignore: languages.map(res => `**/*/${res}`) })
+        const _exportLanguageDirectories = globbySync(join(exportDir, '/**/*'), { onlyDirectories: true, cwd: ctx.root, ignore: languages.map(res => `**/*/${res}`) })
         const _exportFileNames = globbySync(join(exportDir, '/**/*.json'), { onlyFiles: true, cwd: ctx.root, ignore: languages.map(res => `**/*/${res}.json`) })
 
         languages.forEach((lang) => {
@@ -266,7 +278,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
             }
           })
 
-          _exportDirectoryNames.forEach((res) => {
+          _exportLanguageDirectories.forEach((res) => {
             const base = res.split(`${ctx.options.exportDir}/${lang}`)[1]
             if (base) {
               const changeExportBase = join(templateDir, base)
