@@ -1,7 +1,7 @@
 export default defineAppConfig({
   github: {
-    owner: 'nuxt',
-    repo: 'content',
+    owner: 'huntersofbook',
+    repo: 'huntersofbook',
     branch: 'main',
   },
   docus: {
