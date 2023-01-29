@@ -7,6 +7,7 @@ export default defineConfig({
     vue(),
     i18n({
       languages: ['tr', 'en', 'cn'],
+      directoryAsNamespace: true,
     }),
   ],
 })

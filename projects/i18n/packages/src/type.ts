@@ -21,6 +21,12 @@ export interface Options {
   exportDir?: string
 
   /**
+   * Namespace prefix for names in the template.
+   * @default false
+  */
+  directoryAsNamespace?: boolean
+
+  /**
    * Search for subdirectories
    * @default true
    */
@@ -84,4 +90,5 @@ export type ResolvedOptions = Omit<
   extensions: string[]
   globs: string[]
   schema: string
+  directoryAsNamespace: boolean
 }

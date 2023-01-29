@@ -9,6 +9,7 @@ export const defaultOptions: Omit<Required<Options>, 'version' | 'globs'> = {
   extensions: ['json'],
   languages: ['en', 'tr'],
   schema: 'schemaEn.json',
+  directoryAsNamespace: false,
 }
 
 export function resolveOptions(options: Options, root: string): ResolvedOptions {
