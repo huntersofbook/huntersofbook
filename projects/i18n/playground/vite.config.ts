@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     vue(),
     i18n({
-      languages: ['tr', 'en', 'cn'],
+      languages: ['cn'],
       directoryAsNamespace: true,
     }),
   ],

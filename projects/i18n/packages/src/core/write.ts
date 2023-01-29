@@ -318,13 +318,13 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
       /**
        * Language save files ['language/en/** /*.json', 'language/** /*.json'] -> ['language/en.json', 'language/tr.json']
       */
-      const templateMergeOjb = {}
+      const templateMergeOjb: any = {}
       templateFiles.forEach((file) => {
         const data = JSON.parse(readFileSync(file, 'utf8'))
         if (directoryAsNamespace) {
           const folderName = basename(dirname(file))
           Object.assign(templateMergeOjb, {
-            [folderName]: data,
+            [folderName]: { ...templateMergeOjb[folderName], ...data },
           })
         }
         else {
@@ -336,7 +336,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
         const files = globbySync(join(exportDir, lang, '/**/*.json'), { onlyFiles: true, cwd: ctx.root })
 
         try {
-          const obj = {}
+          const obj: any = {}
           files.forEach((file) => {
             const data = JSON.parse(readFileSync(file, 'utf8'))
             /**
@@ -345,7 +345,7 @@ export async function writeI18nLanguageFile(ctx: Context, filepath?: string) {
             if (directoryAsNamespace) {
               const folderName = basename(dirname(file))
               Object.assign(obj, {
-                [folderName]: data,
+                [folderName]: { ...obj[folderName], ...data },
               })
             }
             else {
