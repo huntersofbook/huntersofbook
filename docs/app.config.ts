@@ -19,7 +19,7 @@ export default defineAppConfig({
       owner: 'huntersofbook',
       repo: 'huntersofbook',
       branch: 'main',
-      dir: 'content',
+      dir: 'docs/content',
       edit: true,
     },
     cover: {
