@@ -1,12 +1,4 @@
 export default defineAppConfig({
-  github: {
-    owner: 'huntersofbook',
-    repo: 'huntersofbook',
-    branch: 'main',
-    dir: 'docs/content',
-    branch: 'main',
-    edit: true
-  },
   docus: {
     title: 'huntersofbook',
     description:
@@ -19,17 +11,16 @@ export default defineAppConfig({
       discord: 'https://discord.gg/xAj9uqMrjC',
     },
     showLinkIcon: true,
-    layout: {
-      fluid: true,
-    },
     aside: {
       level: 1,
       exclude: ['/changelog'],
     },
     github: {
-      root: 'docs/content',
+      owner: 'huntersofbook',
+      repo: 'huntersofbook',
+      branch: 'main',
+      dir: 'content',
       edit: true,
-      releases: true,
     },
     cover: {
       src: '/cover.jpg',
