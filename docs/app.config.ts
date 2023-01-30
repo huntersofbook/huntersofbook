@@ -3,6 +3,9 @@ export default defineAppConfig({
     owner: 'huntersofbook',
     repo: 'huntersofbook',
     branch: 'main',
+    dir: 'docs',
+    branch: 'main',
+    edit: true
   },
   docus: {
     title: 'huntersofbook',
