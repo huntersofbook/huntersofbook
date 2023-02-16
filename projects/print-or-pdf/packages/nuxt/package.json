@@ -1,0 +1,60 @@
+{
+  "name": "@huntersofbook/plausible-nuxt",
+  "type": "module",
+  "version": "1.0.1",
+  "private": false,
+  "description": "Plausible Analytics module for Nuxt 3",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://opensource.huntersofbook.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "projects/plausible/packages/nuxt"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "nuxt 3",
+    "composition",
+    "analytics",
+    "plausible",
+    "plausible analytics",
+    "tracking",
+    "nuxt",
+    "plugin"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm dev:prepare && pnpm nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@huntersofbook/plausible-vue": "^1.0.0",
+    "@nuxt/kit": "^3.1.1",
+    "defu": "^6.1.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.34.1",
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.1.1",
+    "eslint": "^8.32.0",
+    "nuxt": "^3.1.1",
+    "tsx": "^3.12.2"
+  }
+}

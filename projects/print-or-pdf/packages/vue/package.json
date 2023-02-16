@@ -1,0 +1,66 @@
+{
+  "name": "@huntersofbook/print-or-pdf",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Print or PDF for Vue 3",
+  "author": "Mehmet - productdevbook <hi@productdevbook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/productdevbook",
+  "homepage": "https://opensource.huntersofbook.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntersofbook/huntersofbook.git",
+    "directory": "projects/print-or-pdf/packages/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/huntersofbook/huntersofbook/issues"
+  },
+  "keywords": [
+    "vue 3",
+    "print",
+    "pdf",
+    "print div",
+    "print pdf"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "build:nuxt": "unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.1.1",
+    "defu": "^6.1.2",
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.34.1",
+    "@nuxt/schema": "^3.1.1",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.32.0",
+    "unbuild": "^1.1.1",
+    "unconfig": "^0.3.7",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.7.2",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vue": "^3.2.45"
+  }
+}
