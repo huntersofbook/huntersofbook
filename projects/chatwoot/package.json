@@ -16,7 +16,8 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.1",
-    "eslint": "^8.32.0"
+    "@antfu/eslint-config": "^0.35.2",
+    "@types/node": "^18.14.0",
+    "eslint": "^8.34.0"
   }
 }
