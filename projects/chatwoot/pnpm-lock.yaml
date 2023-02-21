@@ -15,7 +15,7 @@ importers:
   packages/nuxt:
     specifiers:
       '@antfu/eslint-config': ^0.35.2
-      '@huntersofbook/chatwoot-vue': ^1.0.0
+      '@huntersofbook/chatwoot-vue': ^1.1.0
       '@nuxt/kit': ^3.2.2
       '@nuxt/module-builder': ^0.2.1
       '@nuxt/schema': ^3.2.2
