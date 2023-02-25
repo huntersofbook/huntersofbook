@@ -18,10 +18,10 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "tsup": "^6.5.0"
+    "tsup": "^6.6.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
-    "eslint": "^8.28.0"
+    "@antfu/eslint-config": "^0.35.3",
+    "eslint": "^8.34.0"
   }
 }

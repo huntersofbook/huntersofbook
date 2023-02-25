@@ -41,22 +41,22 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@nuxtjs/i18n": "^8.0.0-beta.4"
+    "@nuxtjs/i18n": "^8.0.0-beta.10"
   },
   "dependencies": {
-    "@huntersofbook/core": "^0.4.14",
-    "@nuxt/kit": "^3.0.0",
-    "defu": "^6.1.1",
+    "@huntersofbook/core": "^0.5.0",
+    "@nuxt/kit": "^3.2.2",
+    "defu": "^6.1.2",
     "huntersofbook": "^0.4.2-beta.3",
-    "pathe": "^1.0.0"
+    "pathe": "^1.1.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
+    "@antfu/eslint-config": "^0.35.3",
     "@nuxt/module-builder": "^0.2.1",
-    "@nuxt/schema": "^3.0.0",
-    "eslint": "^8.28.0",
-    "nuxt": "^3.0.0",
-    "tsx": "^3.12.1"
+    "@nuxt/schema": "^3.2.2",
+    "eslint": "^8.34.0",
+    "nuxt": "^3.2.2",
+    "tsx": "^3.12.3"
   },
   "publishConfig": {
     "access": "public"
