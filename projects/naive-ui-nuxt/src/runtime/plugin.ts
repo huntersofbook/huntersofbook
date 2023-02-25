@@ -4,10 +4,19 @@ import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { collect } = setup(nuxtApp.vueApp)
-  if (process.client) {
+
+  nuxtApp.hook('app:mounted', () => {
+    const meta = document.createElement('meta')
+    meta.name = 'naive-ui-style'
+    document.head.appendChild(meta)
+  })
+
+  if (process.server) {
     nuxtApp.hook('app:rendered', ({ ssrContext }) => {
+      if (!ssrContext)
+        return
       const originalRenderMeta = ssrContext.renderMeta
-      nuxtApp.ssrContext.renderMeta = () => {
+      ssrContext.renderMeta = () => {
         if (!originalRenderMeta) {
           return {
             headTags: collect(),
@@ -31,9 +40,4 @@ export default defineNuxtPlugin((nuxtApp) => {
       }
     })
   }
-  nuxtApp.hook('app:beforeMount', () => {
-    const meta = document.createElement('meta')
-    meta.name = 'naive-ui-style'
-    document.head.appendChild(meta)
-  })
 })
