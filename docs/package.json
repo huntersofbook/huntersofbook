@@ -12,23 +12,23 @@
   },
   "dependencies": {
     "@huntersofbook/core-nuxt": "0.4.1",
-    "@nuxtjs/i18n": "^8.0.0-beta.9",
-    "@nuxtjs/tailwindcss": "^6.3.1",
+    "@nuxtjs/i18n": "^8.0.0-beta.10",
+    "@nuxtjs/tailwindcss": "^6.4.1",
     "@vueuse/motion": "^2.0.0-beta.27",
     "date-fns": "^2.29.3",
-    "emmet-monaco-es": "^5.1.2",
+    "emmet-monaco-es": "^5.2.0",
     "xterm": "^5.1.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.35.1",
+    "@antfu/eslint-config": "^0.35.3",
     "@huntersofbook/plausible-nuxt": "^0.5.2",
-    "@nuxt-themes/docus": "1.7.1",
+    "@nuxt-themes/docus": "1.9.1",
     "@nuxt/content": "^2.4.3",
     "@nuxtlabs/github-module": "^1.6.1",
-    "eslint": "^8.33.0",
-    "monaco-editor-core": "^0.34.1",
-    "nuxt": "^3.1.1",
-    "nuxt-icon": "^0.2.10",
-    "tsx": "^3.12.2"
+    "eslint": "^8.35.0",
+    "monaco-editor-core": "^0.36.1",
+    "nuxt": "^3.2.3",
+    "nuxt-icon": "^0.3.2",
+    "tsx": "^3.12.3"
   }
 }
