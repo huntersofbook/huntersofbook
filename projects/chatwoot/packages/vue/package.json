@@ -47,9 +47,9 @@
     "defu": "^6.1.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.35.3",
-    "eslint": "^8.35.0",
-    "tsx": "^3.12.3",
+    "@antfu/eslint-config": "^0.36.0",
+    "eslint": "^8.36.0",
+    "tsx": "^3.12.5",
     "unbuild": "^1.1.2",
     "unconfig": "^0.3.7",
     "vue": "^3.2.47"
