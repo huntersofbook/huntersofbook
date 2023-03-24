@@ -1,6 +1,6 @@
 {
   "name": "@huntersofbook/i18n",
-  "version": "0.3.2",
+  "version": "0.7.1",
   "description": "It's basically a tool that takes a template with translation keys and syncs them to the given language. You can directly connect the outputs to the i18n libraries you use.",
   "author": "Mehmet - productdevbook <hi@productdevbook.com>",
   "license": "MIT",
@@ -38,6 +38,14 @@
     "./vite": {
       "require": "./dist/vite.js",
       "import": "./dist/vite.mjs"
+    },
+    "./rollup": {
+      "require": "./dist/rollup.js",
+      "import": "./dist/rollup.mjs"
+    },
+    "./esbuild": {
+      "require": "./dist/esbuild.js",
+      "import": "./dist/esbuild.mjs"
     }
   },
   "main": "./dist/index.js",
