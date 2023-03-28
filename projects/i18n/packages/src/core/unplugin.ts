@@ -3,6 +3,7 @@ import chokidar from 'chokidar'
 import type { ResolvedConfig, ViteDevServer } from 'vite'
 import type { Options } from '../type'
 import { Context } from './context'
+import { writeI18nLanguageFile } from './write'
 
 export default createUnplugin<Options>((options = {}) => {
   const ctx: Context = new Context(options)
@@ -23,6 +24,13 @@ export default createUnplugin<Options>((options = {}) => {
       configureServer(server: ViteDevServer) {
         ctx.setupViteServer(server)
       },
+    },
+    buildStart() {
+      ctx.setRoot(process.cwd())
+      if (ctx.options.templateDir)
+        ctx.searchGlob()
+
+      writeI18nLanguageFile(ctx)
     },
   }
 })
