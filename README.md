@@ -134,17 +134,17 @@ As a sponsor, you can support us and our software that we have developed on book
 <tr>
   <td width="80" align="center" valign="top">
     <br>
-    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/chatwoot.png"></a>
+    <a href="https://github.com/productdevbookcom/chatwoot"><img src="./.github/assets/chatwoot.png"></a>
   </td>
   <td valign="top">
-    <h3>Chatwoot</h3>
+    <h3>Chatwoot - Deprecate package</h3>
     <p>
       <a href="https://www.npmjs.com/package/@huntersofbook/chatwoot-vue"><img src="https://img.shields.io/npm/v/@huntersofbook/chatwoot-vue.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
       <a href="https://www.npmjs.com/package/@huntersofbook/chatwoot-vue"><img src="https://img.shields.io/npm/dm/@huntersofbook/chatwoot-vue.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
     </p>
     <p>
-     <a href="https://opensource.huntersofbook.com">The documentation</a> 
+     <a href="https://github.com/productdevbookcom/chatwoot>Deprecate package -> New Package</a> 
     </p>
   </td>
 </tr>
@@ -197,17 +197,17 @@ As a sponsor, you can support us and our software that we have developed on book
 <tr>
   <td width="80" align="center" valign="top">
     <br>
-    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/chatwoot.png"></a>
+    <a href="https://github.com/productdevbookcom/chatwoot"><img src="./.github/assets/chatwoot.png"></a>
   </td>
   <td valign="top">
-    <h3>Chatwoot</h3>
+    <h3>Chatwoot - Deprecate package</h3>
     <p>
       <a href="https://www.npmjs.com/package/@huntersofbook/chatwoot-nuxt"><img src="https://img.shields.io/npm/v/@huntersofbook/chatwoot-nuxt.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
       <a href="https://www.npmjs.com/package/@huntersofbook/chatwoot-nuxt"><img src="https://img.shields.io/npm/dm/@huntersofbook/chatwoot-nuxt.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
     </p>
     <p>
-       <a href="https://opensource.huntersofbook.com">The documentation</a> 
+     <a href="https://github.com/productdevbookcom/chatwoot>Deprecate package -> New Package</a> 
     </p>
   </td>
 </tr>
