@@ -24,7 +24,7 @@
     "@huntersofbook/plausible-nuxt": "^0.5.2",
     "@nuxt-themes/docus": "1.9.1",
     "@nuxt/content": "^2.4.3",
-    "@nuxtlabs/github-module": "^1.6.1",
+    "@nuxtlabs/github-module": "^1.6.2",
     "eslint": "^8.35.0",
     "monaco-editor-core": "^0.36.1",
     "nuxt": "^3.2.3",
