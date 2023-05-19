@@ -41,17 +41,17 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   },
   "dependencies": {
     "defu": "^6.1.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.36.0",
-    "eslint": "^8.36.0",
-    "tsx": "^3.12.5",
-    "unbuild": "^1.1.2",
+    "@antfu/eslint-config": "^0.39.0",
+    "eslint": "^8.41.0",
+    "tsx": "^3.12.7",
+    "unbuild": "^1.2.1",
     "unconfig": "^0.3.7",
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   }
 }
