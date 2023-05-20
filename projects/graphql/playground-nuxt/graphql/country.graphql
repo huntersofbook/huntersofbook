@@ -1,7 +1,0 @@
-# Write your query or mutation here
-query countries($filter: CountryFilterInput) {
-  countries(filter: $filter) {
-    name
-    code
-  }
-}
