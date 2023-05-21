@@ -1,3 +1,7 @@
+# Move All Package to [productdevbookcom](https://github.com/productdevbookcom)
+All packages started to be moved here separately.
+
+
 # 👋 Welcome to huntersofbook
 
 This repo was created with the aim of developing the vue ecosystem as well as giving back to the open-source world what we learned from our own project. Our priority is to bring our inner work back to the vue ecosystem.
