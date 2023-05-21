@@ -37,40 +37,6 @@ As a sponsor, you can support us and our software that we have developed on book
     </p>
   </td>
 </tr>
-<tr>
-  <td width="80" align="center" valign="top">
-    <br>
-  </td>
-  <td valign="top">
-    <h3>Schob</h3>
-    <p>
-      <a href="https://www.npmjs.com/package/@huntersofbook/schob"><img src="https://img.shields.io/npm/v/@huntersofbook/schob.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
-      <a href="https://www.npmjs.com/package/@huntersofbook/schob"><img src="https://img.shields.io/npm/dm/@huntersofbook/schob.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
-      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
-    </p>
-    <p>
-      Rewrite the new object according to the schema. Delete the excess. <a href="https://opensource.huntersofbook.com">The documentation</a>
-    </p>
-    </p>
-  </td>
-</tr>
-<tr>
-  <td width="80" align="center" valign="top">
-    <br>
-    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/revenuecat.png"></a>
-  </td>
-  <td valign="top">
-    <h3>Revenuecat</h3>
-    <p>
-      <a href="https://www.npmjs.com/package/@huntersofbook/revenuecat"><img src="https://img.shields.io/npm/v/@huntersofbook/revenuecat.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
-      <a href="https://www.npmjs.com/package/@huntersofbook/revenuecat"><img src="https://img.shields.io/npm/dm/@huntersofbook/revenuecat.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
-      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
-    </p>
-    <p>
-      The world's best subscription apps use RevenueCat to implement in-app purchases, manage customers, and grow revenue on iOS, Android, and the web. <a href="https://opensource.huntersofbook.com">The documentation</a> 
-    </p>
-  </td>
-</tr>
 </tbody>
 </table>
 
