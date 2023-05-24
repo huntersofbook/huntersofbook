@@ -1,7 +1,0 @@
-{
-  "name": "my-module-playground",
-  "private": true,
-  "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.6.4"
-  }
-}
