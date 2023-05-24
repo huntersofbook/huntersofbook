@@ -40,34 +40,6 @@ As a sponsor, you can support us and our software that we have developed on book
 </tbody>
 </table>
 
-<table>
-<thead>
-<tr>
-<th width="2000" colspan="2">
-</th>
-</tr>
-</thead>
-<tbody>
-<h1>Vue 3 Packages</h1>
-<tr>
-  <td width="80" align="center" valign="top">
-    <br>
-    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/plausible.png"></a>
-  </td>
-  <td valign="top">
-    <h3>Plausible</h3>
-    <p>
-      <a href="https://www.npmjs.com/package/@huntersofbook/plausible-vue"><img src="https://img.shields.io/npm/v/@huntersofbook/plausible-vue.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
-      <a href="https://www.npmjs.com/package/@huntersofbook/plausible-vue"><img src="https://img.shields.io/npm/dm/@huntersofbook/plausible-vue.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
-      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
-    </p>
-    <p>
-    <a href="https://opensource.huntersofbook.com">The documentation</a> 
-    </p>
-  </td>
-</tr>
-</tbody>
-</table>
 
 <table>
 <thead>
@@ -88,23 +60,6 @@ As a sponsor, you can support us and our software that we have developed on book
     <p>
       <a href="https://www.npmjs.com/package/@huntersofbook/naive-ui-nuxt"><img src="https://img.shields.io/npm/v/@huntersofbook/naive-ui-nuxt.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
       <a href="https://www.npmjs.com/package/@huntersofbook/naive-ui-nuxt"><img src="https://img.shields.io/npm/dm/@huntersofbook/naive-ui-nuxt.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
-      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
-    </p>
-    <p>
-       <a href="https://opensource.huntersofbook.com">The documentation</a> 
-    </p>
-  </td>
-</tr>
-<tr>
-  <td width="80" align="center" valign="top">
-    <br>
-    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/plausible.png"></a>
-  </td>
-  <td valign="top">
-    <h3>Plausible</h3>
-    <p>
-      <a href="https://www.npmjs.com/package/@huntersofbook/plausible-nuxt"><img src="https://img.shields.io/npm/v/@huntersofbook/plausible-nuxt.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
-      <a href="https://www.npmjs.com/package/@huntersofbook/plausible-nuxt"><img src="https://img.shields.io/npm/dm/@huntersofbook/plausible-nuxt.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
       <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
     </p>
     <p>
