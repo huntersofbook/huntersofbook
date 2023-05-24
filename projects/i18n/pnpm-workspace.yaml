@@ -1,4 +1,0 @@
-packages:
-  - 'playground/**'
-  - 'playground-nuxt3/**'
-  - 'packages/**'

@@ -1,8 +1,0 @@
-{
-  "extends": "../packages/tsconfig",
-  "compilerOptions": {
-    "types": [
-      "unplugin-icons/types/vue"
-    ]
-  }
-}

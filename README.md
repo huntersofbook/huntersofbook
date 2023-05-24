@@ -17,38 +17,6 @@ As a sponsor, you can support us and our software that we have developed on book
 </tr>
 </thead>
 <tbody>
-<h1>Typescript Package</h1>
-<tr>
-  <td width="80" align="center" valign="top">
-    <br>
-    <a href="https://opensource.huntersofbook.com"><img src="./.github/assets/i18n.png"></a>
-  </td>
-  <td valign="top">
-    <h3>i18n</h3>
-    <p>
-      <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/v/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Version"></a>
-      <a href="https://www.npmjs.com/package/@huntersofbook/i18n"><img src="https://img.shields.io/npm/dm/@huntersofbook/i18n.svg?style=flat&colorA=002438&colorB=28CF8D" alt="Downloads"></a>
-      <a href="./LICENSE"><img src="https://img.shields.io/github/license/huntersofbook/huntersofbook.svg?style=flat&colorA=002438&colorB=28CF8D" alt="License"></a>
-    </p>
-    <p>
-      It's basically a tool that takes a template with translation keys and syncs them to the given language. You can directly connect the outputs to the i18n libraries you use.<p>
-     <a href="https://opensource.huntersofbook.com">The documentation</a>
-    </p>
-    </p>
-  </td>
-</tr>
-</tbody>
-</table>
-
-
-<table>
-<thead>
-<tr>
-<th width="2000" colspan="2">
-</th>
-</tr>
-</thead>
-<tbody>
 <h1>Nuxt 3 Packages</h1>
 <tr>
   <td width="80" align="center" valign="top">
